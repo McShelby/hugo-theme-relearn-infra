@@ -189,8 +189,11 @@ for (const result of targets) {
     } else if (!fs.existsSync(filesFile)) {
       failures.push('no expected output committed yet; run with --update');
     } else {
-      const want = fs.readFileSync(filesFile, 'utf8').split('\n').filter(Boolean);
-      const got = listing(destDir).split('\n').filter(Boolean);
+      // Split on either ending: the runner writes `files.txt` with LF, but a
+      // CRLF checkout hands it back with CRLF, and a trailing \r on every path
+      // makes each one read as missing and unexpected at once.
+      const want = fs.readFileSync(filesFile, 'utf8').split(/\r?\n/).filter(Boolean);
+      const got = listing(destDir).split(/\r?\n/).filter(Boolean);
       report(failures, 'missing output file(s)', want.filter((f) => !got.includes(f)));
       report(failures, 'unexpected output file(s)', got.filter((f) => !want.includes(f)));
 
