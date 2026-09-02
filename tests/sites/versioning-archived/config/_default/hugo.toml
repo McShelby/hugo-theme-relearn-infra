@@ -1,0 +1,15 @@
+# The archived version of the same site, served from a subdirectory.
+#
+# It carries the identical `versions` array and a different `version`, which is
+# what a real archived build looks like: it knows the current version exists
+# and where to find it, and says so on every page.
+
+baseURL = 'https://example.com/0.666/'
+title = 'Versioning, archived'
+
+[params]
+  version = '0.666'
+  versions = [
+    { identifier = 'latest', title = '1.0', baseURL = 'https://example.com/', isLatest = true },
+    { identifier = '0.666', title = '0.666', baseURL = 'https://example.com/0.666/' },
+  ]

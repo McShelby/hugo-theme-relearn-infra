@@ -1,0 +1,63 @@
+name: test-execution
+
+# Validates a change to the test suite itself. The mirror of this workflow
+# lives in the theme repo and holds the opposite side fixed. Both delegate to
+# the run-test action, so the actual procedure exists once.
+
+# Runs on every branch and every pull request, and nightly. It never releases,
+# deploys or publishes anything, and it is deliberately not hand-triggerable.
+on:
+  push:
+  pull_request:
+  schedule:
+    # Hugo breaks themes on its own schedule; find out from CI, not from an
+    # issue report.
+    - cron: '17 4 * * *'
+
+jobs:
+  test:
+    name: hugo ${{ matrix.hugo }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        hugo: [min, latest]
+    steps:
+      - name: Checkout infra
+        uses: actions/checkout@v4
+        with:
+          path: infra
+
+      # Mirror of the theme repo's lookup: a change spanning both repositories
+      # is reviewed as a pair of same-named branches. Everything else runs
+      # against theme main. This step cannot be a composite action, because
+      # resolving the ref is what tells us which checkout to take it from.
+      - name: Pick theme branch
+        id: pick
+        shell: bash
+        run: |
+          BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          if git ls-remote --exit-code --heads \
+               https://github.com/McShelby/hugo-theme-relearn "$BRANCH" >/dev/null 2>&1; then
+            REF="$BRANCH"
+          else
+            REF=main
+          fi
+          echo "ref=$REF" >> "$GITHUB_OUTPUT"
+          echo "Using theme branch $REF"
+
+      - name: Checkout theme
+        uses: actions/checkout@v4
+        with:
+          repository: McShelby/hugo-theme-relearn
+          ref: ${{ steps.pick.outputs.ref }}
+          path: theme
+
+      # Referenced through the checkout rather than by @main, so a pull request
+      # here tests its own version of the action.
+      - name: Run tests
+        uses: ./infra/.github/actions/run-test
+        with:
+          theme_dir: theme
+          infra_dir: infra
+          hugo: ${{ matrix.hugo }}

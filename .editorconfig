@@ -1,0 +1,29 @@
+# https://editorconfig.org
+#
+# Mirrors the theme's conventions, minus the .gotmpl rules - there are no Go
+# templates in this repository.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+max_line_length = 9999
+trim_trailing_whitespace = true
+
+[*.md]
+charset = utf-8
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+# Stored Hugo output, compared byte for byte. An editor that helpfully strips
+# trailing whitespace or appends a final newline here silently breaks every
+# snapshot, so no transformation is allowed.
+[tests/expected/**]
+insert_final_newline = false
+trim_trailing_whitespace = false

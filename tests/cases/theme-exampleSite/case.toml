@@ -1,0 +1,8 @@
+# The starting point shipped to new users, built the way development sees it.
+#
+# layer: the same reason as theme-docs - too many files for a content baseline
+# anyone would actually read.
+layer = "files"
+
+site        = "exampleSite@theme"
+environment = "testing"

@@ -1,0 +1,18 @@
+# Versioning is two sites that only mean something as a pair: one current, one
+# archived, each configured to know about the other. Neither says anything on
+# its own, so they share one output tree and are compared as one result -
+# current at the root, archived beneath it, which is how a versioned site
+# actually deploys.
+#
+# The layer is the default. That is the point of the fixtures being small: what
+# versioning does is the version switcher on every page and links resolving to
+# the other version's baseURL, and a file set sees neither.
+
+[[builds]]
+  site        = "versioning-current"
+  environment = "testing"
+
+[[builds]]
+  site        = "versioning-archived"
+  environment = "testing"
+  dest        = "0.666"

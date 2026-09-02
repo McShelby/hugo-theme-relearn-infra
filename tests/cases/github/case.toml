@@ -1,0 +1,20 @@
+# What GitHub Pages actually serves: docs at the root, exampleSite beneath it.
+#
+# Built as one tree because that is how it deploys. Built separately - which is
+# what happened before - nothing checks the links running between the two
+# projects.
+#
+# layer: `github` is the published configuration and stays undeterministic, so
+# content cannot be compared. The file set still carries the minification
+# assertion, theme.min.css against theme.css, which is the difference between
+# this and the `testing` builds.
+layer = "files"
+
+[[builds]]
+  site        = "docs@theme"
+  environment = "github"
+
+[[builds]]
+  site        = "exampleSite@theme"
+  environment = "github"
+  dest        = "exampleSite"

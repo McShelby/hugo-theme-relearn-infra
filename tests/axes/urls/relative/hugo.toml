@@ -1,0 +1,7 @@
+# Site-relative URLs, served from the root.
+#
+# This is the theme's own default and what the docs use during development.
+
+baseURL = 'https://example.com/'
+relativeURLs = true
+uglyURLs = false

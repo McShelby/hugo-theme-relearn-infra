@@ -1,0 +1,12 @@
+# The convention-over-configuration fixture.
+#
+# This is deliberately the smallest config a Relearn site can have. If the
+# theme ever starts requiring a setting to produce sane output, this fixture
+# is what notices.
+#
+# The theme is supplied by the runner via --themesDir/--theme, so that a
+# checkout under any directory name works. Reproducibility comes from the
+# `testing` environment, which the case names.
+
+baseURL = 'https://example.com/'
+title = 'Minimal'

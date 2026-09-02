@@ -1,0 +1,7 @@
+# Shared base for every URL permutation.
+#
+# The `urls` axis changes only the URL settings, so a diff between two of its
+# values shows link generation and nothing else. Nothing about reproducibility
+# lives here - that is the `testing` environment's job.
+
+title = 'URL Permutations'

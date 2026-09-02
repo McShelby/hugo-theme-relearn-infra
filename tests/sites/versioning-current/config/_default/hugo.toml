@@ -1,0 +1,16 @@
+# The current version of a versioned site, served at the root.
+#
+# Small on purpose. What versioning does - the version switcher on every page,
+# and links resolving to the other version's baseURL - lives in the content
+# layer, and a content baseline is only worth storing if someone reads it. The
+# theme's own sites are far too large for that; a handful of pages is not.
+
+baseURL = 'https://example.com/'
+title = 'Versioning, current'
+
+[params]
+  version = 'latest'
+  versions = [
+    { identifier = 'latest', title = '1.0', baseURL = 'https://example.com/', isLatest = true },
+    { identifier = '0.666', title = '0.666', baseURL = 'https://example.com/0.666/' },
+  ]

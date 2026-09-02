@@ -1,0 +1,20 @@
+{
+  "name": "hugo-theme-relearn-infra",
+  "version": "0.1.0",
+  "description": "Tests, tooling and CI automation for the Hugo Relearn theme. Nothing here is shipped to theme users.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/checks.js && node tests/run.js",
+    "test:update": "node tests/run.js --update",
+    "checks": "node tests/checks.js",
+    "screenshots": "node tools/screenshots/index.js"
+  },
+  "engines": {
+    "node": ">=26.8.1"
+  },
+  "dependencies": {
+    "js-toml": "^1.0.3",
+    "puppeteer": "^24.10.2"
+  },
+  "license": "MIT"
+}

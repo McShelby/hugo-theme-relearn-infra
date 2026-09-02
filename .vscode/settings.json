@@ -1,0 +1,26 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "extensions.ignoreRecommendations": false,
+  "prettier.useEditorConfig": true,
+  "spellright.documentTypes": ["latex", "markdown"],
+  "spellright.language": ["en"],
+  "files.watcherExclude": {
+    "**/tests/expected/**": true
+  },
+  "search.exclude": {
+    "**/tests/expected/**": true
+  }
+}

@@ -1,0 +1,9 @@
+# Let git normalise the stored expected output to LF like everything else.
+#
+# Hugo copies template text into its output verbatim, so on a CRLF checkout the
+# generated HTML is CRLF too. Storing those bytes as-is would make the baseline
+# depend on which platform generated it, and regenerating on the other one
+# would rewrite every file as pure line-ending churn. Git detects the fonts and
+# images as binary on its own and leaves them alone, and the runner normalises
+# line endings before comparing, so a CRLF working tree still matches.
+tests/expected/** text=auto

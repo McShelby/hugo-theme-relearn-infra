@@ -1,0 +1,28 @@
+# Makes a build reproducible, so its output can be compared byte for byte.
+#
+# Infra supplies this for sites that have none of their own - its fixtures. The
+# theme's own `docs` and `exampleSite` keep a copy each, so `hugo -e testing`
+# still works by hand there; the runner checks all three still agree.
+
+# The generator tag carries a Hugo version and a theme version, and the theme
+# version changes on every commit.
+disableHugoGeneratorInject = true
+
+# Audit your published site for problems
+# https://discourse.gohugo.io/t/audit-your-published-site-for-problems/35184/12
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepComments = true
+
+[params]
+  disableGeneratorVersion = true
+  disableAssetsBusting = true
+  disableRandomIds = true
+  minify = false
+  # Checking external links reaches out to the network on every build, and a
+  # cold cache - which is what CI always has - means every external URL is
+  # fetched again. That makes an otherwise deterministic run depend on
+  # third-party sites being up, and turns link rot into a test failure
+  # indistinguishable from a theme regression.
+  urlExternalCheck = false

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>URL Permutations</title>
+    <link>https://example.com/subdir/index.html</link>
+    <description>URL Permutations&#xD;Links from the home page, so the snapshot captures how each mode renders them:&#xA;a sibling page into a section deep into a section an external target an anchor on this page</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://example.com/subdir/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Page</title>
+      <link>https://example.com/subdir/first-page/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/subdir/first-page/index.html</guid>
+      <description>First Page&#xD;Links back up and across, which is where relative and absolute modes diverge:&#xA;home a section sibling relref to the home page relref to a deep page</description>
+    </item>
+    <item>
+      <title>Chapter</title>
+      <link>https://example.com/subdir/chapter/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/subdir/chapter/index.html</guid>
+      <description>Chapter&#xD;A section, so section-index links are covered too.&#xA;Child {class=“children children-type-tree children-sort-”}</description>
+    </item>
+  </channel>
+</rss>

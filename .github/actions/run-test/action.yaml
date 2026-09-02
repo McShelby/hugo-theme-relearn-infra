@@ -1,0 +1,82 @@
+name: Run tests
+description: Runs the Relearn test suite from an infra checkout against a theme checkout
+inputs:
+  theme_dir:
+    description: Path to the theme checkout, relative to the workspace
+    required: true
+  infra_dir:
+    description: Path to the infra checkout, relative to the workspace
+    required: true
+  hugo:
+    description: "Hugo version to test with: 'min' (read from the theme's theme.toml), 'latest', or an explicit version like 0.165.0"
+    required: false
+    default: latest
+runs:
+  using: composite
+  steps:
+    # 'min' is deliberately not hardcoded anywhere: the theme declares its own
+    # minimum, and that declaration is what gets tested.
+    - name: Resolve Hugo version
+      id: hugo
+      shell: bash
+      run: |
+        if [ "${{ inputs.hugo }}" = "min" ]; then
+          VERSION=$(sed -n "s/.*min *= *'\([0-9.]*\)'.*/\1/p" "${{ inputs.theme_dir }}/theme.toml" | head -1)
+          if [ -z "$VERSION" ]; then
+            echo "Could not read module.hugoVersion.min from ${{ inputs.theme_dir }}/theme.toml" >&2
+            exit 1
+          fi
+        else
+          VERSION="${{ inputs.hugo }}"
+        fi
+        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        echo "Testing with Hugo $VERSION"
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: ${{ steps.hugo.outputs.version }}
+        extended: true
+
+    # The version lives in `.nvmrc`, so a working copy and CI cannot drift:
+    # `nvm use` reads the same file this step does.
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: ${{ inputs.infra_dir }}/.nvmrc
+
+    # One install prepares every script. The tests do not drive the headless
+    # browser themselves, but keeping a single install command means CI and a
+    # working copy are never subtly different environments.
+    - name: Install
+      shell: bash
+      working-directory: ${{ inputs.infra_dir }}
+      run: npm ci
+
+    - name: Test
+      shell: bash
+      working-directory: ${{ inputs.infra_dir }}
+      env:
+        RELEARN_THEME_DIR: ${{ github.workspace }}/${{ inputs.theme_dir }}
+        # Hugo is already on PATH here, so skip the hvm lookup the suite uses
+        # locally. This decides which binary runs, and nothing else.
+        HUGO_BIN: hugo
+      # `--hugo` still has to be passed, because it decides how deeply output
+      # is asserted. Stored output only holds for the version that produced it,
+      # so anything but a reference version stops at the build layer - and the
+      # runner cannot know which version HUGO_BIN points at.
+      run: npm test -- --hugo=${{ inputs.hugo }}
+
+    # What failed, not what was expected. The baseline is already in the
+    # repository and can be checked out; the tree the run actually produced
+    # exists only on the runner, and is the half you cannot get back.
+    - name: Upload failing output
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: actual-hugo-${{ inputs.hugo }}
+        path: ${{ inputs.infra_dir }}/tests/actual
+        # Nothing is kept when a run passes, so an empty upload means the
+        # failure was not a comparison - a case file that would not load, say.
+        if-no-files-found: ignore
+        retention-days: 7

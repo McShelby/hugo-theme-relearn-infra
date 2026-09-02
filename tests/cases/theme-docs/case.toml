@@ -1,0 +1,9 @@
+# The theme's own documentation, built the way development sees it.
+#
+# layer: a content baseline over 2000+ files churns on every prose edit and
+# would be read by nobody. The file set still catches output formats,
+# permalinks, and pages appearing or vanishing.
+layer = "files"
+
+site        = "docs@theme"
+environment = "testing"

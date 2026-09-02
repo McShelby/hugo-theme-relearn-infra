@@ -1,0 +1,4 @@
+# The smallest config a Relearn site can have, built the ordinary way.
+
+site        = "minimal"
+environment = "testing"

@@ -1,0 +1,11 @@
+# Integration with Issue Tracker
+#
+# (note that '\' need to be escaped).
+#
+# Issues and milestones are tracked in the theme repository, not here, so a
+# "#123" reference in a commit message on either side points at the same
+# ticket.
+
+[issuetracker "GitHub Rule"]
+  regex = "#(\\d+)"
+  url = "https://github.com/McShelby/hugo-theme-relearn/issues/$1"

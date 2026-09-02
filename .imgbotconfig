@@ -1,0 +1,5 @@
+{
+  "schedule": "daily",
+  "ignoredFiles": ["tests/expected/*", "tests/visual/*"],
+  "prTitle": "autobot: optimize images"
+}

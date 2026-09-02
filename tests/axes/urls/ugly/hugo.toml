@@ -1,0 +1,9 @@
+# Ugly URLs - page.html rather than page/index.html.
+#
+# The theme appends `index.html` to page-bundle links when uglyURLs is off so
+# a site can be served from the file system; with it on that adjustment must
+# not happen. Both halves of that rule need pinning.
+
+baseURL = 'https://example.com/'
+relativeURLs = false
+uglyURLs = true

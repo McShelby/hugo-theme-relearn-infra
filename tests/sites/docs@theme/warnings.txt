@@ -1,0 +1,23 @@
+# Accepted warnings specific to the theme's own docs site.
+#
+# The docs declare two extra taxonomies (`frontmatter`, `option`) purely to
+# document the theme's own front matter and options. They have no i18n entries
+# because they are never rendered as translated labels, so --printI18nWarnings
+# flags them once per language on every build.
+#
+# Listing each language explicitly is deliberate: adding a new translation
+# should fail here once, so that someone confirms the taxonomy labels really
+# are meant to stay untranslated.
+i18n|MISSING_TRANSLATION|en|frontmatter
+i18n|MISSING_TRANSLATION|en|option
+i18n|MISSING_TRANSLATION|en|options
+i18n|MISSING_TRANSLATION|art-x-pir|frontmatter
+i18n|MISSING_TRANSLATION|art-x-pir|option
+i18n|MISSING_TRANSLATION|art-x-pir|options
+
+# The `devshortcuts` menu in docs/config/_default/languages.toml links to
+# `images/hero.zip`, the maintainer's local screenshot-frame template. `*.zip`
+# is gitignored, so that file exists on one machine and nowhere else - never in
+# CI. Only the `github` environment validates the reference, which is why the
+# `testing` build stays quiet about it.
+'pageRef' "images/hero.zip" for 'menu' entry "screenshotframe"

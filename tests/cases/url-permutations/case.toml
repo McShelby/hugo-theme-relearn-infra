@@ -1,0 +1,12 @@
+# One content set built in every URL mode the theme supports.
+#
+# URL generation is historically breakage-prone here, and the three modes are
+# genuinely different code paths rather than cosmetic variations. One shared
+# content set is built three times rather than three near-identical fixtures
+# being kept in step by hand.
+
+site        = "url-permutations"
+environment = "testing"
+
+[axes]
+  urls = ["relative", "absolute", "ugly"]

@@ -1,0 +1,5 @@
+# One page per shortcode family, so a markup change shows up as a few lines
+# rather than being buried in a full docs rebuild.
+
+site        = "shortcodes"
+environment = "testing"

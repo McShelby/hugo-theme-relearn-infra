@@ -1,0 +1,15 @@
+node_modules
+.claude/settings*
+.hvm
+.DS_Store
+.hugo_build.lock
+
+# Scratch output from local runs. Deliberately narrow: this repository's whole
+# purpose is committing generated output, so a broad pattern like *.log risks
+# silently dropping a file a site is supposed to produce.
+tmp/
+
+# What a failing run produced, kept beside what it should have produced so the
+# two can be diffed. Rewritten by every run and never committed - `expected/`
+# is the thing under version control.
+tests/actual/

@@ -1,0 +1,13 @@
+# One page per shortcode family.
+#
+# Kept small on purpose: a diff here should be readable, so a change to the
+# badge markup shows up as a handful of lines in badge.html rather than being
+# buried in a 2000-file docs rebuild.
+
+baseURL = 'https://example.com/'
+title = 'Shortcodes'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

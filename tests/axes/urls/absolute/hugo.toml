@@ -1,0 +1,9 @@
+# Absolute URLs against a subdirectory baseURL.
+#
+# This mirrors the theme's own `github` environment, which is what gets
+# published to GitHub Pages. The subdirectory matters: it is where absolute-URL
+# bugs actually surface.
+
+baseURL = 'https://example.com/subdir/'
+relativeURLs = false
+uglyURLs = false

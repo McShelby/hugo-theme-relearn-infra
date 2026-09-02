@@ -1,0 +1,14 @@
+# Stored Hugo output. Reformatting it would change the bytes the tests compare
+# against, silently invalidating every snapshot.
+tests/expected
+
+# Fixture sites are inputs to Hugo, not source we format.
+tests/sites
+
+node_modules
+
+# Same exclusions as the theme, so both repositories format alike.
+*.md
+*.toml
+*.yaml
+*.yml
