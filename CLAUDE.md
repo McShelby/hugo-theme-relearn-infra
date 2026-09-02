@@ -4,9 +4,9 @@ Guidance for AI agents working in this repository.
 
 ## What this is
 
-Tests, tooling and CI automation for the Hugo Relearn theme. **Nothing here is shipped to theme users.** The theme repo (`../hugo-theme-relearn`) holds only what a consumer needs; anything that exists to build, verify or release it belongs here.
+The test suite and tooling for the Hugo Relearn theme. **Nothing here is shipped to theme users.** The theme repo (`../hugo-theme-relearn`) holds what a consumer needs, plus the workflows, release actions and git hooks that act on it and can live nowhere else.
 
-When deciding where a file goes, ask whether a person installing the theme needs it. If not, it belongs in this repo.
+When deciding where a file goes, ask whether a person installing the theme needs it. If not, it belongs in this repo — unless it can only act from the theme repo, as its workflows, their actions and its git hooks do.
 
 ## Layout
 

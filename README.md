@@ -1,10 +1,10 @@
 # Relearn Infra
 
-Tests, tooling and CI automation for the [Relearn](https://github.com/McShelby/hugo-theme-relearn) Hugo theme.
+The test suite and tooling for the [Relearn](https://github.com/McShelby/hugo-theme-relearn) Hugo theme. The theme itself lives there, along with the workflows, release actions and git hooks that act on it.
 
-**Nothing in this repository is shipped to theme users.** For a Hugo theme the repository *is* the distributed artifact — everything committed to it is downloaded by every user who runs `hugo mod get`, adds a submodule or unpacks a release archive. A snapshot suite, a headless browser and a set of CI actions are of no use to them, so they live here instead.
+**Nothing in this repository is shipped to theme users.** For a Hugo theme the repository *is* the distributed artifact — everything committed to it is downloaded by every user who runs `hugo mod get`, adds a submodule or unpacks a release archive. A snapshot suite and a headless browser are of no use to them, so they live here instead.
 
-The rule for deciding where a file belongs is one question: *does somebody installing the theme need this?* If not, it goes here.
+The rule for deciding where a file belongs is one question: *does somebody installing the theme need this?* If not, it goes here — unless it can only act from the theme repository, which is true of its workflows, the actions they call and its git hooks.
 
 > [!IMPORTANT]
 > **Please open issues in the [theme repository](https://github.com/McShelby/hugo-theme-relearn/issues), not here** — including issues about the tests or the tooling.
@@ -74,8 +74,7 @@ RELEARN_THEME_DIR=/path/to/theme npm test
 | `tests/environments/` | environments for sites that have none of their own |
 | `tests/expected/` | stored expected output |
 | `tools/screenshots/` | regenerates the docs' `featured.png` images |
-| `.github/actions/run-test/` | the shared test procedure, called by both repos' `test-execution` workflow |
-| `.github/actions/` | composite actions used by the theme's build and release workflows |
+| `.github/actions/run-test/` | the test procedure, called by the theme's `test-execution` workflow — the only action here |
 
 `runner/` is the reason tests and tooling share one repository: visual regression testing and screenshot generation are the same machinery — resolve a theme, build a site, serve it, drive a browser.
 
@@ -254,61 +253,39 @@ Port 1313 is never a default here — that belongs to your own dev server.
 
 ## CI
 
+**This repository has no workflows.** It holds one composite action, `run-test`, which the theme's `test-execution` calls; nothing here triggers a run. The theme's build and release actions live with the theme, because they address its working tree directly.
+
 | Workflow | Where | Trigger |
 |----------|-------|---------|
-| `test-execution` | here | push, PR, nightly |
-| `test-execution` | theme repo | push, PR |
+| `test-execution` | theme repo | push, PR, nightly, dispatch, `workflow_call` |
 
-Neither `test-execution` releases, deploys or publishes anything, and neither is hand-triggerable — a test result should always correspond to a commit somebody pushed. The `workflow_call` trigger on the theme's copy exists solely so `version-release` can gate on it.
+`test-execution` never releases, deploys or publishes anything. The `workflow_call` trigger exists solely so `version-release` can gate on it.
 
-### One procedure, two entry points
+### One driver
 
-There is a `test-execution` workflow in each repository because each holds a different side fixed:
+A single run tests the pair, and it happens in the theme repository — so **nothing you push here triggers anything**.
 
-| | theme repo's `test-execution` | infra repo's `test-execution` |
-|---|---|---|
-| triggered by | a change to the **theme** | a change to the **suite**, plus nightly |
-| theme checkout | the commit under test | `main` |
-| infra checkout | matching branch, else `main` | the commit under test |
+A change spanning both is pushed here first and to the theme second, which is what makes the pairing work: by then the branch the theme's run looks for exists. The other way round, that run pairs against infra `main` and can pass while testing half the change. A change with no theme counterpart triggers nothing at all — start a run by hand from the theme's Actions tab and name the branch in `infra_ref`.
 
-Both are thin: they do their checkouts and then hand off to the **`run-test`** composite action in `.github/actions/run-test`, which owns the actual procedure — resolving the Hugo version, installing Hugo and Node, installing dependencies and running the suite. Tool versions and install flags therefore exist in exactly one place.
+The workflow is thin: it does its checkouts and hands off to the **`run-test`** composite action, which owns the actual procedure — resolving the Hugo version, installing Hugo and Node, installing dependencies and running the suite. Tool versions and install flags therefore exist in exactly one place. It takes `theme_dir`, `infra_dir` and `hugo` (`min`, `latest` or an explicit version); Node comes from `.nvmrc`. With `hugo: min` it reads the minimum out of the theme's own `theme.toml`, so the declared minimum is what actually gets tested.
 
-`run-test` takes `theme_dir`, `infra_dir` and `hugo` (`min`, `latest` or an explicit version); Node comes from `.nvmrc`. With `hugo: min` it reads the minimum out of the theme's own `theme.toml`, so the declared minimum is what actually gets tested.
+That is also the boundary between the repositories: the workflow file always comes from the theme at the ref being tested, so triggers, the matrix and the lookup are a **theme** change, while what happens inside a run is an **infra** change, picked up from the paired branch.
 
 ### Everything goes through the checkout
 
-No workflow pins an action to `@main`. Every one of them resolves a branch first, checks this repository out at that ref, and then references the action by path — `./infra/.github/actions/<name>`.
+`run-test` is not pinned to `@main`. `test-execution` resolves a branch first, checks this repository out at that ref, and then references the action by path — `./infra/.github/actions/run-test`.
 
-That is partly a correctness choice and partly the only option available: GitHub does not allow expressions in `uses:`, so `@${{ steps.pick.outputs.ref }}` is impossible. Going through the checkout means the branch chosen applies to the actions as well as to the code — a pull request here exercises its own version of an action, and a matching branch pair is genuinely testing both halves of itself.
+That is partly a correctness choice and partly the only option available: GitHub does not allow expressions in `uses:`, so `@${{ steps.pick.outputs.ref }}` is impossible. Going through the checkout means the branch chosen applies to the action as well as to the code, so a matching branch pair is genuinely testing both halves of itself — including its own version of the test procedure.
 
-The branch lookup is symmetric. Each side looks for a branch in the other repository with the same name and falls back to `main`:
-
-| Workflow | Looks up | Falls back to |
-|---|---|---|
-| theme `test-execution`, `docs-publication`, `version-release` | infra branch of the same name | infra `main` |
-| infra `test-execution` | theme branch of the same name | theme `main` |
+`./` in a `uses:` is resolved against `$GITHUB_WORKSPACE`, not against the workflow's own repository — which is what makes this legal at all. `test-execution` checks the theme out into `theme/` and still reaches `./infra/.github/actions/run-test`.
 
 The lookup itself cannot be factored into an action, because resolving the ref is precisely what determines which checkout the action would come from.
 
-Composite actions execute in the **caller's** workspace, so relative paths inside them (`docs/`, `CHANGELOG.md`, `layouts/partials/version.txt`, `.grenrc.js`) resolve against the theme, not against this repository.
-
-One consequence: the theme's workflows check this repository out into `infra/` **inside the theme's working tree**. Two things keep it out of a release commit — the theme's `.gitignore` lists `/infra/`, and `release-milestone` stages with `git add -A` followed by `git reset -q -- infra` rather than `git add *`. Both layers are deliberate: the failure mode is committing an entire nested repository into a release.
-
-The nightly run builds against the latest Hugo release. Hugo breaks themes on its own schedule; this is how that gets found in CI rather than in an issue report.
-
-### deploy-site guards itself
-
-`deploy-site` publishes from `main` and nowhere else, regardless of what the calling workflow believes. It is called from two workflows and publishing is the one irreversible step in the system, so the rule lives in the action rather than being restated by every caller.
-
-`release-milestone` deliberately does **not** do this. It is 25 steps, a composite action cannot exit early, and guarding it internally would mean 25 identical conditions — where missing one produces a *partial* release, such as a pushed tag with no changelog. A single condition in the caller is both smaller and safer.
-
-### Matching branches
-
-A change spanning both repositories — a theme change plus the snapshot update it causes — is reviewed as a pair of branches with the same name. The theme's workflow looks for a branch here named like the one being tested and falls back to `main`. Most theme commits need no branch here at all.
+The nightly run builds against the latest Hugo release. Hugo breaks themes on its own schedule; this is how that gets found in CI rather than in an issue report. It lives in the theme repository with everything else, and fires only on that repository's default branch, as scheduled runs always do.
 
 ### Tokens
 
-Every workflow here only reads from the other repository, so the default `GITHUB_TOKEN` suffices. No personal access token or stored secret is needed.
+The theme's workflows only ever read from this repository, so the default `GITHUB_TOKEN` suffices. No personal access token or stored secret is needed — while both repositories are public, which is what makes a cross-repository checkout work without one.
 
 ---
 

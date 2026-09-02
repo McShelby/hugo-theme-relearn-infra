@@ -1,7 +1,7 @@
 {
   "name": "hugo-theme-relearn-infra",
   "version": "0.1.0",
-  "description": "Tests, tooling and CI automation for the Hugo Relearn theme. Nothing here is shipped to theme users.",
+  "description": "The test suite and tooling for the Hugo Relearn theme. Nothing here is shipped to theme users.",
   "type": "module",
   "scripts": {
     "test": "node tests/checks.js && node tests/run.js",
