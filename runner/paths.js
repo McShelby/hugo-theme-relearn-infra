@@ -21,11 +21,19 @@ const THEME_MARKER = path.join('layouts', 'partials', 'version.txt');
  * Resolve the theme checkout to test against.
  *
  * Order: RELEARN_THEME_DIR, then a sibling of this repo, then a parent.
+ *
+ * The sibling is this checkout's own name without the `-infra` suffix, which
+ * is the same rule CI applies to repository names. A `test-` copy of the pair
+ * therefore resolves inside itself, and the production pair resolves exactly
+ * as it did when the name was written out. Every candidate still has to carry
+ * the marker file, so a name that does not end in `-infra` fails the lookup
+ * rather than quietly resolving to this repository.
  */
 export function resolveThemeDir() {
+  const sibling = path.basename(infraRoot).replace(/-infra$/, '');
   const candidates = [
     process.env.RELEARN_THEME_DIR,
-    path.resolve(infraRoot, '..', 'hugo-theme-relearn'),
+    path.resolve(infraRoot, '..', sibling),
     path.resolve(infraRoot, '..'),
   ].filter(Boolean);
 

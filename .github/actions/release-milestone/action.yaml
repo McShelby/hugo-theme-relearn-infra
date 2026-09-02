@@ -162,13 +162,26 @@ runs:
         replacement: "${{ steps.changelog_docs.outputs.contents }}\n---\n\n$1\n$2"
         include: CHANGELOG.md
 
+    # Same derivation as build-site, so the release notes link at the site this
+    # very run publishes rather than at whatever repository the pair was forked
+    # or copied from.
+    - name: Resolve site URL
+      id: base
+      shell: bash
+      run: |
+        OWNER=$(echo "${GITHUB_REPOSITORY%%/*}" | tr '[:upper:]' '[:lower:]')
+        NAME="${GITHUB_REPOSITORY#*/}"
+        URL="https://${OWNER}.github.io/${NAME}/"
+        echo "url=$URL" >> "$GITHUB_OUTPUT"
+        echo "Site URL $URL"
+
     - name: Set changelog for GitHub release
       id: changelog_github
       uses: ashley-taylor/regex-property-action@master
       with:
         value: ${{ steps.changelog_docs.outputs.contents }}
         regex: '(##\s+.*?[\n\r])[\n\r\s]*([\s\S]*)'
-        replacement: "[★ What's new in this version ★](https://mcshelby.github.io/hugo-theme-relearn/introduction/releasenotes/${{ steps.majorvers.outputs.value }}/${{ steps.minorvers.outputs.value }}/)\n\n$2"
+        replacement: "[★ What's new in this version ★](${{ steps.base.outputs.url }}introduction/releasenotes/${{ steps.majorvers.outputs.value }}/${{ steps.minorvers.outputs.value }}/)\n\n$2"
 
     - name: Stage files
       shell: bash

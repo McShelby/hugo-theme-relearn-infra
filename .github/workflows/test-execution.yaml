@@ -14,6 +14,11 @@ on:
     # issue report.
     - cron: '17 4 * * *'
 
+# Declared rather than inherited, so the workflow does not depend on a
+# repository setting that differs between an old repository and a new one.
+permissions:
+  contents: read
+
 jobs:
   test:
     name: hugo ${{ matrix.hugo }}
@@ -32,24 +37,36 @@ jobs:
       # is reviewed as a pair of same-named branches. Everything else runs
       # against theme main. This step cannot be a composite action, because
       # resolving the ref is what tells us which checkout to take it from.
-      - name: Pick theme branch
+      #
+      # The theme is this repository's name without the `-infra` suffix, so a
+      # fork or a throwaway `test-` copy of the pair stays inside itself. The
+      # guard matters: the suffix strip leaves a non-matching name untouched,
+      # which would check this repository out as the theme and run the suite
+      # green against a checkout with no theme in it.
+      - name: Pick theme repository and branch
         id: pick
         shell: bash
         run: |
+          SIBLING="${GITHUB_REPOSITORY%-infra}"
+          if [ "$SIBLING" = "$GITHUB_REPOSITORY" ]; then
+            echo "Expected this repository to be named *-infra, got $GITHUB_REPOSITORY" >&2
+            exit 1
+          fi
           BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
           if git ls-remote --exit-code --heads \
-               https://github.com/McShelby/hugo-theme-relearn "$BRANCH" >/dev/null 2>&1; then
+               "https://github.com/${SIBLING}" "$BRANCH" >/dev/null 2>&1; then
             REF="$BRANCH"
           else
             REF=main
           fi
+          echo "repo=$SIBLING" >> "$GITHUB_OUTPUT"
           echo "ref=$REF" >> "$GITHUB_OUTPUT"
-          echo "Using theme branch $REF"
+          echo "Using $SIBLING branch $REF"
 
       - name: Checkout theme
         uses: actions/checkout@v4
         with:
-          repository: McShelby/hugo-theme-relearn
+          repository: ${{ steps.pick.outputs.repo }}
           ref: ${{ steps.pick.outputs.ref }}
           path: theme
 
