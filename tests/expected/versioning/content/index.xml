@@ -3,7 +3,7 @@
   <channel>
     <title>Versioning :: Versioning, current</title>
     <link>https://example.com/index.html</link>
-    <description>Versioning&#xD;This is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.&#xA;A page Another page</description>
+    <description>Versioning This is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.&#xA;A page Another page</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />

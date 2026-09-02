@@ -3,7 +3,7 @@
   <channel>
     <title>Chapter :: Minimal</title>
     <link>https://example.com/chapter/index.html</link>
-    <description>Chapter&#xD;A section with one child, to exercise nested menu rendering.</description>
+    <description>Chapter A section with one child, to exercise nested menu rendering.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://example.com/chapter/index.xml" rel="self" type="application/rss+xml" />
@@ -12,7 +12,7 @@
       <link>https://example.com/chapter/child/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/chapter/child/index.html</guid>
-      <description>Child&#xD;A leaf page inside a section.</description>
+      <description>Child A leaf page inside a section.</description>
     </item>
   </channel>
 </rss>

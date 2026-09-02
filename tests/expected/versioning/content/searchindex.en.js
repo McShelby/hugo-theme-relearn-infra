@@ -33,8 +33,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Versioning\rThis is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.\nA page Another page",
-    "description": "Versioning\rThis is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.\nA page Another page",
+    "content": "Versioning This is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.\nA page Another page",
+    "description": "Versioning This is the current version. The version switcher in the menu should offer the archived one, and the link below should resolve within this version.\nA page Another page",
     "tags": [],
     "title": "Versioning",
     "uri": "/index.html"

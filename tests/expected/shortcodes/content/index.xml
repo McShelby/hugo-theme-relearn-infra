@@ -3,7 +3,7 @@
   <channel>
     <title>Shortcodes</title>
     <link>https://example.com/index.html</link>
-    <description>Shortcodes&#xD;Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
+    <description>Shortcodes Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
@@ -12,28 +12,28 @@
       <link>https://example.com/notice/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/notice/index.html</guid>
-      <description>Notice&#xD;Note&#xD;A note without an explicit title.&#xA;Custom title&#xD;A warning with a title and inline markup.&#xA;Tip&#xD;A tip with an overridden icon.</description>
+      <description>Notice Note A note without an explicit title.&#xA;Custom title A warning with a title and inline markup.&#xA;Tip A tip with an overridden icon.</description>
     </item>
     <item>
       <title>Badge and Button</title>
       <link>https://example.com/badge-button/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/badge-button/index.html</guid>
-      <description>Badge&#xD;Default InfoInfo WarningWith icon&#xA;Button&#xD;External Internal With icon</description>
+      <description>Badge Default InfoInfo WarningWith icon&#xA;Button External Internal With icon</description>
     </item>
     <item>
       <title>Expand and Tabs</title>
       <link>https://example.com/expand-tabs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/expand-tabs/index.html</guid>
-      <description>Expand&#xD;Closed by default&#xD;Hidden content.&#xA;Open by default&#xD;Visible content.&#xA;Tabs&#xD;​&#xD;First&#xD;Second&#xD;Content of the first tab.</description>
+      <description>Expand Closed by default Hidden content.&#xA;Open by default Visible content.&#xA;Tabs ​ First Second Content of the first tab.</description>
     </item>
     <item>
       <title>Dependencies</title>
       <link>https://example.com/dependencies/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/dependencies/index.html</guid>
-      <description>Dependencies&#xD;This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math&#xD;$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid&#xD;graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon&#xD;inline with text.</description>
+      <description>Dependencies This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon inline with text.</description>
     </item>
   </channel>
 </rss>
