@@ -14,6 +14,28 @@ function themeArgs(themeDir) {
 }
 
 /**
+ * The version a Hugo executable reports, as `v0.165.0`.
+ *
+ * Stored output belongs to the version that produced it, and `latest` moves
+ * whenever Hugo releases - so a baseline has to say which version it came from,
+ * or a comparison against a different one reads as a theme regression.
+ *
+ * Asked once per executable; a run can legitimately span several.
+ */
+const versionCache = new Map();
+
+export function hugoVersion(bin) {
+  if (versionCache.has(bin)) {
+    return versionCache.get(bin);
+  }
+  const res = spawnSync(bin, ['version'], { encoding: 'utf8' });
+  const found = /v\d+\.\d+\.\d+/.exec(res.stdout || '');
+  const version = found ? found[0] : 'unknown';
+  versionCache.set(bin, version);
+  return version;
+}
+
+/**
  * Build a fixture site once.
  *
  * Returns { code, stdout, stderr }. Never throws on a failed build - callers

@@ -16,7 +16,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { build } from '../runner/hugo.js';
+import { build, hugoVersion } from '../runner/hugo.js';
 import { assemble, resolveEnvironmentDir, DEFAULT_ENVIRONMENT } from '../runner/config.js';
 import { loadCases, siteMetaDir, LAYERS, CaseError } from '../runner/cases.js';
 import { resolveThemeDir, themeVersion } from '../runner/paths.js';
@@ -109,6 +109,9 @@ console.log('');
 for (const result of targets) {
   const failures = [];
   const notes = [];
+  // Which Hugo versions actually produced this result. A sequence can span
+  // several, so it is a set rather than a single value.
+  const versions = new Set();
 
   // The builds of a sequence share one tree, so it is emptied once here rather
   // than by each build - `--cleanDestinationDir` would have the second wipe
@@ -148,6 +151,9 @@ for (const result of targets) {
     // site with an `.hvm` beside it is built with the version that pins, so
     // one run can legitimately span several - and a result would otherwise
     // look like it came from whatever the header names.
+    if (res.bin) {
+      versions.add(hugoVersion(res.bin));
+    }
     if (res.bin && res.bin !== 'hugo') {
       notes.push(hugo === 'path' ? `hugo from .hvm: ${res.bin}` : `hugo: ${res.bin}`);
     }
@@ -173,14 +179,28 @@ for (const result of targets) {
     notes.push(`layer reduced to ${layer}: hugo=${hugo} is not a reference version`);
   }
 
+  const built_with = [...versions].sort().join(' ');
+
   if (built && layer !== 'build') {
     const resultDir = path.join(EXPECTED_DIR, ...result.name.split('/'));
     const filesFile = path.join(resultDir, 'files.txt');
+    const hugoFile = path.join(resultDir, 'hugo.txt');
     const contentDir = path.join(resultDir, 'content');
+
+    // A baseline is only an assertion about the Hugo that produced it. Saying
+    // so turns "40 files differ" into "Hugo changed", which is the difference
+    // between a regression and a release.
+    if (!updating && fs.existsSync(hugoFile)) {
+      const baseline = fs.readFileSync(hugoFile, 'utf8').trim();
+      if (baseline !== built_with) {
+        notes.push(`built with ${built_with}, baseline recorded ${baseline}`);
+      }
+    }
 
     if (updating) {
       fs.mkdirSync(resultDir, { recursive: true });
       fs.writeFileSync(filesFile, listing(destDir), 'utf8');
+      fs.writeFileSync(hugoFile, `${built_with}\n`, 'utf8');
       if (layer === 'content') {
         update(contentDir, destDir);
       } else {

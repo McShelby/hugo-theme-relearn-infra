@@ -103,7 +103,7 @@ The artifact check is worth the deliberate breakage: it is the half that only
 exists on the runner, and a silent `if-no-files-found: ignore` would hide a
 broken upload path.
 
-### 3.2 `docs-publication` on main
+### 3.2 `pages-build` on main
 
 - [ ] Push to test-theme `main`
 - [ ] The built-site artifact is uploaded
