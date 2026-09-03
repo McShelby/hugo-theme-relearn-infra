@@ -1,0 +1,21 @@
+# The last resort for a page menu title: the `<identifier>-menuTitle` key.
+#
+# All four menus get a key, not just the one expected to reach it. The theme
+# looks the key up whether or not the front matter already answered, so a
+# missing key would warn for the three menus that never need it - and defining
+# them turns that into the stronger assertion anyway: front matter has to beat
+# a translation that exists, rather than one that happens to be absent.
+#
+# Only `neither` should actually print its key.
+
+[linktitle-menuTitle]
+other = 'Linktitle, from the translation file'
+
+[menutitle-menuTitle]
+other = 'Menutitle, from the translation file'
+
+[both-menuTitle]
+other = 'Both, from the translation file'
+
+[neither-menuTitle]
+other = 'Neither, from the translation file'

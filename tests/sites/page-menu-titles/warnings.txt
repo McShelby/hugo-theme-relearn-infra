@@ -1,0 +1,10 @@
+# The `menutitle` and `both` roots carry a `menuTitle` front matter on purpose.
+#
+# The key was removed in theme 6.0.0 in favor of Hugo's own `linkTitle` and is
+# only still honored as a deprecated fallback, which the theme says so about.
+# Here that warning is the assertion rather than an accepted defect: it is how
+# the fixture shows the fallback fired and told the author to move on.
+#
+# The outstanding work this records is the fallback itself. Delete this line
+# together with it, and a stray `menuTitle` fails the suite again.
+DEPRECATED front matter 'menuTitle' found

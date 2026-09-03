@@ -1,0 +1,13 @@
+# Where the title above a page sidebar menu comes from.
+#
+# The answer is a chain - the root page's `linkTitle`, then the deprecated
+# `menuTitle`, then the `<identifier>-menuTitle` translation key - and a single
+# menu only ever shows which link answered it. So the site carries four page
+# menus, one per branch, and one build renders them all next to each other.
+#
+# The content layer is the whole point here. What is asserted is the text
+# inside `<div class="nav-title">`, and a file set sees none of it - the same
+# four pages are written whichever way the chain resolves.
+
+site        = "page-menu-titles"
+environment = "testing"

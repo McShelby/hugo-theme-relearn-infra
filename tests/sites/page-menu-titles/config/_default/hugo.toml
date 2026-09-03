@@ -1,0 +1,23 @@
+# Where the title above a page sidebar menu comes from.
+#
+# Four page menus, each rooted at a different page, so that one build renders
+# every branch of the resolution chain side by side. The menus differ only in
+# the front matter of the page they start at.
+#
+# `disableTitle = false` on all four: for a page menu the title is off by
+# default, so a fixture about titles has to ask for it.
+#
+# The theme is supplied by the runner via --themesDir/--theme, so that a
+# checkout under any directory name works. Reproducibility comes from the
+# `testing` environment, which the case names.
+
+baseURL = 'https://example.com/'
+title = 'Page Menu Titles'
+
+[params]
+  sidebarmenus = [
+    { type = 'page', identifier = 'linktitle', pageRef = '/linktitle', disableTitle = false },
+    { type = 'page', identifier = 'menutitle', pageRef = '/menutitle', disableTitle = false },
+    { type = 'page', identifier = 'both', pageRef = '/both', disableTitle = false },
+    { type = 'page', identifier = 'neither', pageRef = '/neither', disableTitle = false }
+  ]

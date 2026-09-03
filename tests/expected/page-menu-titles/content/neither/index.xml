@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neither Section :: Page Menu Titles</title>
+    <link>https://example.com/neither/index.html</link>
+    <description>Neither Section Root of the neither menu.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://example.com/neither/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neither Child</title>
+      <link>https://example.com/neither/child/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/neither/child/index.html</guid>
+      <description>A page menu prints its title only when the tree below it has entries, so every root here needs a child.</description>
+    </item>
+  </channel>
+</rss>
