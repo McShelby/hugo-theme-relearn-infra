@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/both/child/index.html</loc>
+    <loc>/both/child/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/linktitle/child/index.html</loc>
+    <loc>/linktitle/child/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/linktitle/index.html</loc>
+    <loc>/linktitle/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/menutitle/child/index.html</loc>
+    <loc>/menutitle/child/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/neither/child/index.html</loc>
+    <loc>/neither/child/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/menutitle/index.html</loc>
+    <loc>/menutitle/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/both/index.html</loc>
+    <loc>/both/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/neither/index.html</loc>
+    <loc>/neither/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/categories/index.html</loc>
+    <loc>/categories/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/index.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://example.com/tags/index.html</loc>
+    <loc>/tags/index.html</loc>
   </url>
 </urlset>

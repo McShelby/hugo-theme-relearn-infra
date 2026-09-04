@@ -1,0 +1,26 @@
+# Every way an image can reach the theme's image partial.
+#
+# The fixtures are tiny and deliberately mismatched - 30x20, 20x30, 24x24 and
+# 12x8 - so that a wrong resource, or a wrong dimension, reads as wrong in the
+# diff instead of merely plausible. None of them is square, because a square
+# hides exactly the bug an aspect ratio is there to catch.
+#
+# Nothing about effects lives here: the site-wide layer of the effect stack is
+# the `imageeffects` axis, so that a page can be seen with and without it.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
+title = 'Image Permutations'
+
+# Markdown attributes are off by default for blocks, and a standalone image is a
+# block. They are the only way markdown can hand the partial a caller attribute,
+# which is the top of the effect stack, so a site that never enables them cannot
+# test the top of its own stack.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true

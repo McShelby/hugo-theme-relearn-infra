@@ -1,0 +1,19 @@
+{{- /*
+  Calls the theme's image partial the way a template does, which is the only
+  route to the `attributes` parameter - the top of the effect stack, above URL
+  parameters, front matter and site configuration.
+
+  Fixture-local on purpose: the theme documents this call, nothing in the theme
+  makes it from content, and a page cannot reach it any other way.
+*/ -}}
+{{- $attributes := dict }}
+{{- with .Get "class" }}{{ $attributes = merge $attributes (dict "class" .) }}{{ end }}
+{{- with .Get "width" }}{{ $attributes = merge $attributes (dict "width" .) }}{{ end }}
+{{- with .Get "height" }}{{ $attributes = merge $attributes (dict "height" .) }}{{ end }}
+{{- partial "shortcodes/image.html" (dict
+  "page" .Page
+  "url" (.Get "url")
+  "alt" (.Get "alt")
+  "title" (.Get "title")
+  "attributes" $attributes
+) }}

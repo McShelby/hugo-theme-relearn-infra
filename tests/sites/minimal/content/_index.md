@@ -4,4 +4,4 @@ title = 'Minimal'
 
 # Minimal
 
-A site with no configuration beyond a title and a base URL.
+A site with no configuration beyond a title and where it is served from.

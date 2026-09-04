@@ -11,7 +11,11 @@
 # checkout under any directory name works. Reproducibility comes from the
 # `testing` environment, which the case names.
 
-baseURL = 'https://example.com/'
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
 title = 'Page Menu Titles'
 
 [params]

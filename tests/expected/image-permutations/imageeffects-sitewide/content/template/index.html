@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html id="R-html" lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Template The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.
+A fixture-local shortcode makes the call, so these are template calls rather than markdown images.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Template :: Image Permutations">
+    <meta name="twitter:description" content="Template The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.
+A fixture-local shortcode makes the call, so these are template calls rather than markdown images.">
+    <meta property="og:url" content="/template/index.html">
+    <meta property="og:site_name" content="Image Permutations">
+    <meta property="og:title" content="Template :: Image Permutations">
+    <meta property="og:description" content="Template The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.
+A fixture-local shortcode makes the call, so these are template calls rather than markdown images.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Image Permutations">
+    <meta itemprop="name" content="Template :: Image Permutations">
+    <meta itemprop="description" content="Template The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.
+A fixture-local shortcode makes the call, so these are template calls rather than markdown images.">
+    <meta itemprop="wordCount" content="88">
+    <title>Template :: Image Permutations</title>
+    <link href="../css/auto-complete/auto-complete.min.css" rel="stylesheet">
+    <script src="../js/auto-complete/auto-complete.min.js" defer></script>
+    <script src="../js/search-lunr.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js";
+    </script>
+    <script src="../js/lunr/lunr.min.js" defer></script>
+    <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
+    <script src="../js/lunr/lunr.multi.min.js" defer></script>
+    <script src="../js/lunr/lunr.en.min.js" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/template\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='';
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // translations
+      window.T_Copy_to_clipboard = `Copy text to clipboard`;
+      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
+      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantprefix = "my-custom-";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
+        if( !variant ||
+            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
+            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
+          variant = window.relearn.themevariants[0];
+          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-origin="/template/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#nothing-passed">Nothing passed</a></li>
+    <li><a href="#effect-classes">Effect classes</a></li>
+    <li><a href="#unknown-classes">Unknown classes</a></li>
+    <li><a href="#attributes-the-element-carries">Attributes the element carries</a></li>
+    <li><a href="#outranking-the-url">Outranking the URL</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">Image Permutations</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Template</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../bundle/index.html" title="Page Bundle (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle"><span><i class="fa-fw fas fa-chevron-right"></i></span></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="template">Template</h1>
+
+<h1 id="template">Template<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h1>
+<p>The theme documents calling its image partial from a template, passing effects
+as <code>attributes</code>. That is the highest layer of the effect stack, above the URL,
+the front matter and the site configuration - and the only layer that can hand
+the partial an HTML attribute directly.</p>
+<p>A fixture-local shortcode makes the call, so these are template calls rather
+than markdown images.</p>
+<h2 id="nothing-passed">Nothing passed<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<img alt="Plain call" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<h2 id="effect-classes">Effect classes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<img alt="Lightbox off" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<img alt="Bordered" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<img alt="Bordered without a lightbox" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<h2 id="unknown-classes">Unknown classes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Effect names are consumed; anything else is passed through to the element.</p>
+<img alt="Custom class" class="my-own-class border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<img alt="Custom and effect classes" class="my-own-class border figure-image" src="../images/landscape.png" style="height: auto;width: auto;">
+
+<h2 id="attributes-the-element-carries">Attributes the element carries<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<img alt="With a title" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;" title="A title">
+
+<img alt="With dimensions" class="border figure-image" height="50" src="../images/landscape.png" style="height: auto;width: auto;" width="100">
+
+<img alt="With dimensions and a sized URL" class="border figure-image" height="50" src="../images/landscape.png?width=20vw" style="height: auto;width: 20vw;" width="100">
+
+<h2 id="outranking-the-url">Outranking the URL<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<img alt="URL says lightbox, caller says no" class="border figure-image" src="../images/landscape.png?lightbox=true" style="height: auto;width: auto;">
+
+<img alt="URL says no border, caller says border" class="border figure-image" src="../images/landscape.png?border=false" style="height: auto;width: auto;">
+
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <a id="R-logo" class="R-default direction-row" href="../index.html">
+          <span class="logo-title default-animation">Image Permutations</span>
+        </a>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-fw fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-fw fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/sizing/index.html"><a class="padding" href="../sizing/index.html">Sizing</a></li>
+            <li class="" data-nav-id="/sources/index.html"><a class="padding" href="../sources/index.html">Sources</a></li>
+            <li class="" data-nav-id="/formats/index.html"><a class="padding" href="../formats/index.html">Formats</a></li>
+            <li class="" data-nav-id="/effects/index.html"><a class="padding" href="../effects/index.html">Effects</a></li>
+            <li class="" data-nav-id="/syntax/index.html"><a class="padding" href="../syntax/index.html">Syntax</a></li>
+            <li class="" data-nav-id="/bundle/index.html"><a class="padding" href="../bundle/index.html">Page Bundle</a></li>
+            <li class="active " data-nav-id="/template/index.html"><a class="padding" href="../template/index.html">Template</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts default-animation">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin" class="default-animation"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../js/perfect-scrollbar/perfect-scrollbar.min.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+  </body>
+</html>

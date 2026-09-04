@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html id="R-html" lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Effects Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.
+Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Effects :: Image Permutations">
+    <meta name="twitter:description" content="Effects Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.
+Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.">
+    <meta property="og:url" content="/effects/index.html">
+    <meta property="og:site_name" content="Image Permutations">
+    <meta property="og:title" content="Effects :: Image Permutations">
+    <meta property="og:description" content="Effects Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.
+Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Image Permutations">
+    <meta itemprop="name" content="Effects :: Image Permutations">
+    <meta itemprop="description" content="Effects Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.
+Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.">
+    <meta itemprop="wordCount" content="127">
+    <title>Effects :: Image Permutations</title>
+    <link href="../css/auto-complete/auto-complete.min.css" rel="stylesheet">
+    <script src="../js/auto-complete/auto-complete.min.js" defer></script>
+    <script src="../js/search-lunr.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js";
+    </script>
+    <script src="../js/lunr/lunr.min.js" defer></script>
+    <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
+    <script src="../js/lunr/lunr.multi.min.js" defer></script>
+    <script src="../js/lunr/lunr.en.min.js" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/effects\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='';
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // translations
+      window.T_Copy_to_clipboard = `Copy text to clipboard`;
+      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
+      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantprefix = "my-custom-";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
+        if( !variant ||
+            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
+            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
+          variant = window.relearn.themevariants[0];
+          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-origin="/effects/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#defaults">Defaults</a></li>
+    <li><a href="#lightbox">Lightbox</a></li>
+    <li><a href="#lazy-loading">Lazy loading</a></li>
+    <li><a href="#decoration">Decoration</a></li>
+    <li><a href="#unknown-classes">Unknown classes</a></li>
+    <li><a href="#combined">Combined</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">Image Permutations</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Effects</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../formats/index.html" title="Formats (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../syntax/index.html" title="Syntax (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="effects">Effects</h1>
+
+<h1 id="effects">Effects<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h1>
+<p>Everything that changes the emitted element. Sizing stays out of the way here
+except where the two are deliberately combined.</p>
+<h2 id="defaults">Defaults<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Default" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Default" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png"></a></p>
+<h2 id="lightbox">Lightbox<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>The lightbox emits a second copy of the image, which is why turning it off
+changes more than a class.</p>
+<p><img alt="Off by parameter" class="lazy figure-image" loading="lazy" src="../images/landscape.png?lightbox=false" style="height: auto;width: auto;"></p>
+<p><img alt="Off by class" class="lazy figure-image" loading="lazy" src="../images/landscape.png?classes=nolightbox" style="height: auto;width: auto;"></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="On by parameter" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?lightbox=true" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by parameter" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?lightbox=true"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="On by bare parameter" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?lightbox" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by bare parameter" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?lightbox"></a></p>
+<h2 id="lazy-loading">Lazy loading<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Not lazy" class="lightbox figure-image" src="../images/landscape.png?lazy=false" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Not lazy" class="lightbox lightbox-image" src="../images/landscape.png?lazy=false"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Lazy by class" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=lazy" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Lazy by class" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=lazy"></a></p>
+<h2 id="decoration">Decoration<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Border and shadow" class="border lazy lightbox shadow figure-image" loading="lazy" src="../images/landscape.png?classes=border,shadow" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Border and shadow" class="border lazy lightbox shadow lightbox-image" loading="lazy" src="../images/landscape.png?classes=border,shadow"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Floated left" class="lazy left lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=left" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Floated left" class="lazy left lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=left"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Floated right" class="lazy lightbox right figure-image" loading="lazy" src="../images/landscape.png?classes=right" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Floated right" class="lazy lightbox right lightbox-image" loading="lazy" src="../images/landscape.png?classes=right"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Inline" class="inline lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=inline" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Inline" class="inline lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=inline"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Border off by class" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=noborder" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Border off by class" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=noborder"></a></p>
+<h2 id="unknown-classes">Unknown classes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>A class the theme knows nothing about is dropped here rather than passed to the
+element - unlike the same class handed to the partial by a template, which the
+<code>Template</code> page shows arriving on the element. The asymmetry is the theme&rsquo;s, and
+this is where it would show up if it changed.</p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Custom class" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=my-own-class" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Custom class" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=my-own-class"></a></p>
+<p><img alt="Custom and known classes" class="border lazy figure-image" loading="lazy" src="../images/landscape.png?classes=my-own-class,border,nolightbox" style="height: auto;width: auto;"></p>
+<p>A custom class starting with <code>no</code> is not an effect being switched off, and is
+dropped for the same reason rather than for that one.</p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="Custom class starting with no" class="lazy lightbox figure-image" loading="lazy" src="../images/landscape.png?classes=nonsense" style="height: auto;width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="Custom class starting with no" class="lazy lightbox lightbox-image" loading="lazy" src="../images/landscape.png?classes=nonsense"></a></p>
+<h2 id="combined">Combined<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p><img alt="Sized, decorated, eager, no lightbox" class="border shadow figure-image" src="../images/landscape.png?width=20vw&classes=border,shadow,nolightbox&lazy=false" style="height: auto;width: 20vw;"></p>
+<p><img alt="Sized data URL without a lightbox" class="dataurl lazy figure-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVEhL7c0xAQAACMOwysG/ClyBi3KwI3cA5gjTVarEmsSaxJrEmsSax/GFBXZSfSXtQbFIAAAAAElFTkSuQmCC" style="height: auto;width: 20vw;"></p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <a id="R-logo" class="R-default direction-row" href="../index.html">
+          <span class="logo-title default-animation">Image Permutations</span>
+        </a>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-fw fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-fw fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/sizing/index.html"><a class="padding" href="../sizing/index.html">Sizing</a></li>
+            <li class="" data-nav-id="/sources/index.html"><a class="padding" href="../sources/index.html">Sources</a></li>
+            <li class="" data-nav-id="/formats/index.html"><a class="padding" href="../formats/index.html">Formats</a></li>
+            <li class="active " data-nav-id="/effects/index.html"><a class="padding" href="../effects/index.html">Effects</a></li>
+            <li class="" data-nav-id="/syntax/index.html"><a class="padding" href="../syntax/index.html">Syntax</a></li>
+            <li class="" data-nav-id="/bundle/index.html"><a class="padding" href="../bundle/index.html">Page Bundle</a></li>
+            <li class="" data-nav-id="/template/index.html"><a class="padding" href="../template/index.html">Template</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts default-animation">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin" class="default-animation"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../js/perfect-scrollbar/perfect-scrollbar.min.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+  </body>
+</html>

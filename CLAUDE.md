@@ -37,6 +37,7 @@ The theme is resolved via `RELEARN_THEME_DIR`, else a sibling `hugo-theme-relear
 - **Regenerate expected output deliberately.** `npm test -- --update` rewrites it. Read the resulting diff before committing — that diff *is* the test result.
 - **Sites stay small.** A diff should be readable. If a site needs hundreds of pages, it is testing the wrong thing.
 - **A site's config is about the site.** Determinism comes from the `testing` environment, which the case names. Do not copy those switches into a site.
+- **A site serves from a webserver and from the file system.** `baseURL = '/'` and `relativeURLs = true`. Only a case about URL generation departs from it — `url-permutations`, which varies exactly this, and `versioning`, whose switcher resolves against absolute per-version baseURLs.
 
 ## Known issues
 

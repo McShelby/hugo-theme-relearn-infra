@@ -33,8 +33,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Minimal A site with no configuration beyond a title and a base URL.",
-    "description": "Minimal A site with no configuration beyond a title and a base URL.",
+    "content": "Minimal A site with no configuration beyond a title and where it is served from.",
+    "description": "Minimal A site with no configuration beyond a title and where it is served from.",
     "tags": [],
     "title": "Minimal",
     "uri": "/index.html"

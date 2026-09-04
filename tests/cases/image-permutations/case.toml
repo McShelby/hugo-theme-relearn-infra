@@ -1,0 +1,15 @@
+# Everything that reaches the theme's image partial: how a URL resolves, what it
+# resolves to, which effects are stacked onto it and how it is sized.
+#
+# One content set rather than a fixture per question, because the partial is one
+# funnel - a change to it lands on all of these at once, and a diff that shows
+# them together is the only way to see that.
+#
+# The `imageeffects` axis carries the site-wide layer of the effect stack, the
+# one layer a page cannot express in its own front matter.
+
+site        = "image-permutations"
+environment = "testing"
+
+[axes]
+  imageeffects = ["default", "sitewide"]

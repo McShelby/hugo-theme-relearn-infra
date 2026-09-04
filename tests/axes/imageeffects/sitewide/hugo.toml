@@ -1,0 +1,10 @@
+# Site-wide effect defaults, the layer of the stack a page cannot express.
+#
+# Each of the three inverts a theme default, so every image on every page moves.
+# Pages that override in front matter or in the URL then show which layer won.
+
+[params]
+  [params.imageEffects]
+    border = true
+    lazy = false
+    lightbox = false

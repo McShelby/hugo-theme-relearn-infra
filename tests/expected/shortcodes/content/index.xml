@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shortcodes</title>
-    <link>https://example.com/index.html</link>
+    <link>/index.html</link>
     <description>Shortcodes Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notice</title>
-      <link>https://example.com/notice/index.html</link>
+      <link>/notice/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/notice/index.html</guid>
+      <guid>/notice/index.html</guid>
       <description>Notice Note A note without an explicit title.&#xA;Custom title A warning with a title and inline markup.&#xA;Tip A tip with an overridden icon.</description>
     </item>
     <item>
       <title>Badge and Button</title>
-      <link>https://example.com/badge-button/index.html</link>
+      <link>/badge-button/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/badge-button/index.html</guid>
+      <guid>/badge-button/index.html</guid>
       <description>Badge Default InfoInfo WarningWith icon&#xA;Button External Internal With icon</description>
     </item>
     <item>
       <title>Expand and Tabs</title>
-      <link>https://example.com/expand-tabs/index.html</link>
+      <link>/expand-tabs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/expand-tabs/index.html</guid>
+      <guid>/expand-tabs/index.html</guid>
       <description>Expand Closed by default Hidden content.&#xA;Open by default Visible content.&#xA;Tabs ​ First Second Content of the first tab.</description>
     </item>
     <item>
       <title>Dependencies</title>
-      <link>https://example.com/dependencies/index.html</link>
+      <link>/dependencies/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/dependencies/index.html</guid>
+      <guid>/dependencies/index.html</guid>
       <description>Dependencies This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon inline with text.</description>
     </item>
   </channel>

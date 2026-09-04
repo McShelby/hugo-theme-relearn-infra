@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Minimal</title>
-    <link>https://example.com/index.html</link>
-    <description>Minimal A site with no configuration beyond a title and a base URL.</description>
+    <link>/index.html</link>
+    <description>Minimal A site with no configuration beyond a title and where it is served from.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First Page</title>
-      <link>https://example.com/first-page/index.html</link>
+      <link>/first-page/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/first-page/index.html</guid>
+      <guid>/first-page/index.html</guid>
       <description>First Page Body text, a link, and a list:&#xA;one two three</description>
     </item>
     <item>
       <title>Chapter</title>
-      <link>https://example.com/chapter/index.html</link>
+      <link>/chapter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/chapter/index.html</guid>
+      <guid>/chapter/index.html</guid>
       <description>Chapter A section with one child, to exercise nested menu rendering.</description>
     </item>
   </channel>

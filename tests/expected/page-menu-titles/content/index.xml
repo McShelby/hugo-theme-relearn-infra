@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Page Menu Titles</title>
-    <link>https://example.com/index.html</link>
+    <link>/index.html</link>
     <description>Page Menu Titles Four page menus in the sidebar, each rooted at one of the sections below. What each one prints above its tree is the whole point of this fixture.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Link Title Section</title>
-      <link>https://example.com/linktitle/index.html</link>
+      <link>/linktitle/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/linktitle/index.html</guid>
+      <guid>/linktitle/index.html</guid>
       <description>Link Title Section Root of the linktitle menu.</description>
     </item>
     <item>
       <title>Menu Title Section</title>
-      <link>https://example.com/menutitle/index.html</link>
+      <link>/menutitle/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/menutitle/index.html</guid>
+      <guid>/menutitle/index.html</guid>
       <description>Menu Title Section Root of the menutitle menu.</description>
     </item>
     <item>
       <title>Both Section</title>
-      <link>https://example.com/both/index.html</link>
+      <link>/both/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/both/index.html</guid>
+      <guid>/both/index.html</guid>
       <description>Both Section Root of the both menu.</description>
     </item>
     <item>
       <title>Neither Section</title>
-      <link>https://example.com/neither/index.html</link>
+      <link>/neither/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/neither/index.html</guid>
+      <guid>/neither/index.html</guid>
       <description>Neither Section Root of the neither menu.</description>
     </item>
   </channel>

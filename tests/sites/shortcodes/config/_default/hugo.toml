@@ -4,7 +4,11 @@
 # badge markup shows up as a handful of lines in badge.html rather than being
 # buried in a 2000-file docs rebuild.
 
-baseURL = 'https://example.com/'
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
 title = 'Shortcodes'
 
 [markup]
