@@ -38,6 +38,7 @@ js/d3/d3-timer.min.js
 js/d3/d3-transition.min.js
 js/d3/d3-zoom.min.js
 js/js-yaml/js-yaml.min.js
+js/lunr/lunr.art.min.js
 js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js

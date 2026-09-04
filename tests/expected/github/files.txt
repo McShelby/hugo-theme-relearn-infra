@@ -234,6 +234,7 @@ exampleSite/js/d3/d3-timer.min.js
 exampleSite/js/d3/d3-transition.min.js
 exampleSite/js/d3/d3-zoom.min.js
 exampleSite/js/js-yaml/js-yaml.min.js
+exampleSite/js/lunr/lunr.art.min.js
 exampleSite/js/lunr/lunr.en.min.js
 exampleSite/js/lunr/lunr.min.js
 exampleSite/js/lunr/lunr.multi.min.js
@@ -861,6 +862,7 @@ js/d3/d3-transition.min.js
 js/d3/d3-zoom.min.js
 js/github-buttons/github-buttons.min.js
 js/js-yaml/js-yaml.min.js
+js/lunr/lunr.art.min.js
 js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js
