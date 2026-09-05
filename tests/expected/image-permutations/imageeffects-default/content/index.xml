@@ -19,7 +19,7 @@
       <link>/sources/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sources/index.html</guid>
-      <description>Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource</description>
+      <description>Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.</description>
     </item>
     <item>
       <title>Formats</title>

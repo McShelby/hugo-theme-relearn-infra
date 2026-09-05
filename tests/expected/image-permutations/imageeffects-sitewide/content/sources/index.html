@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.
-Global resource Missing resource No image.errorlevel is configured, so an unresolvable image is emitted as written rather than reported.">
+Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Sources :: Image Permutations">
     <meta name="twitter:description" content="Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.
-Global resource Missing resource No image.errorlevel is configured, so an unresolvable image is emitted as written rather than reported.">
+Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.">
     <meta property="og:url" content="/sources/index.html">
     <meta property="og:site_name" content="Image Permutations">
     <meta property="og:title" content="Sources :: Image Permutations">
     <meta property="og:description" content="Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.
-Global resource Missing resource No image.errorlevel is configured, so an unresolvable image is emitted as written rather than reported.">
+Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.">
     <meta property="og:locale" content="en">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Image Permutations">
     <meta itemprop="name" content="Sources :: Image Permutations">
     <meta itemprop="description" content="Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.
-Global resource Missing resource No image.errorlevel is configured, so an unresolvable image is emitted as written rather than reported.">
-    <meta itemprop="wordCount" content="158">
+Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.">
+    <meta itemprop="wordCount" content="201">
     <title>Sources :: Image Permutations</title>
     <link href="../sources/index.source.md" rel="alternate" type="text/markdown" title="Sources :: Image Permutations">
     <link href="../css/auto-complete/auto-complete.min.css" rel="stylesheet">
@@ -110,6 +110,7 @@ Global resource Missing resource No image.errorlevel is configured, so an unreso
 <nav class="TableOfContents">
   <ul>
     <li><a href="#global-resource">Global resource</a></li>
+    <li><a href="#a-page-not-a-resource">A page, not a resource</a></li>
     <li><a href="#missing-resource">Missing resource</a></li>
     <li><a href="#absolute">Absolute</a></li>
   </ul>
@@ -154,13 +155,18 @@ Global resource Missing resource No image.errorlevel is configured, so an unreso
 <p>Where a URL is looked up decides whether there is a resource behind it at all,
 and a resource is the only thing that can be asked its dimensions.</p>
 <h2 id="global-resource">Global resource<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Absolute path" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
-<p><img alt="Relative path" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
-<p><img alt="Dot-relative path" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
+<p><img alt="Absolute path" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<p><img alt="Relative path" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<p><img alt="Dot-relative path" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<h2 id="a-page-not-a-resource">A page, not a resource<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Pages are searched before resources, so an image URL naming one resolves to a
+page. A page answers about its media type like a resource does, and is not an
+image, so it has no dimensions to give.</p>
+<p><img alt="A page" class="border figure-image" src="../sizing/" style="height: auto;"></p>
 <h2 id="missing-resource">Missing resource<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>No <code>image.errorlevel</code> is configured, so an unresolvable image is emitted as
 written rather than reported.</p>
-<p><img alt="Missing" class="border figure-image" src="missing.png" style="height: auto;width: auto;"></p>
+<p><img alt="Missing" class="border figure-image" src="missing.png" style="height: auto;"></p>
 <p><img alt="Missing, sized" class="border figure-image" src="missing.png?width=20vw" style="height: auto;width: 20vw;"></p>
 <h2 id="absolute">Absolute<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>An absolute URL is emitted as it was written and never resolved to a resource,
@@ -174,9 +180,9 @@ expected result rather than a broken fixture.</li>
 written the long way round. Site-relative it would resolve, absolute it does
 not, and after the theme learns to read dimensions that difference is the one
 users will trip over.</p>
-<p><img alt="Absolute to this site" class="border figure-image" src="https://example.com/images/landscape.png" style="height: auto;width: auto;"></p>
-<p><img alt="Absolute to nothing" class="border figure-image" src="https://example.com/remote.png" style="height: auto;width: auto;"></p>
-<p><img alt="Absolute with a query of its own" class="border figure-image" src="https://example.com/remote.png?v=2" style="height: auto;width: auto;"></p>
+<p><img alt="Absolute to this site" class="border figure-image" src="https://example.com/images/landscape.png" style="height: auto;"></p>
+<p><img alt="Absolute to nothing" class="border figure-image" src="https://example.com/remote.png" style="height: auto;"></p>
+<p><img alt="Absolute with a query of its own" class="border figure-image" src="https://example.com/remote.png?v=2" style="height: auto;"></p>
 <p><img alt="Absolute with a query and an effect" class="border figure-image" src="https://example.com/remote.png?v=2&width=20vw" style="height: auto;width: 20vw;"></p>
 
   <footer class="footline">

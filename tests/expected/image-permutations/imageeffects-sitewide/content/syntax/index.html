@@ -158,27 +158,27 @@ Plain With a title Without alt text">
 <p>Every markdown spelling that reaches the render hook, because each arrives with
 a different set of what the hook calls attributes.</p>
 <h2 id="plain">Plain<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Alt text" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
+<p><img alt="Alt text" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
 <h2 id="with-a-title">With a title<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Alt text" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;" title="A title"></p>
+<p><img alt="Alt text" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" title="A title" width="30"></p>
 <h2 id="without-alt-text">Without alt text<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
+<p><img class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
 <h2 id="reference-style">Reference style<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Reference style" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;" title="Reference title"></p>
-<p><img alt="Reference style, sized" class="border figure-image" src="../images/landscape.png?width=20vw" style="height: auto;width: 20vw;" title="Reference title"></p>
+<p><img alt="Reference style" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" title="Reference title" width="30"></p>
+<p><img alt="Reference style, sized" class="border figure-image" height="20" src="../images/landscape.png?width=20vw" style="height: auto;width: 20vw;" title="Reference title" width="30"></p>
 <h2 id="inside-a-link">Inside a link<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><a href="https://example.com/" rel="external"><img alt="Linked image" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></a></p>
-<p><a href="https://example.com/" rel="external"><img alt="Linked image without a lightbox" class="border figure-image" src="../images/landscape.png?lightbox=false" style="height: auto;width: auto;"></a></p>
+<p><a href="https://example.com/" rel="external"><img alt="Linked image" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></a></p>
+<p><a href="https://example.com/" rel="external"><img alt="Linked image without a lightbox" class="border figure-image" height="20" src="../images/landscape.png?lightbox=false" style="height: auto;" width="30"></a></p>
 <h2 id="inside-a-paragraph">Inside a paragraph<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p>Text before <img alt="an inline image" class="border inline figure-image" src="../images/landscape.png?classes=inline" style="height: auto;width: auto;"> and text
+<p>Text before <img alt="an inline image" class="border inline figure-image" height="20" src="../images/landscape.png?classes=inline" style="height: auto;" width="30"> and text
 after it, on one line with the surrounding prose.</p>
 <h2 id="with-markdown-attributes">With markdown attributes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>Hugo wraps a standalone image in a paragraph unless told not to, so a block
 attribute below the image attaches to that paragraph and never reaches the
 image. It is consumed either way - it does not survive as text - so the images
 below are expected to come out exactly like the plain one above.</p>
-<p><img alt="With dimensions" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
-<p class="my-own-class"><img alt="With a class" class="border figure-image" src="../images/landscape.png" style="height: auto;width: auto;"></p>
+<p><img alt="With dimensions" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<p class="my-own-class"><img alt="With a class" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
 <p>Attributes that do reach the partial come from a template calling it, which is
 the <code>Template</code> page.</p>
 

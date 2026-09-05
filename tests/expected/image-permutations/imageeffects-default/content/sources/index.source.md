@@ -14,6 +14,14 @@ and a resource is the only thing that can be asked its dimensions.
 
 ![Dot-relative path](./images/landscape.png)
 
+## A page, not a resource
+
+Pages are searched before resources, so an image URL naming one resolves to a
+page. A page answers about its media type like a resource does, and is not an
+image, so it has no dimensions to give.
+
+![A page](/sizing/)
+
 ## Missing resource
 
 No `image.errorlevel` is configured, so an unresolvable image is emitted as
