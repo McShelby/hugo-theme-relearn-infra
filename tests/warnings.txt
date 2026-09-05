@@ -6,8 +6,3 @@
 # This file is a list of known, outstanding theme work - not a place to
 # silence noise. Delete a line as soon as the underlying issue is fixed, so
 # that a regression fails the suite again.
-
-# --- Theme docs ------------------------------------------------------------
-# The docs deliberately set a `children` param that shadows a Hugo front
-# matter key, to document that exact behaviour.
-Hugo front matter key "children" is overridden in params section
