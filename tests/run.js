@@ -225,6 +225,7 @@ for (const result of targets) {
           report(failures, 'missing', diff.missing);
           report(failures, 'unexpected', diff.unexpected);
           report(failures, 'changed', diff.changed);
+          report(failures, 'differing in line endings only', diff.lineEndings);
         }
       }
     }

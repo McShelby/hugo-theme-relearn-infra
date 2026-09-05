@@ -2,22 +2,21 @@
 //
 // The `testing` environment makes Hugo's output deterministic
 // (disableAssetsBusting, disableRandomIds, disableGeneratorVersion, minify
-// off), which is what makes byte comparison viable at all. Anything still
-// volatile after that belongs in `normalize()` below, not in a fuzzy compare.
+// off), which is what makes byte comparison viable at all.
+//
+// The comparison is over raw bytes, line endings included. Both repositories
+// check out with `eol=lf`, so output is LF whoever built it, and a CRLF file
+// is a defect to fail over rather than something to normalise away. Nor could
+// normalising ever have covered the whole problem: asset busting hashes a file
+// into its published name, so a stray CRLF renames a file, and no amount of
+// content normalisation reaches that.
 
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
-/** Text files get newline-normalised so baselines survive a CRLF checkout. */
+/** The extensions a line-ending difference is worth diagnosing for. */
 const TEXT = new Set(['.html', '.xml', '.json', '.css', '.js', '.txt', '.md', '.svg']);
-
-function normalize(file, buf) {
-  if (!TEXT.has(path.extname(file).toLowerCase())) {
-    return buf;
-  }
-  return Buffer.from(buf.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
-}
 
 /**
  * Every file below `root`, as sorted relative paths with forward slashes.
@@ -33,33 +32,57 @@ function walk(root) {
     .sort();
 }
 
-/** Map of relative path -> md5 of normalised content. */
+/** Map of relative path -> md5 of the file's bytes, exactly as they lie. */
 export function fingerprint(root) {
   const map = new Map();
   for (const rel of walk(root)) {
-    const buf = normalize(rel, fs.readFileSync(path.join(root, rel)));
-    map.set(rel, crypto.createHash('md5').update(buf).digest('hex'));
+    map.set(rel, crypto.createHash('md5').update(fs.readFileSync(path.join(root, rel))).digest('hex'));
   }
   return map;
 }
 
 /**
+ * Of the differing files, those that differ in nothing but their line endings.
+ *
+ * This should not happen. When it does the cause is almost always a file some
+ * editor rewrote as CRLF, and Git is unhelpful about saying so: `git status`
+ * marks it modified while `git diff` shows nothing at all, because the clean
+ * filter normalises the line endings away before comparing. Named plainly the
+ * fix takes a moment - delete the file and check it out again; left as a
+ * whole-file diff it reads as a content regression.
+ */
+function lineEndingOnly(expectedDir, actualDir, differing) {
+  const eol = (file) => fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
+  return differing.filter((rel) => {
+    if (!TEXT.has(path.extname(rel).toLowerCase())) {
+      return false;
+    }
+    return eol(path.join(expectedDir, rel)) === eol(path.join(actualDir, rel));
+  });
+}
+
+/**
  * Compare a freshly built tree against expected output.
  *
- * Returns { missing, unexpected, changed } - all relative paths.
+ * Returns { missing, unexpected, changed, lineEndings } - all relative paths.
+ * A file differing only in its line endings is reported as `lineEndings` and
+ * not also as `changed`, so each one is named once and named for what it is.
  */
 export function compare(expectedDir, actualDir) {
   if (!fs.existsSync(expectedDir)) {
-    return { missing: [], unexpected: [], changed: [], noBaseline: true };
+    return { missing: [], unexpected: [], changed: [], lineEndings: [], noBaseline: true };
   }
   const expected = fingerprint(expectedDir);
   const actual = fingerprint(actualDir);
 
   const missing = [...expected.keys()].filter((k) => !actual.has(k));
   const unexpected = [...actual.keys()].filter((k) => !expected.has(k));
-  const changed = [...expected.keys()].filter((k) => actual.has(k) && actual.get(k) !== expected.get(k));
+  const differing = [...expected.keys()].filter((k) => actual.has(k) && actual.get(k) !== expected.get(k));
 
-  return { missing, unexpected, changed, noBaseline: false };
+  const lineEndings = lineEndingOnly(expectedDir, actualDir, differing);
+  const changed = differing.filter((k) => !lineEndings.includes(k));
+
+  return { missing, unexpected, changed, lineEndings, noBaseline: false };
 }
 
 /** Replace one tree with another. */
