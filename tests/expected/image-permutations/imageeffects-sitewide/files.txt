@@ -4,7 +4,7 @@ bundle/index.source.md
 bundle/local.png
 categories/index.html
 categories/index.xml
-css/auto-complete/auto-complete.min.css
+css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
 css/perfect-scrollbar/perfect-scrollbar.min.css
@@ -34,7 +34,7 @@ images/vector.svg
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.min.js
+js/auto-complete/auto-complete.js
 js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js

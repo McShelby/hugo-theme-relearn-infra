@@ -1,0 +1,7 @@
+/* Picked up by the theme through the `static` fallback of `custom-header.html`.
+   Hugo publishes nothing under `static` as a resource, so the theme has to read
+   the file itself to be able to bust it - which also means this file is
+   published twice, once untouched by Hugo and once busted by the theme. */
+.custom-from-static {
+  color: rebeccapurple;
+}

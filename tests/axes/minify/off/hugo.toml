@@ -1,0 +1,4 @@
+# Minification off, which is what `hugo server` gets without saying anything.
+
+[params]
+  minify = false

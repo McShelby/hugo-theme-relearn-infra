@@ -1,0 +1,1 @@
+window.customFromAssets=!0

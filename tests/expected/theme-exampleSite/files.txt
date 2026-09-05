@@ -3,7 +3,7 @@ about/index.html
 about/index.print.html
 categories/index.html
 categories/index.xml
-css/auto-complete/auto-complete.min.css
+css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
 css/perfect-scrollbar/perfect-scrollbar.min.css
@@ -27,7 +27,7 @@ images/logo.svg
 index.html
 index.print.html
 index.xml
-js/auto-complete/auto-complete.min.js
+js/auto-complete/auto-complete.js
 js/d3/d3-color.min.js
 js/d3/d3-dispatch.min.js
 js/d3/d3-drag.min.js

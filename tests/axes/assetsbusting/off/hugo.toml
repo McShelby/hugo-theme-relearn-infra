@@ -1,0 +1,7 @@
+# Cache busting off, for a deployment that can not serve names that change.
+#
+# Asset file names then stay what they are called in the sources, which is what
+# every other case in the suite relies on.
+
+[params]
+  disableAssetsBusting = true

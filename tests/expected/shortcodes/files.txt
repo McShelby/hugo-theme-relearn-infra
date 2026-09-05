@@ -3,7 +3,7 @@ badge-button/index.html
 badge-button/index.source.md
 categories/index.html
 categories/index.xml
-css/auto-complete/auto-complete.min.css
+css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
 css/perfect-scrollbar/perfect-scrollbar.min.css
@@ -28,7 +28,7 @@ fonts/robotoflex/RobotoFlex.woff2
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.min.js
+js/auto-complete/auto-complete.js
 js/d3/d3-color.min.js
 js/d3/d3-dispatch.min.js
 js/d3/d3-drag.min.js

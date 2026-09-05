@@ -6,7 +6,7 @@ chapter/child/index.source.md
 chapter/index.html
 chapter/index.source.md
 chapter/index.xml
-css/auto-complete/auto-complete.min.css
+css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
 css/perfect-scrollbar/perfect-scrollbar.min.css
@@ -29,7 +29,7 @@ fonts/robotoflex/RobotoFlex.woff2
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.min.js
+js/auto-complete/auto-complete.js
 js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js

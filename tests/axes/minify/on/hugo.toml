@@ -1,0 +1,8 @@
+# Minification on, which is what a `hugo` build gets without saying anything.
+#
+# Theme assets are published minified and gain a `.min` infix, so this is the
+# value that proves busting hashes the bytes that are actually served rather
+# than the ones they were built from.
+
+[params]
+  minify = true

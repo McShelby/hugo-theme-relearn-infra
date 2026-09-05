@@ -1,12 +1,26 @@
-# One content set built in every URL mode the theme supports.
+# One content set built in every way the theme can name and link a path.
 #
-# URL generation is historically breakage-prone here, and the three modes are
-# genuinely different code paths rather than cosmetic variations. One shared
-# content set is built three times rather than three near-identical fixtures
-# being kept in step by hand.
+# URL generation is historically breakage-prone here, and the three URL modes
+# are genuinely different code paths rather than cosmetic variations. One shared
+# content set is built in all of them rather than near-identical fixtures being
+# kept in step by hand.
+#
+# Cache busting and minification join it because they decide a path too: busting
+# puts a content hash into an asset's file name, minification a `.min` infix,
+# and both then have to be rendered by whichever URL mode is in force. The
+# crossing is not academic - the theme hands some asset URLs to JavaScript
+# rather than to an HTML attribute, and Hugo rewrites those for a relative site
+# only if the name they are assigned to ends in `url=`. That defect is invisible
+# unless busting and relative URLs are switched on at once.
+#
+# `minify` earns its place through `assetsbusting` rather than through `urls`: a
+# hash has to be taken from the bytes that are actually served, which is only
+# observable once there are minified bytes for it to be taken from.
 
 site        = "url-permutations"
 environment = "testing"
 
 [axes]
-  urls = ["relative", "absolute", "ugly"]
+  urls          = ["relative", "absolute", "ugly"]
+  assetsbusting = ["on", "off"]
+  minify        = ["on", "off"]

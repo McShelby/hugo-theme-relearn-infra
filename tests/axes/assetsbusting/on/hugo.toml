@@ -1,0 +1,8 @@
+# Cache busting on, which is what a site gets without saying anything.
+#
+# The axis is named for the feature, the option for its absence, so the two read
+# inverted here. The `testing` environment switches busting off to keep output
+# comparable; this value puts it back.
+
+[params]
+  disableAssetsBusting = false
