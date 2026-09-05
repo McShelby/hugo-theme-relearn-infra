@@ -1,6 +1,8 @@
 404.html
 both/child/index.html
+both/child/index.source.md
 both/index.html
+both/index.source.md
 both/index.xml
 categories/index.html
 categories/index.xml
@@ -23,6 +25,7 @@ fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
 index.html
+index.source.md
 index.xml
 js/auto-complete/auto-complete.min.js
 js/lunr/lunr.en.min.js
@@ -34,13 +37,19 @@ js/search-lunr.js
 js/search.js
 js/theme.js
 linktitle/child/index.html
+linktitle/child/index.source.md
 linktitle/index.html
+linktitle/index.source.md
 linktitle/index.xml
 menutitle/child/index.html
+menutitle/child/index.source.md
 menutitle/index.html
+menutitle/index.source.md
 menutitle/index.xml
 neither/child/index.html
+neither/child/index.source.md
 neither/index.html
+neither/index.source.md
 neither/index.xml
 search/index.html
 searchindex.en.js

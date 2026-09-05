@@ -15,6 +15,13 @@ relativeURLs = true
 
 title = 'Image Permutations'
 
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
 # Markdown attributes are off by default for blocks, and a standalone image is a
 # block. They are the only way markdown can hand the partial a caller attribute,
 # which is the top of the effect stack, so a site that never enables them cannot

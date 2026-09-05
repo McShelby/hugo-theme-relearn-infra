@@ -1,5 +1,6 @@
 404.html
 badge-button/index.html
+badge-button/index.source.md
 categories/index.html
 categories/index.xml
 css/auto-complete/auto-complete.min.css
@@ -9,7 +10,9 @@ css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.css
 css/theme.css
 dependencies/index.html
+dependencies/index.source.md
 expand-tabs/index.html
+expand-tabs/index.source.md
 fonts/fontawesome/css/all.min.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
@@ -23,6 +26,7 @@ fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
 index.html
+index.source.md
 index.xml
 js/auto-complete/auto-complete.min.js
 js/d3/d3-color.min.js
@@ -151,6 +155,7 @@ js/search-lunr.js
 js/search.js
 js/theme.js
 notice/index.html
+notice/index.source.md
 search/index.html
 searchindex.en.js
 sitemap.xml

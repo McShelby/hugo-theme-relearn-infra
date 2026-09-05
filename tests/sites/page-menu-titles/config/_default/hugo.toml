@@ -18,6 +18,13 @@ relativeURLs = true
 
 title = 'Page Menu Titles'
 
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the front matter the menu titles resolve from.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
 [params]
   sidebarmenus = [
     { type = 'page', identifier = 'linktitle', pageRef = '/linktitle', disableTitle = false },

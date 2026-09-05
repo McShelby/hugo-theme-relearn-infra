@@ -3,7 +3,7 @@
   <channel>
     <title>Image Permutations</title>
     <link>/index.html</link>
-    <description>Image Permutations One page per axis of the image partial, each varying that axis and holding the rest still:&#xA;Sizing - what width and height do, and what a browser has to reserve space with before the image arrives Sources - how a URL resolves to a resource, or fails to Formats - which resources Hugo can read dimensions from Effects - everything that changes the emitted element Syntax - every markdown spelling that reaches the render hook Page Bundle - a page resource, under front matter effects</description>
+    <description>One page per axis of the image partial, each varying that axis and holding the rest still:&#xA;Sizing - what width and height do, and what a browser has to reserve space with before the image arrives Sources - how a URL resolves to a resource, or fails to Formats - which resources Hugo can read dimensions from Effects - everything that changes the emitted element Syntax - every markdown spelling that reaches the render hook Page Bundle - a page resource, under front matter effects</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -12,49 +12,49 @@
       <link>/sizing/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sizing/index.html</guid>
-      <description>Sizing width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized</description>
+      <description>width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized One dimension</description>
     </item>
     <item>
       <title>Sources</title>
       <link>/sources/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sources/index.html</guid>
-      <description>Sources Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource</description>
+      <description>Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource Missing resource No image.errorlevel is configured, so an unresolvable image is emitted as written rather than reported.</description>
     </item>
     <item>
       <title>Formats</title>
       <link>/formats/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/formats/index.html</guid>
-      <description>Formats Hugo can read dimensions from some image resources and not from others. Both kinds are here, sized identically, so the difference is the resource and nothing else.&#xA;Measurable</description>
+      <description>Hugo can read dimensions from some image resources and not from others. Both kinds are here, sized identically, so the difference is the resource and nothing else.&#xA;Measurable Unmeasurable</description>
     </item>
     <item>
       <title>Effects</title>
       <link>/effects/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/effects/index.html</guid>
-      <description>Effects Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.&#xA;Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.</description>
+      <description>Everything that changes the emitted element. Sizing stays out of the way here except where the two are deliberately combined.&#xA;Defaults Lightbox The lightbox emits a second copy of the image, which is why turning it off changes more than a class.</description>
     </item>
     <item>
       <title>Syntax</title>
       <link>/syntax/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/syntax/index.html</guid>
-      <description>Syntax Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title</description>
+      <description>Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title Without alt text</description>
     </item>
     <item>
       <title>Page Bundle</title>
       <link>/bundle/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/bundle/index.html</guid>
-      <description>Page Bundle local.png is a resource of this page rather than of the site, which is a different lookup and the one a page bundle relies on.&#xA;The front matter above switches two effects, so every image on this page carries them until its URL says otherwise. That makes this page the middle layer of the stack: the site-wide axis underneath, URL parameters on top.</description>
+      <description>local.png is a resource of this page rather than of the site, which is a different lookup and the one a page bundle relies on.&#xA;The front matter above switches two effects, so every image on this page carries them until its URL says otherwise. That makes this page the middle layer of the stack: the site-wide axis underneath, URL parameters on top.&#xA;Page resource</description>
     </item>
     <item>
       <title>Template</title>
       <link>/template/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/template/index.html</guid>
-      <description>Template The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.&#xA;A fixture-local shortcode makes the call, so these are template calls rather than markdown images.</description>
+      <description>The theme documents calling its image partial from a template, passing effects as attributes. That is the highest layer of the effect stack, above the URL, the front matter and the site configuration - and the only layer that can hand the partial an HTML attribute directly.&#xA;A fixture-local shortcode makes the call, so these are template calls rather than markdown images.&#xA;Nothing passed Effect classes Unknown classes Effect names are consumed; anything else is passed through to the element.</description>
     </item>
   </channel>
 </rss>

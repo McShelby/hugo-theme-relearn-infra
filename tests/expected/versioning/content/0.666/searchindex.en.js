@@ -33,8 +33,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Versioning This is the archived version. The version switcher should offer the current one, and a deprecation notice should appear, because this is not the latest version.\nA page Another page",
-    "description": "Versioning This is the archived version. The version switcher should offer the current one, and a deprecation notice should appear, because this is not the latest version.\nA page Another page",
+    "content": "This is the archived version. The version switcher should offer the current one, and a deprecation notice should appear, because this is not the latest version.\nA page Another page",
+    "description": "This is the archived version. The version switcher should offer the current one, and a deprecation notice should appear, because this is not the latest version.\nA page Another page",
     "tags": [],
     "title": "Versioning",
     "uri": "/0.666/index.html"

@@ -3,7 +3,7 @@
   <channel>
     <title>Menu Title Section :: Page Menu Titles</title>
     <link>/menutitle/index.html</link>
-    <description>Menu Title Section Root of the menutitle menu.</description>
+    <description>Root of the menutitle menu.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/menutitle/index.xml" rel="self" type="application/rss+xml" />

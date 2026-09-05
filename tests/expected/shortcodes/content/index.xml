@@ -3,7 +3,7 @@
   <channel>
     <title>Shortcodes</title>
     <link>/index.html</link>
-    <description>Shortcodes Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
+    <description>Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -12,7 +12,7 @@
       <link>/notice/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/notice/index.html</guid>
-      <description>Notice Note A note without an explicit title.&#xA;Custom title A warning with a title and inline markup.&#xA;Tip A tip with an overridden icon.</description>
+      <description>Note A note without an explicit title.&#xA;Custom title A warning with a title and inline markup.&#xA;Tip A tip with an overridden icon.</description>
     </item>
     <item>
       <title>Badge and Button</title>
@@ -33,7 +33,7 @@
       <link>/dependencies/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/dependencies/index.html</guid>
-      <description>Dependencies This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon inline with text.</description>
+      <description>This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon inline with text.</description>
     </item>
   </channel>
 </rss>

@@ -11,6 +11,13 @@ relativeURLs = true
 
 title = 'Shortcodes'
 
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the shortcode calls rather than their output.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

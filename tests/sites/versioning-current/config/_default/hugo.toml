@@ -8,6 +8,13 @@
 baseURL = 'https://example.com/'
 title = 'Versioning, current'
 
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
 [params]
   version = 'latest'
   versions = [

@@ -5,3 +5,11 @@
 # lives here - that is the `testing` environment's job.
 
 title = 'URL Permutations'
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all. Its `noUgly` is what the `ugly` value of the axis puts
+# to the test - one suffix per mime type, so this one URL stays as it is.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']

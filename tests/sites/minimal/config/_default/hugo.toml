@@ -1,8 +1,9 @@
 # The convention-over-configuration fixture.
 #
 # Deliberately the smallest config a Relearn site can have: where it is served
-# from, and what it is called. If the theme ever starts requiring a setting to
-# produce sane output, this fixture is what notices.
+# from, what it is called, and the output formats every fixture renders. If the
+# theme ever starts requiring a setting to produce sane output, this fixture is
+# what notices.
 #
 # The theme is supplied by the runner via --themesDir/--theme, so that a
 # checkout under any directory name works. Reproducibility comes from the
@@ -14,3 +15,10 @@ baseURL = '/'
 relativeURLs = true
 
 title = 'Minimal'
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']

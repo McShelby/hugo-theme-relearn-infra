@@ -7,6 +7,13 @@
 baseURL = 'https://example.com/0.666/'
 title = 'Versioning, archived'
 
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
 [params]
   version = '0.666'
   versions = [

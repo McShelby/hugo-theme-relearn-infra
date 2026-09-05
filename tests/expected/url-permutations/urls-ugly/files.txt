@@ -2,7 +2,9 @@
 categories/index.html
 categories/index.xml
 chapter/child.html
+chapter/child/index.source.md
 chapter/index.html
+chapter/index.source.md
 chapter/index.xml
 css/auto-complete/auto-complete.min.css
 css/format-html.css
@@ -11,6 +13,7 @@ css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.css
 css/theme.css
 first-page.html
+first-page/index.source.md
 fonts/fontawesome/css/all.min.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
@@ -25,6 +28,7 @@ fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
 images/pixel.png
 index.html
+index.source.md
 index.xml
 js/auto-complete/auto-complete.min.js
 js/lunr/lunr.en.min.js

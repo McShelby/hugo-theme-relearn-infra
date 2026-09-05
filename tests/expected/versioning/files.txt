@@ -8,6 +8,7 @@
 0.666/css/swagger.css
 0.666/css/theme.css
 0.666/first-page/index.html
+0.666/first-page/index.source.md
 0.666/fonts/fontawesome/css/all.min.css
 0.666/fonts/fontawesome/webfonts/fa-brands-400.woff2
 0.666/fonts/fontawesome/webfonts/fa-regular-400.woff2
@@ -21,6 +22,7 @@
 0.666/fonts/robotoflex/RobotoFlex.vietnamese.woff2
 0.666/fonts/robotoflex/RobotoFlex.woff2
 0.666/index.html
+0.666/index.source.md
 0.666/index.xml
 0.666/js/auto-complete/auto-complete.min.js
 0.666/js/lunr/lunr.en.min.js
@@ -34,6 +36,7 @@
 0.666/search/index.html
 0.666/searchindex.en.js
 0.666/second-page/index.html
+0.666/second-page/index.source.md
 0.666/sitemap.xml
 0.666/tags/index.html
 0.666/tags/index.xml
@@ -48,6 +51,7 @@ css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.css
 css/theme.css
 first-page/index.html
+first-page/index.source.md
 fonts/fontawesome/css/all.min.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
@@ -61,6 +65,7 @@ fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
 index.html
+index.source.md
 index.xml
 js/auto-complete/auto-complete.min.js
 js/lunr/lunr.en.min.js
@@ -74,6 +79,7 @@ js/theme.js
 search/index.html
 searchindex.en.js
 second-page/index.html
+second-page/index.source.md
 sitemap.xml
 tags/index.html
 tags/index.xml

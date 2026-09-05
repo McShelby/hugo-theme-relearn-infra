@@ -3,7 +3,7 @@
   <channel>
     <title>Neither Section :: Page Menu Titles</title>
     <link>/neither/index.html</link>
-    <description>Neither Section Root of the neither menu.</description>
+    <description>Root of the neither menu.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/neither/index.xml" rel="self" type="application/rss+xml" />

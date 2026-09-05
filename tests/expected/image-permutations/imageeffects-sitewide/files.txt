@@ -1,5 +1,6 @@
 404.html
 bundle/index.html
+bundle/index.source.md
 bundle/local.png
 categories/index.html
 categories/index.xml
@@ -10,6 +11,7 @@ css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.css
 css/theme.css
 effects/index.html
+effects/index.source.md
 fonts/fontawesome/css/all.min.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
@@ -23,12 +25,14 @@ fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
 formats/index.html
+formats/index.source.md
 images/landscape.png
 images/portrait.jpg
 images/square.gif
 images/vector-plain.svg
 images/vector.svg
 index.html
+index.source.md
 index.xml
 js/auto-complete/auto-complete.min.js
 js/lunr/lunr.en.min.js
@@ -43,8 +47,12 @@ search/index.html
 searchindex.en.js
 sitemap.xml
 sizing/index.html
+sizing/index.source.md
 sources/index.html
+sources/index.source.md
 syntax/index.html
+syntax/index.source.md
 tags/index.html
 tags/index.xml
 template/index.html
+template/index.source.md

@@ -1,8 +1,8 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "Shortcodes",
-    "content": "Notice Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
-    "description": "Notice Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
+    "content": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
+    "description": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
     "tags": [],
     "title": "Notice",
     "uri": "/notice/index.html"
@@ -25,8 +25,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Shortcodes",
-    "content": "Dependencies This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
-    "description": "Dependencies This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
+    "content": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
+    "description": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
     "tags": [],
     "title": "Dependencies",
     "uri": "/dependencies/index.html"
@@ -41,8 +41,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Shortcodes Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
-    "description": "Shortcodes Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
+    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
+    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
     "tags": [],
     "title": "Shortcodes",
     "uri": "/index.html"

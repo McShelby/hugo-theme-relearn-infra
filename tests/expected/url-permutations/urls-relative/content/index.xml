@@ -3,7 +3,7 @@
   <channel>
     <title>URL Permutations</title>
     <link>https://example.com/index.html</link>
-    <description>URL Permutations Links from the home page, so the snapshot captures how each mode renders them:&#xA;a sibling page into a section deep into a section an external target an anchor on this page</description>
+    <description>Links from the home page, so the snapshot captures how each mode renders them:&#xA;a sibling page into a section deep into a section an external target an anchor on this page</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
@@ -12,14 +12,14 @@
       <link>https://example.com/first-page/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/first-page/index.html</guid>
-      <description>First Page Links back up and across, which is where relative and absolute modes diverge:&#xA;home a section sibling relref to the home page relref to a deep page</description>
+      <description>Links back up and across, which is where relative and absolute modes diverge:&#xA;home a section sibling relref to the home page relref to a deep page</description>
     </item>
     <item>
       <title>Chapter</title>
       <link>https://example.com/chapter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/chapter/index.html</guid>
-      <description>Chapter A section, so section-index links are covered too.&#xA;Child {class=“children children-type-tree children-sort-”}</description>
+      <description>A section, so section-index links are covered too.&#xA;Child {class=“children children-type-tree children-sort-”}</description>
     </item>
   </channel>
 </rss>
