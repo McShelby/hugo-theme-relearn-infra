@@ -7,30 +7,6 @@
 # silence noise. Delete a line as soon as the underlying issue is fixed, so
 # that a regression fails the suite again.
 
-# --- Hugo deprecations, observed on v0.165.0 -------------------------------
-# The theme still uses APIs Hugo has deprecated. None of these break a build
-# yet; all of them will when Hugo removes the API.
-#
-#   .Language.LanguageCode       -> .Language.Locale       (deprecated 0.158.0)
-#   .Language.LanguageDirection  -> .Language.Direction    (deprecated 0.158.0)
-#   .Site.Sites / .Page.Sites    -> hugo.Sites             (deprecated 0.156.0)
-#   .Site.Languages              -> see discourse.gohugo.io/t/56732
-#
-.Language.LanguageCode was deprecated
-.Language.LanguageDirection was deprecated
-.Language.LanguageName was deprecated
-.Site.Sites and .Page.Sites was deprecated
-.Site.Languages was deprecated
-.Site.Data was deprecated
-
-# Config keys in docs/ and exampleSite/ languages.toml, same Hugo release:
-#   languageCode      -> locale
-#   languageName      -> label
-#   languageDirection -> direction
-languageCode was deprecated
-languageName was deprecated
-languageDirection was deprecated
-
 # --- Theme docs ------------------------------------------------------------
 # The docs deliberately set a `children` param that shadows a Hugo front
 # matter key, to document that exact behaviour.
