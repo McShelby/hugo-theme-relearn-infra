@@ -241,7 +241,7 @@ exampleSite/js/lunr/lunr.en.min.94d0a7cb1f111200e2f5be9dc32699cf266aaa29011e414b
 exampleSite/js/lunr/lunr.min.75e90b6cec204a54a07060b42ec82f3816430c63ffd689d1e9771f469dc493dd.js
 exampleSite/js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04dcb0a94dc2c1cb44f9c.js
 exampleSite/js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
-exampleSite/js/mermaid/mermaid.min.a33b837de0e18c423d1172e2d0276281e22201c691622dc4e53f952c2f72201e.js
+exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
 exampleSite/js/perfect-scrollbar/perfect-scrollbar.min.db7463db58ffbf17da815a125672d269b005017f2e343e731f69a22d157b2170.js
 exampleSite/js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
 exampleSite/js/search.min.c58b508bccda750a48211b66c89002539e69e1ef1f10dbde995b328356a36f14.js
@@ -978,7 +978,7 @@ js/mathjax/tex-svg.js
 js/mathjax/ui/lazy.js
 js/mathjax/ui/menu.js
 js/mathjax/ui/safe.js
-js/mermaid/mermaid.min.a33b837de0e18c423d1172e2d0276281e22201c691622dc4e53f952c2f72201e.js
+js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
 js/perfect-scrollbar/perfect-scrollbar.min.db7463db58ffbf17da815a125672d269b005017f2e343e731f69a22d157b2170.js
 js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
 js/search.min.c58b508bccda750a48211b66c89002539e69e1ef1f10dbde995b328356a36f14.js
@@ -2144,8 +2144,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.396c9ad1a0caf37880704f261fae3a038209eed755b30cd1b20c86c46027136f.js
-searchindex.pir.min.30e25a22b88e4d8bb4d9c9444b690edc8cfcd2d454d5f41b3ae9690132ddcf02.js
+searchindex.en.min.eaeab575b018276d29491338e55a914643666ad680d6b0bca7148f248ea79fb1.js
+searchindex.pir.min.02eaece50b9ba27a2e47d48dbb999672eac8f607be89c83e9b5211e60ab7b6de.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
