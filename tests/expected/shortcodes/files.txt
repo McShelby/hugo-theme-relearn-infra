@@ -1,6 +1,8 @@
 404.html
 badge-button/index.html
 badge-button/index.source.md
+cards/index.html
+cards/index.source.md
 categories/index.html
 categories/index.xml
 css/auto-complete/auto-complete.css
@@ -25,6 +27,7 @@ fonts/robotoflex/RobotoFlex.latin-ext.woff2
 fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
 fonts/robotoflex/RobotoFlex.woff2
+images/square.gif
 index.html
 index.source.md
 index.xml

@@ -33,6 +33,14 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Shortcodes",
+    "content": "Where the alt of a card image comes from: imagealt, else the title of the page the card links to, else that link itself. A card that shows a title names itself and leaves its image decorative.\nTitled A title, a text and an image. Titled Titled Titled",
+    "description": "Where the alt of a card image comes from: imagealt, else the title of the page the card links to, else that link itself. A card that shows a title names itself and leaves its image decorative.\nTitled A title, a text and an image. Titled Titled Titled",
+    "tags": [],
+    "title": "Cards",
+    "uri": "/cards/index.html"
+  },
+  {
+    "breadcrumb": "Shortcodes",
     "content": "",
     "description": "",
     "tags": [],
@@ -41,8 +49,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
-    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}",
+    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards {class=“children children-type-tree children-sort-”}",
+    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards {class=“children children-type-tree children-sort-”}",
     "tags": [],
     "title": "Shortcodes",
     "uri": "/index.html"

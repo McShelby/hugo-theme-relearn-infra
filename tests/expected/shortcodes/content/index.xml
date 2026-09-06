@@ -3,7 +3,7 @@
   <channel>
     <title>Shortcodes</title>
     <link>/index.html</link>
-    <description>Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies {class=“children children-type-tree children-sort-”}</description>
+    <description>Each child page exercises one shortcode family.&#xA;Notice Badge and Button Expand and Tabs Dependencies Cards {class=“children children-type-tree children-sort-”}</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -34,6 +34,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/dependencies/index.html</guid>
       <description>This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.&#xA;Math $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right)$$ Mermaid graph LR; A[Theme] --&gt; B[Infra]; B --&gt; C[CI]; Icon inline with text.</description>
+    </item>
+    <item>
+      <title>Cards</title>
+      <link>/cards/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/cards/index.html</guid>
+      <description>Where the alt of a card image comes from: imagealt, else the title of the page the card links to, else that link itself. A card that shows a title names itself and leaves its image decorative.&#xA;Titled A title, a text and an image. Titled Titled Titled</description>
     </item>
   </channel>
 </rss>
