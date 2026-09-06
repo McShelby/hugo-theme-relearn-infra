@@ -208,7 +208,7 @@ exampleSite/css/theme.min.64c675552ba1ed889378f6e4479a8fd290bf87c250e46dff97188e
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
-exampleSite/fonts/fontawesome/css/all.min.e2b4c87e8e464138bfed426aa3250940acf15bc54dfd8047df5f82cbebd3663e.css
+exampleSite/fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css
 exampleSite/fonts/fontawesome/webfonts/fa-brands-400.woff2
 exampleSite/fonts/fontawesome/webfonts/fa-regular-400.woff2
 exampleSite/fonts/fontawesome/webfonts/fa-solid-900.woff2
@@ -336,7 +336,7 @@ exampleSite/sitemap.xml
 exampleSite/tags/index.html
 exampleSite/tags/index.xml
 fonts/fontawesome/css/all.min.css
-fonts/fontawesome/css/all.min.e2b4c87e8e464138bfed426aa3250940acf15bc54dfd8047df5f82cbebd3663e.css
+fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
 fonts/fontawesome/webfonts/fa-solid-900.woff2

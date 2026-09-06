@@ -17,7 +17,7 @@ css/theme.fb7f9af1687b795bf1d51d44704c5f1e150fe558aea36cd604e17219281d67b7.css
 first-page/index.html
 first-page/index.source.md
 fonts/fontawesome/css/all.min.css
-fonts/fontawesome/css/all.min.e2b4c87e8e464138bfed426aa3250940acf15bc54dfd8047df5f82cbebd3663e.css
+fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2
 fonts/fontawesome/webfonts/fa-solid-900.woff2
