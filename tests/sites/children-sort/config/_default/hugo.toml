@@ -1,0 +1,40 @@
+# The `children` shortcode's `sort` parameter.
+#
+# Four sibling pages under /sorted/ carry a deliberately conflicting set of
+# front matter: weight, title, date, lastmod, publishDate, expiryDate and body
+# length each order them differently. A listing therefore identifies the
+# criterion that produced it.
+#
+# The theme is supplied by the runner via --themesDir/--theme, so that a
+# checkout under any directory name works. Reproducibility comes from the
+# `testing` environment, which the case names - except for `lastmod`, which
+# Hugo takes from the file's modification time unless the page states it, so
+# every page here states it.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
+title = 'Children Sort'
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the front matter each order is derived from.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
+# One taxonomy, to reach the taxonomy and term listings. Naming it replaces
+# Hugo's default pair, leaving `categories` out of the output.
+[taxonomies]
+  tag = 'tags'
+
+# The `children` shortcode emits its listing as Markdown and marks it with a
+# block attribute, which Goldmark only honours when block attributes are on.
+# Without this the `{class=...}` arrives in the page as literal text.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true

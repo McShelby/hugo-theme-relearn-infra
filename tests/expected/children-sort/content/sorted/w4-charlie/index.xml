@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Charlie :: Children Sort</title>
+    <link>/sorted/w4-charlie/index.html</link>
+    <description>The third shortest body in the site, which is to say the second longest.&#xA;It sits between Bravo and Alpha on length, last on weight, third on title, second on date, first on lastmod, last on publishDate and second on expiryDate.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="/sorted/w4-charlie/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

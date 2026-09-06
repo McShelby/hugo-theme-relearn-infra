@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sorted :: Children Sort</title>
+    <link>/sorted/index.html</link>
+    <description>One listing per documented sort value, over the same four pages. Each block carries the criterion in its class, so the order below a class either matches that criterion or the sort did not happen.&#xA;sort expected order auto, default, weight Bravo, Alpha, Delta, Charlie title Alpha, Bravo, Charlie, Delta date Delta, Charlie, Bravo, Alpha modifieddate Charlie, Delta, Alpha, Bravo publishdate Bravo, Delta, Alpha, Charlie expirydate Alpha, Charlie, Bravo, Delta length Delta, Bravo, Charlie, Alpha auto Bravo Alpha Delta Charlie default Bravo Alpha Delta Charlie weight Bravo Alpha Delta Charlie title Alpha Bravo Charlie Delta date Delta Charlie Bravo Alpha modifieddate Charlie Delta Alpha Bravo publishdate Bravo Delta Alpha Charlie expirydate Alpha Charlie Bravo Delta length Delta Bravo Charlie Alpha nested sort applies to every level it descends into, not only the first. Bravo’s own two children are weighted against their titles, so a level that kept the default order reads Zulu before Alpha.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/sorted/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bravo</title>
+      <link>/sorted/w1-bravo/index.html</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/sorted/w1-bravo/index.html</guid>
+      <description>The second shortest body in the site. sort=length orders by the length of the rendered content, so these four bodies are the only thing that tells that criterion apart from the other six.</description>
+    </item>
+    <item>
+      <title>Alpha</title>
+      <link>/sorted/w2-alpha/index.html</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>/sorted/w2-alpha/index.html</guid>
+      <description>The longest body in the site, and so the last page under sort=length.&#xA;Its weight puts it second, its title first, its date last, its lastmod third, its publishDate third and its expiryDate first. Seven criteria, seven distinct positions across the four pages, which is what stops one sort from passing while wearing another’s order.&#xA;The body has to be long enough that no amount of surrounding markup can close the gap to Charlie, so it runs to a few paragraphs rather than a few words. Length is measured after rendering, which includes whatever the theme wraps around it.</description>
+    </item>
+    <item>
+      <title>Delta</title>
+      <link>/sorted/w3-delta/index.html</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>/sorted/w3-delta/index.html</guid>
+      <description>The shortest body in the site.</description>
+    </item>
+    <item>
+      <title>Charlie</title>
+      <link>/sorted/w4-charlie/index.html</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>/sorted/w4-charlie/index.html</guid>
+      <description>The third shortest body in the site, which is to say the second longest.&#xA;It sits between Bravo and Alpha on length, last on weight, third on title, second on date, first on lastmod, last on publishDate and second on expiryDate.</description>
+    </item>
+  </channel>
+</rss>

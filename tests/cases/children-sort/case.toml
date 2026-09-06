@@ -1,0 +1,15 @@
+# Every documented `sort` value of the `children` shortcode, and the two places
+# the parameter has to survive a hand-off to still mean anything.
+#
+# Four sibling pages whose weight, title, date, lastmod, publishDate,
+# expiryDate and content length each produce a *different* order. No two
+# criteria can then agree by accident, so a listing names the criterion that
+# built it and a criterion silently falling back to the default is visible as
+# the default's order rather than hiding behind a coincidence.
+#
+# The content layer is the whole point. Every sort produces the same four
+# files and the same four links; only their order differs, which a file set
+# cannot see.
+
+site        = "children-sort"
+environment = "testing"

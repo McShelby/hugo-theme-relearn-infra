@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags :: Children Sort</title>
+    <link>/tags/index.html</link>
+    <description>A taxonomy page and its term pages build their own listing and hand it to the children shortcode already assembled, so sort has to be honoured where the listing is built rather than where it is rendered.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tag :: Zulu</title>
+      <link>/tags/one/index.html</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/one/index.html</guid>
+      <description>Holds Bravo and Alpha. By weight that is Bravo first; by title, Alpha.</description>
+    </item>
+    <item>
+      <title>Tag :: Alpha</title>
+      <link>/tags/two/index.html</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/two/index.html</guid>
+      <description>Holds Delta and Charlie. By weight that is Delta first; by title, Charlie.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Children Sort</title>
+    <link>/index.html</link>
+    <description>Two halves. Sorted calls the children shortcode once per documented sort value over one set of pages. Tags reaches the same shortcode the way a taxonomy and a term page do, where the listing is built before the shortcode ever sees it.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sorted</title>
+      <link>/sorted/index.html</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/sorted/index.html</guid>
+      <description>One listing per documented sort value, over the same four pages. Each block carries the criterion in its class, so the order below a class either matches that criterion or the sort did not happen.&#xA;sort expected order auto, default, weight Bravo, Alpha, Delta, Charlie title Alpha, Bravo, Charlie, Delta date Delta, Charlie, Bravo, Alpha modifieddate Charlie, Delta, Alpha, Bravo publishdate Bravo, Delta, Alpha, Charlie expirydate Alpha, Charlie, Bravo, Delta length Delta, Bravo, Charlie, Alpha auto Bravo Alpha Delta Charlie default Bravo Alpha Delta Charlie weight Bravo Alpha Delta Charlie title Alpha Bravo Charlie Delta date Delta Charlie Bravo Alpha modifieddate Charlie Delta Alpha Bravo publishdate Bravo Delta Alpha Charlie expirydate Alpha Charlie Bravo Delta length Delta Bravo Charlie Alpha nested sort applies to every level it descends into, not only the first. Bravo’s own two children are weighted against their titles, so a level that kept the default order reads Zulu before Alpha.</description>
+    </item>
+  </channel>
+</rss>

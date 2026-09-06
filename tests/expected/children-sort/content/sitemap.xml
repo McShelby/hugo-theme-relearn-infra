@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/sorted/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w1-bravo/nested-zulu/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/tags/one/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w1-bravo/index.html</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w1-bravo/nested-alpha/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/tags/two/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/tags/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w2-alpha/index.html</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w3-delta/index.html</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/sorted/w4-charlie/index.html</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alpha :: Children Sort</title>
+    <link>/sorted/w2-alpha/index.html</link>
+    <description>The longest body in the site, and so the last page under sort=length.&#xA;Its weight puts it second, its title first, its date last, its lastmod third, its publishDate third and its expiryDate first. Seven criteria, seven distinct positions across the four pages, which is what stops one sort from passing while wearing another’s order.&#xA;The body has to be long enough that no amount of surrounding markup can close the gap to Charlie, so it runs to a few paragraphs rather than a few words. Length is measured after rendering, which includes whatever the theme wraps around it.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="/sorted/w2-alpha/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

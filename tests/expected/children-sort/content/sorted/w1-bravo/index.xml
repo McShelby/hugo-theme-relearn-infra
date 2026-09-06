@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bravo :: Children Sort</title>
+    <link>/sorted/w1-bravo/index.html</link>
+    <description>The second shortest body in the site. sort=length orders by the length of the rendered content, so these four bodies are the only thing that tells that criterion apart from the other six.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/sorted/w1-bravo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zulu</title>
+      <link>/sorted/w1-bravo/nested-zulu/index.html</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/sorted/w1-bravo/nested-zulu/index.html</guid>
+      <description>First by weight, last by title.</description>
+    </item>
+    <item>
+      <title>Alpha</title>
+      <link>/sorted/w1-bravo/nested-alpha/index.html</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/sorted/w1-bravo/nested-alpha/index.html</guid>
+      <description>Last by weight, first by title.</description>
+    </item>
+  </channel>
+</rss>

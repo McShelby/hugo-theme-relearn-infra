@@ -1,0 +1,10 @@
+{{- /* Prints back what the `children` shortcode handed a card template: the
+	template it asked for by name, and the `sort` the listing was built with. */}}
+<li>
+  <article class="card">
+    <div class="card-content">
+      <div class="card-title">{{ .title }}</div>
+      <div class="card-content-text">template={{ .template }} sort={{ .params.sort }}</div>
+    </div>
+  </article>
+</li>
