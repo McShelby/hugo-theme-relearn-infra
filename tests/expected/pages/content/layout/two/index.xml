@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Two :: Pages</title>
+    <link>/layout/two/index.html</link>
+    <description>A branch with two children of its own.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/layout/two/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two A</title>
+      <link>/layout/two/two-a/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/two/two-a/index.html</guid>
+      <description>Second level, first page.</description>
+    </item>
+    <item>
+      <title>Two B</title>
+      <link>/layout/two/two-b/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/two/two-b/index.html</guid>
+      <description>Second level, second page.</description>
+    </item>
+  </channel>
+</rss>

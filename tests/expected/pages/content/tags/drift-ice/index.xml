@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drift Ice :: Tag :: Pages</title>
+    <link>/tags/drift-ice/index.html</link>
+    <description>A term with a content file of its own but no title in it. The theme falls back to the humanized term, Drift Ice, wherever Hugo leaves the title empty.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/tags/drift-ice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drift</title>
+      <link>/text/drift/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/drift/index.html</guid>
+      <description>Titled D, linked as S.</description>
+    </item>
+    <item>
+      <title>Anchorage</title>
+      <link>/text/anchorage/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/anchorage/index.html</guid>
+      <description>Splits from Anchor only at the fourth letter.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terms :: Pages</title>
+    <link>/terms/index.html</link>
+    <description>Taxonomy and term pages, listed from here by pageref. The pages of the text section carry the tags harbor, sea and drift-ice:&#xA;harbor has a content file titled Harbour and linked as Port, drift-ice has a content file without a title, sea has no content file at all. The taxonomy and term pages themselves render their listings through the same shortcode, with the defaults below, and are part of this site’s output too.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/terms/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

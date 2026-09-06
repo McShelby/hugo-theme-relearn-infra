@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages</title>
+    <link>/index.html</link>
+    <description>One section per kind of question a listing has to answer.&#xA;Text - expressions over strings: the title fields, front matter parameters, the text functions, grouping, ordering, filtering and limit. Dates - the four date fields and a date in front matter, the date functions, and the order the resulting groups fall into. Layout - the tree a listing is taken from, the displays that render it, and the listing shape: columns, headinglevel, description, breadcrumb, axis and pageref. Front matter - parameters set in params.pages and by cascade, and what a call does to them. Terms - taxonomy and term pages, and the titles they are listed by. Legacy - the deprecated children shortcode, and the pages call it names as its replacement. Invalid - every expression and parameter the shortcode refuses, and the warning it refuses it with. Values - values that are not plain text: a missing weight, zero, padding, lists and maps, and numbers and text mixed in one key. Each section’s fixtures are shaped for its own question and stay deliberately plain otherwise, so that a listing that comes out wrong is visible as wrong.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Sep 2027 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Text</title>
+      <link>/text/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/index.html</guid>
+      <description>Expressions over strings. Eight children: Anchor, Anchorage, Beacon, Compass, Drift (linked as Signal), Ember, Lantern (hidden) and Ösen.&#xA;Their weights run 10, 15, 20, 30, 35, 40, 50, 60 and deliberately disagree with the alphabet: Beacon is lightest, Ösen heaviest. Lantern weighs 15 and only shows where hidden pages are asked for.&#xA;Every grouped listing here sets headinglevel=&#34;4&#34; so that a group heading renders below the heading naming the listing, rather than beside it.</description>
+    </item>
+    <item>
+      <title>Dates</title>
+      <link>/dates/index.html</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>/dates/index.html</guid>
+      <description>Expressions over dates. Nine children, Alpha through India.&#xA;The four date fields are set decades apart on purpose - date in 2020-2023, lastmod in 2024-2027, publishDate in 2018-2021, expiryDate in 2090-2093 - so no two fields can produce the same set of groups. India has none of them.&#xA;Within the five pages that share a date year, lastmod ranks them in the exact reverse of their date order. Ordering inside a group is therefore the one place where naming the wrong field cannot pass for the right one.</description>
+    </item>
+    <item>
+      <title>Layout</title>
+      <link>/layout/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/index.html</guid>
+      <description>The tree a listing is taken from, and what a display makes of it. Three children - One, a leaf; Two, a branch with two pages under it; and Three, a branch with one - so a second level exists to be shown or withheld. A fourth, Four, is a hidden branch with one page under it, and absent from every listing that does not ask for hidden pages.&#xA;levels and flatten - the tree levels=1 The default: the children only.</description>
+    </item>
+    <item>
+      <title>Front Matter</title>
+      <link>/frontmatter/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/index.html</guid>
+      <description>Parameters set in front matter rather than on the call. Three children - Round, Square and Nested, a branch with two pages - each carrying a shape.&#xA;This page’s own params.pages asks for a list, grouped by shape, heaviest first. It also cascades columns = 2 down to the pages below it, which only Nested lists anything with.&#xA;From front matter No parameter on the call: everything comes from front matter.</description>
+    </item>
+    <item>
+      <title>Terms</title>
+      <link>/terms/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/terms/index.html</guid>
+      <description>Taxonomy and term pages, listed from here by pageref. The pages of the text section carry the tags harbor, sea and drift-ice:&#xA;harbor has a content file titled Harbour and linked as Port, drift-ice has a content file without a title, sea has no content file at all. The taxonomy and term pages themselves render their listings through the same shortcode, with the defaults below, and are part of this site’s output too.</description>
+    </item>
+    <item>
+      <title>Legacy</title>
+      <link>/legacy/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/legacy/index.html</guid>
+      <description>The deprecated children shortcode, now a translation into pages. Three children - Aft, Bow, a branch with one page, and Keel, hidden - weighted in the reverse of their titles, so an order by title and one by weight disagree.&#xA;Every call here warns on the console and names the pages call it was translated into. The site’s warnings.txt lists each of those messages in full, so the warning is the assertion: a translation that changed would fail the suite until the baseline is brought along with it.</description>
+    </item>
+    <item>
+      <title>Invalid</title>
+      <link>/invalid/index.html</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/invalid/index.html</guid>
+      <description>Every expression and parameter the shortcode refuses. A refused parameter is reported on the console and left out, so each listing here renders as if it had not been given - never an aborted build. The warnings are the assertion rather than noise: they are listed in the site’s warnings.txt, and a message that changes wording fails the suite until the baseline is brought along with it.&#xA;Three children, First, Second and Third. This is what a valid listing over them looks like, grouped by flavor:</description>
+    </item>
+    <item>
+      <title>Values</title>
+      <link>/values/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/index.html</guid>
+      <description>What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.&#xA;Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.</description>
+    </item>
+  </channel>
+</rss>

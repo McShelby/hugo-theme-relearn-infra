@@ -1,0 +1,18 @@
+# The `children` shortcode is deprecated and warns on every call, naming the
+# `pages` call it is translated into. This site pins `children`'s `sort` on
+# purpose, so each warning is the assertion rather than an accepted defect: a
+# translation that changed would fail the suite until this file is brought
+# along with it. Each message is listed in full, and the file path it starts
+# with is left out, as it depends on where the site was built.
+
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="auto" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="weight" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="linktitle" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="date" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="lastmod" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="publishdate" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="expirydate" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="length" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="tree" levels="2" orderby="linktitle" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages cardtemplate="sortprobe" display="cards" orderby="linktitle" %}}' instead

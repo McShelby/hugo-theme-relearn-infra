@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Invalid :: Pages</title>
+    <link>/invalid/index.html</link>
+    <description>Every expression and parameter the shortcode refuses. A refused parameter is reported on the console and left out, so each listing here renders as if it had not been given - never an aborted build. The warnings are the assertion rather than noise: they are listed in the site’s warnings.txt, and a message that changes wording fails the suite until the baseline is brought along with it.&#xA;Three children, First, Second and Third. This is what a valid listing over them looks like, grouped by flavor:</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/invalid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>/invalid/first/index.html</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>/invalid/first/index.html</guid>
+      <description>One of three children that exist so that a listing whose parameter was refused shows what it falls back to: the listing without that parameter.</description>
+    </item>
+    <item>
+      <title>Second</title>
+      <link>/invalid/second/index.html</link>
+      <pubDate>Thu, 11 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/invalid/second/index.html</guid>
+      <description>A second flavor and a second year, so a refused groupby or orderby is visible as the grouping or order that did not happen.</description>
+    </item>
+    <item>
+      <title>Third</title>
+      <link>/invalid/third/index.html</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/invalid/third/index.html</guid>
+      <description>Shares a flavor with First, so a valid params.flavor listing over this section is two groups of unequal size - the shape a refused one has to lack.</description>
+    </item>
+  </channel>
+</rss>

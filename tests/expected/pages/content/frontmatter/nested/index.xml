@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nested :: Pages</title>
+    <link>/frontmatter/nested/index.html</link>
+    <description>Has no params.pages of its own, but receives columns = 2 from its parent’s cascade - and nothing else, as its parent’s own params.pages is not cascaded.&#xA;Cascaded A tree in two columns.&#xA;Inner A Inner B Whitespace resets a cascaded value columns=&#34; &#34; resets the cascaded value, so the default of one column applies.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/frontmatter/nested/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inner A</title>
+      <link>/frontmatter/nested/inner-a/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/nested/inner-a/index.html</guid>
+      <description>A page below Nested, so its listing has something to show.</description>
+    </item>
+    <item>
+      <title>Inner B</title>
+      <link>/frontmatter/nested/inner-b/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/nested/inner-b/index.html</guid>
+      <description>A sibling of Inner A.</description>
+    </item>
+  </channel>
+</rss>

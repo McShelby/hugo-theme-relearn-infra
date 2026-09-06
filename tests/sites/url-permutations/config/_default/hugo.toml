@@ -13,3 +13,12 @@ title = 'URL Permutations'
   home = ['html', 'rss', 'source']
   section = ['html', 'rss', 'source']
   page = ['html', 'source']
+
+# The `pages` shortcode emits its listing as Markdown and marks it with a block
+# attribute, which Goldmark only honours when block attributes are on. Without
+# this the `{class=...}` arrives in the page as literal text.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true

@@ -1,0 +1,54 @@
+# Every parameter the `pages` shortcode accepts.
+#
+# A listing is one funnel - a source collects pages, filters drop some,
+# `orderby` orders them, `groupby` partitions them and a display renders them -
+# so a change to any stage lands on all of it at once. The fixtures are split by
+# what a question needs to be legible, not by parameter: `text` for expressions
+# over strings, `dates` for the date fields and functions, `layout` for the
+# tree, the displays and the listing shape, `frontmatter` for parameters set
+# outside the call, `terms` for taxonomy and term pages, `legacy` for the
+# deprecated `children` shortcode, `invalid` for what is rejected, and `values`
+# for values that are not plain text.
+#
+# Within a section every fixture differs from its siblings in the one dimension
+# that section is about, and agrees with them everywhere else. A page that
+# lands in the wrong group or place therefore reads as wrong in the diff rather
+# than merely plausible.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
+title = 'Pages'
+
+# The `dates` fixtures carry publish and expiry dates decades apart on purpose,
+# so that grouping by `publishdate` and by `expirydate` cannot yield the same
+# partition as grouping by `date`. Hugo drops a future or an expired page from
+# a build unless told otherwise, which would make the fixture set depend on the
+# day it was built - and a suite comparing output byte for byte cannot have
+# that. These two say: whatever the dates are, every page exists.
+buildFuture = true
+buildExpired = true
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the shortcode calls rather than their output.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
+# The markdown displays hand their list a class through a markdown block
+# attribute, so a site that renders `pages` at all needs those enabled - the
+# shortcode's docs say as much. Without it the attribute is not consumed and
+# arrives as literal text in the last list item instead, which is exactly the
+# sort of thing this site is here to notice.
+[markup]
+  [markup.goldmark.parser.attribute]
+    block = true
+
+  # `display=cards` emits its listing as HTML rather than as markdown, so a site
+  # that renders cards has to let raw HTML through. Grouping has to compose with
+  # every display, cards included, which is why this site renders them.
+  [markup.goldmark.renderer]
+    unsafe = true

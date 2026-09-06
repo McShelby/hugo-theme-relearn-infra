@@ -19,7 +19,7 @@
       <link>https://example.com/subdir/chapter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://example.com/subdir/chapter/index.html</guid>
-      <description>A section, so section-index links are covered too.&#xA;Child {class=“children children-type-tree children-sort-”}</description>
+      <description>A section, so section-index links are covered too.&#xA;Child</description>
     </item>
   </channel>
 </rss>

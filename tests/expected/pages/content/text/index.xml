@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Text :: Pages</title>
+    <link>/text/index.html</link>
+    <description>Expressions over strings. Eight children: Anchor, Anchorage, Beacon, Compass, Drift (linked as Signal), Ember, Lantern (hidden) and Ösen.&#xA;Their weights run 10, 15, 20, 30, 35, 40, 50, 60 and deliberately disagree with the alphabet: Beacon is lightest, Ösen heaviest. Lantern weighs 15 and only shows where hidden pages are asked for.&#xA;Every grouped listing here sets headinglevel=&#34;4&#34; so that a group heading renders below the heading naming the listing, rather than beside it.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/text/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beacon</title>
+      <link>/text/beacon/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/beacon/index.html</guid>
+      <description>Carries the lower-case twin of the tier Anchor carries.</description>
+    </item>
+    <item>
+      <title>Lantern</title>
+      <link>/text/lantern/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/lantern/index.html</guid>
+      <description>Hidden from the menu unless hidden says otherwise.</description>
+    </item>
+    <item>
+      <title>Drift</title>
+      <link>/text/drift/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/drift/index.html</guid>
+      <description>Titled D, linked as S.</description>
+    </item>
+    <item>
+      <title>Anchor</title>
+      <link>/text/anchor/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/anchor/index.html</guid>
+      <description>Shares its first three letters with Anchorage.</description>
+    </item>
+    <item>
+      <title>Anchorage</title>
+      <link>/text/anchorage/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/anchorage/index.html</guid>
+      <description>Splits from Anchor only at the fourth letter.</description>
+    </item>
+    <item>
+      <title>Ember</title>
+      <link>/text/ember/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/ember/index.html</guid>
+      <description>Has no flavor at all.</description>
+    </item>
+    <item>
+      <title>Compass</title>
+      <link>/text/compass/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/compass/index.html</guid>
+      <description>A second guide, so that group is not a synonym for page.</description>
+    </item>
+    <item>
+      <title>Ösen</title>
+      <link>/text/oesen/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/oesen/index.html</guid>
+      <description>Starts with a two-byte character.</description>
+    </item>
+  </channel>
+</rss>

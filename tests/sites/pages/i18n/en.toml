@@ -1,0 +1,13 @@
+# Translations for the `translate` function of the `pages` shortcode, looked up
+# by the `text` section. Deliberately incomplete: `flavor-reference`, `guide`
+# and `tutorial` are missing, so each listing there shows a value falling back
+# to itself.
+
+[flavor-guide]
+other = "Guides"
+
+[flavor-tutorial]
+other = "Tutorials"
+
+[reference]
+other = "References"

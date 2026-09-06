@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags :: Pages</title>
+    <link>/tags/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tag :: Harbour</title>
+      <link>/tags/harbor/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/harbor/index.html</guid>
+      <description>A term with a content file of its own, titled Harbour and linked as Port. Its heading reads Tag :: Harbour; the menu, the breadcrumbs and every listing show Port, and a letter index files it under P.</description>
+    </item>
+    <item>
+      <title>Tag :: Sea</title>
+      <link>/tags/sea/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/sea/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

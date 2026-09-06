@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Front Matter :: Pages</title>
+    <link>/frontmatter/index.html</link>
+    <description>Parameters set in front matter rather than on the call. Three children - Round, Square and Nested, a branch with two pages - each carrying a shape.&#xA;This page’s own params.pages asks for a list, grouped by shape, heaviest first. It also cascades columns = 2 down to the pages below it, which only Nested lists anything with.&#xA;From front matter No parameter on the call: everything comes from front matter.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/frontmatter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Round</title>
+      <link>/frontmatter/round/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/round/index.html</guid>
+      <description>The lightest page, so a weight desc order puts it last.</description>
+    </item>
+    <item>
+      <title>Square</title>
+      <link>/frontmatter/square/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/square/index.html</guid>
+      <description>Shares its shape with Nested, so a group holds more than one page.</description>
+    </item>
+    <item>
+      <title>Nested</title>
+      <link>/frontmatter/nested/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/frontmatter/nested/index.html</guid>
+      <description>Has no params.pages of its own, but receives columns = 2 from its parent’s cascade - and nothing else, as its parent’s own params.pages is not cascaded.&#xA;Cascaded A tree in two columns.&#xA;Inner A Inner B Whitespace resets a cascaded value columns=&#34; &#34; resets the cascaded value, so the default of one column applies.</description>
+    </item>
+  </channel>
+</rss>

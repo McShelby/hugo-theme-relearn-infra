@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html id="R-html" lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.
+Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Values :: Pages">
+    <meta name="twitter:description" content="What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.
+Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.">
+    <meta property="og:url" content="/values/index.html">
+    <meta property="og:site_name" content="Pages">
+    <meta property="og:title" content="Values :: Pages">
+    <meta property="og:description" content="What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.
+Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Values :: Pages">
+    <meta itemprop="description" content="What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.
+Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.">
+    <meta itemprop="wordCount" content="557">
+    <title>Values :: Pages</title>
+    <link href="../values/index.xml" rel="alternate" type="application/rss+xml" title="Values :: Pages">
+    <link href="../values/index.source.md" rel="alternate" type="text/markdown" title="Values :: Pages">
+    <link href="../css/auto-complete/auto-complete.css" rel="stylesheet">
+    <script src="../js/auto-complete/auto-complete.js" defer></script>
+    <script src="../js/search-lunr.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
+    <script src="../js/lunr/lunr.min.js" defer></script>
+    <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
+    <script src="../js/lunr/lunr.multi.min.js" defer></script>
+    <script src="../js/lunr/lunr.en.min.js" defer></script>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/values/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
+      }
+    }</script>
+    <script src="../js/theme-head.js"></script>
+  </head>
+  <body class="mobile-support html" data-origin="/values/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#weight---a-weight-of-0-has-no-value">weight - a weight of 0 has no value</a>
+      <ul>
+        <li><a href="#orderbyweight">orderby=weight</a></li>
+        <li><a href="#orderbyweight-desc">orderby=weight desc</a></li>
+        <li><a href="#whereweight--20">where=&ldquo;weight &lt;= 20&rdquo;</a></li>
+        <li><a href="#whereweight--9">where=&ldquo;weight &gt;= 9&rdquo;</a></li>
+        <li><a href="#whereweight--abc">where=&ldquo;weight &lt; abc&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#coalesce-and-default">coalesce and default</a>
+      <ul>
+        <li><a href="#coalesce">coalesce</a></li>
+        <li><a href="#default">default</a></li>
+      </ul>
+    </li>
+    <li><a href="#trim">trim</a>
+      <ul>
+        <li><a href="#untrimmed">Untrimmed</a></li>
+        <li><a href="#trim-1">trim</a></li>
+      </ul>
+    </li>
+    <li><a href="#path-and-section">path and section</a>
+      <ul>
+        <li><a href="#groupbysection">groupby=section</a></li>
+        <li><a href="#orderbypath-desc">orderby=&ldquo;path desc&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#lists-and-maps-have-no-value">Lists and maps have no value</a>
+      <ul>
+        <li><a href="#groupbyparamscrew">groupby=params.crew</a></li>
+        <li><a href="#where-on-a-list">where on a list</a></li>
+        <li><a href="#groupbyparamsauthor">groupby=params.author</a></li>
+        <li><a href="#groupbyparamsauthorname">groupby=params.author.name</a></li>
+      </ul>
+    </li>
+    <li><a href="#numbers-and-text-in-one-key">Numbers and text in one key</a>
+      <ul>
+        <li><a href="#orderbyparamsrank">orderby=params.rank</a></li>
+        <li><a href="#orderbyparamsrank-desc">orderby=params.rank desc</a></li>
+        <li><a href="#groupbyparamsrank">groupby=params.rank</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">Pages</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Values</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit default-animation" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="https://github.com/McShelby/hugo-theme-relearn/edit/main/docs/content/values/_index.md" rel="external" title="Edit (CTRL+ALT+w)"><i class="fa-fw fas fa-pen"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-source default-animation" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../values/index.source.md" title="Show source code"><i class="fa-fw fas fa-code"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../invalid/third/index.html" title="Third (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../values/tin/index.html" title="Tin (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable values" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="values">Values</h1>
+
+<p>What an expression makes of a value that is not plain text: a missing weight,
+zero, padding, a list, a map, and one key holding numbers and text alike. Five
+children, Copper, Iron, Lead, Tin and Zinc.</p>
+<p>Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their
+<code>rank</code> is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text <code>x</code>
+for Iron and the text <code>10</code> for Zinc.</p>
+<p>Every grouped listing here sets <code>headinglevel=&quot;4&quot;</code>.</p>
+<h2 id="weight---a-weight-of-0-has-no-value">weight - a weight of 0 has no value<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="orderbyweight">orderby=weight<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Lead and Zinc are unweighted and come last, in Hugo&rsquo;s order.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="orderbyweight-desc">orderby=weight desc<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>And stay last when the direction is reversed.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="whereweight--20">where=&ldquo;weight &lt;= 20&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Tin and Copper. The unweighted pages are not kept, as a missing value only
+matches <code>!=</code>.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h3 id="whereweight--9">where=&ldquo;weight &gt;= 9&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Numbers compare as numbers, so every weighted page is kept - as text, <code>10</code>,
+<code>20</code> and <code>30</code> would all sort before <code>9</code>.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h3 id="whereweight--abc">where=&ldquo;weight &lt; abc&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A literal that is no number makes the weights compare as text, which all sort
+before <code>abc</code>.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h2 id="coalesce-and-default">coalesce and default<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Copper&rsquo;s <code>count</code> is 3, Iron&rsquo;s is 0, and the others have none.</p>
+<h3 id="coalesce">coalesce<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Only a missing value is replaced: Iron keeps its group <code>0</code>. The <code>none</code> group
+is text and so follows the numbers.</p>
+<h4 id="0">0<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h4 id="3">3<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h4 id="none">none<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="default">default<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A zero is replaced as well: Iron joins the <code>none</code> group.</p>
+<h4 id="3-1">3<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h4 id="none-1">none<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h2 id="trim">trim<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Copper&rsquo;s <code>note</code> is <code>padded</code> with spaces around it, Zinc&rsquo;s is <code>padded</code> without.</p>
+<h3 id="untrimmed">Untrimmed<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Two groups, although their headings read the same.</p>
+<h4 id="padded">padded<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h4 id="padded-1">padded<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h4 id="plain">plain<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/lead/index.html">Lead</a></li>
+</ul>
+<h4 id="other">Other<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h3 id="trim-1">trim<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>One group.</p>
+<h4 id="padded-2">padded<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h4 id="plain-1">plain<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/lead/index.html">Lead</a></li>
+</ul>
+<h4 id="other-1">Other<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h2 id="path-and-section">path and section<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="groupbysection">groupby=section<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Every page here is in the <code>values</code> section.</p>
+<h4 id="values">values<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="orderbypath-desc">orderby=&ldquo;path desc&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>The paths end in the file names, so this is the reverse of the alphabet.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h2 id="lists-and-maps-have-no-value">Lists and maps have no value<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Copper&rsquo;s and Iron&rsquo;s <code>crew</code> is a list, Copper&rsquo;s <code>author</code> a map.</p>
+<h3 id="groupbyparamscrew">groupby=params.crew<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A list is no single value to group by: every page is in <code>Other</code>.</p>
+<h4 id="other-2">Other<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="where-on-a-list">where on a list<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A list is replaced by <code>coalesce</code> like any missing value, so every page is
+kept.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="groupbyparamsauthor">groupby=params.author<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A map has no value either.</p>
+<h4 id="other-3">Other<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="groupbyparamsauthorname">groupby=params.author.name<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A value inside the map has one.</p>
+<h4 id="ann">Ann<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h4 id="other-4">Other<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h2 id="numbers-and-text-in-one-key">Numbers and text in one key<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<p>Numbers and text have no common order: Hugo compares text with a number as if
+it were one, or else as <code>0</code>, which puts <code>x</code> below <code>1</code> and <code>10</code> above <code>2</code>, yet
+<code>10</code> below <code>x</code>. So the numbers are ordered as numbers, then the texts as text,
+the numbers first in either direction. Zinc&rsquo;s <code>10</code> is text and orders as such.</p>
+<h3 id="orderbyparamsrank">orderby=params.rank<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Tin, Lead and Copper by number, then Zinc and Iron by text.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+<h3 id="orderbyparamsrank-desc">orderby=params.rank desc<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Copper, Lead and Tin, then Iron and Zinc: both parts reversed, the numbers
+still first.</p>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+<li><a href="../values/lead/index.html">Lead</a></li>
+<li><a href="../values/tin/index.html">Tin</a></li>
+<li><a href="../values/iron/index.html">Iron</a></li>
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h3 id="groupbyparamsrank">groupby=params.rank<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>The groups follow the ascending order above.</p>
+<h4 id="-1">-1<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/tin/index.html">Tin</a></li>
+</ul>
+<h4 id="1">1<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/lead/index.html">Lead</a></li>
+</ul>
+<h4 id="2">2<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/copper/index.html">Copper</a></li>
+</ul>
+<h4 id="10">10<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/zinc/index.html">Zinc</a></li>
+</ul>
+<h4 id="x">x<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h4>
+<ul class="pages pages-tree">
+<li><a href="../values/iron/index.html">Iron</a></li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <a id="R-logo" class="R-default direction-row" href="../index.html">
+          <span class="logo-title default-animation">Pages</span>
+        </a>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-fw fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-fw fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable" tabindex="-1">
+        <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
+        <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/text/index.html"><a class="padding default-animation" href="../text/index.html">Text</a><ul id="R-subsections-04f0d19fe557b2fc8084a38bbeeea801" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/dates/index.html"><a class="padding default-animation" href="../dates/index.html">Dates</a><ul id="R-subsections-a69ca06bce6856bb8fa27ef8e40d0637" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/layout/index.html"><a class="padding default-animation" href="../layout/index.html">Layout</a><ul id="R-subsections-7641bc77fdbe2d22cb199476bf7e0b82" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/frontmatter/index.html"><a class="padding default-animation" href="../frontmatter/index.html">Front Matter</a><ul id="R-subsections-cc0ebb3e3c530e2b73e8bce586dfd068" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/terms/index.html"><a class="padding" href="../terms/index.html">Terms</a></li>
+            <li class="" data-nav-id="/legacy/index.html"><a class="padding default-animation" href="../legacy/index.html">Legacy</a><ul id="R-subsections-13a011b9ba2e1ba7a54ec6b19b59a7e1" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/invalid/index.html"><a class="padding default-animation" href="../invalid/index.html">Invalid</a><ul id="R-subsections-40be10fb7c47ffc265302ef7f32d6c1e" class="collapsible-menu"></ul></li>
+            <li class="active parent " data-nav-id="/values/index.html"><a class="padding default-animation" href="../values/index.html">Values</a><ul id="R-subsections-377dc890aa0b69d0b16216b1bfbb9c3f" class="collapsible-menu">
+            <li class="" data-nav-id="/values/tin/index.html"><a class="padding" href="../values/tin/index.html">Tin</a></li>
+            <li class="" data-nav-id="/values/copper/index.html"><a class="padding" href="../values/copper/index.html">Copper</a></li>
+            <li class="" data-nav-id="/values/iron/index.html"><a class="padding" href="../values/iron/index.html">Iron</a></li>
+            <li class="" data-nav-id="/values/lead/index.html"><a class="padding" href="../values/lead/index.html">Lead</a></li>
+            <li class="" data-nav-id="/values/zinc/index.html"><a class="padding" href="../values/zinc/index.html">Zinc</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts default-animation">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin" class="default-animation"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../js/theme.js" defer></script>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+  </body>
+</html>

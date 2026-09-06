@@ -1,0 +1,59 @@
+# The `text`, `invalid`, `layout` and `legacy` sections provoke these on purpose.
+#
+# Here the warning is the assertion, not an accepted defect: a listing that
+# stopped warning, or started warning differently, would be a change in the
+# theme's contract with an author - one who mistyped a parameter, or one still
+# using the deprecated `children` shortcode and relying on the `pages` call its
+# warning names.
+#
+# Listing each message in full rather than accepting `invalid parameter` or
+# `DEPRECATED shortcode 'children'` wholesale is deliberate. A blanket entry
+# would also swallow a warning some other listing started emitting by accident,
+# which is the thing this file is meant to catch. The file path each message
+# starts with is left out, as it depends on where the site was built.
+
+# text - values the `translate` function finds no translation for, which stay as they are
+i18n|MISSING_TRANSLATION|en|flavor-reference
+i18n|MISSING_TRANSLATION|en|guide
+i18n|MISSING_TRANSLATION|en|tutorial
+
+# invalid - expressions
+invalid parameter 'groupby=nonesuch' for shortcode 'pages': unknown field 'nonesuch'
+invalid parameter 'groupby=name' for shortcode 'pages': unknown field 'name'
+invalid parameter 'groupby=params.' for shortcode 'pages': unknown field 'params.'
+invalid parameter 'groupby=title extra' for shortcode 'pages': field 'title' takes no argument
+invalid parameter 'groupby=title |' for shortcode 'pages': stage 2 is empty
+invalid parameter 'groupby=title | nonesuch' for shortcode 'pages': unknown function 'nonesuch'
+invalid parameter 'groupby=title | upper 1' for shortcode 'pages': function 'upper' takes no argument
+invalid parameter 'groupby=title | left' for shortcode 'pages': function 'left' needs a positive number as argument
+invalid parameter 'groupby=title | left 0' for shortcode 'pages': function 'left' needs a positive number as argument
+invalid parameter 'groupby=date | format' for shortcode 'pages': function 'format' needs an argument
+invalid parameter 'grouplabel=nonesuch' for shortcode 'pages': unknown field 'nonesuch'
+invalid parameter 'groupby=params.flavor | coalesce 'none' for shortcode 'pages': a quote is not closed
+invalid parameter 'orderby=nonesuch' for shortcode 'pages': unknown field 'nonesuch'
+invalid parameter 'where=title' for shortcode 'pages': expected '<pipeline> <operator> <literal>'
+invalid parameter 'where=nonesuch' for shortcode 'pages': unknown field 'nonesuch'
+
+# invalid - parameters
+invalid parameter 'axis=sideways' for shortcode 'pages'
+invalid parameter 'levels=many' for shortcode 'pages': expected a number
+invalid parameter 'columns=wide' for shortcode 'pages': expected a number
+invalid parameter 'params' for shortcode 'pages': expected JSON, TOML or YAML describing a map
+
+# layout
+unknown display 'nonesuch' for shortcode 'pages', falling back to 'tree'
+
+# legacy - each `children` call and the `pages` call it is translated into
+DEPRECATED front matter 'ordersectionsby=name' found, use 'ordersectionsby=title' instead
+DEPRECATED parameter 'containerstyle' or 'style' for shortcode 'children' found, use 'type=list' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="tree" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="headings" levels="2" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" levels="2" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="cards" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="tree" groupby="linktitle | left 1 | upper" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="tree" orderby="linktitle" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="lastmod" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="tree" hidden="true" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="headings" headinglevel="4" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages breadcrumb="true" description="true" display="tree" %}}' instead
+DEPRECATED shortcode 'children' found, use '{{% pages display="headings" %}}' instead

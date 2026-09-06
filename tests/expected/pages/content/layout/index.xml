@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Layout :: Pages</title>
+    <link>/layout/index.html</link>
+    <description>The tree a listing is taken from, and what a display makes of it. Three children - One, a leaf; Two, a branch with two pages under it; and Three, a branch with one - so a second level exists to be shown or withheld. A fourth, Four, is a hidden branch with one page under it, and absent from every listing that does not ask for hidden pages.&#xA;levels and flatten - the tree levels=1 The default: the children only.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/layout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>One</title>
+      <link>/layout/one/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/one/index.html</guid>
+      <description>A leaf directly under the section.</description>
+    </item>
+    <item>
+      <title>Two</title>
+      <link>/layout/two/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/two/index.html</guid>
+      <description>A branch with two children of its own.</description>
+    </item>
+    <item>
+      <title>Three</title>
+      <link>/layout/three/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/three/index.html</guid>
+      <description>A branch with one child.</description>
+    </item>
+    <item>
+      <title>Four</title>
+      <link>/layout/four/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/layout/four/index.html</guid>
+      <description>A hidden branch with one child.</description>
+    </item>
+  </channel>
+</rss>

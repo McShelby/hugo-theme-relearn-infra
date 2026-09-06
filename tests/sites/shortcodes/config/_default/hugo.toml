@@ -20,6 +20,11 @@ title = 'Shortcodes'
 
 [markup]
   [markup.goldmark]
+    # the `pages` shortcode marks its Markdown listing with a block attribute;
+    # without this the `{class=...}` arrives in the page as literal text
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
     [markup.goldmark.renderer]
       unsafe = true
     # the theme finds math formulae by these delimiters

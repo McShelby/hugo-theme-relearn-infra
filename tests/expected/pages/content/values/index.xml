@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Values :: Pages</title>
+    <link>/values/index.html</link>
+    <description>What an expression makes of a value that is not plain text: a missing weight, zero, padding, a list, a map, and one key holding numbers and text alike. Five children, Copper, Iron, Lead, Tin and Zinc.&#xA;Tin weighs 10, Copper 20 and Iron 30; Lead and Zinc are unweighted. Their rank is the number -1 for Tin, 1 for Lead and 2 for Copper, but the text x for Iron and the text 10 for Zinc.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/values/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tin</title>
+      <link>/values/tin/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/tin/index.html</guid>
+      <description>Weighs 10, the lightest. Its rank is the number -1.</description>
+    </item>
+    <item>
+      <title>Copper</title>
+      <link>/values/copper/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/copper/index.html</guid>
+      <description>Weighs 20. Its crew is a list and its author a map, its note is padded with spaces, and its rank is the number 2.</description>
+    </item>
+    <item>
+      <title>Iron</title>
+      <link>/values/iron/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/iron/index.html</guid>
+      <description>Weighs 30. Its count is zero, its crew a list of one, and its rank the text x.</description>
+    </item>
+    <item>
+      <title>Lead</title>
+      <link>/values/lead/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/lead/index.html</guid>
+      <description>Unweighted. Its rank is the number 1.</description>
+    </item>
+    <item>
+      <title>Zinc</title>
+      <link>/values/zinc/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/values/zinc/index.html</guid>
+      <description>Unweighted. Its note is unpadded, and its rank the text 10.</description>
+    </item>
+  </channel>
+</rss>

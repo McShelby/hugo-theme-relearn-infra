@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Legacy :: Pages</title>
+    <link>/legacy/index.html</link>
+    <description>The deprecated children shortcode, now a translation into pages. Three children - Aft, Bow, a branch with one page, and Keel, hidden - weighted in the reverse of their titles, so an order by title and one by weight disagree.&#xA;Every call here warns on the console and names the pages call it was translated into. The site’s warnings.txt lists each of those messages in full, so the warning is the assertion: a translation that changed would fail the suite until the baseline is brought along with it.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/legacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keel</title>
+      <link>/legacy/keel/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/legacy/keel/index.html</guid>
+      <description>Hidden, and the lightest, so it only appears where showhidden asks for it.</description>
+    </item>
+    <item>
+      <title>Bow</title>
+      <link>/legacy/bow/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/legacy/bow/index.html</guid>
+      <description>A branch, so depth has a second level to reach.</description>
+    </item>
+    <item>
+      <title>Aft</title>
+      <link>/legacy/aft/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/legacy/aft/index.html</guid>
+      <description>First by title, last by weight.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+# Every parameter the `pages` shortcode accepts, every expression it refuses,
+# and what the deprecated `children` shortcode is translated into.
+#
+# One site rather than a fixture per parameter, because a listing is one
+# funnel - source, filter, order, group, display - and a change to any stage
+# lands on all of it at once. A diff showing them together is the only way to
+# see that.
+#
+# No axis: nothing here is a matter of configuration. The parameters are written
+# on the shortcode call or in front matter, so the permutations live in the
+# content.
+
+site        = "pages"
+environment = "testing"

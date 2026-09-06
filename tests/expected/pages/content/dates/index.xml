@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dates :: Pages</title>
+    <link>/dates/index.html</link>
+    <description>Expressions over dates. Nine children, Alpha through India.&#xA;The four date fields are set decades apart on purpose - date in 2020-2023, lastmod in 2024-2027, publishDate in 2018-2021, expiryDate in 2090-2093 - so no two fields can produce the same set of groups. India has none of them.&#xA;Within the five pages that share a date year, lastmod ranks them in the exact reverse of their date order. Ordering inside a group is therefore the one place where naming the wrong field cannot pass for the right one.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Sep 2027 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/dates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpha</title>
+      <link>/dates/alpha/index.html</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <guid>/dates/alpha/index.html</guid>
+      <description>A Wednesday in January 2021. Shares its month name with Bravo a year later.</description>
+    </item>
+    <item>
+      <title>Bravo</title>
+      <link>/dates/bravo/index.html</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>/dates/bravo/index.html</guid>
+      <description>The same day of the same month as Alpha, one year on: a year layout separates the two, a month-name layout merges them.</description>
+    </item>
+    <item>
+      <title>Charlie</title>
+      <link>/dates/charlie/index.html</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>/dates/charlie/index.html</guid>
+      <description>The only Monday among the dated pages, which makes it the page a weekday layout has to put first.</description>
+    </item>
+    <item>
+      <title>Delta</title>
+      <link>/dates/delta/index.html</link>
+      <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/dates/delta/index.html</guid>
+      <description>The only Tuesday. Its released parameter shares a month with Charlie’s, so a parameter grouped by month holds two pages.</description>
+    </item>
+    <item>
+      <title>Echo</title>
+      <link>/dates/echo/index.html</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/dates/echo/index.html</guid>
+      <description>Shares its exact date with Foxtrot, so even a full 2006-01-02 layout has one group holding two pages. Has no released parameter, which is what a parameter listing has to account for.</description>
+    </item>
+    <item>
+      <title>Foxtrot</title>
+      <link>/dates/foxtrot/index.html</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>/dates/foxtrot/index.html</guid>
+      <description>Echo’s twin by date and nobody’s twin by any other field: the pair is how a listing that silently drops a duplicate key gets caught.</description>
+    </item>
+    <item>
+      <title>Golf</title>
+      <link>/dates/golf/index.html</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/dates/golf/index.html</guid>
+      <description>The earliest date and the only Sunday. Its publishDate is the latest of the set, so a listing that confuses the two fields inverts.</description>
+    </item>
+    <item>
+      <title>Hotel</title>
+      <link>/dates/hotel/index.html</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>/dates/hotel/index.html</guid>
+      <description>The latest date and the only Saturday. With Charlie’s Monday and Golf’s Sunday this makes the weekday set one whose ISO order and alphabetical order disagree.</description>
+    </item>
+    <item>
+      <title>India</title>
+      <link>/dates/india/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/dates/india/index.html</guid>
+      <description>The page with no date of any kind, and no released parameter either. Hugo gives an unset date field the zero time, which is the first of January in year one - a Monday. Every date listing here therefore has to say what it does with a page that has nothing to be grouped by.</description>
+    </item>
+  </channel>
+</rss>

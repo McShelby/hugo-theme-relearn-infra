@@ -49,8 +49,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards {class=“children children-type-tree children-sort-”}",
-    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards {class=“children children-type-tree children-sort-”}",
+    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards",
+    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards",
     "tags": [],
     "title": "Shortcodes",
     "uri": "/index.html"

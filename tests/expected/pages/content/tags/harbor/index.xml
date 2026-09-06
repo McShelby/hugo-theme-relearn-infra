@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Harbour :: Tag :: Pages</title>
+    <link>/tags/harbor/index.html</link>
+    <description>A term with a content file of its own, titled Harbour and linked as Port. Its heading reads Tag :: Harbour; the menu, the breadcrumbs and every listing show Port, and a letter index files it under P.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/tags/harbor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lantern</title>
+      <link>/text/lantern/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/lantern/index.html</guid>
+      <description>Hidden from the menu unless hidden says otherwise.</description>
+    </item>
+    <item>
+      <title>Anchor</title>
+      <link>/text/anchor/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/anchor/index.html</guid>
+      <description>Shares its first three letters with Anchorage.</description>
+    </item>
+    <item>
+      <title>Anchorage</title>
+      <link>/text/anchorage/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/anchorage/index.html</guid>
+      <description>Splits from Anchor only at the fourth letter.</description>
+    </item>
+    <item>
+      <title>Compass</title>
+      <link>/text/compass/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/text/compass/index.html</guid>
+      <description>A second guide, so that group is not a synonym for page.</description>
+    </item>
+  </channel>
+</rss>
