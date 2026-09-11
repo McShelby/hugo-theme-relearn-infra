@@ -245,7 +245,7 @@ exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d772254
 exampleSite/js/perfect-scrollbar/perfect-scrollbar.min.db7463db58ffbf17da815a125672d269b005017f2e343e731f69a22d157b2170.js
 exampleSite/js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
 exampleSite/js/search.min.c58b508bccda750a48211b66c89002539e69e1ef1f10dbde995b328356a36f14.js
-exampleSite/js/theme.min.8cf35ce490bb913f2128b8e605cc88803cc70c1f1a2aa37fc44071c57623b811.js
+exampleSite/js/theme.min.6e511025eeb3da02573330b2d6b065987672fd30bd839db10c8b73e809aea089.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -987,7 +987,7 @@ js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078f
 js/search.min.c58b508bccda750a48211b66c89002539e69e1ef1f10dbde995b328356a36f14.js
 js/swagger-ui/swagger-ui-bundle.a7e344f2770b2f07527ce828e0951626983b8f2dcdb7a826689c0232023f995b.js
 js/swagger-ui/swagger-ui-standalone-preset.1ad2ffd7a236dca4e570ce2ba2ef3de721d7553d4e7449db58df66cb294311e9.js
-js/theme.min.8cf35ce490bb913f2128b8e605cc88803cc70c1f1a2aa37fc44071c57623b811.js
+js/theme.min.6e511025eeb3da02573330b2d6b065987672fd30bd839db10c8b73e809aea089.js
 js/variant.min.b57bdaacf79f2b6c6e6c17e848e4dd949f64d13204d0be1a4c971b5a3431dedf.js
 more/credits/index.html
 more/credits/index.print.html
@@ -2147,8 +2147,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.eaeab575b018276d29491338e55a914643666ad680d6b0bca7148f248ea79fb1.js
-searchindex.pir.min.02eaece50b9ba27a2e47d48dbb999672eac8f607be89c83e9b5211e60ab7b6de.js
+searchindex.en.min.2db2050c81c4513d65cc746330a3dbf3bec227bfc644959a038aaabda4588916.js
+searchindex.pir.min.9994619d42685e1fec7676fe6c60775ddff150f6e3447c4c1dd42f5f0253862a.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
