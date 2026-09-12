@@ -8,7 +8,6 @@ categories/index.xml
 css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
-css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.css
 css/theme.css
 dependencies/index.html
@@ -156,7 +155,6 @@ js/mathjax/ui/menu.js
 js/mathjax/ui/no-dark-mode.js
 js/mathjax/ui/safe.js
 js/mermaid/mermaid.min.js
-js/perfect-scrollbar/perfect-scrollbar.min.js
 js/search-lunr.js
 js/search.js
 js/theme.js

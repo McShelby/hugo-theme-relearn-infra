@@ -32,7 +32,7 @@
   --CODE-INLINE-color: rgba( 94, 94, 94, 1 ); /* text color of inline code */
   --CODE-INLINE-BG-color: rgba( 255, 250, 233, 1 ); /* background color of inline code */
   --CODE-INLINE-BORDER-color: rgba( 248, 232, 200, 1 ); /* border color of inline code */
-  --BROWSER-theme: light; /* name of the theme for browser scrollbars of the main section */
+  --BROWSER-theme: light; /* name of the theme for controls drawn by the browser like form fields */
   --MERMAID-theme: default; /* name of the default Mermaid theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-theme: light; /* name of the default OpenAPI theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-CODE-theme: idea; /* name of the default OpenAPI code theme for this variant, can be overridden in hugo.toml */
@@ -153,7 +153,7 @@
   --CODE-INLINE-color: rgba( 130, 229, 80, 1 ); /* text color of inline code */
   --CODE-INLINE-BG-color: rgba( 45, 45, 45, 1 ); /* background color of inline code */
   --CODE-INLINE-BORDER-color: rgba( 70, 70, 70, 1 ); /* border color of inline code */
-  --BROWSER-theme: dark; /* name of the theme for browser scrollbars of the main section */
+  --BROWSER-theme: dark; /* name of the theme for controls drawn by the browser like form fields */
   --MERMAID-theme: dark; /* name of the default Mermaid theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-theme: dark; /* name of the default OpenAPI theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-CODE-theme: obsidian; /* name of the default OpenAPI code theme for this variant, can be overridden in hugo.toml */
@@ -265,7 +265,7 @@
   --CODE-INLINE-color: rgba( 94, 94, 94, 1 ); /* text color of inline code */
   --CODE-INLINE-BG-color: rgba( 255, 250, 233, 1 ); /* background color of inline code */
   --CODE-INLINE-BORDER-color: rgba( 248, 232, 200, 1 ); /* border color of inline code */
-  --BROWSER-theme: light; /* name of the theme for browser scrollbars of the main section */
+  --BROWSER-theme: light; /* name of the theme for controls drawn by the browser like form fields */
   --MERMAID-theme: default; /* name of the default Mermaid theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-theme: light; /* name of the default OpenAPI theme for this variant, can be overridden in hugo.toml */
   --OPENAPI-CODE-theme: idea; /* name of the default OpenAPI code theme for this variant, can be overridden in hugo.toml */
@@ -444,7 +444,7 @@ hr {
   border-bottom: 1px solid rgba(221, 221, 221, 1);
 }
 #R-body #R-body-inner {
-  overflow: visible; /* turn off limitations for perfect scrollbar */
+  overflow: visible; /* turn off scrolling, so the whole content is printed */
   /* reset paddings for chapters in screen */
   padding: 0 3.25rem 4rem 3.25rem;
 }

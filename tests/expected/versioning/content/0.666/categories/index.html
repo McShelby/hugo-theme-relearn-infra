@@ -32,7 +32,6 @@
       window.relearn.contentLangs=['en'];
     </script>
     <link href="/0.666/fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/0.666/fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
-    <link href="/0.666/css/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet">
     <link href="/0.666/css/theme.css" rel="stylesheet">
     <link href="/0.666/css/format-html.css" rel="stylesheet" id="R-format-style">
     <script>
@@ -82,6 +81,18 @@
       }
       window.relearn.initVariant();
       window.relearn.markVariant();
+      window.relearn.scrollbarSize = (function() {
+        var scrollDiv = document.createElement('div');
+        scrollDiv.className = 'scrollbar-measure';
+        var parent = document.body || document.documentElement;
+        parent.appendChild(scrollDiv);
+        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        parent.removeChild(scrollDiv);
+        return size;
+      })();
+      if (window.relearn.scrollbarSize) {
+        document.documentElement.classList.add('classic-scrollbars');
+      }
     </script>
   </head>
   <body class="mobile-support html" data-origin="/0.666/categories/index.html">
@@ -97,7 +108,7 @@
             <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
 <span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper" tabindex="-1"> 
                 </div>
               </div>
             </div>
@@ -114,7 +125,7 @@
             <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
 <span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper">
+                <div class="topbar-content-wrapper" tabindex="-1">
                   <div class="topbar-area topbar-area-more" data-area="more">
                   </div>
                 </div>
@@ -187,7 +198,8 @@
           <hr class="padding default-animation">
         </div>
       </div>
-      <div id="R-content-wrapper" class="highlightable">
+      <div id="R-content-wrapper" class="highlightable" tabindex="-1">
+        <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
         <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
           <ul class="enlarge morespace collapsible-menu">
             <li class="" data-nav-id="/0.666/first-page/index.html"><a class="padding" href="/0.666/first-page/index.html">A page</a></li>
@@ -209,7 +221,6 @@
 <div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/0.666/js/perfect-scrollbar/perfect-scrollbar.min.js" defer></script>
     <script src="/0.666/js/theme.js" defer></script>
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
   </body>

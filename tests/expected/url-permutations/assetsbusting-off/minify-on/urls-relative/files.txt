@@ -11,7 +11,6 @@ css/custom.css
 css/custom.min.css
 css/format-html.min.css
 css/format-print.min.css
-css/perfect-scrollbar/perfect-scrollbar.min.css
 css/swagger.min.css
 css/theme.min.css
 first-page/index.html
@@ -39,7 +38,6 @@ js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js
 js/lunr/lunr.stemmer.support.min.js
-js/perfect-scrollbar/perfect-scrollbar.min.js
 js/search-lunr.min.js
 js/search.min.js
 js/theme.min.js

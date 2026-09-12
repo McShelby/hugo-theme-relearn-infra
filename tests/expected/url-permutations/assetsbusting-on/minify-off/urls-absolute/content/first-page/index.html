@@ -28,7 +28,7 @@ home a section sibling relref to the home page relref to a deep page">
     <link href="/subdir/css/auto-complete/auto-complete.d7aab660dee092f7629fc55acbb277e091d6649bd1b7505f6b1aef21446f7e3d.css" rel="stylesheet">
     <script src="/subdir/js/auto-complete/auto-complete.de85e5622aec73c0ea3a3e4c99949ac89b65f9391e086de6c0e8aea1182891d1.js" defer></script>
     <script src="/subdir/js/search-lunr.9f2db2b07fc20f1f5e58acc9a97ebc5c2016197e52fba0fbf30e5748f9bf9b83.js" defer></script>
-    <script src="/subdir/js/search.71cfc1a70f2abe2feb7ba9fb34d5c0d8fb00e796ad897af32c815cc29f835a45.js" defer></script>
+    <script src="/subdir/js/search.719f35ce7d508fe5b25e0314ac6675de4a38583d8a888bbc59dc417ad2f8e23d.js" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.index_js_url="../"+"searchindex.en.0c32ea4d5d63fcf89bcc955c121ae2e4650efdacbced79c643a07d7c3f57af41.js";
@@ -42,9 +42,8 @@ home a section sibling relref to the home page relref to a deep page">
       window.relearn.contentLangs=['en'];
     </script>
     <link href="/subdir/fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/subdir/fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css" rel="stylesheet"></noscript>
-    <link href="/subdir/css/perfect-scrollbar/perfect-scrollbar.min.c66b59a97910bc3557f3b388f9b0d6662405c65f245bdc1ede3f339d96b7f30e.css" rel="stylesheet">
-    <link href="/subdir/css/theme.fb7f9af1687b795bf1d51d44704c5f1e150fe558aea36cd604e17219281d67b7.css" rel="stylesheet">
-    <link href="/subdir/css/format-html.bc543f74b12b0969ff7fd0645845475a60826e394bae47adc30770bedefccf69.css" rel="stylesheet" id="R-format-style">
+    <link href="/subdir/css/theme.94e1af3341818a1b147d5cede95fec42460578da9428c3501ad45d41eb4bf533.css" rel="stylesheet">
+    <link href="/subdir/css/format-html.f30f7c59297d74014faa74b589b9bd099071281eb6eb6e2c74a2382460a58676.css" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -91,6 +90,18 @@ home a section sibling relref to the home page relref to a deep page">
       }
       window.relearn.initVariant();
       window.relearn.markVariant();
+      window.relearn.scrollbarSize = (function() {
+        var scrollDiv = document.createElement('div');
+        scrollDiv.className = 'scrollbar-measure';
+        var parent = document.body || document.documentElement;
+        parent.appendChild(scrollDiv);
+        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        parent.removeChild(scrollDiv);
+        return size;
+      })();
+      if (window.relearn.scrollbarSize) {
+        document.documentElement.classList.add('classic-scrollbars');
+      }
     </script>
     <link href="/subdir/css/custom.ed331990bca0d236ca23851511fd3c7156e9a9edb31b160a1b686b0708af5874.css" rel="stylesheet">
     <script src="/subdir/js/custom.846a92941fcec0eb48baf166c379536f9b385d7afbacd94589217829d87400be.js" defer></script>
@@ -108,7 +119,7 @@ home a section sibling relref to the home page relref to a deep page">
             <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
 <span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper" tabindex="-1"> 
                 </div>
               </div>
             </div>
@@ -128,7 +139,7 @@ home a section sibling relref to the home page relref to a deep page">
             <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
 <span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper">
+                <div class="topbar-content-wrapper" tabindex="-1">
                   <div class="topbar-area topbar-area-more" data-area="more">
                   </div>
                 </div>
@@ -195,7 +206,8 @@ home a section sibling relref to the home page relref to a deep page">
           <hr class="padding default-animation">
         </div>
       </div>
-      <div id="R-content-wrapper" class="highlightable">
+      <div id="R-content-wrapper" class="highlightable" tabindex="-1">
+        <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
         <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
           <ul class="enlarge morespace collapsible-menu">
             <li class="active " data-nav-id="/subdir/first-page/index.html"><a class="padding" href="/subdir/first-page/index.html">First Page</a></li>
@@ -217,8 +229,7 @@ home a section sibling relref to the home page relref to a deep page">
 <div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/subdir/js/perfect-scrollbar/perfect-scrollbar.min.db7463db58ffbf17da815a125672d269b005017f2e343e731f69a22d157b2170.js" defer></script>
-    <script src="/subdir/js/theme.f938d9f75fb5b90f61603848fc92a7455e01375492d902a953068670295e31a8.js" defer></script>
+    <script src="/subdir/js/theme.a8ee318423e9fb7a16ed7481f936cef0be4f03e9e1e7068b24d5c79f7c201b40.js" defer></script>
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
   </body>
 </html>
