@@ -172,7 +172,7 @@ css/format-html.min.0bdad0ef33f30c347c20237f08e93dca8ea0207d9da7b653021e5e207eed
 css/format-print.min.39e0dc30e3ca73e623fcf660fac10bf09db5539b3d13e59e90977cf7137e6aee.css
 css/swagger-ui/swagger-ui.d7f39f764aa18c7b47dd05b9af5613e373e4ac0f3557c2693d52d0abc2464d76.css
 css/swagger.min.481ac782fe39ff034369f1fe92353f82f78c51d0d51819cdd32955d7ffa12965.css
-css/theme.min.33b9cb9d39e97c6d22ee6bb0751e11d29c890c0876d3d9c742bbdc2ffe4e350c.css
+css/theme.min.32fc05e0609fd96a5649db64239b59fb6aa97201bf6a6d16675143819db3b284.css
 development/contributing/index.html
 development/contributing/index.print.html
 development/contributing/index.xml
@@ -202,7 +202,7 @@ exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841
 exampleSite/css/format-html.min.0596f09319aad776474e5677dfbb54b7aff273f871dc100dff33f36fecf3cd01.css
 exampleSite/css/format-print.min.39e0dc30e3ca73e623fcf660fac10bf09db5539b3d13e59e90977cf7137e6aee.css
 exampleSite/css/swagger.min.0fa6a7b1f677c9ae7b791d9005131435053b79c30b728ef7101c531fb912a11e.css
-exampleSite/css/theme.min.5d27c796ce3b9c06f3d7f6c5780eadfd098024bd38faca1d0a7f9933c3dc0167.css
+exampleSite/css/theme.min.de53d3c65582bd89f0fc587e8a41b4d159b2b2945a8f1e4678da6d2e975c58d3.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -242,7 +242,7 @@ exampleSite/js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b74
 exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
 exampleSite/js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
 exampleSite/js/search.min.795bf51f4b531fcd29fe7ffb27f174f6bb6b0ce086465e2be48643dea742dfbb.js
-exampleSite/js/theme.min.410bf32423228937f507cf4642569b2917bf39b96362db3519c6aa79bfe3c471.js
+exampleSite/js/theme.min.d942eef811263d7b57cf1b2a93ef437ff9f08846efa7033ef7c5904369ae490e.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -983,8 +983,8 @@ js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078f
 js/search.min.795bf51f4b531fcd29fe7ffb27f174f6bb6b0ce086465e2be48643dea742dfbb.js
 js/swagger-ui/swagger-ui-bundle.a7e344f2770b2f07527ce828e0951626983b8f2dcdb7a826689c0232023f995b.js
 js/swagger-ui/swagger-ui-standalone-preset.1ad2ffd7a236dca4e570ce2ba2ef3de721d7553d4e7449db58df66cb294311e9.js
-js/theme.min.410bf32423228937f507cf4642569b2917bf39b96362db3519c6aa79bfe3c471.js
-js/variant.min.4cc6ec2c71b1c4f4a2e5a93deac2f22a5682d34ba528fb0d3114eeba3d539a01.js
+js/theme.min.d942eef811263d7b57cf1b2a93ef437ff9f08846efa7033ef7c5904369ae490e.js
+js/variant.min.d1d3cebe66aed8452a667445fad3c8f51810c440bd57335920c51faff847d2e4.js
 more/credits/index.html
 more/credits/index.print.html
 more/credits/index.xml
@@ -2143,8 +2143,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.f448639e0c8c1a26486647d356a8210eb80fbaea3622b40f9fd8b4c9aa15b1d1.js
-searchindex.pir.min.302f2a2cbc8bec8022a228ca4e69804de471abad66a1173c2b588f1da68c2485.js
+searchindex.en.min.d9553eb2ff62a83e0743819549ca0da0b891fe8f2c082aec9c9ca06ee72fd425.js
+searchindex.pir.min.e1f8785032258c8bf383491571b8911bce53446e32c45cce7dac427f0ca16d72.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
