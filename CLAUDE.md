@@ -18,13 +18,14 @@ When deciding where a file goes, ask whether a person installing the theme needs
   - `snapshot.js` golden-file comparison
 - `tests/` — cases, sites, axes, environments, expected output, the CLI
 - `tools/screenshots/` — regenerates the docs' `featured.png` images
+- `tools/sbom/` — renders the theme's `sbom.cdx.json` from its dependency declaration, and reconciles that declaration with the vendored tree
 
 `runner/` is why tests and screenshots share a repo: visual regression and screenshot generation are the same machinery.
 
 ## Running things
 
 ```bash
-npm test                     # see README.md for flags
+npm test                     # checks, SBOM, then the cases; see README.md for flags
 npm run screenshots
 ```
 
@@ -34,7 +35,7 @@ The theme is resolved via `RELEARN_THEME_DIR`, else a sibling `hugo-theme-relear
 
 - **Never use port 1313.** That is the user's own dev server. Tests serve on 3131, screenshots on 3132.
 - **Do not add a warning to a baseline to make a run green.** A `warnings.txt` is a list of known outstanding theme work. Adding a line means accepting a real defect; removing one is the goal.
-- **Regenerate expected output deliberately.** `npm test -- --update` rewrites it. Read the resulting diff before committing — that diff *is* the test result.
+- **Regenerate expected output deliberately.** `npm run golden:update` rewrites it. Read the resulting diff before committing — that diff *is* the test result.
 - **Sites stay small.** A diff should be readable. If a site needs hundreds of pages, it is testing the wrong thing.
 - **A site's config is about the site.** Determinism comes from the `testing` environment, which the case names. Do not copy those switches into a site.
 - **A site serves from a webserver and from the file system.** `baseURL = '/'` and `relativeURLs = true`. Only a case about URL generation departs from it — `url-permutations`, which varies exactly this, and `versioning`, whose switcher resolves against absolute per-version baseURLs.

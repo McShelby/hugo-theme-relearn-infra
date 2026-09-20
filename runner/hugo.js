@@ -41,16 +41,7 @@ export function hugoVersion(bin) {
  * Returns { code, stdout, stderr }. Never throws on a failed build - callers
  * decide whether a non-zero exit is a failure or an expected outcome.
  */
-export function build({
-  siteDir,
-  destDir,
-  themeDir,
-  configDir,
-  hugo = 'path',
-  environment = 'testing',
-  extraArgs = [],
-  injectTheme = true,
-}) {
+export function build({ siteDir, destDir, themeDir, configDir, hugo = 'path', environment = 'testing', extraArgs = [], injectTheme = true }) {
   const bin = resolveHugoBin(hugo, themeDir, siteDir);
   const args = [
     '--source',
@@ -89,20 +80,7 @@ export function build({
  */
 export function serve({ siteDir, themeDir, hugo = 'path', environment = 'testing', port = 3131, injectTheme = true }) {
   const bin = resolveHugoBin(hugo, themeDir, siteDir);
-  const args = [
-    'server',
-    '--source',
-    siteDir,
-    ...(injectTheme ? themeArgs(themeDir) : []),
-    '--environment',
-    environment,
-    '--port',
-    String(port),
-    '--bind',
-    '127.0.0.1',
-    '--disableLiveReload',
-    '--renderToMemory',
-  ];
+  const args = ['server', '--source', siteDir, ...(injectTheme ? themeArgs(themeDir) : []), '--environment', environment, '--port', String(port), '--bind', '127.0.0.1', '--disableLiveReload', '--renderToMemory'];
 
   const child = spawn(bin, args, { stdio: ['ignore', 'pipe', 'pipe'] });
   let out = '';

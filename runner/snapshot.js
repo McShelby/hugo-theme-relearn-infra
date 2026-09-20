@@ -36,7 +36,13 @@ function walk(root) {
 export function fingerprint(root) {
   const map = new Map();
   for (const rel of walk(root)) {
-    map.set(rel, crypto.createHash('md5').update(fs.readFileSync(path.join(root, rel))).digest('hex'));
+    map.set(
+      rel,
+      crypto
+        .createHash('md5')
+        .update(fs.readFileSync(path.join(root, rel)))
+        .digest('hex')
+    );
   }
   return map;
 }

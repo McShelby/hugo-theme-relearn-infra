@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 //
-// Test runner for the Relearn theme.
+// Golden-file runner for the Relearn theme.
 //
-//   npm test                            every case
-//   npm test -- --build=minimal         one case, or one build inside it
-//   npm test -- --hugo=min              the theme's declared minimum version
-//   npm test -- --update                rewrite the expected output
+//   npm run golden                          every case
+//   npm run golden -- --build=minimal       one case, or one build inside it
+//   npm run golden -- --hugo=min            the theme's declared minimum version
+//   npm run golden:update                   rewrite the expected output
 //
 // A case declares how deep to assert with `layer`. The build layer asserts the
 // build succeeds without unaccepted warnings, the files layer asserts the set
@@ -73,15 +73,11 @@ try {
   throw err;
 }
 
-const results = cases.flatMap((c) =>
-  c.results.map((r) => ({ ...r, caseName: c.name, layer: c.layer }))
-);
+const results = cases.flatMap((c) => c.results.map((r) => ({ ...r, caseName: c.name, layer: c.layer })));
 
 // `--build` matches a path prefix, so naming a case runs every build in it and
 // naming a combination runs the one.
-const targets = only
-  ? results.filter((r) => r.name === only || r.name.startsWith(`${only}/`))
-  : results;
+const targets = only ? results.filter((r) => r.name === only || r.name.startsWith(`${only}/`)) : results;
 
 if (!targets.length) {
   console.error(only ? `No such build: ${only}\n` : 'No cases found.\n');
@@ -214,8 +210,16 @@ for (const result of targets) {
       // makes each one read as missing and unexpected at once.
       const want = fs.readFileSync(filesFile, 'utf8').split(/\r?\n/).filter(Boolean);
       const got = listing(destDir).split(/\r?\n/).filter(Boolean);
-      report(failures, 'missing output file(s)', want.filter((f) => !got.includes(f)));
-      report(failures, 'unexpected output file(s)', got.filter((f) => !want.includes(f)));
+      report(
+        failures,
+        'missing output file(s)',
+        want.filter((f) => !got.includes(f))
+      );
+      report(
+        failures,
+        'unexpected output file(s)',
+        got.filter((f) => !want.includes(f))
+      );
 
       if (layer === 'content') {
         const diff = compare(contentDir, destDir);
@@ -279,11 +283,7 @@ function readBaseline(file) {
 }
 
 function unacceptedWarnings(result, b, output) {
-  const allow = [
-    ...readBaseline(path.join(__dirname, 'warnings.txt')),
-    ...readBaseline(path.join(siteMetaDir(b.name), 'warnings.txt')),
-    ...readBaseline(path.join(CASES_DIR, result.caseName, 'warnings.txt')),
-  ];
+  const allow = [...readBaseline(path.join(__dirname, 'warnings.txt')), ...readBaseline(path.join(siteMetaDir(b.name), 'warnings.txt')), ...readBaseline(path.join(CASES_DIR, result.caseName, 'warnings.txt'))];
 
   return output
     .split('\n')

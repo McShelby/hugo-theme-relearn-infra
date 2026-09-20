@@ -66,14 +66,16 @@ RELEARN_THEME_DIR=/path/to/theme npm test
 | `runner/config.js` | assembles the config directory a build runs against |
 | `runner/cases.js` | reads the cases and expands them into builds |
 | `runner/snapshot.js` | golden-file comparison |
-| `tests/run.js` | the test CLI |
-| `tests/checks.js` | checks on the runner itself |
+| `tests/golden.js` | the golden-file CLI |
+| `tests/checks.js` | checks on the runner and on the theme's dependency declaration |
 | `tests/cases/` | what to build, and how deeply to check it |
 | `tests/sites/` | content and configuration, one directory per site |
 | `tests/axes/` | configuration dimensions, one directory per value |
 | `tests/environments/` | environments for sites that have none of their own |
 | `tests/expected/` | stored expected output |
 | `tools/screenshots/` | regenerates the docs' `featured.png` images |
+| `tools/sbom/` | renders the theme's `sbom.cdx.json` from its dependency declaration |
+| `tools/fontversion/` | reads the version a vendored font declares about itself |
 | `.github/actions/run-test/` | the test procedure, called by the theme's `test-execution` workflow — the only action here |
 
 `runner/` is the reason tests and tooling share one repository: visual regression testing and screenshot generation are the same machinery — resolve a theme, build a site, serve it, drive a browser.
@@ -83,23 +85,29 @@ RELEARN_THEME_DIR=/path/to/theme npm test
 ## Tests
 
 ```bash
-npm test                               # the runner checks, then every case
-npm run checks                         # the runner checks alone
-node tests/run.js --build=minimal      # one case, or one build inside it
-node tests/run.js --hugo=min           # the theme's declared minimum version
-node tests/run.js --hugo=latest        # the newest release
-node tests/run.js --hugo=v0.165.0      # one specific version
-node tests/run.js --update             # rewrite the expected output
+npm test                                  # everything
+npm run test:update                       # everything, rewriting what it can
+npm run format                            # the formatting alone
+npm run checks                            # the runner checks alone
+npm run sbom                              # the theme's SBOM alone
+npm run golden                            # the cases alone
+node tests/golden.js --build=minimal      # one case, or one build inside it
+node tests/golden.js --hugo=min           # the theme's declared minimum version
+node tests/golden.js --hugo=latest        # the newest release
+node tests/golden.js --hugo=v0.165.0      # one specific version
+node tests/golden.js --update             # rewrite the expected output
 ```
 
-`npm test` runs `tests/checks.js` and then `tests/run.js`. Either form works — these two are the same command:
+Each part also runs on its own, and every part with something to write back rewrites it under `:update` — all of them but `checks`, which compares nothing it stores. `test` runs them in order, cheapest first, so a formatting slip or a stale declaration fails before a full round of Hugo builds rather than after.
+
+The golden runner comes last for a second reason: `npm run <script> -- <flags>` appends to the *end* of the script, so that is the only position from which `npm test -- --hugo=latest` reaches the runner. Reordering the chain drops the flag on whatever ends up last instead, without saying so.
 
 ```bash
 npm test -- --build=minimal
-node tests/run.js --build=minimal
+node tests/golden.js --build=minimal
 ```
 
-Flags reach the runner directly; through `npm` they have to follow a `--` separator first. The examples above use the runner, being the shorter of the two.
+The first also runs the checks and the SBOM comparison; the second is the runner alone, which is what you want while iterating on one case. Flags reach the runner directly; through `npm` they have to follow a `--` separator first. The examples above use the runner, being the shorter of the two.
 
 Version selection asks [hvm](https://github.com/jmooring/hvm) for the executable, fetching the version first if it is not cached. `min` comes from the theme's `theme.toml` and `latest` is resolved by hvm; the `standard` edition is always used, which is enough because the theme uses no Sass. `HUGO_BIN` overrides the lookup entirely, which is what CI uses.
 
@@ -116,7 +124,7 @@ environment = "testing"
   urls = ["relative", "absolute", "ugly"]
 ```
 
-One content set, three results. `urls` is a directory per value under `tests/axes/`, and adding a fourth mode is a directory and a name:
+One content set, one result per mode. `urls` is a directory per value under `tests/axes/`, and adding another mode is a directory and a name:
 
 | Value | Settings | A link renders as |
 |---|---|---|
@@ -126,7 +134,7 @@ One content set, three results. `urls` is a directory per value under `tests/axe
 
 A site name ending in `@theme` resolves against the theme checkout rather than `tests/sites/`, so `docs@theme` is the theme's own documentation, built in place and always matching the code under test. It also settles who supplies the theme: a site inside the theme resolves it itself, a fixture is handed it by the runner.
 
-### Three layers
+### The layers
 
 | Layer | Asserts |
 |-------|---------|
@@ -134,7 +142,7 @@ A site name ending in `@theme` resolves against the theme checkout rather than `
 | File set | exactly the expected files were generated — nothing missing, nothing extra |
 | Content | every file identical to the stored expectation, byte for byte bar line endings |
 
-Layers are cumulative. A case declares how deep with `layer`, defaulting to `content`, so it opts down rather than up and says why when it does. The theme's own sites stop at the file set: a content baseline over 2000 files churns on every prose edit and would be read by nobody.
+Layers are cumulative. A case declares how deep with `layer`, defaulting to `content`, so it opts down rather than up and says why when it does. The theme's own sites stop at the file set: a content baseline over the whole documentation churns on every prose edit and would be read by nobody.
 
 A result is stored under `tests/expected/<case>/`, named after the layer that put it there — `files.txt` for the file set, `content/` for the content beside it.
 
@@ -168,7 +176,7 @@ An environment resolves in the site's own `config/` or in `tests/environments/`.
 
 ### Reference versions
 
-Layers 2 and 3 only run when Hugo is `path` or `latest`. On a pinned older version — `--hugo=min`, `--hugo=v0.141.0` — only the build layer runs, and the run says so.
+The file-set and content layers only run when Hugo is `path` or `latest`. On a pinned older version — `--hugo=min`, `--hugo=v0.141.0` — only the build layer runs, and the run says so.
 
 That is not laziness. Hugo legitimately changes what it emits between releases: v0.141.0 writes a `search/index.print.html` for the exampleSite that v0.165.0 does not. Comparing stored output across the version matrix would be asserting something false, and the failure would be noise rather than signal. What the older versions still prove is the thing that actually matters for a declared minimum — that the theme builds cleanly and without new warnings.
 
@@ -183,7 +191,7 @@ A site does not repeat those switches. Its own configuration describes the site;
 ### Updating expected output
 
 ```bash
-node tests/run.js --update
+node tests/golden.js --update
 ```
 
 > **The resulting diff *is* the test result.** Read it before committing. An unreviewed snapshot update turns the suite from a safety net into a rubber stamp.
@@ -211,7 +219,7 @@ mkdir -p tests/sites/yoursite/config/_default tests/sites/yoursite/content
 # write config/_default/hugo.toml — about the site, not about determinism
 mkdir -p tests/cases/yoursite
 # write case.toml: site = "yoursite", environment = "testing"
-node tests/run.js --build=yoursite --update
+node tests/golden.js --build=yoursite --update
 ```
 
 Review the generated `tests/expected/yoursite/` and commit site, case and output together. If a site needs hundreds of pages, it is testing the wrong thing.
@@ -221,10 +229,19 @@ A site is served from a webserver **and** from the file system, which is `baseUR
 `--build` matches a path prefix, so a case name runs everything in it and a combination runs the one. Asking for something that does not exist prints what does, which is the quickest way to check:
 
 ```bash
-node tests/run.js --build=?
+node tests/golden.js --build=?
 ```
 
 `--update` on a full run also prunes: a stored result no case produces any more is deleted rather than left behind.
+
+### Formatting
+
+```bash
+npm run format          # is the tree formatted?
+npm run format:update   # format it
+```
+
+Prettier is pinned to an exact version in `package.json` rather than left to whatever each editor carries, because an unpinned formatter reformats someone else's lines on every save. `test` runs the check first, so the pin is enforced rather than merely recorded. The configuration and its exclusions match the theme's, so both repositories format alike.
 
 ### Checking the runner
 
@@ -233,6 +250,21 @@ npm run checks
 ```
 
 The suite's own machinery has logic worth pinning — a merge that has to match Hugo's, a filename convention with a surprising unwrap rule, and a dozen validations whose whole job is to abort. Building sites does not exercise any of it: a merge bug surfaces there as a wrong baseline, and an abort that never fires surfaces as nothing at all.
+
+The same run also checks the theme's dependency declaration against the vendored tree, for the same reason — nothing else would notice it going stale.
+
+### Checking the SBOM
+
+```bash
+npm run sbom          # is the committed document what the declaration renders?
+npm run sbom:update   # rewrite it
+```
+
+The theme declares every third-party resource it vendors in `docs/data/relearn/thirdparty.toml`, and `sbom.cdx.json` at the theme root is generated from it. The declaration lives over there because it describes what the theme ships; the generator lives here because it is tooling.
+
+Generation refuses while the declaration and the vendored tree disagree in either direction — a directory holding files no component claims, or a component claiming paths that no longer exist. That drift is also what `npm run checks` reports, so a vendored update with no entry fails whichever of the two you reach first.
+
+The document is deterministic: regenerating it produces the same bytes, because the serial number is a UUIDv5 over a digest of the document itself and the timestamp is the release date from `CHANGELOG.md`, rather than a random UUID and the clock. That is what makes a plain comparison meaningful, and what lets the release workflow regenerate the file after it has stamped the new version.
 
 ---
 
@@ -250,6 +282,25 @@ npm run screenshots -- --port=3140        # serve on a different port
 Output goes to `<theme>/docs/content/<page>/featured.png` in the resolved theme checkout.
 
 Port 1313 is never a default here — that belongs to your own dev server.
+
+---
+
+## Font versions
+
+Every component in the dependency declaration wants a `version`, and a font arrives without one: no manifest beside it, nothing in the file name, and the distributor numbering their packaging rather than the font — Google Fonts serves Roboto Flex out of a `v30` path while the font inside says 3.200.
+
+The number is in the file, in `head` and in the `name` table, and both survive subsetting and conversion to WOFF2. So read it rather than declaring the component without one:
+
+```bash
+npm run fontversion                  # every font under the theme's assets/fonts
+npm run fontversion -- a.woff2 b.ttf # named files instead
+```
+
+Output is grouped by directory, because that is the unit a component declares — a directory whose files disagree has no single version to put on it, and the run says so and exits non-zero.
+
+Both fields are reported and neither is presented as the answer, because neither reliably is. `head.fontRevision` is a fixed-point number a foundry may use however it likes: Roboto Flex agrees with itself, while Font Awesome's reads 899.012 and only its name string mentions the 7.3.1 the declaration carries. Choosing between them stays a person's job.
+
+No font library is involved, and none is installed. A WOFF2 keeps its tables as one Brotli stream, which Node decompresses on its own, and the two tables this reads are never among the transformed ones.
 
 ---
 

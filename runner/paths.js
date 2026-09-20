@@ -31,11 +31,7 @@ const THEME_MARKER = path.join('layouts', 'partials', 'version.txt');
  */
 export function resolveThemeDir() {
   const sibling = path.basename(infraRoot).replace(/-infra$/, '');
-  const candidates = [
-    process.env.RELEARN_THEME_DIR,
-    path.resolve(infraRoot, '..', sibling),
-    path.resolve(infraRoot, '..'),
-  ].filter(Boolean);
+  const candidates = [process.env.RELEARN_THEME_DIR, path.resolve(infraRoot, '..', sibling), path.resolve(infraRoot, '..')].filter(Boolean);
 
   for (const dir of candidates) {
     if (fs.existsSync(path.join(dir, THEME_MARKER))) {
@@ -43,10 +39,7 @@ export function resolveThemeDir() {
     }
   }
 
-  throw new Error(
-    `Relearn theme not found. Looked in:\n  ${candidates.join('\n  ')}\n` +
-      'Set RELEARN_THEME_DIR to your theme checkout.'
-  );
+  throw new Error(`Relearn theme not found. Looked in:\n  ${candidates.join('\n  ')}\n` + 'Set RELEARN_THEME_DIR to your theme checkout.');
 }
 
 /** The theme's declared minimum Hugo version, from its hugo.toml. */
@@ -165,11 +158,7 @@ function hvmExecPath(versionEdition) {
   try {
     const use = spawnSync('hvm', ['use', versionEdition], { cwd: dir, encoding: 'utf8' });
     if (use.error || use.status !== 0) {
-      throw new Error(
-        `hvm could not provide Hugo ${versionEdition}.\n` +
-          `${(use.stderr || use.error?.message || '').trim()}\n` +
-          'Install hvm from https://github.com/jmooring/hvm, or set HUGO_BIN to a Hugo executable.'
-      );
+      throw new Error(`hvm could not provide Hugo ${versionEdition}.\n` + `${(use.stderr || use.error?.message || '').trim()}\n` + 'Install hvm from https://github.com/jmooring/hvm, or set HUGO_BIN to a Hugo executable.');
     }
 
     const query = spawnSync('hvm', ['status', '--printExecPathCached'], { cwd: dir, encoding: 'utf8' });

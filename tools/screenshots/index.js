@@ -30,32 +30,11 @@ const docsDir = path.join(themeDir, 'docs');
 const port = Number(flag('port', 3132));
 const explicitBase = flag('base', null);
 
-const relativeUrls = [
-  '/shortcodes/attachments',
-  '/shortcodes/badge',
-  '/shortcodes/button',
-  '/shortcodes/card',
-  '/shortcodes/cards',
-  '/shortcodes/children',
-  '/shortcodes/expand',
-  '/shortcodes/highlight',
-  '/shortcodes/icon',
-  '/shortcodes/include',
-  '/shortcodes/math',
-  '/shortcodes/mermaid',
-  '/shortcodes/notice',
-  '/shortcodes/openapi',
-  '/shortcodes/resources',
-  '/shortcodes/siteparam',
-  '/shortcodes/tab',
-  '/shortcodes/tabs',
-  '/shortcodes/tree',
-];
+const relativeUrls = ['/shortcodes/attachments', '/shortcodes/badge', '/shortcodes/button', '/shortcodes/card', '/shortcodes/cards', '/shortcodes/children', '/shortcodes/expand', '/shortcodes/highlight', '/shortcodes/icon', '/shortcodes/include', '/shortcodes/math', '/shortcodes/mermaid', '/shortcodes/notice', '/shortcodes/openapi', '/shortcodes/resources', '/shortcodes/siteparam', '/shortcodes/tab', '/shortcodes/tabs', '/shortcodes/tree'];
 
 // iPhone-like viewport and user agent (emulate iPhone X dimensions)
 const iPhoneViewport = { width: 375, height: 812, deviceScaleFactor: 3, isMobile: true };
-const iPhoneUA =
-  'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Mobile/15E148 Safari/604.1';
+const iPhoneUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Mobile/15E148 Safari/604.1';
 const ZOOM = 1.5; // zoom final image by 33%
 
 async function capture(browser, base, rel) {

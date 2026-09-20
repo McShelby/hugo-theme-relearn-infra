@@ -155,6 +155,9 @@ configuration/sitemanagement/outputformats/index.md
 configuration/sitemanagement/outputformats/index.print.html
 configuration/sitemanagement/outputformats/index.source.md
 configuration/sitemanagement/outputformats/index.xml
+configuration/sitemanagement/sbom/index.html
+configuration/sitemanagement/sbom/index.print.html
+configuration/sitemanagement/sbom/index.xml
 configuration/sitemanagement/stableoutput/index.html
 configuration/sitemanagement/stableoutput/index.print.html
 configuration/sitemanagement/stableoutput/index.xml
@@ -701,6 +704,8 @@ introduction/releasenotes/9/0/index.html
 introduction/releasenotes/9/0/index.print.html
 introduction/releasenotes/9/1/index.html
 introduction/releasenotes/9/1/index.print.html
+introduction/releasenotes/9/2/index.html
+introduction/releasenotes/9/2/index.print.html
 introduction/releasenotes/9/index.html
 introduction/releasenotes/9/index.print.html
 introduction/releasenotes/9/index.xml
@@ -1165,6 +1170,9 @@ pir/configuration/sitemanagement/outputformats/index.md
 pir/configuration/sitemanagement/outputformats/index.print.html
 pir/configuration/sitemanagement/outputformats/index.source.md
 pir/configuration/sitemanagement/outputformats/index.xml
+pir/configuration/sitemanagement/sbom/index.html
+pir/configuration/sitemanagement/sbom/index.print.html
+pir/configuration/sitemanagement/sbom/index.xml
 pir/configuration/sitemanagement/stableoutput/index.html
 pir/configuration/sitemanagement/stableoutput/index.print.html
 pir/configuration/sitemanagement/stableoutput/index.xml
@@ -1685,6 +1693,8 @@ pir/introduction/releasenotes/9/0/index.html
 pir/introduction/releasenotes/9/0/index.print.html
 pir/introduction/releasenotes/9/1/index.html
 pir/introduction/releasenotes/9/1/index.print.html
+pir/introduction/releasenotes/9/2/index.html
+pir/introduction/releasenotes/9/2/index.print.html
 pir/introduction/releasenotes/9/index.html
 pir/introduction/releasenotes/9/index.print.html
 pir/introduction/releasenotes/9/index.xml

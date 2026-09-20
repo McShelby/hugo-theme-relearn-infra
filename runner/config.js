@@ -130,11 +130,7 @@ export function resolveEnvironmentDir(siteDir, name) {
     const a = JSON.stringify(flattenDir(own));
     const b = JSON.stringify(flattenDir(shared));
     if (a !== b) {
-      throw new Error(
-        `environment "${name}" is held by both the site and infra, and the two differ:\n` +
-          `  ${own}\n  ${shared}\n` +
-          'They must be identical, or one of them must go.'
-      );
+      throw new Error(`environment "${name}" is held by both the site and infra, and the two differ:\n` + `  ${own}\n  ${shared}\n` + 'They must be identical, or one of them must go.');
     }
     return own;
   }
@@ -143,9 +139,7 @@ export function resolveEnvironmentDir(siteDir, name) {
   if (hasShared) return shared;
   if (name === DEFAULT_ENVIRONMENT) return null;
 
-  throw new Error(
-    `environment "${name}" resolves to no directory. Looked in:\n  ${own}\n  ${shared}`
-  );
+  throw new Error(`environment "${name}" resolves to no directory. Looked in:\n  ${own}\n  ${shared}`);
 }
 
 /**

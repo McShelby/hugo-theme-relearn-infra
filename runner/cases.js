@@ -185,9 +185,7 @@ export function loadCase(name, themeDir, { casesDir = CASES_DIR, axesDir = AXES_
     return {
       name,
       layer,
-      results: [
-        { name, builds: doc.builds.map((e, i) => sequenceBuild(e, themeDir, i, where, axesDir)) },
-      ],
+      results: [{ name, builds: doc.builds.map((e, i) => sequenceBuild(e, themeDir, i, where, axesDir)) }],
     };
   }
 
