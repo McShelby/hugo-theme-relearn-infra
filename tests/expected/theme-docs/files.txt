@@ -2092,10 +2092,6 @@ shortcodes/icon/index.html
 shortcodes/icon/index.print.html
 shortcodes/icon/index.xml
 shortcodes/include/featured.png
-shortcodes/include/include_greetings/index.html
-shortcodes/include/include_greetings/index.print.html
-shortcodes/include/include_me/index.html
-shortcodes/include/include_me/index.print.html
 shortcodes/include/index.html
 shortcodes/include/index.print.html
 shortcodes/include/index.xml
