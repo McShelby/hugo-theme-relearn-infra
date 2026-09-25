@@ -58,6 +58,8 @@ Each array item needs the following layout:
   let lunrIndex, pagesIndex;
 
   function init() {
+    var contentLangs = JSON.parse(document.querySelector('#R-search-lunr-config').textContent).contentLangs;
+
     function initIndex(index) {
       if (!window.lunr) {
         return;
@@ -66,7 +68,7 @@ Each array item needs the following layout:
       // Set up Lunr by declaring the fields we use
       // Also provide their boost level for the ranking
       lunrIndex = lunr(function () {
-        this.use(lunr.multiLanguage.apply(null, window.relearn.contentLangs));
+        this.use(lunr.multiLanguage.apply(null, contentLangs));
         this.ref('index');
         this.field('title', {
           boost: 15,
@@ -95,13 +97,16 @@ Each array item needs the following layout:
     if (window.relearn.index_js_url) {
       var js = document.createElement('script');
       js.src = window.relearn.index_js_url;
+      if (window.relearn.index_js_integrity) {
+        js.integrity = window.relearn.index_js_integrity;
+      }
       js.setAttribute('async', '');
-      js.onload = function () {
+      js.addEventListener('load', function () {
         initIndex(relearn_searchindex);
-      };
-      js.onerror = function (e) {
+      });
+      js.addEventListener('error', function (e) {
         console.error('Error getting Hugo index file');
-      };
+      });
       document.head.appendChild(js);
     }
   }

@@ -6,16 +6,16 @@ var isPrintPreview = false;
 
 var isRtl = document.querySelector('html').getAttribute('dir') == 'rtl';
 var lang = document.querySelector('html').getAttribute('lang');
-var dir_key_start = 37;
-var dir_key_end = 39;
+var dir_key_start = 'ArrowLeft';
+var dir_key_end = 'ArrowRight';
 var dir_scroll = 1;
 if (isRtl) {
-  dir_key_start = 39;
-  dir_key_end = 37;
+  dir_key_start = 'ArrowRight';
+  dir_key_end = 'ArrowLeft';
   dir_scroll = -1;
 }
 
-var touchsupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+var touchsupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 var reducedmotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 var hovernone = window.matchMedia('(hover: none)');
 
@@ -24,6 +24,8 @@ var formelements = 'button, datalist, fieldset, input, label, legend, meter, opt
 // how far a cursor key scrolls one of our scroll containers; the browsers
 // default for this is neither exposed to us nor the same in all of them
 var LINE_SCROLL = 40;
+// the keys a browser scrolls with
+var SCROLL_KEYS = [' ', 'PageUp', 'PageDown', 'End', 'Home', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'];
 
 var elc = document.querySelector('#R-body-inner');
 
@@ -47,7 +49,7 @@ function debounce(func, delay) {
 function showToast(message) {
   if (!message) return;
 
-  var container = document.getElementById('toast-container');
+  var container = document.querySelector('#toast-container');
   if (!container) return;
 
   var toast = document.createElement('div');
@@ -70,94 +72,18 @@ function showToast(message) {
 
 window.relearn.showToast = showToast;
 
-function fixCodeTabs() {
-  /* if only a single code block is contained in the tab and no style was selected, treat it like style=code */
-  var codeTabContents = Array.from(document.querySelectorAll('.tab-content.tab-panel-style')).filter(function (tabContent) {
-    return tabContent.querySelector('*:scope > .tab-content-text > div.highlight:only-child, *:scope > .tab-content-text > pre:not(.mermaid).pre-code:only-child');
-  });
+function switchTab(tabGroup, tabId, button) {
+  // save button position relative to viewport
+  var yposButton = button.getBoundingClientRect().top;
 
-  codeTabContents.forEach(function (tabContent) {
-    var tabId = tabContent.dataset.tabItem;
-    var tabPanel = tabContent.parentNode.parentNode;
-    var tabButton = tabPanel.querySelector('.tab-nav-button.tab-panel-style[data-tab-item="' + tabId + '"]');
-    if (tabContent.classList.contains('initial')) {
-      tabButton.classList.remove('initial');
-      tabButton.classList.add('code');
-      tabContent.classList.remove('initial');
-      tabContent.classList.add('code');
-    }
-    // mark code blocks for FF without :has()
-    tabContent.classList.add('codify');
-  });
-}
+  window.relearn.selectTab(tabGroup, tabId);
+  initMermaid(true);
 
-function switchTab(tabGroup, tabId) {
-  var tabs = Array.from(document.querySelectorAll('.tab-panel[data-tab-group="' + tabGroup + '"]')).filter(function (e) {
-    return !!e.querySelector('[data-tab-item="' + tabId + '"]');
-  });
-  var allTabItems =
-    tabs &&
-    tabs.reduce(function (a, e) {
-      return a.concat(
-        Array.from(e.querySelectorAll('[data-tab-item]')).filter(function (es) {
-          return es.parentNode.parentNode == e;
-        })
-      );
-    }, []);
-  var targetTabItems =
-    tabs &&
-    tabs.reduce(function (a, e) {
-      return a.concat(
-        Array.from(e.querySelectorAll('[data-tab-item="' + tabId + '"]')).filter(function (es) {
-          return es.parentNode.parentNode == e;
-        })
-      );
-    }, []);
+  // reset screen to the same position relative to clicked button to prevent page jump
+  var yposButtonDiff = button.getBoundingClientRect().top - yposButton;
+  window.scrollTo(window.scrollX, window.scrollY + yposButtonDiff);
 
-  // if event is undefined then switchTab was called from restoreTabSelection
-  // so it's not a button event and we don't need to safe the selction or
-  // prevent page jump
-  var isButtonEvent = event && event.target && event.target.getBoundingClientRect;
-  if (isButtonEvent) {
-    // save button position relative to viewport
-    var yposButton = event.target.getBoundingClientRect().top;
-  }
-
-  allTabItems &&
-    allTabItems.forEach(function (e) {
-      e.classList.remove('active');
-      e.setAttribute('aria-expanded', 'false');
-      e.removeAttribute('tabindex');
-    });
-  targetTabItems &&
-    targetTabItems.forEach(function (e) {
-      e.classList.add('active');
-      e.setAttribute('aria-expanded', 'true');
-      e.setAttribute('tabindex', '-1');
-    });
-
-  if (isButtonEvent) {
-    initMermaid(true);
-
-    // reset screen to the same position relative to clicked button to prevent page jump
-    var yposButtonDiff = event.target.getBoundingClientRect().top - yposButton;
-    window.scrollTo(window.scrollX, window.scrollY + yposButtonDiff);
-
-    // Store the selection to make it persistent
-    if (window.localStorage) {
-      var selectionsJSON = window.localStorage.getItem(window.relearn.absBaseUri + '/tab-selections');
-      if (selectionsJSON) {
-        var tabSelections = JSON.parse(selectionsJSON);
-      } else {
-        var tabSelections = {};
-      }
-      tabSelections[tabGroup] = tabId;
-      window.localStorage.setItem(window.relearn.absBaseUri + '/tab-selections', JSON.stringify(tabSelections));
-    }
-  }
-}
-
-function restoreTabSelections() {
+  // Store the selection to make it persistent
   if (window.localStorage) {
     var selectionsJSON = window.localStorage.getItem(window.relearn.absBaseUri + '/tab-selections');
     if (selectionsJSON) {
@@ -165,11 +91,22 @@ function restoreTabSelections() {
     } else {
       var tabSelections = {};
     }
-    Object.keys(tabSelections).forEach(function (tabGroup) {
-      var tabItem = tabSelections[tabGroup];
-      switchTab(tabGroup, tabItem);
-    });
+    tabSelections[tabGroup] = tabId;
+    window.localStorage.setItem(window.relearn.absBaseUri + '/tab-selections', JSON.stringify(tabSelections));
   }
+}
+
+function handleTabs() {
+  // one listener for all tabs, also those added later; the innermost panel is the
+  // one a button belongs to
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('.tab-nav-button[data-tab-item]');
+    if (!button) {
+      return;
+    }
+    var tabPanel = button.closest('.tab-panel[data-tab-group]');
+    tabPanel && switchTab(tabPanel.dataset.tabGroup, button.dataset.tabItem, button);
+  });
 }
 
 function mermaidPostRender(id) {
@@ -466,7 +403,10 @@ function initMermaid(update, attrs) {
 }
 
 function initOpenapi(update, attrs) {
-  if (!window.relearn.themeUseOpenapi) {
+  // the block is only written by the openapi dependency, so without it the page has
+  // nothing to render
+  var config = document.querySelector('#R-openapi-config');
+  if (!config) {
     return;
   }
   var state = this;
@@ -499,19 +439,24 @@ function initOpenapi(update, attrs) {
   function renderOpenAPI(oc) {
     var print = isPrint || isPrintPreview ? 'PRINT-' : '';
     var format = print ? `print` : `html`;
-    var theme = print ? window.relearn.format_print_css_url : window.relearn.format_html_css_url;
+    var theme = print ? config.dataset.formatPrintCssUrl : config.dataset.formatHtmlCssUrl;
+    var themeIntegrity = print ? config.dataset.formatPrintCssIntegrity : config.dataset.formatHtmlCssIntegrity;
+    function integrity(value) {
+      // a stylesheet from a custom URL is none of ours, so there is no hash to check against
+      return value ? ` integrity="${value}"` : '';
+    }
     var variant = document.documentElement.dataset.rThemeVariant;
     var swagger_theme = getColorValue(print + 'OPENAPI-theme');
     var swagger_code_theme = getColorValue(print + 'OPENAPI-CODE-theme');
 
     const openapiId = 'relearn-swagger-ui';
     const openapiIframeId = openapiId + '-iframe';
-    const openapiIframe = document.getElementById(openapiIframeId);
+    const openapiIframe = document.querySelector('#' + openapiIframeId);
     if (openapiIframe) {
       openapiIframe.remove();
     }
     const openapiErrorId = openapiId + '-error';
-    const openapiError = document.getElementById(openapiErrorId);
+    const openapiError = document.querySelector('#' + openapiErrorId);
     if (openapiError) {
       openapiError.remove();
     }
@@ -522,46 +467,36 @@ function initOpenapi(update, attrs) {
 <html id="R-html" class="relearn ${swagger_theme}-mode" lang="${lang}" dir="${isRtl ? 'rtl' : 'ltr'}" data-r-output-format="${format}" data-r-theme-variant="${variant}">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="${window.relearn.openapi_css_url}">
-    <link rel="stylesheet" href="${window.relearn.swagger_css_url}">
-    <link rel="stylesheet" href="${theme}">
-    <script>
-      function relearn_expand_all() {
-        document.querySelectorAll(".expand-operation[aria-expanded=false]").forEach(btn => btn.click());
-        document.querySelectorAll(".models-control[aria-expanded=false]").forEach(btn => btn.click());
-        document.querySelectorAll(".opblock-summary-control[aria-expanded=false]").forEach(btn => btn.click());
-        document.querySelectorAll(".model-container > .model-box > button[aria-expanded=false]").forEach(btn => btn.click());
-        return false;
-      }
-      function relearn_collapse_all() {
-        document.querySelectorAll(".expand-operation[aria-expanded=true]").forEach(btn => btn.click());
-        document.querySelectorAll(".models-control[aria-expanded=true]").forEach(btn => btn.click());
-        document.querySelectorAll(".opblock-summary-control[aria-expanded=true]").forEach(btn => btn.click());
-        document.querySelectorAll(".model-container > .model-box > .model-box > .model > span > button[aria-expanded=true]").forEach(btn => btn.click());
-        return false;
-      }
-    </script>
+    <link rel="stylesheet" href="${config.dataset.openapiCssUrl}"${integrity(config.dataset.openapiCssIntegrity)}>
+    <link rel="stylesheet" href="${config.dataset.swaggerCssUrl}"${integrity(config.dataset.swaggerCssIntegrity)}>
+    <link rel="stylesheet" href="${theme}"${integrity(themeIntegrity)}>
   </head>
   <body>
-    <a class="relearn-expander" href="" onclick="return relearn_collapse_all()">Collapse all</a>
-    <a class="relearn-expander" href="" onclick="return relearn_expand_all()">Expand all</a>
+    <a class="relearn-expander" href="" data-expand="false">Collapse all</a>
+    <a class="relearn-expander" href="" data-expand="true">Expand all</a>
     <div id="relearn-swagger-ui"></div>
   </body>
 </html>`;
     oi.height = '100%';
     oi.width = '100%';
-    oi.onload = function () {
-      const openapiWrapper = getFirstAncestorByClass(oc, 'sc-openapi-wrapper');
-      const openapiPromise = new Promise(function (resolve) {
-        resolve();
+    oi.addEventListener('load', function () {
+      // the iframe runs no script of its own, so its expanders are served from here
+      oi.contentWindow.document.addEventListener('click', function (event) {
+        var expander = event.target.closest('.relearn-expander');
+        if (!expander) {
+          return;
+        }
+        event.preventDefault();
+        expandOpenAPI(oi.contentWindow.document, expander.dataset.expand == 'true');
       });
-      openapiPromise
+      const openapiWrapper = getFirstAncestorByClass(oc, 'sc-openapi-wrapper');
+      Promise.resolve()
         .then(function () {
           var options = {
             defaultModelsExpandDepth: 2,
             defaultModelExpandDepth: 2,
             docExpansion: isPrint || isPrintPreview ? 'full' : 'list',
-            domNode: oi.contentWindow.document.getElementById(openapiId),
+            domNode: oi.contentWindow.document.querySelector('#' + openapiId),
             filter: !(isPrint || isPrintPreview),
             layout: 'BaseLayout',
             onComplete: function () {
@@ -624,20 +559,37 @@ function initOpenapi(update, attrs) {
             openapiWrapper.insertAdjacentElement('afterbegin', ed);
           }
         });
-    };
+    });
     oc.appendChild(oi);
+  }
+  function expandOpenAPI(doc, expand) {
+    // only what is not yet in the wanted state gets clicked
+    var current = expand ? 'false' : 'true';
+    var clickAll = function (selector) {
+      doc.querySelectorAll(selector).forEach(function (btn) {
+        btn.click();
+      });
+    };
+    clickAll('.expand-operation[aria-expanded=' + current + ']');
+    clickAll('.models-control[aria-expanded=' + current + ']');
+    clickAll('.opblock-summary-control[aria-expanded=' + current + ']');
+    if (expand) {
+      clickAll('.model-container > .model-box > button[aria-expanded=false]');
+    } else {
+      clickAll('.model-container > .model-box > .model-box > .model > span > button[aria-expanded=true]');
+    }
   }
   function setOpenAPIHeight(oi) {
     // add empirical offset if in print preview (GC 103)
     oi.style.height = oi.contentWindow.document.documentElement.getBoundingClientRect().height + (isPrintPreview ? 200 : 0) + 'px';
   }
   function resizeOpenAPI() {
-    let divi = document.getElementsByClassName('sc-openapi-iframe');
+    let divi = document.querySelectorAll('.sc-openapi-iframe');
     for (let i = 0; i < divi.length; i++) {
       setOpenAPIHeight(divi[i]);
     }
   }
-  let divo = document.getElementsByClassName('sc-openapi-container');
+  let divo = document.querySelectorAll('.sc-openapi-container');
   for (let i = 0; i < divo.length; i++) {
     renderOpenAPI(divo[i]);
   }
@@ -921,8 +873,7 @@ function initArrowVerticalNav() {
         `)
     );
     if (!event.shiftKey && !event.ctrlKey && event.altKey && !event.metaKey) {
-      if (event.which == 38) {
-        // up
+      if (event.key == 'ArrowUp') {
         var target = isPrint ? document.querySelector('#R-body') : document.querySelector('.flex-block-wrapper');
         elems.some(function (elem, i) {
           var top = elem.getBoundingClientRect().top;
@@ -933,8 +884,7 @@ function initArrowVerticalNav() {
           }
           target = elem;
         });
-      } else if (event.which == 40) {
-        // down
+      } else if (event.key == 'ArrowDown') {
         elems.some(function (elem, i) {
           var top = elem.getBoundingClientRect().top;
           var topBoundary = top - topMain;
@@ -977,7 +927,7 @@ function initArrowHorizontalNav() {
       if (f) {
         return;
       }
-      if (event.which == dir_key_start) {
+      if (event.key == dir_key_start) {
         if (!scrollStart && +el.scrollLeft.toFixed() * dir_scroll <= 0) {
           prev && prev.click();
         } else if (scrollStart != -1) {
@@ -985,7 +935,7 @@ function initArrowHorizontalNav() {
         }
         scrollStart = -1;
       }
-      if (event.which == dir_key_end) {
+      if (event.key == dir_key_end) {
         if (!scrollEnd && +el.scrollLeft.toFixed() * dir_scroll + +el.clientWidth.toFixed() >= +el.scrollWidth.toFixed()) {
           next && next.click();
         } else if (scrollEnd != -1) {
@@ -1001,7 +951,7 @@ function initArrowHorizontalNav() {
       if (f) {
         return;
       }
-      if (event.which == dir_key_start) {
+      if (event.key == dir_key_start) {
         // check for false indication if keyup is delayed after navigation
         if (scrollStart == -1) {
           scrollStart = setTimeout(function () {
@@ -1009,7 +959,7 @@ function initArrowHorizontalNav() {
           }, 300);
         }
       }
-      if (event.which == dir_key_end) {
+      if (event.key == dir_key_end) {
         if (scrollEnd == -1) {
           scrollEnd = setTimeout(function () {
             scrollEnd = 0;
@@ -1191,7 +1141,7 @@ function initMenuScrollbar() {
     // cursor/page up/down; a scroll container only reacts to
     // those keys if it contains the focus, so hand it over
     // to the element the user expects to scroll
-    if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey || event.which < 32 || event.which > 40) {
+    if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey || !SCROLL_KEYS.includes(event.key)) {
       return;
     }
 
@@ -1202,17 +1152,17 @@ function initMenuScrollbar() {
       // would scroll the wrong one, but browsers disagree on whether they
       // scroll the focused container themselves, so we always do it ourselves
       var by = 0;
-      if (event.which == 38) {
+      if (event.key == 'ArrowUp') {
         by = -LINE_SCROLL;
-      } else if (event.which == 40) {
+      } else if (event.key == 'ArrowDown') {
         by = LINE_SCROLL;
-      } else if (event.which == 33) {
+      } else if (event.key == 'PageUp') {
         by = -scroller.clientHeight;
-      } else if (event.which == 34) {
+      } else if (event.key == 'PageDown') {
         by = scroller.clientHeight;
-      } else if (event.which == 36) {
+      } else if (event.key == 'Home') {
         by = -scroller.scrollHeight;
-      } else if (event.which == 35) {
+      } else if (event.key == 'End') {
         by = scroller.scrollHeight;
       }
       if (by) {
@@ -1258,6 +1208,12 @@ function imageEscapeHandler(event) {
   }
 }
 
+// our shortcuts stay on the deprecated `event.which`: it names the letter on the
+// key in the reader's layout, which neither replacement does. `event.key` gives
+// the character typed, so a non-Latin layout never produces our letters and on
+// Windows, where Ctrl+Alt is AltGr, some layouts type another character instead;
+// `event.code` gives the key's position on a US keyboard, which moves our
+// letters on layouts like AZERTY
 function navShortcutHandler(event) {
   if (!event.shiftKey && event.altKey && event.ctrlKey && !event.metaKey && event.which == 78 /* n */) {
     toggleNav();
@@ -1395,6 +1351,23 @@ function toggleTopbarFlyoutEvent(event) {
   toggleTopbarFlyout(event.target);
 }
 
+function handleTopbarButtons() {
+  // one listener for all buttons declaring an action, wherever they were moved to;
+  // an action we don't know is left to the author's own listener
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('button[data-button-action]');
+    if (!button) {
+      return;
+    }
+    var action = button.dataset.buttonAction;
+    if (action == 'toggle-nav') {
+      toggleNav();
+    } else if (action == 'toggle-flyout') {
+      toggleTopbarFlyout(button);
+    }
+  });
+}
+
 function topbarFlyoutEscapeHandler(event) {
   if (event.key == 'Escape') {
     closeSomeTopbarButtonFlyout();
@@ -1497,6 +1470,11 @@ function initSwipeHandler() {
 function initImage() {
   document.querySelectorAll('.lightbox-back').forEach(function (e) {
     e.addEventListener('keydown', imageEscapeHandler);
+    e.addEventListener('click', function (event) {
+      // leave the lightbox the way we came instead of adding another history entry
+      event.preventDefault();
+      history.back();
+    });
   });
 }
 
@@ -1603,7 +1581,7 @@ function scrollToPositions() {
 
   var state = window.history.state || {};
   state = typeof state === 'object' ? state : {};
-  if (state.hasOwnProperty('contentScrollTop')) {
+  if (Object.hasOwn(state, 'contentScrollTop')) {
     window.setTimeout(function () {
       elc.scrollTop = +state.contentScrollTop;
     }, 10);
@@ -1932,9 +1910,7 @@ function initSearch() {
     e.addEventListener('click', function () {
       inputs.forEach(function (e) {
         e.value = '';
-        var event = document.createEvent('Event');
-        event.initEvent('input', false, false);
-        e.dispatchEvent(event);
+        e.dispatchEvent(new Event('input'));
       });
       window.sessionStorage.removeItem(window.relearn.absBaseUri + '/search-value');
       unmark();
@@ -1953,9 +1929,7 @@ function initSearch() {
   if (search) {
     inputs.forEach(function (e) {
       e.value = search;
-      var event = document.createEvent('Event');
-      event.initEvent('input', false, false);
-      e.dispatchEvent(event);
+      e.dispatchEvent(new Event('input'));
     });
   }
 
@@ -1991,9 +1965,15 @@ function useMermaid(config) {
     mermaid.initialize(Object.assign({ securityLevel: 'antiscript', startOnLoad: false }, config));
   }
 }
-if (window.relearn.themeUseMermaid) {
-  useMermaid(window.relearn.themeUseMermaid);
-}
+(function () {
+  // the block is only written by the mermaid dependency; we are deferred, so it
+  // stands in the document by now wherever the dependency put it
+  var config = document.querySelector('#R-mermaid-config');
+  if (config) {
+    window.relearn.themeUseMermaid = JSON.parse(config.textContent);
+    useMermaid(window.relearn.themeUseMermaid);
+  }
+})();
 
 function ready(fn) {
   if (document.readyState == 'complete') {
@@ -2016,8 +1996,8 @@ ready(function () {
   initToc();
   initAnchorClipboard();
   initCodeClipboard();
-  fixCodeTabs();
-  restoreTabSelections();
+  handleTabs();
+  handleTopbarButtons();
   initSwipeHandler();
   initHistory();
   initSearch();
@@ -2252,12 +2232,12 @@ function initVersionJs() {
     url.searchParams.set('v', randomNum.toString());
     js.src = url.toString();
     js.setAttribute('async', '');
-    js.onload = function () {
+    js.addEventListener('load', function () {
       initVersionIndex(relearn_versionindex);
-    };
-    js.onerror = function (e) {
+    });
+    js.addEventListener('error', function (e) {
       console.error('Error getting version index file');
-    };
+    });
     document.head.appendChild(js);
   }
 }

@@ -20,80 +20,43 @@
     <script src="./js/auto-complete/auto-complete.js" defer></script>
     <script src="./js/search-lunr.js" defer></script>
     <script src="./js/search.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.index_js_url="./"+"searchindex.en.js";
-    </script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
     <script src="./js/lunr/lunr.min.js" defer></script>
     <script src="./js/lunr/lunr.stemmer.support.min.js" defer></script>
     <script src="./js/lunr/lunr.multi.min.js" defer></script>
     <script src="./js/lunr/lunr.en.min.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.contentLangs=['en'];
-    </script>
-    <link href="./fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="./fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="./fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="./fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
     <link href="./css/theme.css" rel="stylesheet">
     <link href="./css/format-html.css" rel="stylesheet" id="R-format-style">
-    <script>
-      window.relearn = window.relearn || {};
-      // configuration
-      window.relearn.path='\/404.html';
-      window.relearn.relBasePath='.';
-      window.relearn.relBaseUri='.';
-      window.relearn.absBaseUri='https:\/\/example.com';
-      window.relearn.disableInlineCopyToClipboard=false;
-      window.relearn.enableBlockCodeWrap=true;
-      // translations
-      window.T_Copy_to_clipboard = `Copy text to clipboard`;
-      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
-      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
-      window.T_Reset_view = `Reset view`;
-      window.T_View_reset = `View reset!`;
-      window.T_No_results_found = `No results found for "{0}"`;
-      window.T_N_results_found = `{1} results found for "{0}"`;
-      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
-      // variant stuff
-      window.relearn.themevariants = [ 'auto' ];
-      window.relearn.customvariantprefix = "my-custom-";
-      window.relearn.changeVariant = function(variant) {
-        var oldVariant = document.documentElement.dataset.rThemeVariant;
-        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        document.documentElement.dataset.rThemeVariant = variant;
-        if (oldVariant != variant) {
-          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
-          window.relearn.markVariant();
-        }
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "https://example.com",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/404.html",
+      "relBasePath": ".",
+      "relBaseUri": ".",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
       }
-      window.relearn.markVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
-        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
-      }
-      window.relearn.initVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
-        if( !variant ||
-            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
-            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
-          variant = window.relearn.themevariants[0];
-          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        }
-        document.documentElement.dataset.rThemeVariant = variant;
-      }
-      window.relearn.initVariant();
-      window.relearn.markVariant();
-      window.relearn.scrollbarSize = (function() {
-        var scrollDiv = document.createElement('div');
-        scrollDiv.className = 'scrollbar-measure';
-        var parent = document.body || document.documentElement;
-        parent.appendChild(scrollDiv);
-        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        parent.removeChild(scrollDiv);
-        return size;
-      })();
-      if (window.relearn.scrollbarSize) {
-        document.documentElement.classList.add('classic-scrollbars');
-      }
-    </script>
+    }</script>
+    <script src="./js/theme-head.js"></script>
     <link href="./css/custom.css" rel="stylesheet">
     <script src="./js/custom.js" defer></script>
   </head>
@@ -113,8 +76,7 @@
  viewBox="0 0 512.000000 512.000000"
  preserveAspectRatio="xMidYMid meet">
 
-<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-style="fill:#000000;stroke:none;">
+<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)">
 <path d="M2359 4821 c-330 -72 -613 -312 -803 -681 -53 -102 -74 -133 -105
 -154 -46 -32 -103 -113 -121 -170 -7 -23 -11 -72 -8 -120 3 -65 10 -91 33
 -134 36 -66 91 -117 161 -149 30 -13 54 -30 54 -38 0 -33 56 -199 94 -281 54

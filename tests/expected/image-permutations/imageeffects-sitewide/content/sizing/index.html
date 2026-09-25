@@ -28,80 +28,43 @@ Unsized One dimension">
     <script src="../js/auto-complete/auto-complete.js" defer></script>
     <script src="../js/search-lunr.js" defer></script>
     <script src="../js/search.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../"+"searchindex.en.js";
-    </script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
     <script src="../js/lunr/lunr.min.js" defer></script>
     <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
     <script src="../js/lunr/lunr.multi.min.js" defer></script>
     <script src="../js/lunr/lunr.en.min.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.contentLangs=['en'];
-    </script>
-    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
     <link href="../css/theme.css" rel="stylesheet">
     <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
-    <script>
-      window.relearn = window.relearn || {};
-      // configuration
-      window.relearn.path='\/sizing\/index.html';
-      window.relearn.relBasePath='..';
-      window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='';
-      window.relearn.disableInlineCopyToClipboard=false;
-      window.relearn.enableBlockCodeWrap=true;
-      // translations
-      window.T_Copy_to_clipboard = `Copy text to clipboard`;
-      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
-      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
-      window.T_Reset_view = `Reset view`;
-      window.T_View_reset = `View reset!`;
-      window.T_No_results_found = `No results found for "{0}"`;
-      window.T_N_results_found = `{1} results found for "{0}"`;
-      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
-      // variant stuff
-      window.relearn.themevariants = [ 'auto' ];
-      window.relearn.customvariantprefix = "my-custom-";
-      window.relearn.changeVariant = function(variant) {
-        var oldVariant = document.documentElement.dataset.rThemeVariant;
-        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        document.documentElement.dataset.rThemeVariant = variant;
-        if (oldVariant != variant) {
-          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
-          window.relearn.markVariant();
-        }
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/sizing/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
       }
-      window.relearn.markVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
-        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
-      }
-      window.relearn.initVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
-        if( !variant ||
-            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
-            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
-          variant = window.relearn.themevariants[0];
-          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        }
-        document.documentElement.dataset.rThemeVariant = variant;
-      }
-      window.relearn.initVariant();
-      window.relearn.markVariant();
-      window.relearn.scrollbarSize = (function() {
-        var scrollDiv = document.createElement('div');
-        scrollDiv.className = 'scrollbar-measure';
-        var parent = document.body || document.documentElement;
-        parent.appendChild(scrollDiv);
-        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        parent.removeChild(scrollDiv);
-        return size;
-      })();
-      if (window.relearn.scrollbarSize) {
-        document.documentElement.classList.add('classic-scrollbars');
-      }
-    </script>
+    }</script>
+    <script src="../js/theme-head.js"></script>
   </head>
   <body class="mobile-support html" data-origin="/sizing/index.html">
     <div id="R-body" class="default-animation">
@@ -111,10 +74,10 @@ Unsized One dimension">
           <div class="topbar-sidebar-divider default-animation"></div>
           <div class="topbar-area topbar-area-start" data-area="start">
             <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
             </div>
             <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
 <nav class="TableOfContents">
@@ -145,7 +108,7 @@ Unsized One dimension">
 <span class="btn cstyle button link noborder notitle interactive"><a href="../sources/index.html" title="Sources (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
             </div>
             <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
                   <div class="topbar-area topbar-area-more" data-area="more">
@@ -170,26 +133,26 @@ so they are style, not pixel counts. The intrinsic dimensions of the resource
 are a separate thing, and what a browser needs to reserve space with before the
 image has arrived.</p>
 <h2 id="unsized">Unsized<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Unsized" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<p><img alt="Unsized" class="border figure-image" height="20" src="../images/landscape.png" width="30"></p>
 <h2 id="one-dimension">One dimension<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Width only" class="border figure-image" height="20" src="../images/landscape.png?width=20vw" style="height: auto;width: 20vw;" width="30"></p>
+<p><img alt="Width only" class="border figure-image" height="20" src="../images/landscape.png?width=20vw" style="width: 20vw;" width="30"></p>
 <p><img alt="Height only" class="border figure-image" height="20" src="../images/landscape.png?height=50px" style="height: 50px;width: auto;" width="30"></p>
 <h2 id="both-dimensions">Both dimensions<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p><img alt="Both" class="border figure-image" height="20" src="../images/landscape.png?width=40vw&height=50px" style="height: 50px;width: 40vw;" width="30"></p>
 <p><img alt="Both in pixels" class="border figure-image" height="20" src="../images/landscape.png?width=100px&height=100px" style="height: 100px;width: 100px;" width="30"></p>
 <h2 id="relative-lengths">Relative lengths<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Width in percent" class="border figure-image" height="20" src="../images/landscape.png?width=50%25" style="height: auto;width: 50%;" width="30"></p>
+<p><img alt="Width in percent" class="border figure-image" height="20" src="../images/landscape.png?width=50%25" style="width: 50%;" width="30"></p>
 <p><img alt="Height in percent" class="border figure-image" height="20" src="../images/landscape.png?height=50%25" style="height: 50%;width: auto;" width="30"></p>
-<p><img alt="Width in ems" class="border figure-image" height="20" src="../images/landscape.png?width=10em" style="height: auto;width: 10em;" width="30"></p>
+<p><img alt="Width in ems" class="border figure-image" height="20" src="../images/landscape.png?width=10em" style="width: 10em;" width="30"></p>
 <h2 id="portrait">Portrait<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>The other aspect ratio, so a swapped pair of dimensions cannot pass unnoticed.</p>
-<p><img alt="Portrait unsized" class="border figure-image" height="30" src="../images/portrait.jpg" style="height: auto;" width="20"></p>
-<p><img alt="Portrait width only" class="border figure-image" height="30" src="../images/portrait.jpg?width=20vw" style="height: auto;width: 20vw;" width="20"></p>
+<p><img alt="Portrait unsized" class="border figure-image" height="30" src="../images/portrait.jpg" width="20"></p>
+<p><img alt="Portrait width only" class="border figure-image" height="30" src="../images/portrait.jpg?width=20vw" style="width: 20vw;" width="20"></p>
 <h2 id="unmeasurable">Unmeasurable<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>An SVG is an image resource Hugo cannot read dimensions from, so it has none to
 carry into the markup however it is sized.</p>
-<p><img alt="Vector unsized" class="border figure-image" src="../images/vector.svg" style="height: auto;"></p>
-<p><img alt="Vector width only" class="border figure-image" src="../images/vector.svg?width=20vw" style="height: auto;width: 20vw;"></p>
+<p><img alt="Vector unsized" class="border figure-image" src="../images/vector.svg"></p>
+<p><img alt="Vector width only" class="border figure-image" src="../images/vector.svg?width=20vw" style="width: 20vw;"></p>
 <h2 id="elsewhere">Elsewhere<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>An absolute URL never resolves to a resource and so can never carry intrinsic
 dimensions - and, pointing at a host that does not answer, would show as alt

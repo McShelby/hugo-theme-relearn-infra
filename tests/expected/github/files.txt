@@ -138,6 +138,9 @@ configuration/sidebar/search/index.xml
 configuration/sidebar/width/index.html
 configuration/sidebar/width/index.print.html
 configuration/sidebar/width/index.xml
+configuration/sitemanagement/csp/index.html
+configuration/sitemanagement/csp/index.print.html
+configuration/sitemanagement/csp/index.xml
 configuration/sitemanagement/deployment/index.html
 configuration/sitemanagement/deployment/index.print.html
 configuration/sitemanagement/deployment/index.xml
@@ -175,7 +178,7 @@ css/format-html.min.0bdad0ef33f30c347c20237f08e93dca8ea0207d9da7b653021e5e207eed
 css/format-print.min.39e0dc30e3ca73e623fcf660fac10bf09db5539b3d13e59e90977cf7137e6aee.css
 css/swagger-ui/swagger-ui.d7f39f764aa18c7b47dd05b9af5613e373e4ac0f3557c2693d52d0abc2464d76.css
 css/swagger.min.481ac782fe39ff034369f1fe92353f82f78c51d0d51819cdd32955d7ffa12965.css
-css/theme.min.32fc05e0609fd96a5649db64239b59fb6aa97201bf6a6d16675143819db3b284.css
+css/theme.min.695c0c96bc289db25327f22f9570e68fae3fd3da35fd224d92f13f4b358e1bcc.css
 development/contributing/index.html
 development/contributing/index.print.html
 development/contributing/index.xml
@@ -205,7 +208,7 @@ exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841
 exampleSite/css/format-html.min.0596f09319aad776474e5677dfbb54b7aff273f871dc100dff33f36fecf3cd01.css
 exampleSite/css/format-print.min.39e0dc30e3ca73e623fcf660fac10bf09db5539b3d13e59e90977cf7137e6aee.css
 exampleSite/css/swagger.min.0fa6a7b1f677c9ae7b791d9005131435053b79c30b728ef7101c531fb912a11e.css
-exampleSite/css/theme.min.de53d3c65582bd89f0fc587e8a41b4d159b2b2945a8f1e4678da6d2e975c58d3.css
+exampleSite/css/theme.min.6f13aa4a4d21fa5c83c1d65b123a7cf5ba78b035abd4143227f6ab897c46f45e.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -221,7 +224,7 @@ exampleSite/fonts/robotoflex/RobotoFlex.latin-ext.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.latin.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.vietnamese.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.woff2
-exampleSite/images/logo.7cee32eceb3a1d76cf207d36f9d925650150ddf2ba9fefc4a71f7008b8597f35.svg
+exampleSite/images/logo.a1257280007038bb76b966111d77da02ed8a5079169c0f9374f728c0c54c441c.svg
 exampleSite/images/logo.svg
 exampleSite/index.html
 exampleSite/index.print.html
@@ -243,9 +246,10 @@ exampleSite/js/lunr/lunr.min.75e90b6cec204a54a07060b42ec82f3816430c63ffd689d1e97
 exampleSite/js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04dcb0a94dc2c1cb44f9c.js
 exampleSite/js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
 exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
-exampleSite/js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
-exampleSite/js/search.min.795bf51f4b531fcd29fe7ffb27f174f6bb6b0ce086465e2be48643dea742dfbb.js
-exampleSite/js/theme.min.d942eef811263d7b57cf1b2a93ef437ff9f08846efa7033ef7c5904369ae490e.js
+exampleSite/js/search-lunr.min.2e613f0a1ce042c097f61ecc0e3f843d395bf3a42717715f9c08a11dc2f21122.js
+exampleSite/js/search.min.373845112980472e938f57e7ec9a00ff9d7b651d7e72cacce2b29211ad5f1924.js
+exampleSite/js/theme-head.min.eb092668f5b427260df95861e28028bbd22ff85e2af068b9bfbedf0cbdbea887.js
+exampleSite/js/theme.min.b7bff9d1213b9a75f6f5760019b88c9715f7b1323f17621071b93cfcb759b0a3.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -442,7 +446,7 @@ frontmatter/urlignorecheck/index.html
 frontmatter/urlignorecheck/index.xml
 google8f3828b298875b45.html
 images/hero.png
-images/logo.a0d6f24580a63a8065f77e889fdf2ee51c464658dd001245f5e071f2881664de.svg
+images/logo.d30ab0425821f45713322a73c1eeb192e311689b03371519abbe061a24d1201e.svg
 images/logo.svg
 images/magic.gif
 images/screenshot.png
@@ -869,6 +873,7 @@ js/d3/d3-selection.min.45daab9cf677901bcae102f3f23ca2930db3c0fb8ff9e3dbed087d9c4
 js/d3/d3-timer.min.911ceda305f014b6b53ca68d5c896a9a387da120cfd56a421a2c60cca2fc9b36.js
 js/d3/d3-transition.min.c248d97f6c131af7f4a12a3ff1f2ed83f1cc6c0e17fc764a198b6ee452e6621b.js
 js/d3/d3-zoom.min.4fdce9b830b78225c58e27258296084253c41a5eaf8cad9bd9ccfe3025daf1cf.js
+js/github-buttons-init.min.cdad92a4e98ab46065ca8f9418d2a85708eaeb9c9b1e9a73b3de7bfb1926ccca.js
 js/github-buttons/github-buttons.min.396875a4c3b16f1f090a5324972f068ebeee9dc3902a275b352dd4a74e99b648.js
 js/js-yaml/js-yaml.min.27e5afd901466eb78e42374935cba773ca53f77b0d52eedb103b2b43f67a7f6a.js
 js/lunr/lunr.art.min.d3a9a00c6a815a619b46177e86e5d73b27b26c3b2a9d99951d359ab00deb7158.js
@@ -876,6 +881,7 @@ js/lunr/lunr.en.min.94d0a7cb1f111200e2f5be9dc32699cf266aaa29011e414bdcd36a18ea0f
 js/lunr/lunr.min.75e90b6cec204a54a07060b42ec82f3816430c63ffd689d1e9771f469dc493dd.js
 js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04dcb0a94dc2c1cb44f9c.js
 js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
+js/math.min.3277bdbc1dd7ea7de29debd0dd89a38e712ea120856774e06203e73586134c14.js
 js/mathjax/.gitignore
 js/mathjax/CONTRIBUTING.md
 js/mathjax/LICENSE
@@ -987,12 +993,13 @@ js/mathjax/ui/menu.js
 js/mathjax/ui/no-dark-mode.js
 js/mathjax/ui/safe.js
 js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
-js/search-lunr.min.9af015a288d1c0d444de2d8fb41fd8fdd679ead7dd60e637608740d50078fdf9.js
-js/search.min.795bf51f4b531fcd29fe7ffb27f174f6bb6b0ce086465e2be48643dea742dfbb.js
+js/search-lunr.min.2e613f0a1ce042c097f61ecc0e3f843d395bf3a42717715f9c08a11dc2f21122.js
+js/search.min.373845112980472e938f57e7ec9a00ff9d7b651d7e72cacce2b29211ad5f1924.js
 js/swagger-ui/swagger-ui-bundle.a7e344f2770b2f07527ce828e0951626983b8f2dcdb7a826689c0232023f995b.js
 js/swagger-ui/swagger-ui-standalone-preset.1ad2ffd7a236dca4e570ce2ba2ef3de721d7553d4e7449db58df66cb294311e9.js
-js/theme.min.d942eef811263d7b57cf1b2a93ef437ff9f08846efa7033ef7c5904369ae490e.js
-js/variant.min.d1d3cebe66aed8452a667445fad3c8f51810c440bd57335920c51faff847d2e4.js
+js/theme-head.min.eb092668f5b427260df95861e28028bbd22ff85e2af068b9bfbedf0cbdbea887.js
+js/theme.min.b7bff9d1213b9a75f6f5760019b88c9715f7b1323f17621071b93cfcb759b0a3.js
+js/variant.min.d7bb11d6017dce3258a2c534f8595d012bf6e0c2dca4174a64139e2cb6f0dd76.js
 more/credits/index.html
 more/credits/index.print.html
 more/credits/index.xml
@@ -1068,6 +1075,8 @@ options/editurl/index.html
 options/editurl/index.xml
 options/enablelegacylanguagelinks/index.html
 options/enablelegacylanguagelinks/index.xml
+options/enablesubresourceintegrity/index.html
+options/enablesubresourceintegrity/index.xml
 options/externallinktarget/index.html
 options/externallinktarget/index.xml
 options/hideauthordate/index.html
@@ -1295,6 +1304,9 @@ pir/configuration/sidebar/search/index.xml
 pir/configuration/sidebar/width/index.html
 pir/configuration/sidebar/width/index.print.html
 pir/configuration/sidebar/width/index.xml
+pir/configuration/sitemanagement/csp/index.html
+pir/configuration/sitemanagement/csp/index.print.html
+pir/configuration/sitemanagement/csp/index.xml
 pir/configuration/sitemanagement/deployment/index.html
 pir/configuration/sitemanagement/deployment/index.print.html
 pir/configuration/sitemanagement/deployment/index.xml
@@ -1924,6 +1936,8 @@ pir/options/editurl/index.html
 pir/options/editurl/index.xml
 pir/options/enablelegacylanguagelinks/index.html
 pir/options/enablelegacylanguagelinks/index.xml
+pir/options/enablesubresourceintegrity/index.html
+pir/options/enablesubresourceintegrity/index.xml
 pir/options/externallinktarget/index.html
 pir/options/externallinktarget/index.xml
 pir/options/hideauthordate/index.html
@@ -2159,8 +2173,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.6d3914493426d4480b2014d411f714ed18792f20f09954d16fec1ab8c98e1348.js
-searchindex.pir.min.7904843388d9c3f4e9a9f5f405f69f02413e3b0bfc82421c12a76f82d12c16ff.js
+searchindex.en.min.c80dbd0a696aafb423f7b05f80b78b15a760c09fe13b01899ee3d61c9401cfec.js
+searchindex.pir.min.36efccc8ca78d0c1dc44ee7f10380babd5771fb5320cc5ec0e5629db57323ef5.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

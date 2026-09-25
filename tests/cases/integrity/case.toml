@@ -1,0 +1,13 @@
+# The smallest site with subresource integrity asked for.
+#
+# Only whether the theme writes an integrity is at stake here: every script and
+# stylesheet it links and the search index carry one, and the hashes change with
+# the bytes they describe. Whether a browser accepts them is nothing a file
+# comparison can tell; the URLs they sit next to are the business of
+# `url-permutations`, which is why this is one build rather than an axis there.
+
+site        = "minimal"
+environment = "testing"
+
+[axes]
+  integrity = "on"

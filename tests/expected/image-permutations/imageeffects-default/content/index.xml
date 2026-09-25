@@ -40,7 +40,7 @@
       <link>/syntax/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/syntax/index.html</guid>
-      <description>Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title</description>
+      <description>Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title Without alt text</description>
     </item>
     <item>
       <title>Page Bundle</title>

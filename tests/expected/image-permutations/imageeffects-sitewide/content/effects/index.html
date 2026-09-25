@@ -28,80 +28,43 @@ Defaults Lightbox The lightbox emits a second copy of the image, which is why tu
     <script src="../js/auto-complete/auto-complete.js" defer></script>
     <script src="../js/search-lunr.js" defer></script>
     <script src="../js/search.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../"+"searchindex.en.js";
-    </script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
     <script src="../js/lunr/lunr.min.js" defer></script>
     <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
     <script src="../js/lunr/lunr.multi.min.js" defer></script>
     <script src="../js/lunr/lunr.en.min.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.contentLangs=['en'];
-    </script>
-    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
     <link href="../css/theme.css" rel="stylesheet">
     <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
-    <script>
-      window.relearn = window.relearn || {};
-      // configuration
-      window.relearn.path='\/effects\/index.html';
-      window.relearn.relBasePath='..';
-      window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='';
-      window.relearn.disableInlineCopyToClipboard=false;
-      window.relearn.enableBlockCodeWrap=true;
-      // translations
-      window.T_Copy_to_clipboard = `Copy text to clipboard`;
-      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
-      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
-      window.T_Reset_view = `Reset view`;
-      window.T_View_reset = `View reset!`;
-      window.T_No_results_found = `No results found for "{0}"`;
-      window.T_N_results_found = `{1} results found for "{0}"`;
-      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
-      // variant stuff
-      window.relearn.themevariants = [ 'auto' ];
-      window.relearn.customvariantprefix = "my-custom-";
-      window.relearn.changeVariant = function(variant) {
-        var oldVariant = document.documentElement.dataset.rThemeVariant;
-        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        document.documentElement.dataset.rThemeVariant = variant;
-        if (oldVariant != variant) {
-          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
-          window.relearn.markVariant();
-        }
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/effects/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
       }
-      window.relearn.markVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
-        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
-      }
-      window.relearn.initVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
-        if( !variant ||
-            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
-            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
-          variant = window.relearn.themevariants[0];
-          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        }
-        document.documentElement.dataset.rThemeVariant = variant;
-      }
-      window.relearn.initVariant();
-      window.relearn.markVariant();
-      window.relearn.scrollbarSize = (function() {
-        var scrollDiv = document.createElement('div');
-        scrollDiv.className = 'scrollbar-measure';
-        var parent = document.body || document.documentElement;
-        parent.appendChild(scrollDiv);
-        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        parent.removeChild(scrollDiv);
-        return size;
-      })();
-      if (window.relearn.scrollbarSize) {
-        document.documentElement.classList.add('classic-scrollbars');
-      }
-    </script>
+    }</script>
+    <script src="../js/theme-head.js"></script>
   </head>
   <body class="mobile-support html" data-origin="/effects/index.html">
     <div id="R-body" class="default-animation">
@@ -111,10 +74,10 @@ Defaults Lightbox The lightbox emits a second copy of the image, which is why tu
           <div class="topbar-sidebar-divider default-animation"></div>
           <div class="topbar-area topbar-area-start" data-area="start">
             <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
             </div>
             <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
 <nav class="TableOfContents">
@@ -144,7 +107,7 @@ Defaults Lightbox The lightbox emits a second copy of the image, which is why tu
 <span class="btn cstyle button link noborder notitle interactive"><a href="../syntax/index.html" title="Syntax (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
             </div>
             <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
                   <div class="topbar-area topbar-area-more" data-area="more">
@@ -167,38 +130,38 @@ Defaults Lightbox The lightbox emits a second copy of the image, which is why tu
 <p>Everything that changes the emitted element. Sizing stays out of the way here
 except where the two are deliberately combined.</p>
 <h2 id="defaults">Defaults<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Default" class="border figure-image" height="20" src="../images/landscape.png" style="height: auto;" width="30"></p>
+<p><img alt="Default" class="border figure-image" height="20" src="../images/landscape.png" width="30"></p>
 <h2 id="lightbox">Lightbox<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>The lightbox emits a second copy of the image, which is why turning it off
 changes more than a class.</p>
-<p><img alt="Off by parameter" class="border figure-image" height="20" src="../images/landscape.png?lightbox=false" style="height: auto;" width="30"></p>
-<p><img alt="Off by class" class="border figure-image" height="20" src="../images/landscape.png?classes=nolightbox" style="height: auto;" width="30"></p>
-<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="On by parameter" class="border lightbox figure-image" height="20" src="../images/landscape.png?lightbox=true" style="height: auto;" width="30"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by parameter" class="border lightbox lightbox-image" src="../images/landscape.png?lightbox=true"></a></p>
-<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link"><img alt="On by bare parameter" class="border lightbox figure-image" height="20" src="../images/landscape.png?lightbox" style="height: auto;" width="30"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by bare parameter" class="border lightbox lightbox-image" src="../images/landscape.png?lightbox"></a></p>
+<p><img alt="Off by parameter" class="border figure-image" height="20" src="../images/landscape.png?lightbox=false" width="30"></p>
+<p><img alt="Off by class" class="border figure-image" height="20" src="../images/landscape.png?classes=nolightbox" width="30"></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link" id="R-image-00000000000000000000000000000000-link"><img alt="On by parameter" class="border lightbox figure-image" height="20" src="../images/landscape.png?lightbox=true" width="30"></a>
+<a href="#R-image-00000000000000000000000000000000-link" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by parameter" class="border lightbox lightbox-image" src="../images/landscape.png?lightbox=true"></a></p>
+<p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link" id="R-image-00000000000000000000000000000000-link"><img alt="On by bare parameter" class="border lightbox figure-image" height="20" src="../images/landscape.png?lightbox" width="30"></a>
+<a href="#R-image-00000000000000000000000000000000-link" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="On by bare parameter" class="border lightbox lightbox-image" src="../images/landscape.png?lightbox"></a></p>
 <h2 id="lazy-loading">Lazy loading<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Not lazy" class="border figure-image" height="20" src="../images/landscape.png?lazy=false" style="height: auto;" width="30"></p>
-<p><img alt="Lazy by class" class="border lazy figure-image" height="20" loading="lazy" src="../images/landscape.png?classes=lazy" style="height: auto;" width="30"></p>
+<p><img alt="Not lazy" class="border figure-image" height="20" src="../images/landscape.png?lazy=false" width="30"></p>
+<p><img alt="Lazy by class" class="border lazy figure-image" height="20" loading="lazy" src="../images/landscape.png?classes=lazy" width="30"></p>
 <h2 id="decoration">Decoration<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Border and shadow" class="border shadow figure-image" height="20" src="../images/landscape.png?classes=border,shadow" style="height: auto;" width="30"></p>
-<p><img alt="Floated left" class="border left figure-image" height="20" src="../images/landscape.png?classes=left" style="height: auto;" width="30"></p>
-<p><img alt="Floated right" class="border right figure-image" height="20" src="../images/landscape.png?classes=right" style="height: auto;" width="30"></p>
-<p><img alt="Inline" class="border inline figure-image" height="20" src="../images/landscape.png?classes=inline" style="height: auto;" width="30"></p>
-<p><img alt="Border off by class" class=" figure-image" height="20" src="../images/landscape.png?classes=noborder" style="height: auto;" width="30"></p>
+<p><img alt="Border and shadow" class="border shadow figure-image" height="20" src="../images/landscape.png?classes=border,shadow" width="30"></p>
+<p><img alt="Floated left" class="border left figure-image" height="20" src="../images/landscape.png?classes=left" width="30"></p>
+<p><img alt="Floated right" class="border right figure-image" height="20" src="../images/landscape.png?classes=right" width="30"></p>
+<p><img alt="Inline" class="border inline figure-image" height="20" src="../images/landscape.png?classes=inline" width="30"></p>
+<p><img alt="Border off by class" class=" figure-image" height="20" src="../images/landscape.png?classes=noborder" width="30"></p>
 <h2 id="unknown-classes">Unknown classes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
 <p>A class the theme knows nothing about is dropped here rather than passed to the
 element - unlike the same class handed to the partial by a template, which the
 <code>Template</code> page shows arriving on the element. The asymmetry is the theme&rsquo;s, and
 this is where it would show up if it changed.</p>
-<p><img alt="Custom class" class="border figure-image" height="20" src="../images/landscape.png?classes=my-own-class" style="height: auto;" width="30"></p>
-<p><img alt="Custom and known classes" class="border figure-image" height="20" src="../images/landscape.png?classes=my-own-class,border,nolightbox" style="height: auto;" width="30"></p>
+<p><img alt="Custom class" class="border figure-image" height="20" src="../images/landscape.png?classes=my-own-class" width="30"></p>
+<p><img alt="Custom and known classes" class="border figure-image" height="20" src="../images/landscape.png?classes=my-own-class,border,nolightbox" width="30"></p>
 <p>A custom class starting with <code>no</code> is not an effect being switched off, and is
 dropped for the same reason rather than for that one.</p>
-<p><img alt="Custom class starting with no" class="border figure-image" height="20" src="../images/landscape.png?classes=nonsense" style="height: auto;" width="30"></p>
+<p><img alt="Custom class starting with no" class="border figure-image" height="20" src="../images/landscape.png?classes=nonsense" width="30"></p>
 <h2 id="combined">Combined<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
-<p><img alt="Sized, decorated, eager, no lightbox" class="border shadow figure-image" height="20" src="../images/landscape.png?width=20vw&classes=border,shadow,nolightbox&lazy=false" style="height: auto;width: 20vw;" width="30"></p>
-<p><img alt="Sized data URL without a lightbox" class="border dataurl figure-image" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVEhL7c0xAQAACMOwysG/ClyBi3KwI3cA5gjTVarEmsSaxJrEmsSax/GFBXZSfSXtQbFIAAAAAElFTkSuQmCC" style="height: auto;width: 20vw;" width="30"></p>
+<p><img alt="Sized, decorated, eager, no lightbox" class="border shadow figure-image" height="20" src="../images/landscape.png?width=20vw&classes=border,shadow,nolightbox&lazy=false" style="width: 20vw;" width="30"></p>
+<p><img alt="Sized data URL without a lightbox" class="border dataurl figure-image" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVEhL7c0xAQAACMOwysG/ClyBi3KwI3cA5gjTVarEmsSaxJrEmsSax/GFBXZSfSXtQbFIAAAAAElFTkSuQmCC" style="width: 20vw;" width="30"></p>
 
   <footer class="footline">
   </footer>

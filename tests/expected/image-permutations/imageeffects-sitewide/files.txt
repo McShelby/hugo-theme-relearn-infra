@@ -40,6 +40,7 @@ js/lunr/lunr.multi.min.js
 js/lunr/lunr.stemmer.support.min.js
 js/search-lunr.js
 js/search.js
+js/theme-head.js
 js/theme.js
 search/index.html
 searchindex.en.js

@@ -32,80 +32,43 @@ Tabs ​ First Second Content of the first tab.">
     <script src="../js/auto-complete/auto-complete.js" defer></script>
     <script src="../js/search-lunr.js" defer></script>
     <script src="../js/search.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../"+"searchindex.en.js";
-    </script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
     <script src="../js/lunr/lunr.min.js" defer></script>
     <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
     <script src="../js/lunr/lunr.multi.min.js" defer></script>
     <script src="../js/lunr/lunr.en.min.js" defer></script>
-    <script>
-      window.relearn = window.relearn || {};
-      window.relearn.contentLangs=['en'];
-    </script>
-    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
     <link href="../css/theme.css" rel="stylesheet">
     <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
-    <script>
-      window.relearn = window.relearn || {};
-      // configuration
-      window.relearn.path='\/expand-tabs\/index.html';
-      window.relearn.relBasePath='..';
-      window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='';
-      window.relearn.disableInlineCopyToClipboard=false;
-      window.relearn.enableBlockCodeWrap=true;
-      // translations
-      window.T_Copy_to_clipboard = `Copy text to clipboard`;
-      window.T_Copied_to_clipboard = `Text copied to clipboard!`;
-      window.T_Link_copied_to_clipboard = `Link copied to clipboard!`;
-      window.T_Reset_view = `Reset view`;
-      window.T_View_reset = `View reset!`;
-      window.T_No_results_found = `No results found for "{0}"`;
-      window.T_N_results_found = `{1} results found for "{0}"`;
-      window.T_Browser_unsupported_feature = `This browser doesn't support this feature`;
-      // variant stuff
-      window.relearn.themevariants = [ 'auto' ];
-      window.relearn.customvariantprefix = "my-custom-";
-      window.relearn.changeVariant = function(variant) {
-        var oldVariant = document.documentElement.dataset.rThemeVariant;
-        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        document.documentElement.dataset.rThemeVariant = variant;
-        if (oldVariant != variant) {
-          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
-          window.relearn.markVariant();
-        }
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/expand-tabs/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
       }
-      window.relearn.markVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
-        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
-      }
-      window.relearn.initVariant = function() {
-        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
-        if( !variant ||
-            (!variant.startsWith(window.relearn.customvariantprefix) && !window.relearn.themevariants.includes(variant)) ||
-            (variant.startsWith(window.relearn.customvariantprefix) && !window.localStorage.getItem(window.relearn.absBaseUri + "/variantstylesheet-" + variant)) ){
-          variant = window.relearn.themevariants[0];
-          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
-        }
-        document.documentElement.dataset.rThemeVariant = variant;
-      }
-      window.relearn.initVariant();
-      window.relearn.markVariant();
-      window.relearn.scrollbarSize = (function() {
-        var scrollDiv = document.createElement('div');
-        scrollDiv.className = 'scrollbar-measure';
-        var parent = document.body || document.documentElement;
-        parent.appendChild(scrollDiv);
-        var size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        parent.removeChild(scrollDiv);
-        return size;
-      })();
-      if (window.relearn.scrollbarSize) {
-        document.documentElement.classList.add('classic-scrollbars');
-      }
-    </script>
+    }</script>
+    <script src="../js/theme-head.js"></script>
   </head>
   <body class="mobile-support html" data-origin="/expand-tabs/index.html">
     <div id="R-body" class="default-animation">
@@ -115,10 +78,10 @@ Tabs ​ First Second Content of the first tab.">
           <div class="topbar-sidebar-divider default-animation"></div>
           <div class="topbar-area topbar-area-start" data-area="start">
             <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
             </div>
             <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
 <nav class="TableOfContents">
@@ -144,7 +107,7 @@ Tabs ​ First Second Content of the first tab.">
 <span class="btn cstyle button link noborder notitle interactive"><a href="../dependencies/index.html" title="Dependencies (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a></span>
             </div>
             <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
               <div class="topbar-content">
                 <div class="topbar-content-wrapper" tabindex="-1">
                   <div class="topbar-area topbar-area-more" data-area="more">
@@ -193,7 +156,6 @@ Tabs ​ First Second Content of the first tab.">
       aria-controls="R-tab-id-00000000000000000000000000000000" aria-expanded="true"
       data-tab-item="R-tab-7fb55ed0b7a30342ba6da306428cae04"
       class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
-      onclick="switchTab('R-tabs-cd9e459ea708a948d5c2f5a6ca8838cf','R-tab-7fb55ed0b7a30342ba6da306428cae04')"
     >
       <span class="tab-nav-text">First</span>
     </button>
@@ -201,7 +163,6 @@ Tabs ​ First Second Content of the first tab.">
       aria-controls="R-tab-id-00000000000000000000000000000000" aria-expanded="false"
       data-tab-item="R-tab-c22cf8376b1893dcfcef0649fe1a7d87"
       class="tab-nav-button tab-panel-style cstyle initial"
-      onclick="switchTab('R-tabs-cd9e459ea708a948d5c2f5a6ca8838cf','R-tab-c22cf8376b1893dcfcef0649fe1a7d87')"
     >
       <span class="tab-nav-text">Second</span>
     </button>

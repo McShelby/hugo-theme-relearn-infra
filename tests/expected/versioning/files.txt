@@ -30,6 +30,7 @@
 0.666/js/lunr/lunr.stemmer.support.min.js
 0.666/js/search-lunr.js
 0.666/js/search.js
+0.666/js/theme-head.js
 0.666/js/theme.js
 0.666/search/index.html
 0.666/searchindex.en.js
@@ -71,6 +72,7 @@ js/lunr/lunr.multi.min.js
 js/lunr/lunr.stemmer.support.min.js
 js/search-lunr.js
 js/search.js
+js/theme-head.js
 js/theme.js
 search/index.html
 searchindex.en.js

@@ -34,7 +34,7 @@ var relearn_searchindex = [
   {
     "breadcrumb": "Image Permutations",
     "content": "Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.\nPlain With a title Without alt text Reference style Inside a link Inside a paragraph Text before and text after it, on one line with the surrounding prose.\nWith markdown attributes Hugo wraps a standalone image in a paragraph unless told not to, so a block attribute below the image attaches to that paragraph and never reaches the image. It is consumed either way - it does not survive as text - so the images below are expected to come out exactly like the plain one above.\nAttributes that do reach the partial come from a template calling it, which is the Template page.",
-    "description": "Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.\nPlain With a title",
+    "description": "Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.\nPlain With a title Without alt text",
     "tags": [],
     "title": "Syntax",
     "uri": "/syntax/index.html"

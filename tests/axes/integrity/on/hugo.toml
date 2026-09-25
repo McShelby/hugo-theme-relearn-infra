@@ -1,0 +1,7 @@
+# Subresource integrity on, which a site only gets by asking for it.
+#
+# Off by default, because a browser can not check an integrity for a page opened
+# from the file system and refuses the file instead.
+
+[params]
+  enableSubresourceIntegrity = true

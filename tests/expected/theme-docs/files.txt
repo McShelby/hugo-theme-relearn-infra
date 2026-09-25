@@ -138,6 +138,9 @@ configuration/sidebar/search/index.xml
 configuration/sidebar/width/index.html
 configuration/sidebar/width/index.print.html
 configuration/sidebar/width/index.xml
+configuration/sitemanagement/csp/index.html
+configuration/sitemanagement/csp/index.print.html
+configuration/sitemanagement/csp/index.xml
 configuration/sitemanagement/deployment/index.html
 configuration/sitemanagement/deployment/index.print.html
 configuration/sitemanagement/deployment/index.xml
@@ -728,6 +731,7 @@ js/d3/d3-selection.min.js
 js/d3/d3-timer.min.js
 js/d3/d3-transition.min.js
 js/d3/d3-zoom.min.js
+js/github-buttons-init.js
 js/github-buttons/github-buttons.js
 js/js-yaml/js-yaml.min.js
 js/lunr/lunr.art.min.js
@@ -735,6 +739,7 @@ js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js
 js/lunr/lunr.stemmer.support.min.js
+js/math.js
 js/mathjax/.gitignore
 js/mathjax/CONTRIBUTING.md
 js/mathjax/LICENSE
@@ -849,6 +854,7 @@ js/search-lunr.js
 js/search.js
 js/swagger-ui/swagger-ui-bundle.js
 js/swagger-ui/swagger-ui-standalone-preset.js
+js/theme-head.js
 js/theme.js
 js/variant.js
 more/credits/index.html
@@ -926,6 +932,8 @@ options/editurl/index.html
 options/editurl/index.xml
 options/enablelegacylanguagelinks/index.html
 options/enablelegacylanguagelinks/index.xml
+options/enablesubresourceintegrity/index.html
+options/enablesubresourceintegrity/index.xml
 options/externallinktarget/index.html
 options/externallinktarget/index.xml
 options/hideauthordate/index.html
@@ -1153,6 +1161,9 @@ pir/configuration/sidebar/search/index.xml
 pir/configuration/sidebar/width/index.html
 pir/configuration/sidebar/width/index.print.html
 pir/configuration/sidebar/width/index.xml
+pir/configuration/sitemanagement/csp/index.html
+pir/configuration/sitemanagement/csp/index.print.html
+pir/configuration/sitemanagement/csp/index.xml
 pir/configuration/sitemanagement/deployment/index.html
 pir/configuration/sitemanagement/deployment/index.print.html
 pir/configuration/sitemanagement/deployment/index.xml
@@ -1782,6 +1793,8 @@ pir/options/editurl/index.html
 pir/options/editurl/index.xml
 pir/options/enablelegacylanguagelinks/index.html
 pir/options/enablelegacylanguagelinks/index.xml
+pir/options/enablesubresourceintegrity/index.html
+pir/options/enablesubresourceintegrity/index.xml
 pir/options/externallinktarget/index.html
 pir/options/externallinktarget/index.xml
 pir/options/hideauthordate/index.html

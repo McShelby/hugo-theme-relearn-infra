@@ -1211,9 +1211,14 @@ than the ones in between, so they need to have privileged visibility; order is:
 
 article .R-taxonomy.tags {
   --VARIABLE-TAGS-color: var(--INTERNAL-MAIN-BG-color);
-  --VARIABLE-TAGS-BG-color: var(--VARIABLE-BOX-color);
+  --VARIABLE-TAGS-BG-color: var(--INTERNAL-TAG-BG-color);
   margin-left: 1rem;
   margin-top: 1rem;
+}
+
+/* only a list given a style is a cstyle */
+article .R-taxonomy.tags.cstyle {
+  --VARIABLE-TAGS-BG-color: var(--VARIABLE-BOX-color);
 }
 
 article .R-taxonomy.tags i {
@@ -1294,6 +1299,13 @@ article .R-taxonomy.tags a.term-link:hover:after {
   margin-right: auto;
   padding: 0;
   text-align: center;
+}
+
+/* an image follows its width; its `height` attribute only tells the browser the
+   space to reserve before it has loaded, and a height asked for in the image's
+   link comes as a style attribute, which wins over this */
+.figure-image {
+  height: auto;
 }
 
 #R-body svg:not(.lightbox-image).left,
@@ -2014,6 +2026,21 @@ td {
   border: 1px solid rgba(134, 134, 134, 0.333);
   padding: 0.5rem;
 }
+
+/* the alignment of a Markdown table column, which render-table.html gives as a class */
+th.align-left,
+td.align-left {
+  text-align: left;
+}
+th.align-center,
+td.align-center {
+  text-align: center;
+}
+th.align-right,
+td.align-right {
+  text-align: right;
+}
+
 tbody > tr:nth-child(even) > td {
   background-color: rgba(134, 134, 134, 0.045);
 }
@@ -3922,7 +3949,7 @@ article.notfound #shrug svg {
   word-break: break-word;
 }
 
-.card-container .card:focus-within:has(.card-title > a:focus) {
+.card-container .card:focus-within:has(.card-title > a:focus, .card-title > button:focus) {
   outline: auto;
 }
 
@@ -3966,6 +3993,12 @@ article.notfound #shrug svg {
   height: 160px;
 }
 
+.card-container .card-image button {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .card-container .card-image img {
   height: 100%;
   object-fit: cover;
@@ -3990,13 +4023,28 @@ article.notfound #shrug svg {
   margin-top: 0;
 }
 
-.card-container .card-title a {
+.card-container .card-title a,
+.card-container .card-title button {
   color: inherit;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.card-container .card-title a:before {
+/* a card running code is a button, which is dressed like the link of any other card */
+.card-container .card-title button,
+.card-container .card-image button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: inherit;
+}
+
+.card-container .card-title a:before,
+.card-container .card-title button:before {
   content: '';
   position: absolute;
   inset: 0;

@@ -45,6 +45,7 @@ js/lunr/lunr.en.min.js
 js/lunr/lunr.min.js
 js/lunr/lunr.multi.min.js
 js/lunr/lunr.stemmer.support.min.js
+js/math.js
 js/mathjax/.gitignore
 js/mathjax/CONTRIBUTING.md
 js/mathjax/LICENSE
@@ -157,6 +158,7 @@ js/mathjax/ui/safe.js
 js/mermaid/mermaid.min.js
 js/search-lunr.js
 js/search.js
+js/theme-head.js
 js/theme.js
 notice/index.html
 notice/index.source.md

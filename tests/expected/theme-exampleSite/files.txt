@@ -45,6 +45,7 @@ js/lunr/lunr.stemmer.support.min.js
 js/mermaid/mermaid.min.js
 js/search-lunr.js
 js/search.js
+js/theme-head.js
 js/theme.js
 log/first-day/index.html
 log/first-day/index.print.html
