@@ -25,8 +25,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Shortcodes",
-    "content": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
-    "description": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath $$\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right)$$ Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
+    "content": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath (∑k=1nakbk)2≤(∑k=1nak2)\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right) Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
+    "description": "This page exercises the on-demand dependency loader: math and mermaid should each pull their assets in only because they are used here.\nMath (∑k=1nakbk)2≤(∑k=1nak2)\\left( \\sum_{k=1}^n a_k b_k \\right)^2 \\leq \\left( \\sum_{k=1}^n a_k^2 \\right) Mermaid graph LR; A[Theme] --\u003e B[Infra]; B --\u003e C[CI]; Icon inline with text.",
     "tags": [],
     "title": "Dependencies",
     "uri": "/dependencies/index.html"

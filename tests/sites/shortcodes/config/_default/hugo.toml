@@ -22,3 +22,9 @@ title = 'Shortcodes'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    # the theme finds math formulae by these delimiters
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        inline = [['\(', '\)'], ['$',  '$']]
+        block  = [['\[', '\]'], ['$$', '$$']]
