@@ -2054,7 +2054,7 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.0d868f19cb02f5c31363fa12923ecba083c1039b2cd0ec85478dd245270701e0.js
+searchindex.en.min.24e7451eebdb91e1e2d081fca9ab826a62e1f9b05f53ea4b8c02ea7a92fd0653.js
 searchindex.pir.min.0d970aa1fc344a24b17425d731af249e54e030d519373f1d464bbf847762b7c2.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
