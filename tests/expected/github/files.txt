@@ -1922,10 +1922,7 @@ pir/shortcodes/button/featured.png
 pir/shortcodes/button/index.html
 pir/shortcodes/button/index.print.html
 pir/shortcodes/button/index.xml
-pir/shortcodes/card/featured.png
 pir/shortcodes/card/index.html
-pir/shortcodes/card/index.print.html
-pir/shortcodes/card/index.xml
 pir/shortcodes/cards/featured.png
 pir/shortcodes/cards/index.html
 pir/shortcodes/cards/index.print.html
@@ -2023,10 +2020,7 @@ pir/shortcodes/siteparam/index.html
 pir/shortcodes/siteparam/index.print.html
 pir/shortcodes/siteparam/index.xml
 pir/shortcodes/swagger/index.html
-pir/shortcodes/tab/featured.png
 pir/shortcodes/tab/index.html
-pir/shortcodes/tab/index.print.html
-pir/shortcodes/tab/index.xml
 pir/shortcodes/tabs/featured.png
 pir/shortcodes/tabs/index.html
 pir/shortcodes/tabs/index.print.html
@@ -2054,8 +2048,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.24e7451eebdb91e1e2d081fca9ab826a62e1f9b05f53ea4b8c02ea7a92fd0653.js
-searchindex.pir.min.0d970aa1fc344a24b17425d731af249e54e030d519373f1d464bbf847762b7c2.js
+searchindex.en.min.982e9722f860d6cdf4b2f17df7eac14c8291fb687dfcf5106d7db93aab13bb8a.js
+searchindex.pir.min.e8486c8a0c402d978418aae20b5f7a9ce41be6493542168890ca587c9b8440a4.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
@@ -2074,10 +2068,7 @@ shortcodes/button/featured.png
 shortcodes/button/index.html
 shortcodes/button/index.print.html
 shortcodes/button/index.xml
-shortcodes/card/featured.png
 shortcodes/card/index.html
-shortcodes/card/index.print.html
-shortcodes/card/index.xml
 shortcodes/cards/featured.png
 shortcodes/cards/index.html
 shortcodes/cards/index.print.html
@@ -2175,10 +2166,7 @@ shortcodes/siteparam/index.html
 shortcodes/siteparam/index.print.html
 shortcodes/siteparam/index.xml
 shortcodes/swagger/index.html
-shortcodes/tab/featured.png
 shortcodes/tab/index.html
-shortcodes/tab/index.print.html
-shortcodes/tab/index.xml
 shortcodes/tabs/featured.png
 shortcodes/tabs/index.html
 shortcodes/tabs/index.print.html

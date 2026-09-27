@@ -30,7 +30,7 @@ const docsDir = path.join(themeDir, 'docs');
 const port = Number(flag('port', 3132));
 const explicitBase = flag('base', null);
 
-const relativeUrls = ['/shortcodes/attachments', '/shortcodes/badge', '/shortcodes/button', '/shortcodes/card', '/shortcodes/cards', '/shortcodes/children', '/shortcodes/expand', '/shortcodes/highlight', '/shortcodes/icon', '/shortcodes/include', '/shortcodes/math', '/shortcodes/mermaid', '/shortcodes/notice', '/shortcodes/openapi', '/shortcodes/resources', '/shortcodes/siteparam', '/shortcodes/tab', '/shortcodes/tabs', '/shortcodes/tree'];
+const relativeUrls = ['/shortcodes/attachments', '/shortcodes/badge', '/shortcodes/button', '/shortcodes/cards', '/shortcodes/children', '/shortcodes/expand', '/shortcodes/highlight', '/shortcodes/icon', '/shortcodes/include', '/shortcodes/math', '/shortcodes/mermaid', '/shortcodes/notice', '/shortcodes/openapi', '/shortcodes/resources', '/shortcodes/siteparam', '/shortcodes/tabs', '/shortcodes/tree'];
 
 // iPhone-like viewport and user agent (emulate iPhone X dimensions)
 const iPhoneViewport = { width: 375, height: 812, deviceScaleFactor: 3, isMobile: true };
