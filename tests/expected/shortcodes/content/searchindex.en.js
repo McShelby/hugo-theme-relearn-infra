@@ -18,7 +18,7 @@ var relearn_searchindex = [
   {
     "breadcrumb": "Shortcodes",
     "content": "Expand Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
-    "description": "Expand Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.",
+    "description": "Expand Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
     "tags": [],
     "title": "Expand and Tabs",
     "uri": "/expand-tabs/index.html"
