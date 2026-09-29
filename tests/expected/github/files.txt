@@ -2048,8 +2048,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.055399b2bcec390fa4d744d60aae028e5a7c6857945af759725fe1bf1a880a70.js
-searchindex.pir.min.4f607eed195bf9203c600e08f5210649e69b785d3317f636beab15aa2fbc32ed.js
+searchindex.en.min.681e77eb1de2a4a88cb7b6f9e98a2aa9edd6c2787a3cf40af3fe4458d5c2a9e4.js
+searchindex.pir.min.39ca3fb9e3abad613035d37643f09db8bc4a7568cde253fe45f5a61f1342ddca.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
