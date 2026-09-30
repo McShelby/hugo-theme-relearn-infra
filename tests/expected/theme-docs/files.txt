@@ -1869,6 +1869,7 @@ pir/shortcodes/openapi/index.print.html
 pir/shortcodes/openapi/index.xml
 pir/shortcodes/openapi/petstore.json
 pir/shortcodes/openapi/petstore.yaml
+pir/shortcodes/pages/featured.png
 pir/shortcodes/pages/fruits/apple/featured.png
 pir/shortcodes/pages/fruits/apple/index.html
 pir/shortcodes/pages/fruits/apple/index.print.html
@@ -2070,6 +2071,7 @@ shortcodes/openapi/index.print.html
 shortcodes/openapi/index.xml
 shortcodes/openapi/petstore.json
 shortcodes/openapi/petstore.yaml
+shortcodes/pages/featured.png
 shortcodes/pages/fruits/apple/featured.png
 shortcodes/pages/fruits/apple/index.html
 shortcodes/pages/fruits/apple/index.print.html

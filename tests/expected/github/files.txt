@@ -249,7 +249,7 @@ exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d772254
 exampleSite/js/search-lunr.min.2e613f0a1ce042c097f61ecc0e3f843d395bf3a42717715f9c08a11dc2f21122.js
 exampleSite/js/search.min.373845112980472e938f57e7ec9a00ff9d7b651d7e72cacce2b29211ad5f1924.js
 exampleSite/js/theme-head.min.eb092668f5b427260df95861e28028bbd22ff85e2af068b9bfbedf0cbdbea887.js
-exampleSite/js/theme.min.5e81b78e5900bce96f55e277df01b5b477b164c8094c7fc0a689ccfd86eeb4b3.js
+exampleSite/js/theme.min.5a2e43f4ea57ca87d1b103420b4ea619cac43e02c7ebcf0c97a7e404a47239d0.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -885,7 +885,7 @@ js/search.min.373845112980472e938f57e7ec9a00ff9d7b651d7e72cacce2b29211ad5f1924.j
 js/swagger-ui/swagger-ui-bundle.62df541529080464a7660adc793eab7128c6193ce3be24ddc1e0e0a4a63edc2f.js
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.eb092668f5b427260df95861e28028bbd22ff85e2af068b9bfbedf0cbdbea887.js
-js/theme.min.5e81b78e5900bce96f55e277df01b5b477b164c8094c7fc0a689ccfd86eeb4b3.js
+js/theme.min.5a2e43f4ea57ca87d1b103420b4ea619cac43e02c7ebcf0c97a7e404a47239d0.js
 js/variant.min.d7bb11d6017dce3258a2c534f8595d012bf6e0c2dca4174a64139e2cb6f0dd76.js
 more/credits/index.html
 more/credits/index.print.html
@@ -2011,6 +2011,7 @@ pir/shortcodes/openapi/index.print.html
 pir/shortcodes/openapi/index.xml
 pir/shortcodes/openapi/petstore.json
 pir/shortcodes/openapi/petstore.yaml
+pir/shortcodes/pages/featured.png
 pir/shortcodes/pages/fruits/apple/featured.png
 pir/shortcodes/pages/fruits/apple/index.html
 pir/shortcodes/pages/fruits/apple/index.print.html
@@ -2103,8 +2104,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.3e260dcfccd150a3cf469792c07e0a9931ead61099e2e3b9fba1b3b95fcef64e.js
-searchindex.pir.min.6a030fc14dca96820553252542b00f8f1b6e4bf76cabb1f50964da51d1ead88d.js
+searchindex.en.min.eee9a7d94d9914e7e263503524481d0c3ac900d4e64bc14fc7adc5542c5d2dc4.js
+searchindex.pir.min.63950eebe6cdf68608f26d344d8dea5cd14733b2d63d48b73cfaf62b739f2ab6.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
@@ -2212,6 +2213,7 @@ shortcodes/openapi/index.print.html
 shortcodes/openapi/index.xml
 shortcodes/openapi/petstore.json
 shortcodes/openapi/petstore.yaml
+shortcodes/pages/featured.png
 shortcodes/pages/fruits/apple/featured.png
 shortcodes/pages/fruits/apple/index.html
 shortcodes/pages/fruits/apple/index.print.html
