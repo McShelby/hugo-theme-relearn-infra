@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Links from the home page, so the snapshot captures how each mode renders them:
-a sibling page into a section deep into a section an external target an anchor on this page">
+a sibling page into a section deep into a section an external target an anchor on this page Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the cite attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="URL Permutations">
     <meta name="twitter:description" content="Links from the home page, so the snapshot captures how each mode renders them:
-a sibling page into a section deep into a section an external target an anchor on this page">
+a sibling page into a section deep into a section an external target an anchor on this page Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the cite attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:">
     <meta property="og:url" content="https://example.com/index.html">
     <meta property="og:site_name" content="URL Permutations">
     <meta property="og:title" content="URL Permutations">
     <meta property="og:description" content="Links from the home page, so the snapshot captures how each mode renders them:
-a sibling page into a section deep into a section an external target an anchor on this page">
+a sibling page into a section deep into a section an external target an anchor on this page Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the cite attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:">
     <meta property="og:locale" content="en">
     <meta property="og:type" content="website">
     <meta itemprop="name" content="URL Permutations">
     <meta itemprop="description" content="Links from the home page, so the snapshot captures how each mode renders them:
-a sibling page into a section deep into a section an external target an anchor on this page">
-    <meta itemprop="wordCount" content="32">
+a sibling page into a section deep into a section an external target an anchor on this page Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the cite attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:">
+    <meta itemprop="wordCount" content="92">
     <title>URL Permutations</title>
     <link href="/index.xml" rel="alternate" type="application/rss+xml" title="URL Permutations">
     <link href="/index.source.md" rel="alternate" type="text/markdown" title="URL Permutations">
@@ -30,7 +30,7 @@ a sibling page into a section deep into a section an external target an anchor o
     <script src="/js/search-lunr.min.2e613f0a1ce042c097f61ecc0e3f843d395bf3a42717715f9c08a11dc2f21122.js" defer></script>
     <script src="/js/search.min.373845112980472e938f57e7ec9a00ff9d7b651d7e72cacce2b29211ad5f1924.js" defer></script>
     <script type="application/json" id="R-search-config">{
-      "indexFile": "searchindex.en.min.4953aef59b7ef75c516bc019e456217d4af5dd73c8d231aac83f7c34b1cc5a1b.js"
+      "indexFile": "searchindex.en.min.19ae43935727df115db1a39858fd6d9dca5ce708ac1245190e26e8feff67e47c.js"
     }</script>
     <script src="/js/lunr/lunr.min.75e90b6cec204a54a07060b42ec82f3816430c63ffd689d1e9771f469dc493dd.js" defer></script>
     <script src="/js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js" defer></script>
@@ -42,7 +42,7 @@ a sibling page into a section deep into a section an external target an anchor o
       ]
     }</script>
     <link href="/fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="/fonts/fontawesome/css/all.min.e0b69df26e19596d4b81bf7eb0c54b6047e7221ec18d5d4d40c11eefd3ef8a4b.css" rel="stylesheet"></noscript>
-    <link href="/css/theme.min.0f3ebfc81611468939acd06fef06e1e416a67def4c04c061f9dd1b58c0c58dfc.css" rel="stylesheet">
+    <link href="/css/theme.min.223f60c3e8d65b6e4de7aa81973496e7193950a4fa59a35a0f36374f52c26d7b.css" rel="stylesheet">
     <link href="/css/format-html.min.720478f2275d54504472e3f194aa45bec90bacaa7088bcfc896b1249fbf421ce.css" rel="stylesheet" id="R-format-style">
     <script type="application/json" id="R-theme-config">{
       "absBaseUri": "https://example.com",
@@ -133,6 +133,22 @@ a sibling page into a section deep into a section an external target an anchor o
 </ul>
 <p><a href="#R-image-00000000000000000000000000000000" class="lightbox-link" id="R-image-00000000000000000000000000000000-link"><img alt="an image" class="lazy lightbox figure-image" loading="lazy" src="/images/pixel.png"></a>
 <a href="#R-image-00000000000000000000000000000000-link" class="lightbox-back" id="R-image-00000000000000000000000000000000"><img alt="an image" class="lazy lightbox lightbox-image" loading="lazy" src="/images/pixel.png"></a></p>
+<p>Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the <code>cite</code> attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:</p>
+<figure class="quote">
+  <blockquote cite="/chapter/child.html">
+<p>Quoted from a page of this site.</p>
+</blockquote>
+  <figcaption><a href="/chapter/child.html"><cite>Child</cite></a></figcaption>
+</figure>
+<figure class="quote">
+  <blockquote cite="https://example.org/elsewhere">
+<p>Quoted from elsewhere.</p>
+</blockquote>
+  <figcaption><a href="https://example.org/elsewhere" rel="external">Somebody</a></figcaption>
+</figure>
+<blockquote cite="/first-page.html">
+<p>Quoted from this site without a caption to link.</p>
+</blockquote>
 
   <footer class="footline">
   </footer>

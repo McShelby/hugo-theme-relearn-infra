@@ -3,7 +3,7 @@
   <channel>
     <title>URL Permutations</title>
     <link>https://example.com/subdir/index.html</link>
-    <description>Links from the home page, so the snapshot captures how each mode renders them:&#xA;a sibling page into a section deep into a section an external target an anchor on this page</description>
+    <description>Links from the home page, so the snapshot captures how each mode renders them:&#xA;a sibling page into a section deep into a section an external target an anchor on this page Quotes naming where they are taken from. The address is written twice, as the link of the caption and as the cite attribute of the quote, and only the former is an attribute Hugo rewrites for a relative site:</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://example.com/subdir/index.xml" rel="self" type="application/rss+xml" />
