@@ -177,8 +177,8 @@ css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841484fe34c4890
 css/format-html.min.deb22930473c957c17489dd61bdb9bfff60f42e58230a0356b13fb73b6adbbfa.css
 css/format-print.min.69a0061cdc38adc6bc7058be78dfd97a272a8a2e3f35926918f9fb6b1ba3a794.css
 css/swagger-ui/swagger-ui.1ac324f7dcd27e4b9386b4bd6421271ec147e922a22c05ba24b11515e9aa6321.css
-css/swagger.min.62708ce34ae59e296383b0811430acfdb12bda0fb9a81e7e6eb3641e38330e8b.css
-css/theme.min.0d1c11140a574cfdfa19db495f783c1a9fff4a21c36425554f834a46074298bd.css
+css/swagger.min.5d78addee3a25dd985a6250cd62a1179170a3dd9c592839bc93acf9729deabc7.css
+css/theme.min.0dc4c422e07a495aef78eb83fb02f7fa297781de46b9f5e7fa53e635b1b0638a.css
 development/contributing/index.html
 development/contributing/index.print.html
 development/contributing/index.xml
@@ -1922,6 +1922,10 @@ pir/shortcodes/button/featured.png
 pir/shortcodes/button/index.html
 pir/shortcodes/button/index.print.html
 pir/shortcodes/button/index.xml
+pir/shortcodes/callout/featured.png
+pir/shortcodes/callout/index.html
+pir/shortcodes/callout/index.print.html
+pir/shortcodes/callout/index.xml
 pir/shortcodes/card/index.html
 pir/shortcodes/cards/featured.png
 pir/shortcodes/cards/index.html
@@ -2104,8 +2108,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.0f217f9f514c771a7f8cb3e2896142ea780147fb4c369238e308743dbb078cfb.js
-searchindex.pir.min.c7a06ea86619a1fbb1b58b1155b25c93669947f2f3c921e95c35b56eb256a9a9.js
+searchindex.en.min.71df70cc1d0268f6f664f849e5d04628e72c82b176d489df687cb6ca2f00f74f.js
+searchindex.pir.min.010322f1b57c3769dae02b7474f10f852a27cb6a3a1a0abcf8988c3398419177.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
@@ -2124,6 +2128,10 @@ shortcodes/button/featured.png
 shortcodes/button/index.html
 shortcodes/button/index.print.html
 shortcodes/button/index.xml
+shortcodes/callout/featured.png
+shortcodes/callout/index.html
+shortcodes/callout/index.print.html
+shortcodes/callout/index.xml
 shortcodes/card/index.html
 shortcodes/cards/featured.png
 shortcodes/cards/index.html

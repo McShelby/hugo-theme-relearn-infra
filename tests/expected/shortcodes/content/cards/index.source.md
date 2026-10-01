@@ -19,8 +19,8 @@ A title, a text and an image.
 
 {{< cards >}}
 {{% card image="/images/square.gif" title="Titled" imagealt="A grey square" %}}{{% /card %}}
-{{% card image="/images/square.gif" href="../notice/" imagealt="A grey square" %}}{{% /card %}}
-{{% card image="/images/square.gif" href="../notice/" %}}{{% /card %}}
+{{% card image="/images/square.gif" href="../callout/" imagealt="A grey square" %}}{{% /card %}}
+{{% card image="/images/square.gif" href="../callout/" %}}{{% /card %}}
 {{% card image="/images/square.gif" href="https://example.com/" %}}{{% /card %}}
-{{% card image="/images/square.gif" title="Titled" href="../notice/" %}}{{% /card %}}
+{{% card image="/images/square.gif" title="Titled" href="../callout/" %}}{{% /card %}}
 {{< /cards >}}

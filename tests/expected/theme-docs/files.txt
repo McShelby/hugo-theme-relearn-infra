@@ -1780,6 +1780,10 @@ pir/shortcodes/button/featured.png
 pir/shortcodes/button/index.html
 pir/shortcodes/button/index.print.html
 pir/shortcodes/button/index.xml
+pir/shortcodes/callout/featured.png
+pir/shortcodes/callout/index.html
+pir/shortcodes/callout/index.print.html
+pir/shortcodes/callout/index.xml
 pir/shortcodes/card/index.html
 pir/shortcodes/cards/featured.png
 pir/shortcodes/cards/index.html
@@ -1982,6 +1986,10 @@ shortcodes/button/featured.png
 shortcodes/button/index.html
 shortcodes/button/index.print.html
 shortcodes/button/index.xml
+shortcodes/callout/featured.png
+shortcodes/callout/index.html
+shortcodes/callout/index.print.html
+shortcodes/callout/index.xml
 shortcodes/card/index.html
 shortcodes/cards/featured.png
 shortcodes/cards/index.html

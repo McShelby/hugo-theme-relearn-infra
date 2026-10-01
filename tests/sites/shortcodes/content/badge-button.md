@@ -12,5 +12,5 @@ weight = 2
 ## Button
 
 {{% button href="https://example.com/" %}}External{{% /button %}}
-{{% button href="../notice/" style="secondary" %}}Internal{{% /button %}}
+{{% button href="../callout/" style="secondary" %}}Internal{{% /button %}}
 {{% button href="https://example.com/" icon="download" %}}With icon{{% /button %}}

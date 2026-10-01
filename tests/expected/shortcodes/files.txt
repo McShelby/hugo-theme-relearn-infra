@@ -1,6 +1,8 @@
 404.html
 badge-button/index.html
 badge-button/index.source.md
+callout/index.html
+callout/index.source.md
 cards/index.html
 cards/index.source.md
 categories/index.html
@@ -50,8 +52,6 @@ js/search-lunr.js
 js/search.js
 js/theme-head.js
 js/theme.js
-notice/index.html
-notice/index.source.md
 search/index.html
 searchindex.en.js
 sitemap.xml

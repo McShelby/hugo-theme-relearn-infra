@@ -4,8 +4,8 @@ var relearn_searchindex = [
     "content": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
     "description": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
     "tags": [],
-    "title": "Notice",
-    "uri": "/notice/index.html"
+    "title": "Callout",
+    "uri": "/callout/index.html"
   },
   {
     "breadcrumb": "Shortcodes",
@@ -49,8 +49,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards",
-    "description": "Each child page exercises one shortcode family.\nNotice Badge and Button Expand and Tabs Dependencies Cards",
+    "content": "Each child page exercises one shortcode family.\nCallout Badge and Button Expand and Tabs Dependencies Cards",
+    "description": "Each child page exercises one shortcode family.\nCallout Badge and Button Expand and Tabs Dependencies Cards",
     "tags": [],
     "title": "Shortcodes",
     "uri": "/index.html"
