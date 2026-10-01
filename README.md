@@ -76,6 +76,7 @@ RELEARN_THEME_DIR=/path/to/theme npm test
 | `tools/screenshots/` | regenerates the docs' `featured.png` images |
 | `tools/sbom/` | renders the theme's `sbom.cdx.json` from its dependency declaration |
 | `tools/fontversion/` | reads the version a vendored font declares about itself |
+| `tools/test-hugo/` | builds any site with the theme in the `testing` environment and records template metrics |
 | `.github/actions/run-test/` | the test procedure, called by the theme's `test-execution` workflow — the only action here |
 
 `runner/` is the reason tests and tooling share one repository: visual regression testing and screenshot generation are the same machinery — resolve a theme, build a site, serve it, drive a browser.
@@ -301,6 +302,34 @@ Output is grouped by directory, because that is the unit a component declares �
 Both fields are reported and neither is presented as the answer, because neither reliably is. `head.fontRevision` is a fixed-point number a foundry may use however it likes: Roboto Flex agrees with itself, while Font Awesome's reads 899.012 and only its name string mentions the 7.3.1 the declaration carries. Choosing between them stays a person's job.
 
 No font library is involved, and none is installed. A WOFF2 keeps its tables as one Brotli stream, which Node decompresses on its own, and the two tables this reads are never among the transformed ones.
+
+---
+
+## Building a site
+
+Builds a site that is not part of the suite - a user's site reported in an issue, say - with the theme and a chosen Hugo, so its output and timings can be compared between theme versions or Hugo releases.
+
+Install it once as a global command; it links to this checkout, so it always runs the current state:
+
+```bash
+npm install -g .
+```
+
+Then run it from the site's directory, the one holding `content/`:
+
+```bash
+test-hugo           # newest Hugo release
+test-hugo min       # the theme's declared minimum
+test-hugo 0.141.0   # one specific version
+```
+
+Without installing, `npm --prefix <path to this repository> run test-hugo -- <version>` from the site's directory does the same.
+
+The theme is looked for in the parent directory, a `hugo-theme-relearn` sibling or one level further up, and the site's own `themes/`. The Hugo version is selected with `hvm use`, which writes an `.hvm` file into the site.
+
+The site is built with the theme's `testing` configuration layered on top of its own, so the output is deterministic. A site keeping its configuration in a directory gets a copy of that environment written into it.
+
+Output goes to `public.<theme version>+hugo.<hugo version>/` inside the site, together with a `metrics.log` holding Hugo's log and template metrics, and a `dir.log` listing every generated file. Two such directories diff directly.
 
 ---
 

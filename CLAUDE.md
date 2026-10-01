@@ -19,6 +19,8 @@ When deciding where a file goes, ask whether a person installing the theme needs
 - `tests/` — cases, sites, axes, environments, expected output, the CLI
 - `tools/screenshots/` — regenerates the docs' `featured.png` images
 - `tools/sbom/` — renders the theme's `sbom.cdx.json` from its dependency declaration, and reconciles that declaration with the vendored tree
+- `tools/fontversion/` — reads the version a vendored font declares about itself
+- `tools/test-hugo/` — builds any site with the theme in the `testing` environment and records template metrics; runs from the site's directory
 
 `runner/` is why tests and screenshots share a repo: visual regression and screenshot generation are the same machinery.
 
