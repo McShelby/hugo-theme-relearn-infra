@@ -278,9 +278,12 @@ npm ci                                    # full install — needs puppeteer
 npm run screenshots                       # serves the docs itself on port 3132
 npm run screenshots -- --base=http://localhost:1313   # use a running server
 npm run screenshots -- --port=3140        # serve on a different port
+npm run screenshots -- --page=tabs,tree   # capture the named pages only
 ```
 
 Output goes to `<theme>/docs/content/<page>/featured.png` in the resolved theme checkout.
+
+`--page` takes the names of shortcode pages, separated by commas. A name that matches no page stops the run and lists the ones there are.
 
 Port 1313 is never a default here — that belongs to your own dev server.
 

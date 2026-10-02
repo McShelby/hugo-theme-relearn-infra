@@ -29,6 +29,7 @@ When deciding where a file goes, ask whether a person installing the theme needs
 ```bash
 npm test                     # checks, SBOM, then the cases; see README.md for flags
 npm run screenshots
+npm run screenshots -- --page=tabs,tree   # the named shortcode pages only
 ```
 
 The theme is resolved via `RELEARN_THEME_DIR`, else a sibling `hugo-theme-relearn`, else the parent directory.

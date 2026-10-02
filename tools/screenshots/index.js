@@ -6,6 +6,7 @@
 //   npm run screenshots                      serve the docs, then capture
 //   npm run screenshots -- --base=http://…   capture against a running server
 //   npm run screenshots -- --port=3132       serve on a different port
+//   npm run screenshots -- --page=tabs,tree  capture the named pages only
 //
 // Writes into <theme>/docs/content/<page>/featured.png. The theme checkout is
 // resolved the same way the tests resolve it, so this always targets the same
@@ -29,6 +30,7 @@ const docsDir = path.join(themeDir, 'docs');
 // Never default to 1313 - that is the port a human's own dev server uses.
 const port = Number(flag('port', 3132));
 const explicitBase = flag('base', null);
+const only = flag('page', null);
 
 // Every directory below the shortcodes section is a shortcode's page, so a new
 // shortcode gets its preview without being added here.
@@ -40,6 +42,18 @@ const relativeUrls = fs.existsSync(shortcodesDir)
       .map((e) => `/shortcodes/${e.name}`)
       .sort()
   : [];
+
+// `--page` takes the names of shortcode pages, separated by commas. A name that
+// matches no page is a mistake worth stopping for, rather than a run that
+// quietly captures less than was asked.
+const wanted = only
+  ? only
+      .split(',')
+      .map((n) => n.trim())
+      .filter(Boolean)
+  : null;
+const unknown = wanted ? wanted.filter((n) => !relativeUrls.includes(`/shortcodes/${n}`)) : [];
+const targets = wanted ? relativeUrls.filter((rel) => wanted.includes(rel.slice('/shortcodes/'.length))) : relativeUrls;
 
 // iPhone-like viewport and user agent (emulate iPhone X dimensions)
 const iPhoneViewport = { width: 375, height: 812, deviceScaleFactor: 3, isMobile: true };
@@ -144,6 +158,17 @@ async function run() {
     process.exit(1);
   }
 
+  if (unknown.length || !targets.length) {
+    console.error(unknown.length ? `No such page: ${unknown.join(', ')}\n` : 'No pages found.\n');
+    if (relativeUrls.length) {
+      console.error('Available:');
+      for (const rel of relativeUrls) {
+        console.error(`  ${rel.slice('/shortcodes/'.length)}`);
+      }
+    }
+    process.exit(1);
+  }
+
   let server = null;
   let base = explicitBase;
 
@@ -158,7 +183,7 @@ async function run() {
   let ok = 0;
 
   try {
-    for (const rel of relativeUrls) {
+    for (const rel of targets) {
       if (await capture(browser, base, rel)) {
         ok++;
       }
@@ -168,8 +193,8 @@ async function run() {
     server?.stop();
   }
 
-  console.log(`\n${ok}/${relativeUrls.length} screenshots written`);
-  process.exit(ok === relativeUrls.length ? 0 : 1);
+  console.log(`\n${ok}/${targets.length} screenshots written`);
+  process.exit(ok === targets.length ? 0 : 1);
 }
 
 run();
