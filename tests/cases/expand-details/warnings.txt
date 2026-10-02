@@ -1,0 +1,9 @@
+# The `unsafe` axis provokes this on purpose.
+#
+# Here the warning is the assertion, not an accepted defect: with raw HTML
+# refused, Goldmark drops markup from some of the calls and says so, once per
+# page. Which calls lose what is in the stored output; this only lets the build
+# through to be compared. The file path the message goes on with is left out,
+# as it depends on where the site was built.
+
+Raw HTML omitted while rendering

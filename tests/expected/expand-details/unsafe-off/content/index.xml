@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Expand and Details</title>
+    <link>/index.html</link>
+    <description>Two pages, one per shortcode, built from the same sections.&#xA;Parameters - every parameter a call accepts, in each form it accepts it. Body - Markdown and HTML bodies in both notations, and no body at all. Nesting - a shortcode inside the body, and the call itself inside a list. Footnotes - a reference and its definition on either side of the call. Headings - a heading inside the body, and whether the page’s table of contents knows about it. The nested shortcode writes &lt;b class=&#34;nested&#34;&gt;nested&lt;/b&gt; and stands for any shortcode that writes HTML.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Expand</title>
+      <link>/expand/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/expand/index.html</guid>
+      <description>A page footnote.1&#xA;Parameters All defaults Details Body.&#xA;title A title with markup Body.</description>
+    </item>
+    <item>
+      <title>Details</title>
+      <link>/details/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/details/index.html</guid>
+      <description>A page footnote.1&#xA;Parameters All defaults Details Body.&#xA;summary A summary with markup Body.</description>
+    </item>
+  </channel>
+</rss>

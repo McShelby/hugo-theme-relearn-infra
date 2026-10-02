@@ -3,7 +3,7 @@
   <channel>
     <title>Shortcodes</title>
     <link>/index.html</link>
-    <description>Each child page exercises one shortcode family.&#xA;Callout Badge and Button Expand and Tabs Dependencies Cards</description>
+    <description>Each child page exercises one shortcode family.&#xA;Callout Badge and Button Details and Tabs Dependencies Cards</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -22,11 +22,11 @@
       <description>Badge Default InfoInfo WarningWith icon&#xA;Button External Internal With icon</description>
     </item>
     <item>
-      <title>Expand and Tabs</title>
-      <link>/expand-tabs/index.html</link>
+      <title>Details and Tabs</title>
+      <link>/details-tabs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/expand-tabs/index.html</guid>
-      <description>Expand Closed by default Hidden content.&#xA;Open by default Visible content.&#xA;Tabs ​ First Second Content of the first tab.&#xA;Content of the second tab.</description>
+      <guid>/details-tabs/index.html</guid>
+      <description>Details Closed by default Hidden content.&#xA;Open by default Visible content.&#xA;Tabs ​ First Second Content of the first tab.&#xA;Content of the second tab.</description>
     </item>
     <item>
       <title>Dependencies</title>

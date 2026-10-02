@@ -1836,6 +1836,10 @@ pir/shortcodes/children/index.print.html
 pir/shortcodes/children/index.xml
 pir/shortcodes/children/test/index.html
 pir/shortcodes/children/test/index.print.html
+pir/shortcodes/details/featured.png
+pir/shortcodes/details/index.html
+pir/shortcodes/details/index.print.html
+pir/shortcodes/details/index.xml
 pir/shortcodes/expand/featured.png
 pir/shortcodes/expand/index.html
 pir/shortcodes/expand/index.print.html
@@ -2042,6 +2046,10 @@ shortcodes/children/index.print.html
 shortcodes/children/index.xml
 shortcodes/children/test/index.html
 shortcodes/children/test/index.print.html
+shortcodes/details/featured.png
+shortcodes/details/index.html
+shortcodes/details/index.print.html
+shortcodes/details/index.xml
 shortcodes/expand/featured.png
 shortcodes/expand/index.html
 shortcodes/expand/index.print.html

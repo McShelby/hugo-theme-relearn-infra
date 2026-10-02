@@ -1,0 +1,12 @@
+{{- /*
+  Calls the theme's expand partial the way a template does, handing it a body
+  that is HTML already.
+
+  Fixture-local on purpose: the theme documents this call, nothing in the theme
+  makes it from content, and a page cannot reach it any other way.
+*/ -}}
+{{- partial "shortcodes/expand.html" (dict
+  "page" .Page
+  "title" (.Get "title")
+  "content" (`<p>A body built by a <b class="nested">template</b>.</p>` | safeHTML)
+) }}

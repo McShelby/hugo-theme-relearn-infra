@@ -1,0 +1,10 @@
+# Raw HTML refused, which is what a site gets without saying anything.
+#
+# Goldmark then replaces every piece of HTML it meets in Markdown by a comment.
+# That includes what a shortcode called in `%` notation writes, as its output
+# is handed to Goldmark along with the text around it.
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false

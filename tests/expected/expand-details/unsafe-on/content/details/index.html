@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html id="R-html" lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="A page footnote.1
+Parameters All defaults Details Body.
+summary A summary with markup Body.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Details :: Expand and Details">
+    <meta name="twitter:description" content="A page footnote.1
+Parameters All defaults Details Body.
+summary A summary with markup Body.">
+    <meta property="og:url" content="/details/index.html">
+    <meta property="og:site_name" content="Expand and Details">
+    <meta property="og:title" content="Details :: Expand and Details">
+    <meta property="og:description" content="A page footnote.1
+Parameters All defaults Details Body.
+summary A summary with markup Body.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Expand and Details">
+    <meta itemprop="name" content="Details :: Expand and Details">
+    <meta itemprop="description" content="A page footnote.1
+Parameters All defaults Details Body.
+summary A summary with markup Body.">
+    <meta itemprop="wordCount" content="283">
+    <title>Details :: Expand and Details</title>
+    <link href="../details/index.source.md" rel="alternate" type="text/markdown" title="Details :: Expand and Details">
+    <link href="../css/auto-complete/auto-complete.css" rel="stylesheet">
+    <script src="../js/auto-complete/auto-complete.js" defer></script>
+    <script src="../js/search-lunr.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
+    <script src="../js/lunr/lunr.min.js" defer></script>
+    <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
+    <script src="../js/lunr/lunr.multi.min.js" defer></script>
+    <script src="../js/lunr/lunr.en.min.js" defer></script>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
+    <script type="application/json" id="R-theme-config">{
+      "absBaseUri": "",
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/details/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_view": "Reset view",
+        "View_reset": "View reset!"
+      }
+    }</script>
+    <script src="../js/theme-head.js"></script>
+  </head>
+  <body class="mobile-support html" data-origin="/details/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#parameters">Parameters</a>
+      <ul>
+        <li><a href="#all-defaults">All defaults</a></li>
+        <li><a href="#summary">summary</a></li>
+        <li><a href="#opentrue">open=true</a></li>
+        <li><a href="#opentrue-1">open=&ldquo;true&rdquo;</a></li>
+        <li><a href="#open1">open=1</a></li>
+        <li><a href="#openfalse">open=false</a></li>
+        <li><a href="#open0">open=0</a></li>
+        <li><a href="#openyes">open=&ldquo;yes&rdquo;</a></li>
+        <li><a href="#name">name</a></li>
+        <li><a href="#class">class</a></li>
+        <li><a href="#title">title</a></li>
+      </ul>
+    </li>
+    <li><a href="#body">Body</a>
+      <ul>
+        <li><a href="#markdown-in--notation">Markdown in <code>&lt;</code> notation</a></li>
+        <li><a href="#markdown-in--notation-1">Markdown in <code>%</code> notation</a></li>
+        <li><a href="#html-in--notation">HTML in <code>&lt;</code> notation</a></li>
+        <li><a href="#html-in--notation-rawtrue">HTML in <code>&lt;</code> notation, raw=true</a></li>
+        <li><a href="#no-body-in--notation">No body in <code>&lt;</code> notation</a></li>
+        <li><a href="#no-body-in--notation-1">No body in <code>%</code> notation</a></li>
+      </ul>
+    </li>
+    <li><a href="#nesting">Nesting</a>
+      <ul>
+        <li><a href="#a-shortcode-in-a--body">A shortcode in a <code>&lt;</code> body</a></li>
+        <li><a href="#a-shortcode-in-a--body-rawtrue">A shortcode in a <code>&lt;</code> body, raw=true</a></li>
+        <li><a href="#a-shortcode-in-a--body-rawtrue-1">A shortcode in a <code>&lt;</code> body, raw=“true”</a></li>
+        <li><a href="#a-shortcode-in-a--body-1">A shortcode in a <code>%</code> body</a></li>
+        <li><a href="#inside-a-list">Inside a list</a></li>
+      </ul>
+    </li>
+    <li><a href="#footnotes">Footnotes</a>
+      <ul>
+        <li><a href="#reference-inside-definition-outside">Reference inside, definition outside</a></li>
+        <li><a href="#reference-and-definition-inside">Reference and definition inside</a></li>
+      </ul>
+    </li>
+    <li><a href="#headings">Headings</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" data-overflow-title="Expand and Details &gt; Details" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">Expand and Details</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Details</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit default-animation" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="https://github.com/McShelby/hugo-theme-relearn/edit/main/docs/content/details.md" rel="external" title="Edit (CTRL+ALT+w)"><i class="fa-fw fas fa-pen"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-source default-animation" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../details/index.source.md" title="Show source code"><i class="fa-fw fas fa-code"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a href="../expand/index.html" title="Expand (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle"><span><i class="fa-fw fas fa-chevron-right"></i></span></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="details">Details</h1>
+
+<p>A page footnote.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="parameters">Parameters<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="all-defaults">All defaults<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Details
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="summary">summary<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    A summary with <strong>markup</strong>
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="opentrue">open=true<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Open
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="opentrue-1">open=&ldquo;true&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Open
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="open1">open=1<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Open
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="openfalse">open=false<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Closed
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="open0">open=0<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Closed
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="openyes">open=&ldquo;yes&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Not a value the parameter knows.</p>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Closed
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="name">name<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>Two calls sharing a name, of which a browser keeps one open at a time.</p>
+
+<details open class="box cstyle callout transparent expand" name="group">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    First of a group
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+
+<details class="box cstyle callout transparent expand" name="group">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Second of a group
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="class">class<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout first second transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Classes
+  </summary>
+  <div class="box-content">
+<p>Body.</p>
+  </div>
+</details>
+<h3 id="title">title<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand" title="A tooltip">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Title
+  </summary>
+  <div class="box-content" title="">
+<p>Body.</p>
+  </div>
+</details>
+<h2 id="body">Body<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="markdown-in--notation">Markdown in <code>&lt;</code> notation<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Markdown
+  </summary>
+  <div class="box-content">
+<p>A first paragraph with <strong>markup</strong>.</p>
+<ul>
+<li>a list item</li>
+<li>another one</li>
+</ul>
+<div class="highlight actionbar-wrapper wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>a code block
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>with an empty line in it and **no markup**</span></span></code></pre></div>
+<p>A last paragraph.</p>
+  </div>
+</details>
+<h3 id="markdown-in--notation-1">Markdown in <code>%</code> notation<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Markdown
+  </summary>
+  <div class="box-content">
+<p>A first paragraph with <strong>markup</strong>.</p>
+<ul>
+<li>a list item</li>
+<li>another one</li>
+</ul>
+<div class="highlight actionbar-wrapper wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>a code block
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>with an empty line in it and **no markup**</span></span></code></pre></div>
+<p>A last paragraph.</p>
+  </div>
+</details>
+<h3 id="html-in--notation">HTML in <code>&lt;</code> notation<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    HTML
+  </summary>
+  <div class="box-content">
+<p>A paragraph written as <em>HTML</em>.</p>
+  </div>
+</details>
+<h3 id="html-in--notation-rawtrue">HTML in <code>&lt;</code> notation, raw=true<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    HTML
+  </summary>
+  <div class="box-content">
+<p>A paragraph written as <em>HTML</em> with **no markup**.</p>
+  </div>
+</details>
+<h3 id="no-body-in--notation">No body in <code>&lt;</code> notation<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent">
+  <summary class="box-label" tabindex="-1">
+    Nothing
+  </summary>
+</details>
+<h3 id="no-body-in--notation-1">No body in <code>%</code> notation<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<details open class="box cstyle callout transparent">
+  <summary class="box-label" tabindex="-1">
+    Nothing
+  </summary>
+</details>
+<h2 id="nesting">Nesting<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="a-shortcode-in-a--body">A shortcode in a <code>&lt;</code> body<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Nested
+  </summary>
+  <div class="box-content">
+<p>A paragraph with <strong>markup</strong> and <b class="nested">nested</b>.</p>
+  </div>
+</details>
+<h3 id="a-shortcode-in-a--body-rawtrue">A shortcode in a <code>&lt;</code> body, raw=true<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Nested
+  </summary>
+  <div class="box-content">
+<p>A paragraph with <b class="nested">nested</b>.</p>
+  </div>
+</details>
+<h3 id="a-shortcode-in-a--body-rawtrue-1">A shortcode in a <code>&lt;</code> body, raw=&ldquo;true&rdquo;<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Nested
+  </summary>
+  <div class="box-content">
+<p>A paragraph with <b class="nested">nested</b>.</p>
+  </div>
+</details>
+<h3 id="a-shortcode-in-a--body-1">A shortcode in a <code>%</code> body<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Nested
+  </summary>
+  <div class="box-content">
+<p>A paragraph with <strong>markup</strong> and <b class="nested">nested</b>.</p>
+  </div>
+</details>
+<h3 id="inside-a-list">Inside a list<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<ul>
+<li>
+<p>A list item.</p>
+
+<details class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    In a list
+  </summary>
+  <div class="box-content">
+<p>A paragraph with <strong>markup</strong>.</p>
+  </div>
+</details>
+</li>
+<li>
+<p>Another list item.</p>
+</li>
+</ul>
+<h2 id="footnotes">Footnotes<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+<h3 id="reference-inside-definition-outside">Reference inside, definition outside<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Reference inside
+  </summary>
+  <div class="box-content">
+<p>A reference to the page footnote.[^page]</p>
+  </div>
+</details>
+<h3 id="reference-and-definition-inside">Reference and definition inside<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Both inside
+  </summary>
+  <div class="box-content">
+<p>A reference to a footnote of its own.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The footnote defined inside the body.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+  </div>
+</details>
+<h2 id="headings">Headings<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h2>
+
+<details open class="box cstyle callout transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    A heading inside
+  </summary>
+  <div class="box-content">
+<h3 id="heading-inside-the-body">Heading inside the body<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg"></i></button></span></h3>
+<p>A paragraph.</p>
+  </div>
+</details>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The footnote defined on the page.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <a id="R-logo" class="R-default direction-row" href="../index.html">
+          <span class="logo-title default-animation">Expand and Details</span>
+        </a>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-fw fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-fw fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable" tabindex="-1">
+        <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
+        <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/expand/index.html"><a class="padding" href="../expand/index.html">Expand</a></li>
+            <li class="active " data-nav-id="/details/index.html"><a class="padding" href="../details/index.html">Details</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts default-animation">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin" class="default-animation"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../js/theme.js" defer></script>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+  </body>
+</html>

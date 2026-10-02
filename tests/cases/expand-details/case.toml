@@ -1,0 +1,19 @@
+# The two shortcodes that write a `<details>` element: the theme's `expand` and
+# Hugo's `details`, which the theme redefines.
+#
+# One site for both, because they are the same box and differ in how a call
+# reaches it - parameter names, positional parameters, and what happens to the
+# body on the way. A page per shortcode keeps the two apart in a diff, so a
+# change meant for one is seen to leave the other alone.
+#
+# The `unsafe` axis is what the body depends on. Whether a body is Markdown or
+# HTML by the time it is written, and whether a nested shortcode's markup
+# survives, is decided by the notation of the call together with Goldmark's
+# willingness to let HTML through - and a site has no say in the latter from
+# its content. Built both ways, each call shows which of the two it relies on.
+
+site        = "expand-details"
+environment = "testing"
+
+[axes]
+  unsafe = ["off", "on"]

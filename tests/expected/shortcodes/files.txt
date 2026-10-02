@@ -14,8 +14,8 @@ css/swagger.css
 css/theme.css
 dependencies/index.html
 dependencies/index.source.md
-expand-tabs/index.html
-expand-tabs/index.source.md
+details-tabs/index.html
+details-tabs/index.source.md
 fonts/fontawesome/css/all.min.css
 fonts/fontawesome/webfonts/fa-brands-400.woff2
 fonts/fontawesome/webfonts/fa-regular-400.woff2

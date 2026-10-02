@@ -1,0 +1,9 @@
+# The `expand` page provokes these on purpose.
+#
+# Here the warning is the assertion, not an accepted defect: the deprecated
+# shortcode and its deprecated `open` parameter still have to work, and have to
+# say what replaces them. The file path each message starts with is left out,
+# as it depends on where the site was built.
+
+DEPRECATED shortcode 'expand' found, use 'details' instead
+DEPRECATED parameter 'open' for shortcode 'expand' found, use 'expanded' instead

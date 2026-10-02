@@ -1,0 +1,9 @@
+# Raw HTML let through, which a site only gets by asking for it.
+#
+# What a shortcode writes then survives whichever notation it was called in, so
+# this value shows the markup the other one may have dropped.
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

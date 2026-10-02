@@ -1,0 +1,22 @@
+# Every way a call can reach the `expand` and the `details` shortcode.
+#
+# The pages mirror each other section by section - parameters, body, nesting,
+# footnotes, headings - so that a call on one has its counterpart on the other
+# and the two outputs can be read side by side.
+#
+# Nothing about raw HTML lives here: whether Goldmark lets it through is the
+# `unsafe` axis, so that every call is seen with and without it.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
+title = 'Expand and Details'
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the shortcode calls rather than their output.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']

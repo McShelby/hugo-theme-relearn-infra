@@ -17,11 +17,11 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Shortcodes",
-    "content": "Expand Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
-    "description": "Expand Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
+    "content": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
+    "description": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
     "tags": [],
-    "title": "Expand and Tabs",
-    "uri": "/expand-tabs/index.html"
+    "title": "Details and Tabs",
+    "uri": "/details-tabs/index.html"
   },
   {
     "breadcrumb": "Shortcodes",
@@ -49,8 +49,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "",
-    "content": "Each child page exercises one shortcode family.\nCallout Badge and Button Expand and Tabs Dependencies Cards",
-    "description": "Each child page exercises one shortcode family.\nCallout Badge and Button Expand and Tabs Dependencies Cards",
+    "content": "Each child page exercises one shortcode family.\nCallout Badge and Button Details and Tabs Dependencies Cards",
+    "description": "Each child page exercises one shortcode family.\nCallout Badge and Button Details and Tabs Dependencies Cards",
     "tags": [],
     "title": "Shortcodes",
     "uri": "/index.html"

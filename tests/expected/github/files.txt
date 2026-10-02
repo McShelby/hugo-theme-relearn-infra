@@ -178,7 +178,7 @@ css/format-html.min.deb22930473c957c17489dd61bdb9bfff60f42e58230a0356b13fb73b6ad
 css/format-print.min.69a0061cdc38adc6bc7058be78dfd97a272a8a2e3f35926918f9fb6b1ba3a794.css
 css/swagger-ui/swagger-ui.1ac324f7dcd27e4b9386b4bd6421271ec147e922a22c05ba24b11515e9aa6321.css
 css/swagger.min.5d78addee3a25dd985a6250cd62a1179170a3dd9c592839bc93acf9729deabc7.css
-css/theme.min.ab428e0a14c45e9484879499dbdc6bbd1bac8d4318870030005e4fd35c52ef13.css
+css/theme.min.09fc08f76169bd5ce54ab937deedc95c33b05bd9eead77f843584bd0acacd518.css
 development/contributing/index.html
 development/contributing/index.print.html
 development/contributing/index.xml
@@ -208,7 +208,7 @@ exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841
 exampleSite/css/format-html.min.5b0df24845ed09dcd095bce08b21dcc451949fa6c8ff83c29602ccb788b455d1.css
 exampleSite/css/format-print.min.69a0061cdc38adc6bc7058be78dfd97a272a8a2e3f35926918f9fb6b1ba3a794.css
 exampleSite/css/swagger.min.0fa6a7b1f677c9ae7b791d9005131435053b79c30b728ef7101c531fb912a11e.css
-exampleSite/css/theme.min.223f60c3e8d65b6e4de7aa81973496e7193950a4fa59a35a0f36374f52c26d7b.css
+exampleSite/css/theme.min.037db0e4b066d252325de4cffe80113bba9392ae2d6ae3156e4c687a05d8bcdc.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -1978,6 +1978,10 @@ pir/shortcodes/children/index.print.html
 pir/shortcodes/children/index.xml
 pir/shortcodes/children/test/index.html
 pir/shortcodes/children/test/index.print.html
+pir/shortcodes/details/featured.png
+pir/shortcodes/details/index.html
+pir/shortcodes/details/index.print.html
+pir/shortcodes/details/index.xml
 pir/shortcodes/expand/featured.png
 pir/shortcodes/expand/index.html
 pir/shortcodes/expand/index.print.html
@@ -2108,8 +2112,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.eadbe72a7b9ab94d1cfe3a63f128273d425d28cd97d95147f8be843af0c65dce.js
-searchindex.pir.min.6f38cefda409a4de685b98c1c3d366c7f5fb0c0c86e03e799944cf856e291b65.js
+searchindex.en.min.ab49d96ad5c84d9a6d617cb5b302a83613b451cde3871cd55a4f7830feb89d07.js
+searchindex.pir.min.7580c3ef100d3c212c4ed1b24eee45bfd6b1809579ac444fe1a9db2ac9e29a00.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
@@ -2184,6 +2188,10 @@ shortcodes/children/index.print.html
 shortcodes/children/index.xml
 shortcodes/children/test/index.html
 shortcodes/children/test/index.print.html
+shortcodes/details/featured.png
+shortcodes/details/index.html
+shortcodes/details/index.print.html
+shortcodes/details/index.xml
 shortcodes/expand/featured.png
 shortcodes/expand/index.html
 shortcodes/expand/index.print.html
