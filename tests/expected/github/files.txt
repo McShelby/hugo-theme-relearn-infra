@@ -125,6 +125,9 @@ configuration/publishing/csp/index.xml
 configuration/publishing/deployment/index.html
 configuration/publishing/deployment/index.print.html
 configuration/publishing/deployment/index.xml
+configuration/publishing/frontmattercms/index.html
+configuration/publishing/frontmattercms/index.print.html
+configuration/publishing/frontmattercms/index.xml
 configuration/publishing/index.html
 configuration/publishing/index.print.html
 configuration/publishing/index.xml
@@ -866,9 +869,6 @@ introduction/releasenotes/9/index.xml
 introduction/releasenotes/index.html
 introduction/releasenotes/index.print.html
 introduction/releasenotes/index.xml
-introduction/tools/index.html
-introduction/tools/index.print.html
-introduction/tools/index.xml
 introduction/upgrade/index.html
 introduction/upgrade/index.print.html
 introduction/upgrade/index.xml
@@ -1195,6 +1195,9 @@ pir/configuration/publishing/csp/index.xml
 pir/configuration/publishing/deployment/index.html
 pir/configuration/publishing/deployment/index.print.html
 pir/configuration/publishing/deployment/index.xml
+pir/configuration/publishing/frontmattercms/index.html
+pir/configuration/publishing/frontmattercms/index.print.html
+pir/configuration/publishing/frontmattercms/index.xml
 pir/configuration/publishing/index.html
 pir/configuration/publishing/index.print.html
 pir/configuration/publishing/index.xml
@@ -1768,9 +1771,6 @@ pir/introduction/releasenotes/9/index.xml
 pir/introduction/releasenotes/index.html
 pir/introduction/releasenotes/index.print.html
 pir/introduction/releasenotes/index.xml
-pir/introduction/tools/index.html
-pir/introduction/tools/index.print.html
-pir/introduction/tools/index.xml
 pir/introduction/upgrade/index.html
 pir/introduction/upgrade/index.print.html
 pir/introduction/upgrade/index.xml
@@ -2150,8 +2150,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.4bb8d5769023e3f435e7ad30d3cbd3900a401705cfe0efaf94440d50163235ea.js
-searchindex.pir.min.3953b6d567a4c62bc514b32c5e3d34a25c3ec4ea04c39dd3fa276a2f73e1c8b5.js
+searchindex.en.min.94682d63bcef3273d3646d8af1015455479a08c0c159ee7d29148861f797d84d.js
+searchindex.pir.min.5a1505f9bb7caa2657ce84fdb75031b3510a283bdb858e285f7d714e83f8484b.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

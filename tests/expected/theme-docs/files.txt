@@ -125,6 +125,9 @@ configuration/publishing/csp/index.xml
 configuration/publishing/deployment/index.html
 configuration/publishing/deployment/index.print.html
 configuration/publishing/deployment/index.xml
+configuration/publishing/frontmattercms/index.html
+configuration/publishing/frontmattercms/index.print.html
+configuration/publishing/frontmattercms/index.xml
 configuration/publishing/index.html
 configuration/publishing/index.print.html
 configuration/publishing/index.xml
@@ -724,9 +727,6 @@ introduction/releasenotes/9/index.xml
 introduction/releasenotes/index.html
 introduction/releasenotes/index.print.html
 introduction/releasenotes/index.xml
-introduction/tools/index.html
-introduction/tools/index.print.html
-introduction/tools/index.xml
 introduction/upgrade/index.html
 introduction/upgrade/index.print.html
 introduction/upgrade/index.xml
@@ -1053,6 +1053,9 @@ pir/configuration/publishing/csp/index.xml
 pir/configuration/publishing/deployment/index.html
 pir/configuration/publishing/deployment/index.print.html
 pir/configuration/publishing/deployment/index.xml
+pir/configuration/publishing/frontmattercms/index.html
+pir/configuration/publishing/frontmattercms/index.print.html
+pir/configuration/publishing/frontmattercms/index.xml
 pir/configuration/publishing/index.html
 pir/configuration/publishing/index.print.html
 pir/configuration/publishing/index.xml
@@ -1626,9 +1629,6 @@ pir/introduction/releasenotes/9/index.xml
 pir/introduction/releasenotes/index.html
 pir/introduction/releasenotes/index.print.html
 pir/introduction/releasenotes/index.xml
-pir/introduction/tools/index.html
-pir/introduction/tools/index.print.html
-pir/introduction/tools/index.xml
 pir/introduction/upgrade/index.html
 pir/introduction/upgrade/index.print.html
 pir/introduction/upgrade/index.xml
