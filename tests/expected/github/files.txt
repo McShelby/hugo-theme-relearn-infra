@@ -2150,8 +2150,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.94682d63bcef3273d3646d8af1015455479a08c0c159ee7d29148861f797d84d.js
-searchindex.pir.min.5a1505f9bb7caa2657ce84fdb75031b3510a283bdb858e285f7d714e83f8484b.js
+searchindex.en.min.9c23e6e8162e0e09a6d9d1aa21815dd4a76a898e095981829ad1361becde78ff.js
+searchindex.pir.min.bdd145aae386654e6508126796542ad3627e932fe1215e569a43265769e14cec.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
