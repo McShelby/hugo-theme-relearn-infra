@@ -12,21 +12,21 @@
       <link>/sizing/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sizing/index.html</guid>
-      <description>width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized One dimension</description>
+      <description>width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized</description>
     </item>
     <item>
       <title>Sources</title>
       <link>/sources/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sources/index.html</guid>
-      <description>Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource A page, not a resource Pages are searched before resources, so an image URL naming one resolves to a page. A page answers about its media type like a resource does, and is not an image, so it has no dimensions to give.</description>
+      <description>Where a URL is looked up decides whether there is a resource behind it at all, and a resource is the only thing that can be asked its dimensions.&#xA;Global resource</description>
     </item>
     <item>
       <title>Formats</title>
       <link>/formats/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/formats/index.html</guid>
-      <description>Hugo can read dimensions from some image resources and not from others. Both kinds are here, sized identically, so the difference is the resource and nothing else.&#xA;Measurable Unmeasurable</description>
+      <description>Hugo can read dimensions from some image resources and not from others. Both kinds are here, sized identically, so the difference is the resource and nothing else.&#xA;Measurable</description>
     </item>
     <item>
       <title>Effects</title>
@@ -40,7 +40,7 @@
       <link>/syntax/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/syntax/index.html</guid>
-      <description>Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title Without alt text</description>
+      <description>Every markdown spelling that reaches the render hook, because each arrives with a different set of what the hook calls attributes.&#xA;Plain With a title</description>
     </item>
     <item>
       <title>Page Bundle</title>

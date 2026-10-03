@@ -724,13 +724,12 @@ body {
   background-color: var(--INTERNAL-MAIN-BG-color);
   color: var(--INTERNAL-MAIN-TEXT-color);
   display: flex;
-  flex-direction: row-reverse; /* for better SEO and a11y */
+  flex-direction: row;
   font-size: 1.015625rem;
   font-variation-settings: var(--INTERNAL-MAIN-font-variation-settings);
   font-weight: var(--INTERNAL-MAIN-font-weight);
   font-family: var(--INTERNAL-MAIN-font);
   height: 100%;
-  justify-content: flex-end;
   letter-spacing: var(--INTERNAL-MAIN-letter-spacing);
   line-height: 1.574;
   width: 100%;
@@ -770,6 +769,33 @@ a:focus {
 
 .default-animation {
   transition: all 0.35s ease;
+}
+
+/* readers asking for less motion get none: what changes, changes at once */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* the first stop for keyboard users, out of sight until it has the focus */
+#R-skip-link {
+  background-color: var(--INTERNAL-MAIN-BG-color);
+  border: 0.15rem solid var(--INTERNAL-MAIN-LINK-color);
+  color: var(--INTERNAL-MAIN-LINK-color);
+  inset-inline-start: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  text-decoration: none;
+  top: 0.5rem;
+  transform: translateY(calc(-100% - 1rem));
+  z-index: 5000;
+}
+#R-skip-link:focus {
+  transform: none;
 }
 
 #R-sidebar {
@@ -812,7 +838,10 @@ a:focus {
 }
 
 #R-header-wrapper > search > form {
+  /* room for the focus outline of the box, which is cut off otherwise */
+  margin: -0.3rem;
   overflow: hidden;
+  padding: 0.3rem;
 }
 
 .searchbox {
@@ -824,6 +853,11 @@ a:focus {
   position: relative;
 }
 
+/* the box is what looks like the input, so it shows the focus for it */
+.searchbox:has(input:focus-visible) {
+  outline: auto;
+}
+
 .searchbox > :first-child {
   inset-inline-start: 0.333rem;
   position: absolute;
@@ -832,11 +866,25 @@ a:focus {
 .searchbox > button {
   -webkit-appearance: none;
   appearance: none;
+  align-items: center;
   background-color: transparent;
   border: 0;
-  margin: 0;
+  /* a square in the vertical center of the box, with the icon in its center */
+  bottom: 0;
+  display: flex;
+  height: 1.5rem;
+  justify-content: center;
+  margin: auto 0;
   padding: 0;
-  top: 0.25rem;
+  top: 0;
+  width: 1.5rem;
+}
+/* the square is wider than its icon, which is to stay where it is */
+.searchbox > button:first-child {
+  inset-inline-start: calc(0.333rem - (1.5rem - 1.25em) / 2);
+}
+.searchbox > button:last-child {
+  inset-inline-end: calc(0.333rem - (1.5rem - 1.25em) / 2);
 }
 
 .searchbox > i {
@@ -1050,13 +1098,6 @@ a:focus {
   .classic-scrollbars #R-scrollbar:hover > #R-scrollbar-thumb,
   .classic-scrollbars #R-scrollbar-thumb.dragging {
     background-color: CanvasText;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .classic-scrollbars #R-scrollbar,
-  .classic-scrollbars #R-scrollbar-thumb {
-    transition: none;
   }
 }
 /* === end of classic scrollbar quirks ===================================== */
@@ -1464,6 +1505,19 @@ article .R-taxonomy.tags a.term-link:hover:after {
   }
 }
 
+/* option link.underline: links in the content are told apart from the text
+   around them by more than their color; what looks like a control of its own
+   stays as it is */
+.link-underline article a,
+.link-underline article a .copy-to-clipboard {
+  text-decoration: underline;
+}
+.link-underline article :is(.btn, .card-title) > a,
+.link-underline article .R-taxonomy.tags a.term-link,
+.link-underline article a:is(.autocomplete-suggestion, .lightbox-link, .lightbox-close) {
+  text-decoration: none;
+}
+
 #R-topbar a:hover:empty,
 #R-topbar a:active:empty,
 #R-topbar a:focus:empty,
@@ -1487,24 +1541,21 @@ article a:active .copy-to-clipboard,
 article a:focus .copy-to-clipboard {
   text-decoration: underline;
 }
-.topbar-content a:hover,
-.topbar-content a:active,
-.topbar-content a:focus,
-article a:hover,
-article a:active,
-article a:focus,
-article a:hover .copy-to-clipboard,
-article a:active .copy-to-clipboard,
-article a:focus .copy-to-clipboard,
-article a.lightbox-back:hover > svg:only-child:empty,
-article a.lightbox-back:active > svg:only-child:empty,
-article a.lightbox-back:focus > svg:only-child:empty,
-article a.lightbox-back:hover > img:only-child:empty,
-article a.lightbox-back:active > img:only-child:empty,
-article a.lightbox-back:focus > img:only-child:empty,
-article .btn > button:hover,
-article .btn > button:active,
-article .btn > button:focus {
+/* no outline for the pointer; who uses the keyboard keeps the one of the
+   browser to see where the focus is */
+.topbar-content a:focus:not(:focus-visible),
+article a:focus:not(:focus-visible),
+article a:focus:not(:focus-visible) .copy-to-clipboard,
+article a.lightbox-close:hover > svg:only-child:empty,
+article a.lightbox-close:active > svg:only-child:empty,
+article a.lightbox-close:focus > svg:only-child:empty,
+article a.lightbox-close:hover > img:only-child:empty,
+article a.lightbox-close:active > img:only-child:empty,
+article a.lightbox-close:focus > img:only-child:empty,
+article .btn > button:focus:not(:focus-visible),
+/* these show the focus on what they hold or on what holds them */
+article a:focus:has(> :is(img, svg):only-child:empty),
+.card-container .card-title > :is(a, button):focus {
   outline: none;
 }
 article a:hover > svg:only-child:empty,
@@ -1783,8 +1834,6 @@ figure.quote > figcaption::before {
   margin-left: 0.6rem;
   margin-right: 0.6rem;
   padding: 0.2rem 0;
-  /* a click must not toggle a box without expander; the box below still answers to the pointer, so its tooltip shows */
-  pointer-events: none;
 }
 .box > .box-label::-webkit-details-marker,
 .box > .box-label::marker {
@@ -1798,7 +1847,6 @@ figure.quote > figcaption::before {
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  pointer-events: auto;
 }
 /* remove margin if only a single code block is contained in the tab */
 #R-body .box-content:not(:has(> p)):has(> div[class*='highlight']:only-of-type),
@@ -2250,6 +2298,13 @@ html[dir='rtl'] .topbar-button-next i {
   /* we don't allow flyouts in flyouts; come on, don't get funny... */
   display: none;
 }
+.topbar-content .default-animation {
+  /* visibility is inherited; animating it here as well would leave the
+     contents out of reach at the moment the flyout opens */
+  transition:
+    all 0.35s ease,
+    visibility 0s;
+}
 
 .topbar-breadcrumbs {
   margin: 0;
@@ -2274,13 +2329,18 @@ html[dir='rtl'] .topbar-button-next i {
     width: 1px;
   }
 }
-
 .breadcrumbs {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   white-space: nowrap;
+}
+
+.breadcrumbs > ol {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .breadcrumbs meta {
@@ -2316,7 +2376,20 @@ html[dir='rtl'] .topbar-button-next i {
     inset-inline-start: calc(-1 * var(--INTERNAL-MENU-S-width));
     min-width: var(--INTERNAL-MENU-S-width);
     max-width: var(--INTERNAL-MENU-S-width);
+    /* out of reach for the keyboard and screen readers as long as it is out of
+       sight; so only once it has left and as soon as it enters */
+    transition:
+      all 0.35s ease,
+      visibility 0s 0.35s;
+    visibility: hidden;
     width: var(--INTERNAL-MENU-S-width);
+  }
+  .mobile-support #R-sidebar .default-animation {
+    /* visibility is inherited; animating it here as well would leave the
+       contents out of reach at the moment the sidebar enters */
+    transition:
+      all 0.35s ease,
+      visibility 0s;
   }
   .mobile-support #navshow {
     display: inline;
@@ -2332,6 +2405,10 @@ html[dir='rtl'] .topbar-button-next i {
   }
   .mobile-support.sidebar-flyout #R-sidebar {
     inset-inline-start: 0;
+    transition:
+      all 0.35s ease,
+      visibility 0s;
+    visibility: visible;
     z-index: 90;
   }
   .mobile-support.sidebar-flyout #R-body {
@@ -2428,7 +2505,6 @@ option {
 
 .expand > .box-label {
   cursor: pointer;
-  pointer-events: initial;
 }
 .expand > .box-label:hover,
 .expand > .box-label:active,
@@ -2869,21 +2945,23 @@ i.cstyle {
   font-size: 0.5em;
   margin-inline-start: 0.3em;
   margin-top: 0.55em;
+  /* out of sight but not hidden, to keep it a stop for the tab key */
+  opacity: 0;
   position: absolute;
-  visibility: hidden;
 }
 @media (any-hover: none) {
   /* if there is at least one input device that does not support hover, we want to force the copy button */
   .anchor {
-    visibility: visible;
+    opacity: 1;
   }
 }
+.anchor:focus-within,
 h2:hover .anchor,
 h3:hover .anchor,
 h4:hover .anchor,
 h5:hover .anchor,
 h6:hover .anchor {
-  visibility: visible;
+  opacity: 1;
 }
 
 /* Redfines headers style */
@@ -2950,11 +3028,10 @@ html[dir='rtl'] .menu-control span {
   outline: none;
   width: 100%;
 }
-.menu-control button:active,
-.menu-control button:focus,
-.menu-control select:active,
-.menu-control select:focus {
-  outline-style: solid;
+/* the control is cut off by its wrapper and so would be its focus outline;
+   the row shows it instead, same as the entries of the menu do */
+.menu-control:has(:is(button, select):focus-visible) {
+  outline: auto;
 }
 
 .menu-control select {
@@ -3108,6 +3185,10 @@ span.math:has(math[display='block'], .katex-display) {
   display: block;
   margin: 0;
   margin-inline-end: 0.5rem;
+}
+
+.searchform input:focus-visible {
+  outline: auto;
 }
 
 .searchform input::-webkit-input-placeholder,
@@ -3301,22 +3382,33 @@ article ul > li > span > input[type='checkbox']:checked::before {
 
 /* CSS Lightbox https://codepen.io/gschier/pen/kyRXVx */
 .lightbox-back {
-  align-items: center;
   background: rgba(0, 0, 0, 0.8);
   bottom: 0;
   display: none;
-  justify-content: center;
   left: 0;
   position: fixed;
   right: 0;
-  text-align: center;
   top: 0;
-  white-space: nowrap;
   z-index: 1999;
 }
 
 .lightbox-back:target {
+  display: block;
+}
+
+.lightbox-back:focus {
+  /* it covers the whole viewport, where an outline tells nothing */
+  outline: none;
+}
+
+.lightbox-close {
+  align-items: center;
   display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .lightbox-back svg,
@@ -3407,9 +3499,12 @@ article ul > li > span > input[type='checkbox']:checked::before {
   appearance: none;
   cursor: pointer;
   display: inline-block;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0.65rem;
+  /* nothing to see but the focus outline: a square around the chevron */
+  height: 1rem;
+  margin-bottom: 0;
+  margin-inline-end: 0;
+  margin-inline-start: -0.075rem;
+  margin-top: 0.5875rem;
   position: absolute;
   width: 1rem;
   z-index: 1;
@@ -3431,6 +3526,23 @@ article ul > li > span > input[type='checkbox']:checked::before {
 #R-sidebar ul.collapsible-menu.enlarge > li > label {
   font-size: 1.1rem;
   line-height: 2rem;
+}
+
+/* a bigger area to click than the label is, a square around the chevron as
+   well; it reaches into the indentation, which the outermost level has none of */
+#R-sidebar ul.collapsible-menu > li > label:before {
+  content: '';
+  height: 1.5rem;
+  inset-inline-start: -0.325rem;
+  position: absolute;
+  top: 0.3375rem;
+  width: 1.5rem;
+}
+#R-sidebar ul.collapsible-menu.enlarge > li > label:before {
+  top: 0.65rem;
+}
+#R-sidebar .R-sidebarmenu > ul.collapsible-menu > li > label:before {
+  inset-inline-start: 0;
 }
 
 #R-sidebar ul.collapsible-menu > li > label:after {
@@ -3686,6 +3798,11 @@ body a#R-logo:hover *:not(svg, svg *) {
 #R-body .tab-nav {
   display: flex;
   flex-wrap: wrap;
+}
+
+/* the tabs are laid out as if they were written directly into the nav */
+#R-body .tab-nav-list {
+  display: contents;
 }
 
 #R-body .tab-nav-title {

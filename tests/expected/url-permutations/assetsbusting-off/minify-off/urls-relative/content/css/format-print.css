@@ -115,6 +115,7 @@
 /* GenericStrong */ .chroma .gs { font-weight:bold }
 
 }
+#R-skip-link,
 #R-sidebar {
   display: none;
 }

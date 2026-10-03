@@ -107,6 +107,35 @@ function handleTabs() {
     var tabPanel = button.closest('.tab-panel[data-tab-group]');
     tabPanel && switchTab(tabPanel.dataset.tabGroup, button.dataset.tabItem, button);
   });
+
+  // inside of a list of tabs the arrow keys move on to the neighbouring tab,
+  // which is selected right away
+  document.addEventListener('keydown', function (event) {
+    if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) {
+      return;
+    }
+    var button = event.target.closest('.tab-nav-button[data-tab-item]');
+    var list = button && button.parentNode;
+    if (!list) {
+      return;
+    }
+    var buttons = Array.from(list.querySelectorAll(':scope > .tab-nav-button[data-tab-item]'));
+    var index = buttons.indexOf(button);
+    if (event.key == dir_key_start) {
+      index = (index + buttons.length - 1) % buttons.length;
+    } else if (event.key == dir_key_end) {
+      index = (index + 1) % buttons.length;
+    } else if (event.key == 'Home') {
+      index = 0;
+    } else if (event.key == 'End') {
+      index = buttons.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    buttons[index].focus();
+    buttons[index].click();
+  });
 }
 
 function mermaidPostRender(id) {
@@ -122,7 +151,7 @@ function mermaidPostRender(id) {
     var svg = d3.select(this);
     svg.html('<g>' + svg.html() + '</g>');
     var inner = svg.select('*:scope > g');
-    parent.insertAdjacentHTML('beforeend', '<div class="actionbar"><span class="btn cstyle svg-reset-button action noborder notitle interactive"><button type="button" title="' + window.T_Reset_view + '"><i class="fa-fw fas fa-undo-alt"></i></button></span></div>');
+    parent.insertAdjacentHTML('beforeend', '<div class="actionbar"><span class="btn cstyle svg-reset-button action noborder notitle interactive"><button type="button" title="' + window.T_Reset_view + '" aria-label="' + window.T_Reset_view + '"><i class="fa-fw fas fa-undo-alt" aria-hidden="true"></i></button></span></div>');
     var wrapper = parent.querySelector('.svg-reset-button');
     var button = wrapper.querySelector('button');
     var zoom = d3.zoom().on('zoom', function (e) {
@@ -463,6 +492,9 @@ function initOpenapi(update, attrs) {
     const oi = document.createElement('iframe');
     oi.id = openapiIframeId;
     oi.classList.toggle('sc-openapi-iframe', true);
+    // a frame needs a name for assistive technology; the one of the spec
+    // replaces this once it is known
+    oi.title = 'OpenAPI';
     oi.srcdoc = `<!DOCTYPE html>
 <html id="R-html" class="relearn ${swagger_theme}-mode" lang="${lang}" dir="${isRtl ? 'rtl' : 'ltr'}" data-r-output-format="${format}" data-r-theme-variant="${variant}">
   <head>
@@ -492,6 +524,7 @@ function initOpenapi(update, attrs) {
       const openapiWrapper = getFirstAncestorByClass(oc, 'sc-openapi-wrapper');
       Promise.resolve()
         .then(function () {
+          var ui = null;
           var options = {
             defaultModelsExpandDepth: 2,
             defaultModelExpandDepth: 2,
@@ -500,6 +533,10 @@ function initOpenapi(update, attrs) {
             filter: !(isPrint || isPrintPreview),
             layout: 'BaseLayout',
             onComplete: function () {
+              var info = ui && ui.specSelectors.info();
+              if (info && info.get('title')) {
+                oi.title = info.get('title');
+              }
               if (isPrint || isPrintPreview) {
                 oi.contentWindow.document.querySelectorAll('.model-container > .model-box > button[aria-expanded=false]').forEach(function (btn) {
                   btn.click();
@@ -528,7 +565,11 @@ function initOpenapi(update, attrs) {
           } else {
             Object.assign(options, { url: oc.dataset.openapiUrl });
           }
-          SwaggerUIBundle(options);
+          if (options.spec && options.spec.info && options.spec.info.title) {
+            // a spec given with the page is known right away
+            oi.title = options.spec.info.title;
+          }
+          ui = SwaggerUIBundle(options);
         })
         .then(function () {
           let observerCallback = function () {
@@ -666,7 +707,7 @@ function initAnchorClipboard() {
     }
     if (anchor.classList.contains('scrollanchor')) {
       anchor.addEventListener('click', function () {
-        this.parentElement.scrollIntoView({ behavior: 'smooth' });
+        this.parentElement.scrollIntoView({ behavior: reducedmotion.matches ? 'auto' : 'smooth' });
         let state = window.history.state || {};
         state = Object.assign({}, typeof state === 'object' ? state : {});
         history.pushState({}, '', this.dataset.clipboardText);
@@ -785,10 +826,11 @@ function initCodeClipboard() {
         button = document.createElement('button');
         button.type = 'button';
         button.setAttribute('title', window.T_Copy_to_clipboard);
+        button.setAttribute('aria-label', window.T_Copy_to_clipboard);
 
         if (isBlock) {
           // Wrap in actionbar structure for block buttons
-          button.innerHTML = '<i class="fa-fw far fa-copy"></i>';
+          button.innerHTML = '<i class="fa-fw far fa-copy" aria-hidden="true"></i>';
           wrapper = document.createElement('span');
           wrapper.classList.add('btn', 'cstyle', 'block-copy-to-clipboard-button', 'action', 'noborder', 'notitle', 'interactive');
           wrapper.appendChild(button);
@@ -798,7 +840,7 @@ function initCodeClipboard() {
           insertElement = actionbar;
         } else {
           // Wrap in btn structure for inline buttons
-          button.innerHTML = '<i class="fa-fw far fa-copy"></i>';
+          button.innerHTML = '<i class="fa-fw far fa-copy" aria-hidden="true"></i>';
           wrapper = document.createElement('span');
           wrapper.classList.add('btn', 'cstyle', 'inline-copy-to-clipboard-button', 'inline', 'notitle', 'interactive');
           wrapper.appendChild(button);
@@ -1143,62 +1185,56 @@ function initMenuScrollbar() {
   var elm = document.querySelector('#R-content-wrapper');
 
   document.addEventListener('keydown', function (event) {
-    // for initial keyboard scrolling support, no element
-    // may be hovered, but we still want to react on
-    // cursor/page up/down; a scroll container only reacts to
-    // those keys if it contains the focus, so hand it over
-    // to the element the user expects to scroll
+    // a browser only scrolls the container that holds the focus; the page
+    // itself never scrolls, so without our help these keys do nothing as long
+    // as the focus is anywhere else, namely right after the page was loaded
     if (event.shiftKey || event.altKey || event.ctrlKey || event.metaKey || !SCROLL_KEYS.includes(event.key)) {
+      return;
+    }
+    if (event.target.matches('select, textarea, input:not([type="checkbox"])')) {
+      // these need the keys for themselves
+      return;
+    }
+    if (event.target.matches('[role="tab"]') && (event.key == 'Home' || event.key == 'End')) {
+      // in a list of tabs these lead to its first and last tab
       return;
     }
 
     var elt = document.querySelector('.topbar-button.topbar-flyout .topbar-content-wrapper');
     var scroller = (elm && elm.contains(event.target) && elm) || (elt && elt.contains(event.target) && elt) || (elc && elc.contains(event.target) && elc);
-    if (scroller) {
-      // the focus already is in one of our scroll containers; taking it away
-      // would scroll the wrong one, but browsers disagree on whether they
-      // scroll the focused container themselves, so we always do it ourselves
-      var by = 0;
-      if (event.key == 'ArrowUp') {
-        by = -LINE_SCROLL;
-      } else if (event.key == 'ArrowDown') {
-        by = LINE_SCROLL;
-      } else if (event.key == 'PageUp') {
-        by = -scroller.clientHeight;
-      } else if (event.key == 'PageDown') {
-        by = scroller.clientHeight;
-      } else if (event.key == 'Home') {
-        by = -scroller.scrollHeight;
-      } else if (event.key == 'End') {
-        by = scroller.scrollHeight;
+    var focused = !!scroller;
+    if (!scroller) {
+      if (event.target.matches(formelements)) {
+        return;
       }
-      if (by) {
-        // left/right stay untouched, they page to the prev/next article
-        scroller.scrollBy({ top: by });
-        event.preventDefault();
-      }
-      return;
+      // the focus is in none of our scroll containers, so we scroll the one
+      // the user expects: the hovered one, else the one of an open flyout,
+      // else the content
+      var b = document.querySelector('body');
+      scroller = (elt && elt.matches(':hover') && elt) || (elm && elm.matches(':hover') && elm) || (elc && elc.matches(':hover') && elc) || (b.matches('.topbar-flyout') && elt) || (b.matches('.sidebar-flyout') && elm) || elc;
     }
 
-    var c = elc && elc.matches(':hover');
-    var m = elm && elm.matches(':hover');
-    var t = elt && elt.matches(':hover');
-    var f = event.target.matches(formelements);
-    if (!c && !m && !t && !f) {
-      // only do this if none of our scrollable areas is hovered
-      // as the browser scrolls the hovered one anyways
-      // if we are showing the sidebar as a flyout we
-      // want to scroll the content-wrapper, otherwise we want
-      // to scroll the body
-      var nt = document.querySelector('body').matches('.topbar-flyout');
-      var nm = document.querySelector('body').matches('.sidebar-flyout');
-      if (nt) {
-        elt && elt.focus();
-      } else if (nm) {
-        elm && elm.focus();
-      } else {
-        elc.focus();
-      }
+    // browsers disagree on whether they scroll the focused container
+    // themselves, so we always do it ourselves
+    var by = 0;
+    if (event.key == 'ArrowUp') {
+      by = -LINE_SCROLL;
+    } else if (event.key == 'ArrowDown') {
+      by = LINE_SCROLL;
+    } else if (event.key == 'PageUp') {
+      by = -scroller.clientHeight;
+    } else if (event.key == 'PageDown' || (event.key == ' ' && !focused)) {
+      // inside of a container the space key belongs to the focused element
+      by = scroller.clientHeight;
+    } else if (event.key == 'Home') {
+      by = -scroller.scrollHeight;
+    } else if (event.key == 'End') {
+      by = scroller.scrollHeight;
+    }
+    if (by) {
+      // left/right stay untouched, they page to the prev/next article
+      scroller.scrollBy({ top: by });
+      event.preventDefault();
     }
   });
   document.querySelectorAll('.topbar-button .topbar-content-wrapper').forEach(function (e) {
@@ -1208,10 +1244,21 @@ function initMenuScrollbar() {
   initMenuThumb(elm);
 }
 
-function imageEscapeHandler(event) {
+function imageKeyHandler(event) {
+  // an enlarged image lies above everything else, so the keys are its own
+  // wherever the focus is, and none reaches the page below it
+  var shown = document.querySelector('.lightbox-back:target');
+  if (!shown) {
+    return;
+  }
+  event.stopPropagation();
   if (event.key == 'Escape') {
-    var image = event.target;
-    image.click();
+    shown.click();
+  } else if (event.key == 'Tab') {
+    // the link that closes it is all there is to move to, so the focus stays inside
+    event.preventDefault();
+    var close = shown.querySelector('.lightbox-close');
+    close && close.focus();
   }
 }
 
@@ -1270,10 +1317,42 @@ function showSearch() {
   }
 }
 
+// a toggling button tells assistive technology whether its target is shown
+function setExpanded(toggles, expanded) {
+  toggles.forEach(function (e) {
+    e.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  });
+}
+
+// back to the button that opened what was just closed; one that is not
+// displayed can not take the focus, which then stays where it is
+function focusToggle(toggle) {
+  if (toggle) {
+    toggle.focus();
+  }
+}
+
+function getNavToggles() {
+  return document.querySelectorAll('button[data-button-action="toggle-nav"]');
+}
+
+// in the small layout the open sidebar lies above the page, which then is out
+// of reach for the keyboard and screen readers, same as it is for the mouse;
+// the overlay stays in reach, as a click on it closes the sidebar
+function adjustNavInert() {
+  var b = document.querySelector('body');
+  var covered = b.classList.contains('menu-s-width') && b.classList.contains('sidebar-flyout');
+  document.querySelectorAll('#R-body > :not(#R-body-overlay)').forEach(function (e) {
+    e.inert = covered;
+  });
+}
+
 function openNav() {
   closeSomeTopbarButtonFlyout();
   var b = document.querySelector('body');
   b.classList.add('sidebar-flyout');
+  adjustNavInert();
+  setExpanded(getNavToggles(), true);
   var a = document.querySelector('#R-sidebar a');
   if (a) {
     a.focus();
@@ -1283,6 +1362,8 @@ function openNav() {
 function closeNav() {
   var b = document.querySelector('body');
   b.classList.remove('sidebar-flyout');
+  adjustNavInert();
+  setExpanded(getNavToggles(), false);
   documentFocus();
 }
 
@@ -1297,7 +1378,11 @@ function toggleNav() {
 
 function navEscapeHandler(event) {
   if (event.key == 'Escape') {
+    var wasOpen = document.querySelector('body').classList.contains('sidebar-flyout');
     closeNav();
+    if (wasOpen) {
+      focusToggle(getNavToggles()[0]);
+    }
   }
 }
 
@@ -1309,11 +1394,16 @@ function getTopbarButtonParent(e) {
   return button;
 }
 
+function getTopbarButtonToggles(button) {
+  return button.querySelectorAll(':scope > .btn > button');
+}
+
 function openTopbarButtonFlyout(button) {
   closeNav();
   var body = document.querySelector('body');
   button.classList.add('topbar-flyout');
   body.classList.add('topbar-flyout');
+  setExpanded(getTopbarButtonToggles(button), true);
   var a = button.querySelector('.topbar-content-wrapper a');
   if (a) {
     a.focus();
@@ -1324,6 +1414,7 @@ function closeTopbarButtonFlyout(button) {
   var body = document.querySelector('body');
   button.classList.remove('topbar-flyout');
   body.classList.remove('topbar-flyout');
+  setExpanded(getTopbarButtonToggles(button), false);
   documentFocus();
 }
 
@@ -1359,6 +1450,22 @@ function toggleTopbarFlyoutEvent(event) {
 }
 
 function handleTopbarButtons() {
+  // a toggle of the author: what it shows and hides is unknown to us, so each
+  // click changes its state; capturing, for the author's own listener to
+  // already find the new state. our own toggles are set where their target
+  // is shown and hidden, as that happens by other means than a click as well
+  document.addEventListener(
+    'click',
+    function (event) {
+      var button = event.target.closest('.btn > button[aria-expanded]');
+      if (!button || ['toggle-nav', 'toggle-flyout'].includes(button.dataset.buttonAction)) {
+        return;
+      }
+      setExpanded([button], button.getAttribute('aria-expanded') != 'true');
+    },
+    true
+  );
+
   // one listener for all buttons declaring an action, wherever they were moved to;
   // an action we don't know is left to the author's own listener
   document.addEventListener('click', function (event) {
@@ -1367,17 +1474,29 @@ function handleTopbarButtons() {
       return;
     }
     var action = button.dataset.buttonAction;
+    // closing hands the focus to the content, but who closes with the button
+    // itself stays on it
     if (action == 'toggle-nav') {
       toggleNav();
+      if (!document.querySelector('body').classList.contains('sidebar-flyout')) {
+        focusToggle(button);
+      }
     } else if (action == 'toggle-flyout') {
       toggleTopbarFlyout(button);
+      var parent = getTopbarButtonParent(button);
+      if (parent && !parent.classList.contains('topbar-flyout')) {
+        focusToggle(button);
+      }
     }
   });
 }
 
 function topbarFlyoutEscapeHandler(event) {
   if (event.key == 'Escape') {
-    closeSomeTopbarButtonFlyout();
+    var button = closeSomeTopbarButtonFlyout();
+    if (button) {
+      focusToggle(getTopbarButtonToggles(button)[0]);
+    }
   }
 }
 
@@ -1421,8 +1540,16 @@ function initToc() {
     m.addEventListener('click', closeSomeTopbarButtonFlyout);
   }
 
-  // finally give initial focus to allow keyboard scrolling in FF
-  documentFocus();
+  // the link works without us, but would leave its fragment in the address bar;
+  // closing the sidebar hands the focus to the content, which is out of reach
+  // as long as the sidebar lies above it
+  var s = document.querySelector('#R-skip-link');
+  if (s) {
+    s.addEventListener('click', function (event) {
+      event.preventDefault();
+      closeNav();
+    });
+  }
 }
 
 function initSwipeHandler() {
@@ -1475,14 +1602,49 @@ function initSwipeHandler() {
 }
 
 function initImage() {
+  // whether the enlarged image was opened from this page, which leaves a history
+  // entry to return to; a page loaded with the image already enlarged has none
+  var openedHere = false;
+
+  // capturing, to be asked before anyone else
+  document.addEventListener('keydown', imageKeyHandler, true);
+
   document.querySelectorAll('.lightbox-back').forEach(function (e) {
-    e.addEventListener('keydown', imageEscapeHandler);
     e.addEventListener('click', function (event) {
-      // leave the lightbox the way we came instead of adding another history entry
       event.preventDefault();
-      history.back();
+      var close = e.querySelector('.lightbox-close');
+      var opener = close && document.querySelector(close.getAttribute('href'));
+      if (openedHere) {
+        // leave the lightbox the way we came instead of adding another history entry
+        history.back();
+      } else if (close) {
+        // going back would leave the page, so its entry is replaced instead. the
+        // browser only lets go of the enlarged image if the URL targets something
+        // else, which is the image's place; after that the fragment can go
+        window.location.replace(close.getAttribute('href'));
+        window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+      }
+      // return to the image it was opened from
+      opener && opener.focus();
     });
   });
+
+  // the browser hands the focus to an enlarged image it navigates to, but not
+  // to one it returns to through its history or still shows after a reload
+  var focusShown = function () {
+    var shown = document.querySelector('.lightbox-back:target');
+    shown && !shown.contains(document.activeElement) && shown.focus();
+  };
+  window.addEventListener('hashchange', function () {
+    openedHere = !!document.querySelector('.lightbox-back:target');
+    focusShown();
+  });
+  // on a reload it only knows the target of the URL once the page is loaded
+  if (document.readyState == 'complete') {
+    focusShown();
+  } else {
+    window.addEventListener('load', focusShown);
+  }
 }
 
 function initExpand() {
@@ -1585,11 +1747,14 @@ function transferScrollToHistory(event) {
 function scrollToPositions() {
   // show active menu entry
   window.setTimeout(function () {
-    var e = document.querySelector('#R-sidebar li.active a');
-    if (e && e.scrollIntoView) {
-      e.scrollIntoView({
-        block: 'center',
-      });
+    // we move the menu ourselves: `scrollIntoView` also makes the entry the
+    // point the tab key starts from, which would lead past the skip link
+    var e = document.querySelector('#R-content-wrapper li.active a');
+    if (e) {
+      var wrapper = document.querySelector('#R-content-wrapper');
+      var port = wrapper.getBoundingClientRect();
+      var box = e.getBoundingClientRect();
+      wrapper.scrollTop += box.top - port.top - (port.height - box.height) / 2;
     }
   }, 10);
 
@@ -1691,7 +1856,7 @@ function mark() {
   }
 
   // mark some additional stuff as searchable
-  var bodyInnerLinks = document.querySelectorAll('#R-body-inner a:not(.lightbox-link):not(.btn):not(.lightbox-back)');
+  var bodyInnerLinks = document.querySelectorAll('#R-body-inner a:not(.lightbox-link):not(.btn):not(.lightbox-close)');
   for (var i = 0; i < bodyInnerLinks.length; i++) {
     bodyInnerLinks[i].classList.add('highlight');
   }
@@ -1997,6 +2162,14 @@ function useMermaid(config) {
   }
 })();
 
+// an icon written by the author, like the one of a menu entry, comes as it is;
+// it is decoration unless it says otherwise, so assistive technology skips it
+function initIcons() {
+  document.querySelectorAll('i[class*="fa-"]:not([aria-hidden]):not([aria-label]):not([role]):not([title])').forEach(function (e) {
+    e.setAttribute('aria-hidden', 'true');
+  });
+}
+
 function ready(fn) {
   if (document.readyState == 'complete') {
     fn();
@@ -2006,6 +2179,7 @@ function ready(fn) {
 }
 
 ready(function () {
+  initIcons();
   initArrowVerticalNav();
   initArrowHorizontalNav();
   handleHistoryClearer();
@@ -2141,6 +2315,19 @@ ready(function () {
       }
     });
   }
+  function adjustBreadcrumbTabstops() {
+    // the small layout puts the linked entries out of sight, where they must
+    // not be a stop for the tab key but stay for screen readers; an entry
+    // that is always out of sight is written that way and left alone
+    var isS = body.classList.contains('menu-s-width');
+    topbar.querySelectorAll('.topbar-breadcrumbs li:not(.a11y-only) > a').forEach(function (a) {
+      if (isS) {
+        a.setAttribute('tabindex', '-1');
+      } else {
+        a.removeAttribute('tabindex');
+      }
+    });
+  }
   function setWidthS(e) {
     body.classList[e.matches ? 'add' : 'remove']('menu-s-width');
   }
@@ -2154,6 +2341,8 @@ ready(function () {
     setWidth(e);
     moveTopbarButtons();
     adjustEmptyTopbarContents();
+    adjustBreadcrumbTabstops();
+    adjustNavInert();
   }
   if (topbar) {
     var mqs = window.matchMedia('only screen and (max-width: 47.999rem)');
@@ -2169,6 +2358,7 @@ ready(function () {
     setWidthL(mql);
     moveTopbarButtons();
     adjustEmptyTopbarContents();
+    adjustBreadcrumbTabstops();
   }
 })();
 

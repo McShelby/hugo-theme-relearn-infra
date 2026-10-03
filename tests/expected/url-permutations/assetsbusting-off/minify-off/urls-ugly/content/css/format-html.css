@@ -352,6 +352,7 @@
 
 }
 @media print {
+#R-skip-link,
 #R-sidebar {
   display: none;
 }

@@ -119,6 +119,9 @@ configuration/customization/topbar/topbar-closed.png
 configuration/index.html
 configuration/index.print.html
 configuration/index.xml
+configuration/publishing/accessibility/index.html
+configuration/publishing/accessibility/index.print.html
+configuration/publishing/accessibility/index.xml
 configuration/publishing/csp/index.html
 configuration/publishing/csp/index.print.html
 configuration/publishing/csp/index.xml
@@ -853,6 +856,8 @@ options/landingpagename/index.html
 options/landingpagename/index.xml
 options/link.errorlevel/index.html
 options/link.errorlevel/index.xml
+options/link.underline/index.html
+options/link.underline/index.xml
 options/linkeffects/index.html
 options/linkeffects/index.xml
 options/linktitle/index.html
@@ -1047,6 +1052,9 @@ pir/configuration/customization/topbar/topbar-closed.png
 pir/configuration/index.html
 pir/configuration/index.print.html
 pir/configuration/index.xml
+pir/configuration/publishing/accessibility/index.html
+pir/configuration/publishing/accessibility/index.print.html
+pir/configuration/publishing/accessibility/index.xml
 pir/configuration/publishing/csp/index.html
 pir/configuration/publishing/csp/index.print.html
 pir/configuration/publishing/csp/index.xml
@@ -1729,6 +1737,8 @@ pir/options/landingpagename/index.html
 pir/options/landingpagename/index.xml
 pir/options/link.errorlevel/index.html
 pir/options/link.errorlevel/index.xml
+pir/options/link.underline/index.html
+pir/options/link.underline/index.xml
 pir/options/linkeffects/index.html
 pir/options/linkeffects/index.xml
 pir/options/linktitle/index.html

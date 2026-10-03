@@ -15,9 +15,9 @@
     <meta itemprop="name" content="Search :: Minimal">
     <title>Search :: Minimal</title>
     <link href="../css/auto-complete/auto-complete.css" rel="stylesheet" integrity="sha256-16q2YN7gkvdin8Vay7J34JHWZJvRt1BfaxrvIURvfj0=">
-    <script src="../js/auto-complete/auto-complete.js" integrity="sha256-3oXlYirsc8DqOj5MmZSayJtl+TkeCG3mwOiuoRgokdE=" defer></script>
+    <script src="../js/auto-complete/auto-complete.js" integrity="sha256-F8pfA2dF3eKz3Yme4zPnSwUz+r8DmSL/NNGksAAFEbw=" defer></script>
     <script src="../js/search-lunr.js" integrity="sha256-7kor10wjl+5vBzPbazaPbs28jKw4ttWJfaDtC46CFzs=" defer></script>
-    <script src="../js/search.js" integrity="sha256-gmlrYUaBOe2hnjHAg2wNagqxh1aL6dKdk+Jk+2NrzgQ=" defer></script>
+    <script src="../js/search.js" integrity="sha256-/dDFvWbeXTwoNSyP5MrBL8RCkI0C8nuWids4u7UJ6V4=" defer></script>
     <script type="application/json" id="R-search-config">{
       "indexFile": "searchindex.en.js",
       "indexIntegrity": "sha256-egNoQT8njj0Z1rZOMyQ3x5bZ9Ho5LmLgdCbsPMZrpUI="
@@ -32,8 +32,8 @@
       ]
     }</script>
     <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks="></noscript>
-    <link href="../css/theme.css" rel="stylesheet" integrity="sha256-oy9TrO88Mrd8rzhtdAMbkh2cjEijXobEXhoTeblUVmc=">
-    <link href="../css/format-html.css" rel="stylesheet" integrity="sha256-A6X8YGYnLsFNLHnpKoCS+4M6mH3i1wDo79VwFyOxbU4=" id="R-format-style">
+    <link href="../css/theme.css" rel="stylesheet" integrity="sha256-9ja3KDJsRUnCN7YlooGIB7knIDI5gLHWTeXh0ifpUzM=">
+    <link href="../css/format-html.css" rel="stylesheet" integrity="sha256-ihewPZ0Bssz0djYn10BGnGagOwXJtM4fwIqIsfYjPBw=" id="R-format-style">
     <script type="application/json" id="R-theme-config">{
       "absBaseUri": "",
       "disableInlineCopyToClipboard": false,
@@ -55,77 +55,10 @@
         "View_reset": "View reset!"
       }
     }</script>
-    <script src="../js/theme-head.js" integrity="sha256-phe9aNpNZ2veMifkkb1NU9LAMj1CZjBpupeef4uQ4+E="></script>
+    <script src="../js/theme-head.js" integrity="sha256-LRiYXfSw9mobaXq7Z3VYPGblSUmkikx/Ww+jHq56hHw="></script>
   </head>
   <body class="mobile-support html" data-origin="/search/index.html">
-    <div id="R-body" class="default-animation">
-      <div id="R-body-overlay"></div>
-      <nav id="R-topbar" class="default-animation">
-        <div class="topbar-wrapper default-animation">
-          <div class="topbar-sidebar-divider default-animation"></div>
-          <div class="topbar-area topbar-area-start" data-area="start">
-            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
-<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button></span>
-            </div>
-            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-table-list"></i></button></span>
-              <div class="topbar-content">
-                <div class="topbar-content-wrapper" tabindex="-1"> 
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="topbar-area topbar-area-middle" data-area="middle">
-            <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
-            </ol>
-          </div>
-          <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><a href="../index.html" title="Minimal (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a></span>
-            </div>
-            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle"><span><i class="fa-fw fas fa-chevron-right"></i></span></span>
-            </div>
-            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
-<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button></span>
-              <div class="topbar-content">
-                <div class="topbar-content-wrapper" tabindex="-1">
-                  <div class="topbar-area topbar-area-more" data-area="more">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable _relearn_searchpage" tabindex="-1">
-        <div class="flex-block-wrapper">
-<article class="default">
-  <header class="headline">
-  </header>
-
-<h1 id="search">Search</h1>
-
-<search>
-  <form>
-    <div class="searchform">
-      <label class="a11y-only" for="R-search-by-detail">Search</label>
-      <input data-search-input id="R-search-by-detail" class="search-by" name="search-by" type="search" placeholder="Search..."><span class="btn cstyle button secondary interactive"><button type="submit"><i class="fa-fw fas fa-search"></i> <span class="title">Search</span></button></span>
-    </div>
-  </form>
-</search>
-<div class="searchhint">
-</div>
-<hr>
-<div id="R-searchresults">
-</div>
-  <footer class="footline">
-  </footer>
-</article>
-        </div>
-      </main>
-    </div>
+    <a id="R-skip-link" href="#R-body-inner">Skip to main content</a>
     <aside id="R-sidebar" class="default-animation">
       <div id="R-header-topbar" class="default-animation"></div>
       <div id="R-header-wrapper" class="default-animation">
@@ -134,10 +67,10 @@
         </a>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
-            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-fw fa-search"></i></button>
+            <button class="search-detail" type="submit" title="Open search page" aria-label="Open search page"><i class="fas fa-fw fa-search" aria-hidden="true"></i></button>
             <label class="a11y-only" for="R-search-by">Search</label>
-            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
-            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-fw fa-times" title="Clear search"></i></button>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search..." title="Search (CTRL+ALT+f)">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search" aria-label="Clear search"><i class="fas fa-fw fa-times" aria-hidden="true" title="Clear search"></i></button>
           </div>
         </form></search>
       </div>
@@ -147,7 +80,7 @@
         </div>
         <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
           <ul class="space collapsible-menu">
-            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home" aria-hidden="true"></i> Home</a></li>
           </ul>
         </div>
         <div class="R-menu-divider default-animation">
@@ -161,7 +94,7 @@
           <hr class="padding default-animation">
         </div>
       </div>
-      <div id="R-content-wrapper" class="highlightable" tabindex="-1">
+      <nav id="R-content-wrapper" class="highlightable" aria-label="Menu" tabindex="-1">
         <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
         <div class="R-sidebarmenu R-shortcutmenu-main default-animation">
           <ul class="enlarge morespace collapsible-menu">
@@ -181,10 +114,80 @@
           <ul class="">
           </ul>
         </div>
-<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
-      </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart" aria-hidden="true"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </nav>
     </aside>
-    <script src="../js/theme.js" integrity="sha256-CBc0VlS9SjkkdvWG1LzgeRcxBFCzDLbIbuKVjLrzrSA=" defer></script>
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <header id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)" aria-label="Menu (CTRL&#43;ALT&#43;n)" aria-expanded="false"><i class="fa-fw fas fa-bars" aria-hidden="true"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)" aria-label="Table of Contents (CTRL&#43;ALT&#43;t)" aria-expanded="false"><i class="fa-fw fas fa-table-list" aria-hidden="true"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1"> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="topbar-area topbar-area-middle" data-area="middle">
+            <nav class="topbar-breadcrumbs breadcrumbs highlightable" aria-label="Breadcrumbs">
+              <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+              </ol>
+            </nav>
+          </div>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a aria-label="Minimal (🡐)" href="../index.html" title="Minimal (🡐)"><i class="fa-fw fas fa-chevron-left" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle"><span><i class="fa-fw fas fa-chevron-right" aria-hidden="true"></i></span></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More" aria-label="More" aria-expanded="false"><i class="fa-fw fas fa-ellipsis-v" aria-hidden="true"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable _relearn_searchpage" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="search">Search</h1>
+
+<search>
+  <form>
+    <div class="searchform">
+      <label class="a11y-only" for="R-search-by-detail">Search</label>
+      <input data-search-input id="R-search-by-detail" class="search-by" name="search-by" type="search" placeholder="Search..."><span class="btn cstyle button secondary interactive"><button type="submit"><i class="fa-fw fas fa-search" aria-hidden="true"></i> <span class="title">Search</span></button></span>
+    </div>
+  </form>
+</search>
+<div class="searchhint" role="status">
+</div>
+<hr>
+<div id="R-searchresults">
+</div>
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../js/theme.js" integrity="sha256-HDMP8+dqCQQMIhnH8WtOpxOQQAC74ZhkaMM8e0bY0Vc=" defer></script>
     <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
   </body>
 </html>
