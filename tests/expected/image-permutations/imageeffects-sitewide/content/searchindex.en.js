@@ -2,7 +2,7 @@ var relearn_searchindex = [
   {
     "breadcrumb": "Image Permutations",
     "content": "width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.\nUnsized One dimension Both dimensions Relative lengths Portrait The other aspect ratio, so a swapped pair of dimensions cannot pass unnoticed.\nUnmeasurable An SVG is an image resource Hugo cannot read dimensions from, so it has none to carry into the markup however it is sized.\nElsewhere An absolute URL never resolves to a resource and so can never carry intrinsic dimensions - and, pointing at a host that does not answer, would show as alt text on a page whose whole subject is what an image measures. Those live on the Sources page, where showing nothing is the point.",
-    "description": "width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.\nUnsized One dimension",
+    "description": "width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.\nUnsized",
     "tags": [],
     "title": "Sizing",
     "uri": "/sizing/index.html"

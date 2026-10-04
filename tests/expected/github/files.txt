@@ -187,7 +187,7 @@ css/format-html.min.3226dd15a3c0ce92615d9c0598d87dc4e52e6ba8a69b8805883ddfdab10a
 css/format-print.min.4408662708e07dd67d4e488ed8dfd5e4a6bf0f812f2312e046330a88f735051d.css
 css/swagger-ui/swagger-ui.1ac324f7dcd27e4b9386b4bd6421271ec147e922a22c05ba24b11515e9aa6321.css
 css/swagger.min.5d78addee3a25dd985a6250cd62a1179170a3dd9c592839bc93acf9729deabc7.css
-css/theme.min.143a730f9075016f5e2096c8a76f8ca0f2ce76e4990e1bdf48e67e3cbafa6332.css
+css/theme.min.b679f69273dd8c7e01cf6fe3c34390d40fd7906e31499bc7302d04e3e4886f3e.css
 development/contributing/index.html
 development/contributing/index.print.html
 development/contributing/index.xml
@@ -217,7 +217,7 @@ exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841
 exampleSite/css/format-html.min.8d7be2c6155d83ac55ff191ced69c5c021d4585047698fa95497218a31291ce3.css
 exampleSite/css/format-print.min.4408662708e07dd67d4e488ed8dfd5e4a6bf0f812f2312e046330a88f735051d.css
 exampleSite/css/swagger.min.0fa6a7b1f677c9ae7b791d9005131435053b79c30b728ef7101c531fb912a11e.css
-exampleSite/css/theme.min.a9e4ce24720a57b60f1f25402bc89a3ca91cb58aad53c9bc0582e166cd88074d.css
+exampleSite/css/theme.min.ddf5e1d7b784256a9392924e3952a2ab472d4f1a50c6edfdfb591c1bfe509bc9.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -2148,8 +2148,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.188e37aa9676c1fad9bd36bdb2297a3ee8f2891921adcdaf90bee3c37c0eb578.js
-searchindex.pir.min.f894068a96ce9fee224e8b4fe50bb226b99a88a58eb1f2ba27f45b7be9589b9f.js
+searchindex.en.min.18e8ec08e133fae223ed7f5df99b0638c3b5b983ee09ff0f0dbae764f652c29a.js
+searchindex.pir.min.29347c61a1a351b0d3d9ccf802f18ae341cfc7092c1c6e68c682cdb50ce71d4c.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

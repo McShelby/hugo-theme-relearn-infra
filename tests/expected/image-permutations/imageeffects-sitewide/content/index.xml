@@ -12,7 +12,7 @@
       <link>/sizing/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/sizing/index.html</guid>
-      <description>width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized One dimension</description>
+      <description>width and height are CSS lengths - 20vw and 50% are as valid as 50px - so they are style, not pixel counts. The intrinsic dimensions of the resource are a separate thing, and what a browser needs to reserve space with before the image has arrived.&#xA;Unsized</description>
     </item>
     <item>
       <title>Sources</title>
