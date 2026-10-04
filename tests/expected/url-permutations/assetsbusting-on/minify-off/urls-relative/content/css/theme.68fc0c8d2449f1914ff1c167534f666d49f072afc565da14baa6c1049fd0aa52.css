@@ -1363,7 +1363,7 @@ article .R-taxonomy.tags a.term-link:hover:after {
 #R-body svg:not(.lightbox-image).border,
 #R-body img:not(.lightbox-image).border {
   background-clip: padding-box;
-  border: 1px solid rgba(134, 134, 134, 0.333);
+  border: 1px solid color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 10%, transparent);
   /* an image carries its own dimensions so a browser can reserve its space, and
      those size the border box; the border would otherwise eat into the picture
      and resample it, so here it goes outside instead */
@@ -1377,7 +1377,11 @@ article .R-taxonomy.tags a.term-link:hover:after {
 
 #R-body svg:not(.lightbox-image).shadow,
 #R-body img:not(.lightbox-image).shadow {
-  box-shadow: 0 10px 30px rgba(176, 176, 176, 0.666);
+  /* the shadow is tinted by the background and inverts its lightness, so it is dark on a light
+     background and light on a dark one; a light one has to stand up to a bright image, so the
+     darker the background the denser it is */
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 20%, transparent);
+  box-shadow: 0 3px 12px oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) c h / calc(0.2 + 0.6 * (1 - l)));
 }
 
 #R-body svg:not(.lightbox-image).inline,
@@ -2529,14 +2533,17 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
 }
 
 .actionbar {
-  display: none;
+  display: flex;
+  gap: 4px;
   inset-inline-end: 4px;
+  /* out of sight but not hidden, to keep it a stop for the tab key */
+  opacity: 0;
   position: absolute;
   top: 4px;
 }
 
 .disableHoverBlockCopyToClipBoard .actionbar {
-  display: block;
+  opacity: 1;
 }
 
 .actionbar-wrapper:hover .actionbar,
@@ -2544,13 +2551,13 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
 .actionbar:has(:hover),
 .actionbar:has(:active),
 .actionbar:has(:focus) {
-  display: block;
+  opacity: 1;
 }
 
 @media (any-hover: none) {
   /* if at least one input device does not support hover, force actionbar to be visible */
   .actionbar {
-    display: block;
+    opacity: 1;
   }
 }
 
@@ -2580,16 +2587,52 @@ option {
 
 .expand > .box-label > .expander-icon {
   font-size: 0.8rem;
+  transition: transform 0.175s ease;
   width: 0.6rem;
 }
 .expand[open] > .box-label > i.expander-icon {
   transform: rotate(90deg);
 }
+/* the mirroring stays in the open state as well, so the chevron turns instead
+   of flipping over; pointing down, it looks the same mirrored or not */
 html[dir='rtl'] .expand > .box-label > i.expander-icon {
-  transform: scaleX(-1);
+  transform: scaleX(-1) rotate(0deg);
 }
 html[dir='rtl'] .expand[open] > .box-label > i.expander-icon {
-  transform: rotate(90deg);
+  transform: scaleX(-1) rotate(90deg);
+}
+
+/* the content is the only row of what the box discloses and rolls out from
+   below the label as that row grows; it hangs on the lower edge of the row, so
+   it moves along with what it pushes down */
+@supports selector(::details-content) {
+  .expand::details-content {
+    /* while it grows, the row is shorter than the room there is for it; what
+       is left must not end up below the content */
+    align-content: end;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 0fr;
+    /* cut off at the height of the row but not to the sides */
+    overflow-y: clip;
+    /* the content stays to be seen until it is rolled in */
+    transition:
+      content-visibility 0.175s allow-discrete,
+      grid-template-rows 0.175s ease;
+  }
+  .expand[open]::details-content {
+    grid-template-rows: 1fr;
+  }
+  .expand > .box-content {
+    align-self: end;
+    min-height: 0;
+    transition: padding 0.175s ease;
+  }
+  /* the row can only collapse completely if nothing of the content is left */
+  #R-body .expand:not([open]) > .box-content {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
 }
 
 #R-body footer.footline {
@@ -2634,13 +2677,51 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon {
 .mermaid-container.zoomable > .mermaid > svg {
   cursor: grab;
 }
+/* the graph shows its focus on the box that holds it */
+.mermaid-container.zoomable > .mermaid > svg:focus {
+  outline: none;
+}
+.mermaid-container.zoomable > .mermaid:has(> svg:focus-visible) {
+  outline: auto;
+}
 
 .svg-reset-button.btn {
   display: none;
 }
 
 .svg-reset-button.btn.zoomed {
-  display: block;
+  display: inline-block;
+}
+
+/* the graph itself is enlarged instead of a copy of it, so it keeps its pan and zoom */
+.mermaid.lightbox {
+  border-width: 0;
+  inset: 2.5%;
+  /* the box was narrowed to the width of its graph */
+  max-width: none !important;
+  padding: 0;
+  position: fixed;
+  width: auto;
+  z-index: 1999;
+}
+.mermaid.lightbox::before {
+  background: rgba(0, 0, 0, 0.8);
+  content: '';
+  inset: 0;
+  position: fixed;
+  z-index: -1;
+}
+.mermaid.lightbox > svg {
+  background-color: var(--INTERNAL-MAIN-BG-color);
+  box-sizing: border-box;
+  height: 100% !important;
+  /* the graph limits itself to its natural width */
+  max-width: none !important;
+  padding: min(2vh, 2vw);
+  width: 100%;
+}
+.mermaid.lightbox > .actionbar {
+  opacity: 1;
 }
 
 .mermaid-code {
@@ -3062,19 +3143,24 @@ h6 a {
 
 .menu-control .control-style {
   cursor: pointer;
+  display: flow-root;
   height: 1.574em;
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: clip;
 }
 
 .menu-control i {
   padding-top: 0.25em;
 }
 
+/* the control reaches below the icon, so a click on the icon has to fall
+   through to it */
 .menu-control i,
 .menu-control span {
   cursor: pointer;
   display: block;
   float: left;
+  pointer-events: none;
 }
 html[dir='rtl'] .menu-control i,
 html[dir='rtl'] .menu-control span {
@@ -3092,8 +3178,14 @@ html[dir='rtl'] .menu-control span {
   -webkit-appearance: none;
   appearance: none;
   height: 1.33rem;
+  /* shifting the box by what it is padded with keeps the text in place; the
+     list of a select opens as wide as that box, so it reaches out to both
+     sides to be as far from one edge of the menu as from the other */
+  margin-inline: -2em -0.5em;
+  max-width: none;
   outline: none;
-  width: 100%;
+  padding-inline: 2em 0.5em;
+  width: calc(100% + 2.5em);
 }
 /* the control is cut off by its wrapper and so would be its focus outline;
    the row shows it instead, same as the entries of the menu do */
@@ -3106,12 +3198,13 @@ html[dir='rtl'] .menu-control span {
   background-image: none;
   border: none;
   box-shadow: none;
-  padding-left: 0;
-  padding-right: 0;
 }
 
+/* the browsers disagree on the background of the opened list once the select
+   itself is transparent, so each entry brings its own pair of colors */
 .menu-control option {
-  color: rgba(0, 0, 0, 1);
+  background-color: Canvas;
+  color: CanvasText;
   padding: 0;
   margin: 0;
 }
@@ -3120,6 +3213,7 @@ html[dir='rtl'] .menu-control span {
   background-color: transparent;
   cursor: pointer;
   display: block;
+  overflow: hidden;
   text-align: start;
 }
 
@@ -3489,14 +3583,12 @@ article ul > li > span > input[type='checkbox']:checked::before {
 
 /* basic menu list styles (non-collapsible) */
 
-#R-sidebar select,
 #R-sidebar .collapsible-menu label,
 #R-sidebar .menu-control,
 #R-sidebar :is(a, span) {
   color: var(--INTERNAL-MENU-SECTIONS-LINK-color);
 }
 
-#R-sidebar select:hover,
 #R-sidebar .collapsible-menu li:not(.active) > label:hover,
 #R-sidebar .menu-control:hover,
 #R-sidebar a:hover {
@@ -3569,18 +3661,25 @@ article ul > li > span > input[type='checkbox']:checked::before {
   appearance: none;
   cursor: pointer;
   display: inline-block;
-  /* nothing to see but the focus outline: a square around the chevron */
+  /* nothing to see but the focus outline: a square around the chevron, in the
+     middle of the height of the entry */
   height: 1rem;
   margin-bottom: 0;
   margin-inline-end: 0;
   margin-inline-start: -0.075rem;
-  margin-top: 0.5875rem;
+  margin-top: 0.25rem;
   position: absolute;
   width: 1rem;
   z-index: 1;
 }
+#R-sidebar ul.space.collapsible-menu li > input {
+  margin-top: 0.375rem;
+}
+#R-sidebar ul.morespace.collapsible-menu li > input {
+  margin-top: 0.5rem;
+}
 #R-sidebar ul.collapsible-menu.enlarge > li > input {
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
 }
 
 #R-sidebar ul.collapsible-menu > li > label {
@@ -3594,7 +3693,6 @@ article ul > li > span > input[type='checkbox']:checked::before {
   z-index: 2;
 }
 #R-sidebar ul.collapsible-menu.enlarge > li > label {
-  font-size: 1.1rem;
   line-height: 2rem;
 }
 
@@ -3605,11 +3703,17 @@ article ul > li > span > input[type='checkbox']:checked::before {
   height: 1.5rem;
   inset-inline-start: -0.325rem;
   position: absolute;
-  top: 0.3375rem;
+  top: 0;
   width: 1.5rem;
 }
+#R-sidebar ul.space.collapsible-menu li > label:before {
+  top: 0.125rem;
+}
+#R-sidebar ul.morespace.collapsible-menu li > label:before {
+  top: 0.25rem;
+}
 #R-sidebar ul.collapsible-menu.enlarge > li > label:before {
-  top: 0.65rem;
+  top: 0.5rem;
 }
 #R-sidebar .R-sidebarmenu > ul.collapsible-menu > li > label:before {
   inset-inline-start: 0;
@@ -3649,34 +3753,102 @@ article ul > li > span > input[type='checkbox']:checked::before {
   display: block;
 }
 
-/* closed menu */
+/* the submenu is the second row of its entry and rolls out from below the
+   entry as that row grows; it hangs on the lower edge of the row, so it moves
+   along with the entries it pushes down */
 
-#R-sidebar ul.collapsible-menu > li > input + label ~ ul {
-  display: none;
+#R-sidebar ul.collapsible-menu > li:has(> input) {
+  /* while it grows, the row of the submenu is shorter than the room the entry
+     has for it; what is left must neither stretch the row of the entry itself
+     nor end up below the submenu */
+  align-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 0fr;
+  transition: grid-template-rows 0.175s ease;
 }
 
+#R-sidebar ul.collapsible-menu > li > input + label ~ ul {
+  align-self: end;
+  display: block;
+  min-height: 0;
+}
+
+#R-sidebar ul.collapsible-menu .default-animation {
+  /* visibility is inherited; animating it here as well would leave the
+     contents in reach after the submenu has closed */
+  transition:
+    all 0.35s ease,
+    visibility 0s;
+}
+
+/* closed menu */
+
+#R-sidebar ul.collapsible-menu > li > input:not(:checked) + label ~ ul {
+  /* the submenu reaches out of the row at the top, so it is cut off from there
+     by as much as the row is short of it; never to the sides, where the active
+     entry leaves the submenu */
+  clip-path: inset(100% -100vw -1rem);
+  /* the row can only collapse completely if nothing of the submenu is left */
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  /* out of reach for the keyboard and screen readers as long as it is out of
+     sight; so only once it is rolled in and as soon as it rolls out */
+  transition:
+    clip-path 0.175s ease,
+    margin 0.175s ease,
+    padding 0.175s ease,
+    visibility 0s 0.175s;
+  visibility: hidden;
+}
+#R-sidebar #R-homelinks ul.collapsible-menu > li > input:not(:checked) + label ~ ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* the closed chevron keeps a bit of distance to the border of the browser; in
+   RTL it is the mirroring that takes it to the other side of its box */
 #R-sidebar ul.collapsible-menu > li > input + label > .fa-chevron-right {
   display: inline-block;
-  text-align: end;
+  text-align: right;
+  transition: transform 0.175s ease;
 }
 
 /* open menu  */
 
+#R-sidebar ul.collapsible-menu > li:has(> input:checked) {
+  grid-template-rows: auto 1fr;
+}
+
 #R-sidebar ul.collapsible-menu > li > input:checked + label ~ ul {
-  display: block;
+  /* there is room for the focus outline of the entries at its edges, just a
+     bit at the top, as that much shows above the row while rolling out; its
+     visibility stays inherited, as it may sit in a closed menu */
+  clip-path: inset(-0.25rem -100vw -1rem);
+  transition:
+    clip-path 0.175s ease,
+    margin 0.175s ease,
+    padding 0.175s ease,
+    visibility 0s;
 }
 
+/* the chevron is not in the middle of the box we rotate, so it is taken down
+   by the rotation and we bring it back up */
 #R-sidebar ul.collapsible-menu > li > input:checked + label > .fa-chevron-right {
-  transform: rotate(90deg);
+  transform: translateY(-0.125em) rotate(90deg);
 }
 
-/* adjust menu for RTL reading direction */
+/* adjust menu for RTL reading direction; the mirroring stays in the open state
+   as well, so the chevron turns instead of flipping over; pointing down, it
+   looks the same mirrored or not */
 
 html[dir='rtl'] #R-sidebar ul.collapsible-menu > li > input + label > i.fa-chevron-right {
-  transform: scaleX(-1);
+  transform: scaleX(-1) translateY(0) rotate(0deg);
 }
 html[dir='rtl'] #R-sidebar ul.collapsible-menu > li > input:checked + label > i.fa-chevron-right {
-  transform: rotate(90deg);
+  transform: scaleX(-1) translateY(-0.125em) rotate(90deg);
 }
 
 /* common logo */
@@ -4075,6 +4247,13 @@ body a#R-logo:hover *:not(svg, svg *) {
   padding-right: calc(1rem - var(--bpx1) * 1px);
   width: calc(100% + var(--bpx1) * 1px);
 }
+/* more room between the edge of the box and the expander; the box grows into
+   the indentation, which the outermost level has none of */
+#R-sidebar ul.collapsible-menu ul li.active > a {
+  margin-inline-start: -0.3rem;
+  padding-inline-start: calc(1.3rem - var(--bpx1) * 1px);
+  width: calc(100% + 0.3rem + var(--bpx1) * 1px);
+}
 #R-sidebar ul.morespace.collapsible-menu li.active > a {
   padding-bottom: calc(0.25rem - var(--bpx1) * 1px);
   padding-top: calc(0.25rem - var(--bpx1) * 1px);
@@ -4109,7 +4288,6 @@ body a#R-logo:hover *:not(svg, svg *) {
 
 /* override for the menu header */
 
-#R-homelinks select,
 #R-homelinks .collapsible-menu label,
 #R-homelinks .menu-control,
 #R-homelinks :is(a, span) {
@@ -4123,7 +4301,6 @@ body a#R-logo:hover *:not(svg, svg *) {
   border-inline-end-color: transparent;
 }
 
-#R-homelinks select:hover,
 #R-homelinks :is(.collapsible-menu, :not(.collapsible-menu)) li:not(.active) > label:hover,
 #R-homelinks .menu-control:hover,
 #R-homelinks :is(.collapsible-menu, :not(.collapsible-menu)) a:hover {
@@ -4242,7 +4419,9 @@ article.notfound #shrug svg {
   background: var(--INTERNAL-BOX-BG-color);
   border: 1px solid color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 10%, transparent);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* the same shadow as for the `shadow` effect of an image */
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 20%, transparent);
+  box-shadow: 0 3px 12px oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) c h / calc(0.2 + 0.6 * (1 - l)));
   color: var(--INTERNAL-MAIN-TEXT-color);
   display: flex;
   flex-direction: column;
@@ -4279,7 +4458,7 @@ article.notfound #shrug svg {
 
 .card-container .card.card-popout:hover {
   border-color: color-mix(in srgb, var(--VARIABLE-LINK-color) 40%, transparent);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--VARIABLE-LINK-color) 25%, transparent);
+  box-shadow: 0 9px 24px color-mix(in srgb, var(--VARIABLE-LINK-color) 40%, transparent);
   transform: translateY(-4px) translateX(4px);
 }
 
@@ -4431,17 +4610,6 @@ article.notfound #shrug svg {
   article.narrow .card-columnize-5 {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/* Dark theme compatibility */
-body[data-theme='dark'] .card-container .card,
-.relearn-dark .card-container .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme='dark'] .card-container .card:hover,
-.relearn-dark .card-container .card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* color style definitions */

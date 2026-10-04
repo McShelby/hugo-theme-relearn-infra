@@ -72,16 +72,78 @@ function showToast(message) {
 
 window.relearn.showToast = showToast;
 
+// the latest hold is the one that keeps its element in place
+var holds = 0;
+
+// keeps `element` where it is in the viewport by scrolling the content against
+// whatever moves it. `isMoving` is asked once the caller is done with its changes
+// and from then on with every step of what it has set off, until it denies; the
+// element is put back each time, so once more after the last step
+function holdInPlace(element, isMoving) {
+  var ypos = element.getBoundingClientRect().top;
+  var hold = ++holds;
+  var step = function () {
+    if (hold != holds) {
+      return;
+    }
+    var yposDiff = element.getBoundingClientRect().top - ypos;
+    if (yposDiff && elc) {
+      elc.scrollTop += yposDiff;
+    }
+    isMoving() && requestAnimationFrame(step);
+  };
+  return step;
+}
+
 function switchTab(tabGroup, tabId, button) {
-  // save button position relative to viewport
-  var yposButton = button.getBoundingClientRect().top;
+  var holdButton = holdInPlace(button, function () {
+    return animations.some(function (animation) {
+      return animation.playState == 'running';
+    });
+  });
+
+  var activeText = function (panel) {
+    return panel.querySelector(':scope > .tab-content-container > .tab-content.active > .tab-content-text');
+  };
+  var areas = Array.from(document.querySelectorAll('.tab-panel[data-tab-group="' + tabGroup + '"]')).map(function (panel) {
+    var text = activeText(panel);
+    return { panel: panel, text: text, height: text ? text.getBoundingClientRect().height : 0 };
+  });
 
   window.relearn.selectTab(tabGroup, tabId);
   initMermaid(true);
 
-  // reset screen to the same position relative to clicked button to prevent page jump
-  var yposButtonDiff = button.getBoundingClientRect().top - yposButton;
-  window.scrollTo(window.scrollX, window.scrollY + yposButtonDiff);
+  // the new content is there at once and stays at the upper edge, while the area
+  // grows or shrinks from the height of the former content to its own
+  var animations = [];
+  areas.forEach(function (area) {
+    var text = activeText(area.panel);
+    if (!text || !area.text || text == area.text || reducedmotion.matches) {
+      return;
+    }
+    // a content still on its way from an earlier switch would report the height
+    // it has reached by now instead of its own
+    text.getAnimations().forEach(function (animation) {
+      animation.cancel();
+    });
+    var height = text.getBoundingClientRect().height;
+    if (height == area.height) {
+      return;
+    }
+    // cut off at the height of the area but not to the sides
+    animations.push(
+      text.animate(
+        [
+          { height: area.height + 'px', overflowY: 'clip' },
+          { height: height + 'px', overflowY: 'clip' },
+        ],
+        { duration: 175, easing: 'ease' }
+      )
+    );
+  });
+
+  // the areas above the button move it with every step they take
+  holdButton();
 
   // Store the selection to make it persistent
   if (window.localStorage) {
@@ -138,36 +200,184 @@ function handleTabs() {
   });
 }
 
+function handleExpanders() {
+  // opening an expander closes the open one of its group; if that sits above, the
+  // pressed label moves with every step it rolls in. the expander only changes
+  // after the click is through, so we look at it with the next frame
+  document.addEventListener('click', function (event) {
+    var label = event.target.closest('details.expand[name] > summary');
+    if (!label) {
+      return;
+    }
+    // the browser does not tell of the transition of the disclosed content, so we
+    // take the time it is given by the stylesheet; without one the label is put
+    // back just once
+    var duration = getComputedStyle(label.parentNode, '::details-content')
+      .transitionDuration.split(',')
+      .reduce(function (max, duration) {
+        return Math.max(max, parseFloat(duration) * 1000 || 0);
+      }, 0);
+    var end = 0;
+    var holdLabel = holdInPlace(label, function () {
+      // a frame may be late, so there is some time to spare
+      end = end || performance.now() + duration + 50;
+      return performance.now() < end;
+    });
+    requestAnimationFrame(holdLabel);
+  });
+}
+
+function mermaidLightbox(box, show) {
+  // the graph itself is enlarged instead of a copy of it, so it stays the
+  // one graph the reader pans and zooms; returns the button that toggles it
+  box.classList.toggle('lightbox', show);
+  if (show) {
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+  } else {
+    box.removeAttribute('role');
+    box.removeAttribute('aria-modal');
+  }
+  var button = box.querySelector('.svg-lightbox-button button');
+  if (button) {
+    var label = show ? window.T_Close_graph : window.T_Enlarge_graph;
+    button.setAttribute('title', label);
+    button.setAttribute('aria-label', label);
+    button.querySelector('i').className = 'fa-fw fas ' + (show ? 'fa-compress' : 'fa-expand');
+  }
+  return button;
+}
+
+function closeMermaidLightbox() {
+  var shown = document.querySelector('.mermaid.lightbox');
+  if (!shown) {
+    return;
+  }
+  // return to the button it was opened from
+  var button = mermaidLightbox(shown, false);
+  button && button.focus();
+}
+
+function mermaidLightboxKeyHandler(event) {
+  // an enlarged graph lies above everything else, so no key reaches the page below it
+  var shown = document.querySelector('.mermaid.lightbox');
+  if (!shown) {
+    return;
+  }
+  if (event.key == 'Escape') {
+    event.stopPropagation();
+    closeMermaidLightbox();
+  } else if (event.key == 'Tab') {
+    // the focus stays inside
+    event.preventDefault();
+    event.stopPropagation();
+    var stops = Array.from(shown.querySelectorAll(':scope > svg[tabindex], .actionbar button')).filter(function (e) {
+      return e.getClientRects().length;
+    });
+    var index = stops.indexOf(document.activeElement);
+    if (index == -1) {
+      index = event.shiftKey ? 0 : -1;
+    }
+    var next = stops[(index + (event.shiftKey ? -1 : 1) + stops.length) % stops.length];
+    next && next.focus();
+  } else if (!shown.contains(event.target)) {
+    event.stopPropagation();
+  }
+}
+
+function mermaidLightboxClickHandler(event) {
+  // the backdrop is drawn by the box, so a click on it has the box as its target
+  var shown = document.querySelector('.mermaid.lightbox');
+  if (!shown || (event.target != shown && shown.contains(event.target))) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  closeMermaidLightbox();
+}
+
 function mermaidPostRender(id) {
-  // zoom for Mermaid
-  // https://github.com/mermaid-js/mermaid/issues/1860#issuecomment-1345440607
-  var svgs = d3.selectAll('body:not(.print) .mermaid-container.zoomable > .mermaid > #' + id);
+  var svgs = d3.selectAll('body:not(.print) .mermaid-container > .mermaid > #' + id);
   svgs.each(function () {
     var parent = this.parentElement;
-    // we need to copy the maxWidth, otherwise our reset button will not align in the upper right
+    // we need to copy the maxWidth, otherwise our buttons will not align in the upper right
     parent.style.maxWidth = this.style.maxWidth || this.getAttribute('width');
     // if no unit is given for the width
     parent.style.maxWidth = parent.style.maxWidth || 'calc( ' + this.getAttribute('width') + 'px + 1rem )';
+    var reset = '<span class="btn cstyle svg-reset-button action noborder notitle interactive"><button type="button" title="' + window.T_Reset_view + '" aria-label="' + window.T_Reset_view + '"><i class="fa-fw fas fa-undo-alt" aria-hidden="true"></i></button></span>';
+    var enlarge = '<span class="btn cstyle svg-lightbox-button action noborder notitle interactive"><button type="button" title="' + window.T_Enlarge_graph + '" aria-label="' + window.T_Enlarge_graph + '"><i class="fa-fw fas fa-expand" aria-hidden="true"></i></button></span>';
+    parent.insertAdjacentHTML('beforeend', '<div class="actionbar">' + reset + enlarge + '</div>');
+    parent.querySelector('.svg-lightbox-button button').addEventListener('click', function () {
+      mermaidLightbox(parent, !parent.classList.contains('lightbox'));
+    });
+    // the keys the enlarged graph has no use for must not reach the page below it
+    var keepKey = function (event) {
+      if (parent.classList.contains('lightbox')) {
+        event.stopPropagation();
+      }
+    };
+    this.addEventListener('keydown', keepKey);
+    parent.querySelector('.actionbar').addEventListener('keydown', keepKey);
+  });
+
+  // zoom for Mermaid
+  // https://github.com/mermaid-js/mermaid/issues/1860#issuecomment-1345440607
+  svgs = d3.selectAll('body:not(.print) .mermaid-container.zoomable > .mermaid > #' + id);
+  svgs.each(function () {
+    var parent = this.parentElement;
     var svg = d3.select(this);
     svg.html('<g>' + svg.html() + '</g>');
     var inner = svg.select('*:scope > g');
-    parent.insertAdjacentHTML('beforeend', '<div class="actionbar"><span class="btn cstyle svg-reset-button action noborder notitle interactive"><button type="button" title="' + window.T_Reset_view + '" aria-label="' + window.T_Reset_view + '"><i class="fa-fw fas fa-undo-alt" aria-hidden="true"></i></button></span></div>');
     var wrapper = parent.querySelector('.svg-reset-button');
     var button = wrapper.querySelector('button');
     var zoom = d3.zoom().on('zoom', function (e) {
       inner.attr('transform', e.transform);
       if (e.transform.k == 1 && e.transform.x == 0 && e.transform.y == 0) {
+        // the button is about to vanish, so the focus it holds goes back to the graph
+        if (document.activeElement == button) {
+          svg.node().focus();
+        }
         wrapper.classList.remove('zoomed');
       } else {
         wrapper.classList.add('zoomed');
       }
     });
     button.addEventListener('click', function () {
-      this.blur();
       svg.transition().duration(350).call(zoom.transform, d3.zoomIdentity);
       showToast(window.T_View_reset);
     });
     svg.call(zoom);
+    // the keyboard has neither a wheel nor can it drag, so the graph is a stop
+    // for the tab key and takes the keys a browser scrolls and zooms with
+    this.setAttribute('tabindex', '0');
+    var panZoomKey = function (event) {
+      if (event.altKey || event.ctrlKey || event.metaKey) {
+        return;
+      }
+      // a step is as far on the screen no matter how far we are zoomed in
+      var step = LINE_SCROLL / d3.zoomTransform(svg.node()).k;
+      if (event.key == 'ArrowLeft') {
+        svg.call(zoom.translateBy, step, 0);
+      } else if (event.key == 'ArrowRight') {
+        svg.call(zoom.translateBy, -step, 0);
+      } else if (event.key == 'ArrowUp') {
+        svg.call(zoom.translateBy, 0, step);
+      } else if (event.key == 'ArrowDown') {
+        svg.call(zoom.translateBy, 0, -step);
+      } else if (event.key == '+' || event.key == '=') {
+        svg.call(zoom.scaleBy, 1.25);
+      } else if (event.key == '-') {
+        svg.call(zoom.scaleBy, 0.8);
+      } else {
+        return;
+      }
+      // the key is used up; otherwise the page would scroll or be left for its neighbour
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    this.addEventListener('keydown', panZoomKey);
+    // the buttons belong to the graph, so its keys work from them as well
+    parent.querySelector('.actionbar').addEventListener('keydown', panZoomKey);
   });
   // we have to mark again once a graph was drawn, to mark terms inside its SVG
   mark();
@@ -389,6 +599,9 @@ function initMermaid(update, attrs) {
 
   if (!state.is_initialized) {
     state.is_initialized = true;
+    // capturing, to be asked before anyone else
+    document.addEventListener('keydown', mermaidLightboxKeyHandler, true);
+    document.addEventListener('click', mermaidLightboxClickHandler, true);
     window.addEventListener(
       'beforeprint',
       function () {
@@ -415,6 +628,9 @@ function initMermaid(update, attrs) {
   };
 
   if (update) {
+    // an enlarged graph is taken out of the page, where it can neither be
+    // printed nor tell whether it is visible
+    closeMermaidLightbox();
     unmark();
   }
   var is_initialized = update ? update_func(attrs) : init_func(attrs);
@@ -475,6 +691,8 @@ function initOpenapi(update, attrs) {
       return value ? ` integrity="${value}"` : '';
     }
     var variant = document.documentElement.dataset.rThemeVariant;
+    // the shortcode may ask for another language than the one of the page
+    var dir = (oc.dataset.openapiDir ? oc.dataset.openapiDir == 'rtl' : isRtl) ? 'rtl' : 'ltr';
     var swagger_theme = getColorValue(print + 'OPENAPI-theme');
     var swagger_code_theme = getColorValue(print + 'OPENAPI-CODE-theme');
 
@@ -496,7 +714,7 @@ function initOpenapi(update, attrs) {
     // replaces this once it is known
     oi.title = 'OpenAPI';
     oi.srcdoc = `<!DOCTYPE html>
-<html id="R-html" class="relearn ${swagger_theme}-mode" lang="${lang}" dir="${isRtl ? 'rtl' : 'ltr'}" data-r-output-format="${format}" data-r-theme-variant="${variant}">
+<html id="R-html" class="relearn ${swagger_theme}-mode" lang="${lang}" dir="${dir}" data-r-output-format="${format}" data-r-theme-variant="${variant}">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="${config.dataset.openapiCssUrl}"${integrity(config.dataset.openapiCssIntegrity)}>
@@ -504,15 +722,18 @@ function initOpenapi(update, attrs) {
     <link rel="stylesheet" href="${theme}"${integrity(themeIntegrity)}>
   </head>
   <body>
-    <a class="relearn-expander" href="" data-expand="false">Collapse all</a>
-    <a class="relearn-expander" href="" data-expand="true">Expand all</a>
+    <a class="relearn-expander" href="" data-expand="false"></a>
+    <a class="relearn-expander" href="" data-expand="true"></a>
     <div id="relearn-swagger-ui"></div>
   </body>
 </html>`;
     oi.height = '100%';
     oi.width = '100%';
     oi.addEventListener('load', function () {
-      // the iframe runs no script of its own, so its expanders are served from here
+      // the iframe runs no script of its own, so its expanders are served from here;
+      // their texts are translated by the shortcode and set as text, so they need no escaping
+      oi.contentWindow.document.querySelector('.relearn-expander[data-expand=false]').textContent = oc.dataset.openapiCollapseAll || 'Collapse all';
+      oi.contentWindow.document.querySelector('.relearn-expander[data-expand=true]').textContent = oc.dataset.openapiExpandAll || 'Expand all';
       oi.contentWindow.document.addEventListener('click', function (event) {
         var expander = event.target.closest('.relearn-expander');
         if (!expander) {
@@ -885,7 +1106,6 @@ function initCodeClipboard() {
   var buttons = document.querySelectorAll('.block-copy-to-clipboard-button button, .inline-copy-to-clipboard-button button');
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
-      this.blur();
       // For block buttons, get the actionbar's previous sibling; for inline, use wrapper's previous sibling
       var codeElement = this.closest('.actionbar') ? this.closest('.actionbar').previousElementSibling : this.parentElement.previousElementSibling;
       if (!codeElement) {
@@ -1645,6 +1865,20 @@ function initImage() {
   } else {
     window.addEventListener('load', focusShown);
   }
+
+  // paper has no lightbox to open, so a printout must not carry a link to it
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('.lightbox-link[href]').forEach(function (e) {
+      e.dataset.href = e.getAttribute('href');
+      e.removeAttribute('href');
+    });
+  });
+  window.addEventListener('afterprint', function () {
+    document.querySelectorAll('.lightbox-link[data-href]').forEach(function (e) {
+      e.setAttribute('href', e.dataset.href);
+      delete e.dataset.href;
+    });
+  });
 }
 
 function initExpand() {
@@ -1807,6 +2041,7 @@ function handleHistoryClearer() {
   document.querySelectorAll('.R-historyclearer button').forEach(function (select) {
     select.addEventListener('click', function (event) {
       clearHistory();
+      showToast(window.T_History_cleared);
     });
   });
 }
@@ -2194,6 +2429,7 @@ ready(function () {
   initAnchorClipboard();
   initCodeClipboard();
   handleTabs();
+  handleExpanders();
   handleTopbarButtons();
   initSwipeHandler();
   initHistory();
