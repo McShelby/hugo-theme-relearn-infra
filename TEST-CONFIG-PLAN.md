@@ -34,14 +34,13 @@ tests/
       config/_default/              optional; a root hugo.toml does as well
       content/
       warnings.txt                  optional
-    versioning-current/
-    versioning-archived/
+    versions/
     docs@theme/
       warnings.txt                  only this; config and content are the theme's
   cases/
     url-permutations/
       case.toml
-    versioning/
+    versions/
       case.toml
       warnings.txt                  optional
   expected/
@@ -148,11 +147,11 @@ expected/
     files.txt
   github/                   files — one listing over the merged tree
     files.txt
-  versioning/               content — one tree, both builds
+  versions/                 content — one build, a version per subdirectory
     files.txt
     content/
       index.html
-      0.666/
+      2.0/
         index.html
 ```
 
@@ -213,25 +212,28 @@ notice minification silently breaking in the published build.
 
 ### Sequences — builds that only mean something together
 
-Some results are not one Hugo build. Versioning is two sites that only mean
-something as a pair: one current, one archived, each configured to know about
-the other. Neither says anything on its own.
+Some results are not one Hugo build. `exampleSite` publishes to a subdirectory
+of the docs baseURL, so what GitHub Pages actually serves is two sites that
+only mean something as one tree. Neither says anything on its own.
 
 ```toml
-[[builds]]
-  site        = "versioning-current"
-  environment = "testing"
-  [builds.axes]
-    baseurl = "root"
+layer = "files"
 
 [[builds]]
-  site        = "versioning-archived"
-  environment = "testing"
-  dest        = "0.666"
-  [builds.axes]
-    baseurl = "subdir"
+  site        = "docs@theme"
+  environment = "github"
+
+[[builds]]
+  site        = "exampleSite@theme"
+  environment = "github"
+  dest        = "exampleSite"
 ```
 
+Built as two separate trees, as they are today, nothing checks the links
+running between the two projects. Built as one, the file-set layer sees the
+shape that ships.
+
+A build of a sequence may declare axes of its own in a `[builds.axes]` table.
 Each build pins exactly one value of every axis it declares — a scalar or a
 one-element array, both meaning the same thing. The array form stays legal so a
 sequence build can be copied from a permuting case and reduced by deleting
@@ -257,8 +259,8 @@ from writing over one another, and stands in no relation to any baseURL. So it
 can be neither derived from the configuration nor checked against it. It is the
 author's statement of where the files go.
 
-The result is the one drawn under Cases above: `content/` holding the current
-version, with the archived one beneath it at `content/0.666/`.
+The result is the one drawn under Cases above: one listing over the merged
+tree, the files of exampleSite beneath those of the docs.
 
 Sharing a tree is what makes the order significant: builds run in the order
 written, and where two write the same path the later one wins. It is also why
@@ -274,36 +276,11 @@ A build in a sequence takes an `environment` and `[builds.axes]` on the same
 terms as any other build.
 
 Both are per build, so two builds of one sequence may name different
-environments, or none at all. Both versioning builds name `testing`: the case
-is compared at the content layer, so its output has to reproduce.
+environments, or none at all.
 
 The sequence is selected as a unit: `--build` names the case, and a prefix
 deeper than that is rejected. A build lifted out of a sequence proves nothing,
 which is what makes it a sequence in the first place.
-
-The versioning sites are infra fixtures rather than the theme's own, and small
-on purpose; the reasoning is under Choosing a layer, below.
-
-`github` is a sequence too, and for the same reason. `exampleSite` publishes to
-a subdirectory of the docs baseURL, so what GitHub Pages actually serves is one
-tree:
-
-```toml
-layer = "files"
-
-[[builds]]
-  site        = "docs@theme"
-  environment = "github"
-
-[[builds]]
-  site        = "exampleSite@theme"
-  environment = "github"
-  dest        = "exampleSite"
-```
-
-Built as two separate trees, as they are today, nothing checks the links
-running between the two projects. Built as one, the file-set layer sees the
-shape that ships.
 
 ## Choosing a layer
 
@@ -329,10 +306,11 @@ Then reduce, but only where one of these forces it:
   reads is a rubber stamp rather than a test.
 
 Where reducing would cost a case its whole purpose, change the site rather than
-the layer. Versioning is worth testing for the version switcher and for links
-resolving to the other version's baseURL — both content, neither visible in a
-file set — so it is covered by two small fixtures instead of by the theme's own
-sites.
+the layer. Versioning is worth testing for the version switcher and for the
+warning of an archived version, each naming the page a visitor lands on in the
+other versions — both content, neither visible in a file set — so it is covered
+by a small fixture instead of by the theme's own sites. Versions are Hugo's
+own, so the fixture is one site and its case one build.
 
 ### Carrying the reason into the case
 
@@ -677,12 +655,9 @@ working by hand. Infra adds one of its own for its fixtures, which have no
 alternative, infra writing a `testing` for sites that already have one, buys
 nothing.
 
-`versioning`, `performance` and `dev` stay where they are and stay as they are.
-All three are dev aids against the real content, and the suite builds none of
-them.
+`performance` and `dev` stay where they are and stay as they are. Both are
+dev aids against the real content, and the suite builds neither.
 
-- `versioning` is covered by infra fixtures instead, at the content layer,
-  which is the only layer that sees what versioning does.
 - `dev` is the local rehearsal of the `github` deployment. Once the `github`
   case is a sequence, that shape is under test and `dev` has nothing left to
   add.
@@ -709,8 +684,7 @@ them.
 6. Turn `github` into a sequence over one tree. The two file sets merge into
    one and the baselines are rewritten, so this is a deliberate change, not a
    step where nothing may move.
-7. Build the `versioning-current` and `versioning-archived` fixtures and the
-   case over them. First sequence over fixtures, and the first coverage
+7. Build the `versions` fixture and the case over it. The first coverage
    versioning has ever had — its expected output is new rather than migrated,
    so read it as a fixture being born, not as a diff.
 8. Regenerate expected output; review the diff as the test result.

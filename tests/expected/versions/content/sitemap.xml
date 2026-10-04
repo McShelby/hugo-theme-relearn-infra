@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/stable/index.html</loc>
+  </url>
+  <url>
+    <loc>/moved-c/index.html</loc>
+  </url>
+  <url>
+    <loc>/guide-install/index.html</loc>
+  </url>
+  <url>
+    <loc>/guide-usage/index.html</loc>
+  </url>
+  <url>
+    <loc>/tabs/index.html</loc>
+  </url>
+  <url>
+    <loc>/added/index.html</loc>
+  </url>
+  <url>
+    <loc>/gap/index.html</loc>
+  </url>
+  <url>
+    <loc>/renamed-new/index.html</loc>
+  </url>
+  <url>
+    <loc>/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>/tags/index.html</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+</urlset>

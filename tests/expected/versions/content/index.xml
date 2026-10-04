@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Versions</title>
+    <link>/index.html</link>
+    <description>This is version 3.0. The home page exists in every version, so the version switcher leads to the home page of each.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stable</title>
+      <link>/stable/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/stable/index.html</guid>
+      <description>Exists under this path in every version. The switcher leads to stable in 1.0 and 2.0.</description>
+    </item>
+    <item>
+      <title>Moved</title>
+      <link>/moved-c/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/moved-c/index.html</guid>
+      <description>Moved here from moved-a in 1.0 by way of moved-b in 2.0, naming both as an alias, the second one relative. The switcher leads to moved-a in 1.0 and to moved-b in 2.0.</description>
+    </item>
+    <item>
+      <title>Guide: Install</title>
+      <link>/guide-install/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/guide-install/index.html</guid>
+      <description>The first half of guide in 1.0 and the one naming it as an alias. The switcher leads to guide in 1.0 and to guide-install in 2.0, where the same path takes precedence over the alias.</description>
+    </item>
+    <item>
+      <title>Guide: Usage</title>
+      <link>/guide-usage/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/guide-usage/index.html</guid>
+      <description>The second half of guide in 1.0, without an alias. The switcher leads to the home page of 1.0 and to guide-usage in 2.0.</description>
+    </item>
+    <item>
+      <title>Tabs</title>
+      <link>/tabs/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tabs/index.html</guid>
+      <description>Took in tab of 1.0 and 2.0, naming it as an alias. The switcher leads to tabs in 1.0 and 2.0, as the same path takes precedence over the alias.</description>
+    </item>
+    <item>
+      <title>Added</title>
+      <link>/added/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/added/index.html</guid>
+      <description>Exists in this version only. The switcher leads to the home page of 1.0 and 2.0.</description>
+    </item>
+    <item>
+      <title>Gap</title>
+      <link>/gap/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/gap/index.html</guid>
+      <description>Exists in 1.0 and 3.0 but not in 2.0. The switcher leads to gap in 1.0 and to the home page of 2.0.</description>
+    </item>
+    <item>
+      <title>Renamed</title>
+      <link>/renamed-new/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/renamed-new/index.html</guid>
+      <description>Renamed from renamed-old in 1.0, naming it as an alias. The switcher leads to renamed-old in 1.0 and to renamed-new in 2.0.</description>
+    </item>
+  </channel>
+</rss>

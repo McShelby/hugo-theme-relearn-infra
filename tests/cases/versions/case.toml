@@ -1,0 +1,15 @@
+# Versioning by Hugo's `versions`: one site, built once, a version per
+# subdirectory and the default version at the root.
+#
+# What the theme adds is on every page and nowhere else - the version switcher
+# and the warning of an archived version, each naming the page a visitor lands
+# on in the other versions. Which page that is, is the test: the same path, a
+# page found by an alias, or the home of a version that has neither. So the
+# layer is the default.
+#
+# Three versions rather than two, because a fallback is decided per pair of
+# versions and the pairs do not have to agree: a page found from the newest
+# version can still be out of reach from the one in between.
+
+site        = "versions"
+environment = "testing"

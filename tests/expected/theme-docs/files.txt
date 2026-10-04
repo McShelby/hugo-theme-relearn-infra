@@ -922,12 +922,6 @@ options/urlexternalcheck/index.html
 options/urlexternalcheck/index.xml
 options/urlignorecheck/index.html
 options/urlignorecheck/index.xml
-options/version/index.html
-options/version/index.xml
-options/versionindexurl/index.html
-options/versionindexurl/index.xml
-options/versions/index.html
-options/versions/index.xml
 pir/404.html
 pir/_relearn/index.html
 pir/_relearn/index.print.html
@@ -1803,12 +1797,6 @@ pir/options/urlexternalcheck/index.html
 pir/options/urlexternalcheck/index.xml
 pir/options/urlignorecheck/index.html
 pir/options/urlignorecheck/index.xml
-pir/options/version/index.html
-pir/options/version/index.xml
-pir/options/versionindexurl/index.html
-pir/options/versionindexurl/index.xml
-pir/options/versions/index.html
-pir/options/versions/index.xml
 pir/search/index.html
 pir/shortcodes/attachments/featured.png
 pir/shortcodes/attachments/index.en.files/BachGavotteShort.mp3

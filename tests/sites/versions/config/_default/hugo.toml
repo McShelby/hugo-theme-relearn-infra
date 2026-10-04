@@ -1,0 +1,58 @@
+# One site in three versions, each with a content directory of its own.
+#
+# The pages are named after what happened to them between the versions. Each
+# says in its body where the version switcher has to lead from it, so a
+# baseline can be read against the page it belongs to.
+#
+#   page             1.0           2.0              3.0
+#   ---------------  ------------  ---------------  ---------------
+#   stable           stable        stable           stable
+#   moved twice      moved-a       moved-b          moved-c
+#   split            guide         guide-install    guide-install
+#                                  guide-usage      guide-usage
+#   merged           tab, tabs     tab, tabs        tabs
+#   added                                           added
+#   removed          removed
+#   gap              gap                            gap
+#   renamed          renamed-old   renamed-new      renamed-new
+#
+# A page that moved is found by the aliases of its newer self. `renamed-new`
+# has none in 2.0, which is what an archived version looks like when the alias
+# was only added later.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL = '/'
+relativeURLs = true
+
+title = 'Versions'
+
+defaultContentVersion = '3.0'
+
+[versions]
+  [versions.'3.0']
+  [versions.'2.0']
+  [versions.'1.0']
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all.
+[outputs]
+  home = ['html', 'rss', 'source']
+  section = ['html', 'rss', 'source']
+  page = ['html', 'source']
+
+[[module.mounts]]
+  source = 'content/3.0'
+  target = 'content'
+  [module.mounts.sites.matrix]
+    versions = ['3.0']
+[[module.mounts]]
+  source = 'content/2.0'
+  target = 'content'
+  [module.mounts.sites.matrix]
+    versions = ['2.0']
+[[module.mounts]]
+  source = 'content/1.0'
+  target = 'content'
+  [module.mounts.sites.matrix]
+    versions = ['1.0']

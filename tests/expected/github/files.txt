@@ -258,7 +258,7 @@ exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d772254
 exampleSite/js/search-lunr.min.2e613f0a1ce042c097f61ecc0e3f843d395bf3a42717715f9c08a11dc2f21122.js
 exampleSite/js/search.min.bf943812c9de778f5420eb962af7493f30ff82505b051e3265be72c31221a38c.js
 exampleSite/js/theme-head.min.cc324f150ffa8ac95026e8d74d13c2d162390056a78d2850ecf75fc60d1f76ab.js
-exampleSite/js/theme.min.e213b789752831997fb204240321320ab900a69f2e2f72fcb33995646963ff57.js
+exampleSite/js/theme.min.38dd9faa78173a0445b237d70bf21a27077fd235414bd25e813056c2444ff9e9.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -899,7 +899,7 @@ js/search.min.bf943812c9de778f5420eb962af7493f30ff82505b051e3265be72c31221a38c.j
 js/swagger-ui/swagger-ui-bundle.62df541529080464a7660adc793eab7128c6193ce3be24ddc1e0e0a4a63edc2f.js
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.cc324f150ffa8ac95026e8d74d13c2d162390056a78d2850ecf75fc60d1f76ab.js
-js/theme.min.e213b789752831997fb204240321320ab900a69f2e2f72fcb33995646963ff57.js
+js/theme.min.38dd9faa78173a0445b237d70bf21a27077fd235414bd25e813056c2444ff9e9.js
 js/variant.min.d7bb11d6017dce3258a2c534f8595d012bf6e0c2dca4174a64139e2cb6f0dd76.js
 more/credits/index.html
 more/credits/index.print.html
@@ -1064,12 +1064,6 @@ options/urlexternalcheck/index.html
 options/urlexternalcheck/index.xml
 options/urlignorecheck/index.html
 options/urlignorecheck/index.xml
-options/version/index.html
-options/version/index.xml
-options/versionindexurl/index.html
-options/versionindexurl/index.xml
-options/versions/index.html
-options/versions/index.xml
 pir/404.html
 pir/_relearn/index.html
 pir/_relearn/index.print.html
@@ -1945,12 +1939,6 @@ pir/options/urlexternalcheck/index.html
 pir/options/urlexternalcheck/index.xml
 pir/options/urlignorecheck/index.html
 pir/options/urlignorecheck/index.xml
-pir/options/version/index.html
-pir/options/version/index.xml
-pir/options/versionindexurl/index.html
-pir/options/versionindexurl/index.xml
-pir/options/versions/index.html
-pir/options/versions/index.xml
 pir/search/index.html
 pir/shortcodes/attachments/featured.png
 pir/shortcodes/attachments/index.en.files/BachGavotteShort.mp3
@@ -2160,8 +2148,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.88fd2d8c8fd4b7d1fb9fd57773ca44bfcc3f96ca16acd56b31fb18a3f16958d6.js
-searchindex.pir.min.481676088bfae07fc9125d790564936be7f06dc7fd4200123ec8791a8fb43ceb.js
+searchindex.en.min.188e37aa9676c1fad9bd36bdb2297a3ee8f2891921adcdaf90bee3c37c0eb578.js
+searchindex.pir.min.f894068a96ce9fee224e8b4fe50bb226b99a88a58eb1f2ba27f45b7be9589b9f.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
