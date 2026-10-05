@@ -4,7 +4,11 @@
 # translation that changed would fail the suite until this file is brought
 # along with it. Each message is listed in full, and the file path it starts
 # with is left out, as it depends on where the site was built.
+#
+# The taxonomy page and its term pages set the deprecated `children` front
+# matter, which warns where it is read.
 
+DEPRECATED front matter 'children' found, use 'pages' instead
 DEPRECATED shortcode 'children' found, use '{{% pages display="list" %}}' instead
 DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="auto" %}}' instead
 DEPRECATED shortcode 'children' found, use '{{% pages display="list" orderby="weight" %}}' instead

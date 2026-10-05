@@ -97,7 +97,9 @@ renamed-new/index.html
 renamed-new/index.source.md
 renamed-old/index.html
 search/index.html
-searchindex.en.js
+searchindex.en.1.0.js
+searchindex.en.2.0.js
+searchindex.en.3.0.js
 sitemap.xml
 stable/index.html
 stable/index.source.md

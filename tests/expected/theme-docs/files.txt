@@ -224,10 +224,6 @@ frontmatter/alwaysopen/index.html
 frontmatter/alwaysopen/index.xml
 frontmatter/collapsiblemenu/index.html
 frontmatter/collapsiblemenu/index.xml
-frontmatter/custommermaidurl/index.html
-frontmatter/custommermaidurl/index.xml
-frontmatter/customopenapiurl/index.html
-frontmatter/customopenapiurl/index.xml
 frontmatter/description/index.html
 frontmatter/description/index.xml
 frontmatter/disablebreadcrumb/index.html
@@ -774,10 +770,6 @@ options/breadcrumbseparator/index.html
 options/breadcrumbseparator/index.xml
 options/collapsiblemenu/index.html
 options/collapsiblemenu/index.xml
-options/custommermaidurl/index.html
-options/custommermaidurl/index.xml
-options/customopenapiurl/index.html
-options/customopenapiurl/index.xml
 options/dateformat/index.html
 options/dateformat/index.xml
 options/disableanchorcopy/index.html
@@ -830,8 +822,6 @@ options/disableversioningwarning/index.html
 options/disableversioningwarning/index.xml
 options/editurl/index.html
 options/editurl/index.xml
-options/enablelegacylanguagelinks/index.html
-options/enablelegacylanguagelinks/index.xml
 options/enablesubresourceintegrity/index.html
 options/enablesubresourceintegrity/index.xml
 options/externallinktarget/index.html
@@ -1131,10 +1121,6 @@ pir/frontmatter/alwaysopen/index.html
 pir/frontmatter/alwaysopen/index.xml
 pir/frontmatter/collapsiblemenu/index.html
 pir/frontmatter/collapsiblemenu/index.xml
-pir/frontmatter/custommermaidurl/index.html
-pir/frontmatter/custommermaidurl/index.xml
-pir/frontmatter/customopenapiurl/index.html
-pir/frontmatter/customopenapiurl/index.xml
 pir/frontmatter/description/index.html
 pir/frontmatter/description/index.xml
 pir/frontmatter/disablebreadcrumb/index.html
@@ -1649,10 +1635,6 @@ pir/options/breadcrumbseparator/index.html
 pir/options/breadcrumbseparator/index.xml
 pir/options/collapsiblemenu/index.html
 pir/options/collapsiblemenu/index.xml
-pir/options/custommermaidurl/index.html
-pir/options/custommermaidurl/index.xml
-pir/options/customopenapiurl/index.html
-pir/options/customopenapiurl/index.xml
 pir/options/dateformat/index.html
 pir/options/dateformat/index.xml
 pir/options/disableanchorcopy/index.html
@@ -1705,8 +1687,6 @@ pir/options/disableversioningwarning/index.html
 pir/options/disableversioningwarning/index.xml
 pir/options/editurl/index.html
 pir/options/editurl/index.xml
-pir/options/enablelegacylanguagelinks/index.html
-pir/options/enablelegacylanguagelinks/index.xml
 pir/options/enablesubresourceintegrity/index.html
 pir/options/enablesubresourceintegrity/index.xml
 pir/options/externallinktarget/index.html
