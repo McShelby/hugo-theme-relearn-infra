@@ -16,10 +16,10 @@ Visible content.
 ## Tabs
 
 {{< tabs >}}
-{{% tab title="First" %}}
+{{< tab title="First" >}}
 Content of the first tab.
-{{% /tab %}}
-{{% tab title="Second" %}}
+{{< /tab >}}
+{{< tab title="Second" >}}
 Content of the second tab.
-{{% /tab %}}
+{{< /tab >}}
 {{< /tabs >}}

@@ -1,8 +1,8 @@
 var relearn_searchindex = [
   {
     "breadcrumb": "Shortcodes",
-    "content": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
-    "description": "Note A note without an explicit title.\nCustom title A warning with a title and inline markup.\nTip A tip with an overridden icon.",
+    "content": "Note A note without an explicit title. Custom title A warning with a title and **inline markup**. Tip A tip with an overridden icon.",
+    "description": "Note A note without an explicit title. Custom title A warning with a title and **inline markup**. Tip A tip with an overridden icon.",
     "tags": [],
     "title": "Callout",
     "uri": "/callout/index.html"
@@ -17,8 +17,8 @@ var relearn_searchindex = [
   },
   {
     "breadcrumb": "Shortcodes",
-    "content": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
-    "description": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab.\nContent of the second tab.",
+    "content": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab. Content of the second tab.",
+    "description": "Details Closed by default Hidden content.\nOpen by default Visible content.\nTabs ​ First Second Content of the first tab. Content of the second tab.",
     "tags": [],
     "title": "Details and Tabs",
     "uri": "/details-tabs/index.html"
