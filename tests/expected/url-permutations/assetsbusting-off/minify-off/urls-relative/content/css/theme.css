@@ -1800,7 +1800,7 @@ figure.quote {
 blockquote::before,
 figure.quote::before {
   background-color: rgba(134, 134, 134, 0.4);
-  border-radius: 2px;
+  border-radius: 3px;
   bottom: 0;
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
@@ -1815,7 +1815,6 @@ blockquote p {
   font-size: 1.06640625rem;
   font-style: italic;
   opacity: 0.75;
-  text-align: justify;
 }
 
 blockquote cite {
@@ -2026,7 +2025,7 @@ samp {
 code {
   background-color: var(--INTERNAL-CODE-INLINE-BG-color);
   border-color: var(--INTERNAL-CODE-INLINE-BORDER-color);
-  border-radius: 2px;
+  border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   color: var(--INTERNAL-CODE-INLINE-color);
@@ -2526,9 +2525,9 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
 
 .inline-copy-to-clipboard-button.btn.cstyle > * {
   border-start-start-radius: 0;
-  border-start-end-radius: 2px;
+  border-start-end-radius: 3px;
   border-end-start-radius: 0;
-  border-end-end-radius: 2px;
+  border-end-end-radius: 3px;
   border-color: var(--INTERNAL-CODE-INLINE-BORDER-color);
   padding: 0;
 }
@@ -2598,9 +2597,7 @@ option {
 
 .expand > .box-label > .expander-icon {
   font-size: 0.8rem;
-  /* as wide as it is high, so the chevron has the room to turn in it; what
-     that adds in width is taken from the gap to the title */
-  margin-inline-end: -0.2rem;
+  /* as wide as it is high, so the chevron has the room to turn in it */
   /* the icon itself stays in place and holds what turns in it, so the focus
      outline of the label has nothing to follow */
   overflow: clip;
@@ -3544,7 +3541,7 @@ span.math:has(math[display='block'], .katex-display) {
 }
 
 .badge {
-  border-radius: 2px;
+  border-radius: 3px;
   display: inline-block;
   font-size: 0.8rem;
   font-weight: 500;
@@ -3553,7 +3550,7 @@ span.math:has(math[display='block'], .katex-display) {
 
 .badge > * {
   border-color: var(--VARIABLE-BOX-TEXT-color);
-  border-radius: 2px;
+  border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   display: inline-block;
@@ -3591,21 +3588,25 @@ span.math:has(math[display='block'], .katex-display) {
 /* task list and its checkboxes */
 /*  move start of list to left to adjust for missing list-style */
 article :not(li) > ul > li:has(> input[type='checkbox']),
+article :not(li) > ul > li:has(> label > input[type='checkbox']),
 article :not(li) > ul > li:has(> span > input[type='checkbox']) {
   margin-inline-start: -1.5rem;
 }
 
-article ul > li:has(> input[type='checkbox']) {
+article ul > li:has(> input[type='checkbox']),
+article ul > li:has(> label > input[type='checkbox']) {
   list-style: none;
 }
 
 article ul > li:has(> input[type='checkbox'])::before,
+article ul > li:has(> label > input[type='checkbox'])::before,
 article ul > li:has(> span > input[type='checkbox'])::before {
   content: '\200B'; /* accessibilty for Safari https://developer.mozilla.org/en-US/docs/Web/CSS/list-style */
 }
 
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */
 article ul > li > input[type='checkbox'],
+article ul > li > label > input[type='checkbox'],
 article ul > li > span > input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
@@ -3624,6 +3625,7 @@ article ul > li > span > input[type='checkbox'] {
 }
 
 article ul > li > input[type='checkbox']::before,
+article ul > li > label > input[type='checkbox']::before,
 article ul > li > span > input[type='checkbox']::before {
   box-shadow: inset 1em 1em var(--INTERNAL-PRIMARY-color);
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -3638,6 +3640,7 @@ article ul > li > span > input[type='checkbox']::before {
 }
 
 article ul > li > input[type='checkbox']:checked::before,
+article ul > li > label > input[type='checkbox']:checked::before,
 article ul > li > span > input[type='checkbox']:checked::before {
   transform: scale(1);
 }
@@ -4633,6 +4636,17 @@ article.notfound #shrug svg {
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+/* the link or button of a card covers all of it, so the buttons of its content
+   are lifted above; the mouse never reaches the code they belong to, so they
+   show for the card instead */
+.card-container .card-popout .actionbar {
+  z-index: 2;
+}
+
+.card-container .card-popout:hover .actionbar {
+  opacity: 1;
 }
 
 .card-container .card-content-text {
