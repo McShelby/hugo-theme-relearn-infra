@@ -219,6 +219,11 @@ configuration/publishing/sbom/index.md
 configuration/publishing/sbom/index.print.html
 configuration/publishing/sbom/index.source.md
 configuration/publishing/sbom/index.xml
+configuration/publishing/shortcuts/index.html
+configuration/publishing/shortcuts/index.md
+configuration/publishing/shortcuts/index.print.html
+configuration/publishing/shortcuts/index.source.md
+configuration/publishing/shortcuts/index.xml
 configuration/publishing/stableoutput/index.html
 configuration/publishing/stableoutput/index.md
 configuration/publishing/stableoutput/index.print.html
@@ -1719,6 +1724,11 @@ pir/configuration/publishing/sbom/index.md
 pir/configuration/publishing/sbom/index.print.html
 pir/configuration/publishing/sbom/index.source.md
 pir/configuration/publishing/sbom/index.xml
+pir/configuration/publishing/shortcuts/index.html
+pir/configuration/publishing/shortcuts/index.md
+pir/configuration/publishing/shortcuts/index.print.html
+pir/configuration/publishing/shortcuts/index.source.md
+pir/configuration/publishing/shortcuts/index.xml
 pir/configuration/publishing/stableoutput/index.html
 pir/configuration/publishing/stableoutput/index.md
 pir/configuration/publishing/stableoutput/index.print.html
@@ -3098,8 +3108,8 @@ pir/tags/taxonomy/index.xml
 pir/tags/the-hidden/index.html
 pir/tags/the-hidden/index.xml
 search/index.html
-searchindex.en.min.7dd9e65b95464170f654b0da8fd4d1449f9421929d84340ab4a924023c983b4c.js
-searchindex.pir.min.bdea48a1b4bfe6b6e486c441020b73b07f5f14ea5a3fbc752d8f1b10d8accb9f.js
+searchindex.en.min.7764f38769eb20a552b0d05bb479f9bc7e1c95505d8504fa326e63c88d2039a5.js
+searchindex.pir.min.33ba09a1be7d898a47af532bf63aac6bb2a1f9cf1e4f1f6680d05cd23b648d33.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

@@ -219,6 +219,11 @@ configuration/publishing/sbom/index.md
 configuration/publishing/sbom/index.print.html
 configuration/publishing/sbom/index.source.md
 configuration/publishing/sbom/index.xml
+configuration/publishing/shortcuts/index.html
+configuration/publishing/shortcuts/index.md
+configuration/publishing/shortcuts/index.print.html
+configuration/publishing/shortcuts/index.source.md
+configuration/publishing/shortcuts/index.xml
 configuration/publishing/stableoutput/index.html
 configuration/publishing/stableoutput/index.md
 configuration/publishing/stableoutput/index.print.html
@@ -1577,6 +1582,11 @@ pir/configuration/publishing/sbom/index.md
 pir/configuration/publishing/sbom/index.print.html
 pir/configuration/publishing/sbom/index.source.md
 pir/configuration/publishing/sbom/index.xml
+pir/configuration/publishing/shortcuts/index.html
+pir/configuration/publishing/shortcuts/index.md
+pir/configuration/publishing/shortcuts/index.print.html
+pir/configuration/publishing/shortcuts/index.source.md
+pir/configuration/publishing/shortcuts/index.xml
 pir/configuration/publishing/stableoutput/index.html
 pir/configuration/publishing/stableoutput/index.md
 pir/configuration/publishing/stableoutput/index.print.html
