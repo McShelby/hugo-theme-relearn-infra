@@ -2516,8 +2516,12 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
 }
 
 .inline-copy-to-clipboard-button.btn.cstyle {
+  /* the font of the code gives the button the very line of the code, so both boxes share their top and bottom edges */
   font: initial;
+  font-family: var(--INTERNAL-CODE-font);
   font-size: 0.934375em;
+  font-variation-settings: var(--INTERNAL-CODE-font-variation-settings);
+  font-weight: var(--INTERNAL-CODE-font-weight);
   margin-inline-start: calc(-1 * (1.375em - var(--bpx1) * 0.125em));
   position: relative;
   z-index: 10;
@@ -2534,7 +2538,8 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
 
 .inline-copy-to-clipboard-button.btn.cstyle > * > i {
   font-size: 0.859625em;
-  line-height: 1.375em;
+  /* the icon must not stretch the line of the button */
+  line-height: 1;
   width: 1.375em;
 }
 
@@ -3565,6 +3570,12 @@ span.math:has(math[display='block'], .katex-display) {
   color: rgba(240, 240, 240, 1);
   filter: contrast(2);
   opacity: 0.75;
+}
+
+.badge i {
+  /* an icon sits on the baseline, which leaves it above the middle of the badge; an offset moves it without changing the height of the line */
+  position: relative;
+  top: 0.056em;
 }
 
 .badge.badge-with-title > .badge-content {
