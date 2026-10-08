@@ -2394,6 +2394,7 @@ function searchInputHandler(value) {
     mark();
     scrollMarkedIntoView();
   }
+  announceMarked(value);
 }
 
 function scrollMarkedIntoView() {
@@ -2413,6 +2414,31 @@ function scrollMarkedIntoView() {
   // center it like we do for the active entry; a section can be taller than the
   // menu, so we go for the match itself and not for the section containing it
   wrapper.scrollTop += box.top - port.top - (port.height - box.height) / 2;
+}
+
+var announceMarkedTimer;
+function announceMarked(search, delay = 1000) {
+  clearTimeout(announceMarkedTimer);
+  if (!search.length || document.querySelector('#R-searchresults')) {
+    // the search page tells how many pages were found, which is all that
+    // matters there
+    return;
+  }
+  // told a moment after the last change of the term, so not with every key
+  // typed; a loaded page needs less of a wait, just enough for a screen reader
+  // to be done announcing it, as it drops what changes meanwhile
+  announceMarkedTimer = setTimeout(function () {
+    var count = document.querySelectorAll('#R-body-inner mark.search').length;
+    if (count) {
+      showToast(
+        window.T_N_matches_on_page
+          .replace('{1}', count)
+          .replace('{0}', function () {
+            return search;
+          })
+      );
+    }
+  }, delay);
 }
 
 function initSearch() {
@@ -2473,6 +2499,8 @@ function initSearch() {
       e.value = search;
       e.dispatchEvent(new Event('input'));
     });
+    // nobody is typing, so this takes the place of the wait set by the inputs
+    announceMarked(search, 500);
   }
 
   window.relearn.isSearchInterfaceReady = true;
@@ -2525,6 +2553,21 @@ function initIcons() {
   });
 }
 
+function initEdits() {
+  // a screen reader doesn't tell where inserted or deleted text starts and
+  // ends, so the stylesheet writes it around the text; being the same for
+  // all languages, it gets the texts from here
+  var texts = {
+    '--ins-start-text': window.T_Inserted_text_start,
+    '--ins-end-text': window.T_Inserted_text_end,
+    '--del-start-text': window.T_Deleted_text_start,
+    '--del-end-text': window.T_Deleted_text_end,
+  };
+  Object.keys(texts).forEach(function (name) {
+    document.documentElement.style.setProperty(name, JSON.stringify(' ' + texts[name] + ' '));
+  });
+}
+
 function ready(fn) {
   if (document.readyState == 'complete') {
     fn();
@@ -2557,6 +2600,7 @@ ready(function () {
   initExpand();
   initOverflowTitle();
   initScrollPositionSaver();
+  initEdits();
 });
 
 (function () {
