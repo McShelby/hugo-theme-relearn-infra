@@ -97,6 +97,7 @@ renamed-new/index.html
 renamed-new/index.source.md
 renamed-old/index.html
 search/index.html
+search/index.print.html
 searchindex.en.1.0.js
 searchindex.en.2.0.js
 searchindex.en.3.0.js

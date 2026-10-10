@@ -42,6 +42,7 @@ js/search.js
 js/theme-head.js
 js/theme.js
 search/index.html
+search/index.print.html
 searchindex.en.js
 sitemap.xml
 tags/index.html

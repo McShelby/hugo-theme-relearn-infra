@@ -79,6 +79,7 @@ pir/log/second-day/index.print.html
 pir/log/third-day/index.html
 pir/log/third-day/index.print.html
 pir/search/index.html
+pir/search/index.print.html
 pir/ship/cargo/index.html
 pir/ship/cargo/index.print.html
 pir/ship/cargo/index.xml
@@ -107,6 +108,7 @@ pir/sitemap.xml
 pir/tags/index.html
 pir/tags/index.xml
 search/index.html
+search/index.print.html
 searchindex.en.js
 searchindex.pir.js
 ship/cargo/index.html

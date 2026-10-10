@@ -51,6 +51,7 @@ neither/index.html
 neither/index.source.md
 neither/index.xml
 search/index.html
+search/index.print.html
 searchindex.en.js
 sitemap.xml
 tags/index.html

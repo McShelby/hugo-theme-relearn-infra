@@ -109,6 +109,7 @@ legacy/index.xml
 legacy/keel/index.html
 legacy/keel/index.source.md
 search/index.html
+search/index.print.html
 searchindex.en.js
 sitemap.xml
 tags/drift-ice/index.html
