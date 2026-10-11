@@ -1079,6 +1079,11 @@ introduction/changelog/9/1/index.md
 introduction/changelog/9/1/index.print.html
 introduction/changelog/9/1/index.source.md
 introduction/changelog/9/1/index.xml
+introduction/changelog/9/2/index.html
+introduction/changelog/9/2/index.md
+introduction/changelog/9/2/index.print.html
+introduction/changelog/9/2/index.source.md
+introduction/changelog/9/2/index.xml
 introduction/changelog/9/index.html
 introduction/changelog/9/index.md
 introduction/changelog/9/index.print.html
@@ -2685,6 +2690,11 @@ pir/introduction/changelog/9/1/index.md
 pir/introduction/changelog/9/1/index.print.html
 pir/introduction/changelog/9/1/index.source.md
 pir/introduction/changelog/9/1/index.xml
+pir/introduction/changelog/9/2/index.html
+pir/introduction/changelog/9/2/index.md
+pir/introduction/changelog/9/2/index.print.html
+pir/introduction/changelog/9/2/index.source.md
+pir/introduction/changelog/9/2/index.xml
 pir/introduction/changelog/9/index.html
 pir/introduction/changelog/9/index.md
 pir/introduction/changelog/9/index.print.html
@@ -3665,8 +3675,8 @@ pir/tags/the-hidden/index.source.md
 pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
-searchindex.en.min.b68d22c696a5a054bcf87a96bec51326a83bc57ba7d1da490c9fd7f026801078.js
-searchindex.pir.min.3c423959cc5cde796371a839b275c4e85a5d6b687c99f6f9c414f72dca3ce4db.js
+searchindex.en.min.c4f041a00cc99840cf39073ec5ee0c85a4b4738e5a58acbd24b4ecb2e0d4600e.js
+searchindex.pir.min.c2a7e6834462a202a0a1fd0a729f0f6e78b23bfa1cdfee49248aff7d17b9997a.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

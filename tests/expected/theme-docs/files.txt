@@ -935,6 +935,11 @@ introduction/changelog/9/1/index.md
 introduction/changelog/9/1/index.print.html
 introduction/changelog/9/1/index.source.md
 introduction/changelog/9/1/index.xml
+introduction/changelog/9/2/index.html
+introduction/changelog/9/2/index.md
+introduction/changelog/9/2/index.print.html
+introduction/changelog/9/2/index.source.md
+introduction/changelog/9/2/index.xml
 introduction/changelog/9/index.html
 introduction/changelog/9/index.md
 introduction/changelog/9/index.print.html
@@ -2541,6 +2546,11 @@ pir/introduction/changelog/9/1/index.md
 pir/introduction/changelog/9/1/index.print.html
 pir/introduction/changelog/9/1/index.source.md
 pir/introduction/changelog/9/1/index.xml
+pir/introduction/changelog/9/2/index.html
+pir/introduction/changelog/9/2/index.md
+pir/introduction/changelog/9/2/index.print.html
+pir/introduction/changelog/9/2/index.source.md
+pir/introduction/changelog/9/2/index.xml
 pir/introduction/changelog/9/index.html
 pir/introduction/changelog/9/index.md
 pir/introduction/changelog/9/index.print.html
