@@ -92,8 +92,8 @@
 
     --INTERNAL-CODE-theme: var(--CODE-theme, relearn-light);
     --INTERNAL-CODE-BLOCK-color: var(--CODE-BLOCK-color, var(--MAIN-CODE-color, rgba(39, 40, 34, 1))); /* fallback for renaming */
-    --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, rgba(250, 250, 250, 1))); /* fallback for renaming */
-    --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-CODE-BLOCK-BG-color))); /* fallback for renaming */
+    --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, rgba(248, 248, 248, 1))); /* fallback for renaming */
+    --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-BOX-NEUTRAL-color))); /* fallback for renaming */
     --INTERNAL-CODE-INLINE-color: var(--CODE-INLINE-color, rgba(94, 94, 94, 1));
     --INTERNAL-CODE-INLINE-BG-color: var(--CODE-INLINE-BG-color, rgba(255, 250, 233, 1));
     --INTERNAL-CODE-INLINE-BORDER-color: var(--CODE-INLINE-BORDER-color, rgba(251, 240, 203, 1));
@@ -2213,7 +2213,7 @@ table {
   table-layout: auto;
 }
 table::after {
-  border: 1px solid rgba(134, 134, 134, 0.333);
+  border: 1px solid var(--INTERNAL-BOX-NEUTRAL-color);
   border-radius: var(--block-radius);
   content: '';
   inset: 0;
@@ -2225,15 +2225,15 @@ table::after {
 
 th,
 thead td {
-  background-color: rgba(134, 134, 134, 0.166);
-  border: 1px solid rgba(134, 134, 134, 0.333);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 30%, transparent);
+  border: 1px solid var(--INTERNAL-BOX-NEUTRAL-color);
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
   padding: 0.5rem;
 }
 
 td {
-  border: 1px solid rgba(134, 134, 134, 0.333);
+  border: 1px solid var(--INTERNAL-BOX-NEUTRAL-color);
   padding: 0.5rem;
 }
 
@@ -2252,7 +2252,7 @@ td.align-right {
 }
 
 tbody > tr:nth-child(even) > td {
-  background-color: rgba(134, 134, 134, 0.045);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 15%, transparent);
 }
 
 /* Toast Notification System */
@@ -2732,7 +2732,7 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
   overflow: hidden;
 }
 .mermaid-container.zoomable > .mermaid:hover {
-  border-color: rgba(134, 134, 134, 0.333);
+  border-color: var(--INTERNAL-BOX-NEUTRAL-color);
 }
 .mermaid.mermaid-render {
   visibility: visible;
@@ -4260,10 +4260,15 @@ body a#R-logo:hover *:not(svg, svg *) {
   border-style: solid;
   border-width: 1px;
   display: none;
+  z-index: 10;
+}
+
+/* the shift sits on the container, as a tab panel nested first into a box would
+  reset the margin of its first tab content */
+#R-body .tab-content-container {
   /* if setting a border to 1px, a browser instead sets it to 1dppx which is not
     usable as a unit yet, so we have to calculate it ourself */
   margin-top: calc(var(--bpx1) * -1px);
-  z-index: 10;
 }
 
 #R-body .tab-content.active {
@@ -4305,7 +4310,7 @@ body a#R-logo:hover *:not(svg, svg *) {
 }
 
 .tab-panel-style.cstyle.transparent {
-  --VARIABLE-BOX-color: rgba(134, 134, 134, 0.4);
+  --VARIABLE-BOX-color: var(--INTERNAL-BOX-NEUTRAL-color);
   --VARIABLE-BOX-BG-color: transparent;
 }
 
