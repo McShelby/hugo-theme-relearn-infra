@@ -1607,6 +1607,10 @@ options/themevariant/index.html
 options/themevariant/index.md
 options/themevariant/index.print.html
 options/themevariant/index.xml
+options/themevariantprint/index.html
+options/themevariantprint/index.md
+options/themevariantprint/index.print.html
+options/themevariantprint/index.xml
 options/titleseparator/index.html
 options/titleseparator/index.md
 options/titleseparator/index.print.html
@@ -3196,6 +3200,10 @@ pir/options/themevariant/index.html
 pir/options/themevariant/index.md
 pir/options/themevariant/index.print.html
 pir/options/themevariant/index.xml
+pir/options/themevariantprint/index.html
+pir/options/themevariantprint/index.md
+pir/options/themevariantprint/index.print.html
+pir/options/themevariantprint/index.xml
 pir/options/titleseparator/index.html
 pir/options/titleseparator/index.md
 pir/options/titleseparator/index.print.html
