@@ -3594,6 +3594,32 @@ body a#R-logo:hover *:not(svg, svg *) {
 #R-logo.R-default.manual-wrap .logo-title {
   white-space: pre;
 }
+/* the title is centered next to the image by its capitals, not by the room its
+   font keeps above and below them, which a script font with its swashes makes
+   lopsided; what is trimmed of that room is given back evenly, so the title
+   takes the same space as before, whatever its number of lines */
+@supports (text-box: trim-both cap alphabetic) {
+  #R-logo.R-default .logo-title {
+    padding-block: calc((1lh - 1cap) / 2);
+    text-box: trim-both cap alphabetic;
+  }
+}
+
+/* a variant may come with a logo and a title font of its own, so switching it
+   may move the logo and what follows it. the page fades from one variant to
+   the other; what is named here is led from its old place and size to its new
+   one instead of fading out there and in here */
+#R-logo.R-default > .logo-image {
+  view-transition-name: R-logo-image;
+}
+#R-logo.R-default > .logo-title {
+  view-transition-name: R-logo-title;
+}
+/* a named element is a stacking context; the suggestions are a child of the
+   search and would end up below the menu, so it is the box that is named */
+#R-header-wrapper > search > :is(form, .searchbox) {
+  view-transition-name: R-search;
+}
 
 /* columnize content */
 
