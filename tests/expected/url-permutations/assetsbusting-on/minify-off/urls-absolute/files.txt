@@ -9,10 +9,10 @@ chapter/index.xml
 css/auto-complete/auto-complete.d7aab660dee092f7629fc55acbb277e091d6649bd1b7505f6b1aef21446f7e3d.css
 css/custom.css
 css/custom.ed331990bca0d236ca23851511fd3c7156e9a9edb31b160a1b686b0708af5874.css
-css/format-html.213605463e54f0144df397a9ec75d6cb8bc5f7bee93fe3b557e43bc4b2869a44.css
-css/format-print.d22203c88e58e8c0796199da16dde4ecbd8874c2978eb6c5fb1f4240e6b7c9a6.css
+css/format-html.b94ecc8df5ead7676c9678f5f49c4403c8c1e73b79a4c7a1b3f06efde64ccaf9.css
+css/format-print.3a6dce4fbdf99ec611465f69fe7946f0be26907c94191ed2634d96d87d71ba91.css
 css/swagger.bad3f2274a97b360acbc42b26ec2461b24b93c9ab05fa3ac4162928cd9c0591a.css
-css/theme.de9b48db80cf6ff08f6bcee10af5cc7688780dab1ddf80ddbb3599bdc8ae775b.css
+css/theme.c9d706c8106819137f52aea202f1d6efdbf4e50ce0b86f6c4f72a72e32cb1708.css
 first-page/index.html
 first-page/index.source.md
 fonts/fontawesome/css/all.min.css
@@ -27,7 +27,6 @@ fonts/robotoflex/RobotoFlex.greek.woff2
 fonts/robotoflex/RobotoFlex.latin-ext.woff2
 fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
-fonts/robotoflex/RobotoFlex.woff2
 images/favicon.c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77.png
 images/favicon.png
 images/pixel.png

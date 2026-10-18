@@ -25,7 +25,6 @@ fonts/robotoflex/RobotoFlex.greek.woff2
 fonts/robotoflex/RobotoFlex.latin-ext.woff2
 fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
-fonts/robotoflex/RobotoFlex.woff2
 images/favicon.png
 images/pixel.png
 index.html

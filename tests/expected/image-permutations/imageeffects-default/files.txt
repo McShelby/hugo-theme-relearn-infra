@@ -22,7 +22,6 @@ fonts/robotoflex/RobotoFlex.greek.woff2
 fonts/robotoflex/RobotoFlex.latin-ext.woff2
 fonts/robotoflex/RobotoFlex.latin.woff2
 fonts/robotoflex/RobotoFlex.vietnamese.woff2
-fonts/robotoflex/RobotoFlex.woff2
 formats/index.html
 formats/index.source.md
 images/landscape.png

@@ -1,5 +1,5 @@
 :root[data-r-theme-variant='auto'],
-:root:not([data-r-theme-variant='auto']) {
+:root[data-r-theme-variant^='my-custom-'] {
 &:root {
   /* relearn-light */
   --PRIMARY-color: rgba( 125, 201, 3, 1 ); /* brand primary color */
@@ -39,25 +39,170 @@
   --BOX-NEUTRAL-color: rgba( 208, 208, 208, 1 ); /* background color of neutral boxes */
 }
 
-
-&:root {
-  /* relearn-print */
-  --MAIN-LINK-color: rgba( 0, 0, 0, 1 ); /* link color of content */
-  --MAIN-TITLES-TEXT-color: rgba( 0, 0, 0, 1 ); /* text color of titles and transparent box titles */
+}
+:root[data-r-theme-variant='auto']:root,
+:root[data-r-theme-variant^='my-custom-']:root {
+  --BOX-ACCENT-color: initial;
+  --BOX-ACCENT-TEXT-color: initial;
+  --BOX-ACCENT-CAPTION-color: initial;
+  --BOX-ACCENT-BG-color: initial;
+  --BOX-BLUE-color: initial;
+  --BOX-BLUE-TEXT-color: initial;
+  --BOX-BLUE-CAPTION-color: initial;
+  --BOX-BLUE-BG-color: initial;
+  --BOX-CAUTION-color: initial;
+  --BOX-CAUTION-TEXT-color: initial;
+  --BOX-CAUTION-CAPTION-color: initial;
+  --BOX-CAUTION-BG-color: initial;
+  --BOX-CODE-color: initial;
+  --BOX-CODE-TEXT-color: initial;
+  --BOX-CODE-CAPTION-color: initial;
+  --BOX-CODE-BG-color: initial;
+  --BOX-CYAN-color: initial;
+  --BOX-CYAN-TEXT-color: initial;
+  --BOX-CYAN-CAPTION-color: initial;
+  --BOX-CYAN-BG-color: initial;
+  --BOX-GREEN-color: initial;
+  --BOX-GREEN-TEXT-color: initial;
+  --BOX-GREEN-CAPTION-color: initial;
+  --BOX-GREEN-BG-color: initial;
+  --BOX-GREY-color: initial;
+  --BOX-GREY-TEXT-color: initial;
+  --BOX-GREY-CAPTION-color: initial;
+  --BOX-GREY-BG-color: initial;
+  --BOX-IMPORTANT-color: initial;
+  --BOX-IMPORTANT-TEXT-color: initial;
+  --BOX-IMPORTANT-CAPTION-color: initial;
+  --BOX-IMPORTANT-BG-color: initial;
+  --BOX-INFO-color: initial;
+  --BOX-INFO-TEXT-color: initial;
+  --BOX-INFO-CAPTION-color: initial;
+  --BOX-INFO-BG-color: initial;
+  --BOX-INLINE-color: initial;
+  --BOX-INLINE-TEXT-color: initial;
+  --BOX-INLINE-CAPTION-color: initial;
+  --BOX-INLINE-BG-color: initial;
+  --BOX-MAGENTA-color: initial;
+  --BOX-MAGENTA-TEXT-color: initial;
+  --BOX-MAGENTA-CAPTION-color: initial;
+  --BOX-MAGENTA-BG-color: initial;
+  --BOX-NEUTRAL-color: initial;
+  --BOX-NEUTRAL-TEXT-color: initial;
+  --BOX-NEUTRAL-CAPTION-color: initial;
+  --BOX-NEUTRAL-BG-color: initial;
+  --BOX-NOTE-color: initial;
+  --BOX-NOTE-TEXT-color: initial;
+  --BOX-NOTE-CAPTION-color: initial;
+  --BOX-NOTE-BG-color: initial;
+  --BOX-ORANGE-color: initial;
+  --BOX-ORANGE-TEXT-color: initial;
+  --BOX-ORANGE-CAPTION-color: initial;
+  --BOX-ORANGE-BG-color: initial;
+  --BOX-PRIMARY-color: initial;
+  --BOX-PRIMARY-TEXT-color: initial;
+  --BOX-PRIMARY-CAPTION-color: initial;
+  --BOX-PRIMARY-BG-color: initial;
+  --BOX-RED-color: initial;
+  --BOX-RED-TEXT-color: initial;
+  --BOX-RED-CAPTION-color: initial;
+  --BOX-RED-BG-color: initial;
+  --BOX-SECONDARY-color: initial;
+  --BOX-SECONDARY-TEXT-color: initial;
+  --BOX-SECONDARY-CAPTION-color: initial;
+  --BOX-SECONDARY-BG-color: initial;
+  --BOX-TIP-color: initial;
+  --BOX-TIP-TEXT-color: initial;
+  --BOX-TIP-CAPTION-color: initial;
+  --BOX-TIP-BG-color: initial;
+  --BOX-TRANSPARENT-color: initial;
+  --BOX-TRANSPARENT-TEXT-color: initial;
+  --BOX-TRANSPARENT-CAPTION-color: initial;
+  --BOX-TRANSPARENT-BG-color: initial;
+  --BOX-WARNING-color: initial;
+  --BOX-WARNING-TEXT-color: initial;
+  --BOX-WARNING-CAPTION-color: initial;
+  --BOX-WARNING-BG-color: initial;
+}
+:root[data-r-theme-variant='auto']:root,
+:root[data-r-theme-variant^='my-custom-']:root {
+  /* applied on top of the print variant; sets every value that depends on a
+     light or dark background, so nothing of a dark variant reaches the paper;
+     initial falls back to the theme's default; the values of every box style
+     not given here are reset to initial by the theme; the menu is not printed,
+     so its values are left alone */
+  --PRIMARY-color: rgba( 125, 201, 3, 1 ); /* brand primary color */
+  --PRIMARY-HOVER-color: rgba( 99, 159, 2, 1 ); /* brand primary hover color */
+  --SECONDARY-color: rgba( 72, 106, 201, 1 ); /* brand secondary color */
+  --SECONDARY-HOVER-color: rgba( 32, 40, 145, 1 ); /* brand secondary hover color */
+  --ACCENT-color: rgba( 255, 102, 78, 1 ); /* brand accent color, used for search highlights */
+  --ACCENT-HOVER-color: rgba( 226, 85, 64, 1 ); /* brand accent hover color */
   --TOPBAR-BG-color: rgba( 255, 255, 255, 1 ); /* background color of topbar */
+  --TOPBAR-TEXT-color: initial; /* text color of topbar */
+  --TOPBAR-SEPARATOR-color: initial; /* separator color of topbar */
+  --TOPBAR-OVERLAY-BG-color: initial; /* background color of topbar overlays */
+  --TOPBAR-LINK-color: initial; /* link color of topbar */
+  --TOPBAR-LINK-HOVER-color: initial; /* hovered link color of topbar */
+  --TOPBAR-BUTTON-color: initial; /* button color of topbar */
+  --TOPBAR-BUTTON-HOVER-color: initial; /* hovered button color of topbar */
+  --TOPBAR-SCROLLBAR-THUMB-color: initial; /* scrollbar thumb color of topbar */
+  --TOPBAR-SCROLLBAR-THUMB-HOVER-color: initial; /* hovered scrollbar thumb color of topbar */
+  --TOPBAR-SCROLLBAR-TRACK-color: initial; /* scrollbar track color of topbar */
+  --TOPBAR-SCROLLBAR-TRACK-HOVER-color: initial; /* hovered scrollbar track color of topbar */
   --MAIN-TOPBAR-BORDER-color: rgba( 221, 221, 221, 1 ); /* border color between topbar and content */
+  --MAIN-LINK-color: rgba( 0, 0, 0, 1 ); /* link color of content */
+  --MAIN-LINK-HOVER-color: initial; /* hovered link color of content */
+  --MAIN-BUTTON-color: initial; /* button color of content */
+  --MAIN-BUTTON-HOVER-color: initial; /* hovered button color of content */
+  --MAIN-BG-color: rgba( 255, 255, 255, 1 ); /* background color of content */
+  --MAIN-SCROLLBAR-THUMB-color: initial; /* scrollbar thumb color of content */
+  --MAIN-SCROLLBAR-THUMB-HOVER-color: initial; /* hovered scrollbar thumb color of content */
+  --MAIN-SCROLLBAR-TRACK-color: initial; /* scrollbar track color of content */
+  --MAIN-SCROLLBAR-TRACK-HOVER-color: initial; /* hovered scrollbar track color of content */
+  --MAIN-TEXT-color: rgba( 0, 0, 0, 1 ); /* text color of content and titles */
+  --MAIN-TITLES-TEXT-color: rgba( 0, 0, 0, 1 ); /* text color of titles and transparent box titles */
+  --MAIN-TITLES-H1-TEXT-color: initial; /* text color of h1 titles */
+  --MAIN-TITLES-H1-color: initial; /* former name of the text color of h1 titles */
+  --MAIN-TITLES-H2-TEXT-color: initial; /* text color of h2-h6 titles */
+  --MAIN-TITLES-H2-color: initial; /* former name of the text color of h2-h6 titles */
+  --MAIN-TITLES-H3-TEXT-color: initial; /* text color of h3-h6 titles */
+  --MAIN-TITLES-H3-color: initial; /* former name of the text color of h3-h6 titles */
+  --MAIN-TITLES-H4-TEXT-color: initial; /* text color of h4-h6 titles */
+  --MAIN-TITLES-H4-color: initial; /* former name of the text color of h4-h6 titles */
+  --MAIN-TITLES-H5-TEXT-color: initial; /* text color of h5-h6 titles */
+  --MAIN-TITLES-H5-color: initial; /* former name of the text color of h5-h6 titles */
+  --MAIN-TITLES-H6-TEXT-color: initial; /* text color of h6 titles */
+  --MAIN-TITLES-H6-color: initial; /* former name of the text color of h6 titles */
+  --CODE-theme: relearn-light; /* name of the chroma stylesheet file */
   --CODE-BLOCK-color: rgba( 0, 0, 0, 1 ); /* fallback text color of block code; should be adjusted to your selected chroma style */
   --CODE-BLOCK-BG-color: rgba( 255, 255, 255, 1 ); /* fallback background color of block code; should be adjusted to your selected chroma style */
   --CODE-BLOCK-BORDER-color: rgba( 221, 221, 221, 1 ); /* border color of block code */
+  --MAIN-CODE-color: initial; /* former name of the text color of block code */
+  --MAIN-CODE-BG-color: initial; /* former name of the background color of block code */
   --CODE-INLINE-color: rgba( 0, 0, 0, 1 ); /* text color of inline code */
   --CODE-INLINE-BG-color: rgba( 255, 255, 255, 1 ); /* background color of inline code */
   --CODE-INLINE-BORDER-color: rgba( 221, 221, 221, 1 ); /* border color of inline code */
+  --BROWSER-theme: light; /* name of the theme for controls drawn by the browser like form fields */
+  --MERMAID-theme: default; /* name of the default Mermaid theme for this variant, can be overridden in hugo.toml */
+  --OPENAPI-theme: light; /* name of the default OpenAPI theme for this variant, can be overridden in hugo.toml */
+  --SWAGGER-theme: initial; /* former name of the default OpenAPI theme */
+  --OPENAPI-CODE-theme: idea; /* name of the default OpenAPI code theme for this variant, can be overridden in hugo.toml */
+  --TAG-BG-color: initial; /* background color of tags */
   --BOX-CAPTION-color: rgba( 0, 0, 0, 1 ); /* text color of colored box titles */
   --BOX-BG-color: rgba( 255, 255, 255, 1 ); /* background color of colored boxes */
   --BOX-TEXT-color: rgba( 0, 0, 0, 1 ); /* text color of colored box content */
+  --BOX-BLUE-color: rgba( 48, 117, 229, 1 ); /* background color of blue boxes */
+  --BOX-CYAN-color: rgba( 45, 190, 200, 1 ); /* background color of cyan boxes */
+  --BOX-GREEN-color: rgba( 42, 178, 24, 1 ); /* background color of green boxes */
+  --BOX-GREY-color: rgba( 160, 160, 160, 1 ); /* background color of grey boxes */
+  --BOX-MAGENTA-color: rgba( 229, 50, 210, 1 ); /* background color of magenta boxes */
+  --BOX-ORANGE-color: rgba( 237, 153, 9, 1 ); /* background color of orange boxes */
+  --BOX-RED-color: rgba( 224, 62, 62, 1 ); /* background color of red boxes */
+  --BOX-NEUTRAL-color: rgba( 208, 208, 208, 1 ); /* background color of neutral boxes */
   --BOX-CODE-color: var( --BOX-NEUTRAL-color ); /* background color of code boxes */
 }
 
+:root[data-r-theme-variant='auto'],
+:root[data-r-theme-variant^='my-custom-'] {
 /* Generated using: hugo gen chromastyles --style monokailight */
 /* Adjusted by hand: background-color of Background and PreWrapper set to #f8f8f8 */
 
