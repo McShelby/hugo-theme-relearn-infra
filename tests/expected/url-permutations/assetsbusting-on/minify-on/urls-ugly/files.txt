@@ -41,7 +41,7 @@ js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04dcb0a94dc2c1
 js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
 js/search-lunr.min.9897ffe790e716e8b90e4a9e200dce63c2603e69a9eec9bbdce6a483811ea180.js
 js/search.min.4bcf60afa00d9f5c3adf08ff55811ce4cc679bd6d4b5747d674667994ee1debb.js
-js/theme-head.min.e211882b79ced279c90a6ed066196bd3c97afd4d29f276b49cd08db79736902e.js
+js/theme-head.min.f7e473c3e5d5d7ea4c1ad508c6ae60b8d3c54f1c5f68e660f71087333cc95e5a.js
 js/theme.min.e553fda13c6ba801712b7e0f36a9224f61bf9fdddd4de05013544048cb10ce09.js
 search/index.html
 search/index.print.html
