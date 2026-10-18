@@ -311,11 +311,11 @@ configuration/sitemanagement/versioning/index.print.html
 configuration/sitemanagement/versioning/index.source.md
 configuration/sitemanagement/versioning/index.xml
 css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841484fe34c489058b2991edc027cdd47fc.css
-css/format-html.min.3b78eae5fe6e3302d4c90d2fd0b4efa528af0b088f5c9c9a53ebe74a2ad16528.css
-css/format-print.min.ffba1701150ebf9ef9d8ae006155d82be4be7c0c49b42effe4780bd304acd62a.css
+css/format-html.min.e55535c8c3ac2bef67044b356088adc5e42e43c20cca366ab2a54cf99995412c.css
+css/format-print.min.989919e65fd710d589d2497dfe84c8fcca80c2265f5c1b9a4f88f2cc292b43ea.css
 css/swagger-ui/swagger-ui.95d092a354630bcb5b18391877f9d2767c548c236d8b1b6033c87639f3dc20d5.css
 css/swagger.min.96ae4678e7e494caaad92aef2a56a649ac46b9a9b08e75eeef5d116b71473065.css
-css/theme.min.87c62b43b2e0e6fd490fe26dec654b320f7f0f2e3fa79c486025ed049244275f.css
+css/theme.min.013f374297181916303e3e33a85d4fe2f489bd4070c51c1d239f921a5acf9063.css
 development/contributing/index.html
 development/contributing/index.md
 development/contributing/index.print.html
@@ -354,10 +354,10 @@ exampleSite/about/index.print.html
 exampleSite/categories/index.html
 exampleSite/categories/index.xml
 exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841484fe34c489058b2991edc027cdd47fc.css
-exampleSite/css/format-html.min.ad6ea48b84228ea60c7245a7965382ce92a0490a8dedb77f22fceb4851a2bcb4.css
-exampleSite/css/format-print.min.fc8c71d47876ddcfe5ad34e8b1a43de851def1e70d2ef4c3b15aacca58785283.css
+exampleSite/css/format-html.min.9fb3e1be7868f8f9b621b9175cd412d9dc2c6785f2834c750834a22fbda4cd0a.css
+exampleSite/css/format-print.min.9115ef28dc199e04ade7428bcdb252ab035d02698a6dd2b7185e5119470cee71.css
 exampleSite/css/swagger.min.96ae4678e7e494caaad92aef2a56a649ac46b9a9b08e75eeef5d116b71473065.css
-exampleSite/css/theme.min.0cdda296a41162cdf5f3869fbdeef562bedb1c65dc458a61d1b1b26a34d54cb0.css
+exampleSite/css/theme.min.b723ee5c0f088704ad3ff4eab0ac26f502b5978bfb2bf3d606f657920b99bfed.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -397,7 +397,7 @@ exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d772254
 exampleSite/js/search-lunr.min.9897ffe790e716e8b90e4a9e200dce63c2603e69a9eec9bbdce6a483811ea180.js
 exampleSite/js/search.min.4bcf60afa00d9f5c3adf08ff55811ce4cc679bd6d4b5747d674667994ee1debb.js
 exampleSite/js/theme-head.min.f7e473c3e5d5d7ea4c1ad508c6ae60b8d3c54f1c5f68e660f71087333cc95e5a.js
-exampleSite/js/theme.min.e553fda13c6ba801712b7e0f36a9224f61bf9fdddd4de05013544048cb10ce09.js
+exampleSite/js/theme.min.8b4018397e55affad2942c1adecf57f98e047ea302d8c6e1c1bd75e6a2a843e8.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -1463,7 +1463,7 @@ js/search.min.4bcf60afa00d9f5c3adf08ff55811ce4cc679bd6d4b5747d674667994ee1debb.j
 js/swagger-ui/swagger-ui-bundle.62df541529080464a7660adc793eab7128c6193ce3be24ddc1e0e0a4a63edc2f.js
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.f7e473c3e5d5d7ea4c1ad508c6ae60b8d3c54f1c5f68e660f71087333cc95e5a.js
-js/theme.min.e553fda13c6ba801712b7e0f36a9224f61bf9fdddd4de05013544048cb10ce09.js
+js/theme.min.8b4018397e55affad2942c1adecf57f98e047ea302d8c6e1c1bd75e6a2a843e8.js
 js/variant.min.6b9b45f1d1345f733f5ee4b9bc28c787fa380d9bf4ff3f121f4084467ca99750.js
 more/credits/index.html
 more/credits/index.md
@@ -3695,8 +3695,8 @@ pir/tags/the-hidden/index.source.md
 pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
-searchindex.en.min.232e35553aebf7a4f7bd1276a1eb2aabc70c1db692d8a3bdad6060f7beb48952.js
-searchindex.pir.min.9d8fbf892f4507c837c4a8bdd1b3a8e2ea92b1f38524cd4a2f38dd09cc82842d.js
+searchindex.en.min.44f514c223f9ab63d06ce8596705b91010ac9a07591b052cdd98912461f07d06.js
+searchindex.pir.min.8a74b53a4fbc614725d2031cfcf2788fcb915758194bd554586877bf029e98aa.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
