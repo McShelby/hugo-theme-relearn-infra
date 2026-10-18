@@ -214,7 +214,7 @@
   --INTERNAL-BOX-NOTE-TEXT-color: var(--BOX-NOTE-TEXT-color, var(--INTERNAL-BOX-ORANGE-TEXT-color));
   --INTERNAL-BOX-NOTE-CAPTION-color: var(--BOX-NOTE-CAPTION-color, var(--INTERNAL-BOX-ORANGE-CAPTION-color));
   --INTERNAL-BOX-NOTE-BG-color: var(--BOX-NOTE-BG-color, var(--INTERNAL-BOX-ORANGE-BG-color));
-  --INTERNAL-BOX-ORANGE-color: var(--BOX-ORANGE-color, rgba(237, 153, 9, 1));
+  --INTERNAL-BOX-ORANGE-color: var(--BOX-ORANGE-color, rgba(220, 103, 0, 1));
   --INTERNAL-BOX-ORANGE-TEXT-color: var(--BOX-ORANGE-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
   --INTERNAL-BOX-ORANGE-CAPTION-color: var(--BOX-ORANGE-CAPTION-color, var(--INTERNAL-BOX-CAPTION-color));
   --INTERNAL-BOX-ORANGE-BG-color: var(--BOX-ORANGE-BG-color, var(--INTERNAL-BOX-BG-color));
@@ -242,361 +242,10 @@
   --INTERNAL-BOX-WARNING-TEXT-color: var(--BOX-WARNING-TEXT-color, var(--INTERNAL-BOX-RED-TEXT-color));
   --INTERNAL-BOX-WARNING-CAPTION-color: var(--BOX-WARNING-CAPTION-color, var(--INTERNAL-BOX-RED-CAPTION-color));
   --INTERNAL-BOX-WARNING-BG-color: var(--BOX-WARNING-BG-color, var(--INTERNAL-BOX-RED-BG-color));
-}
-
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-@-webkit-viewport {
-  width: device-width;
-}
-@-moz-viewport {
-  width: device-width;
-}
-@-o-viewport {
-  width: device-width;
-}
-@viewport {
-  width: device-width;
-}
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
-}
-
-a {
-  background: transparent;
-  text-decoration: none;
-}
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-dfn {
-  font-style: italic;
-}
-
-sub,
-sup {
-  font-size: 0.8rem;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-iframe {
-  border: 0;
-}
-
-img {
-  border: 0;
-  max-width: 100%;
-}
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-figure {
-  margin: 1rem 2.5rem;
-}
-
-hr {
-  height: 0;
-}
-
-pre:not(.mermaid) {
-  overflow: auto;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-button {
-  overflow: visible;
-  padding: 0;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-button,
-html input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-input {
-  line-height: normal;
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  padding: 0;
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  height: auto;
-}
-
-input[type='search'] {
-  -webkit-appearance: textfield;
-}
-
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-legend {
-  border: 0;
-  padding: 0;
-}
-
-textarea {
-  overflow: auto;
-}
-
-optgroup {
-  font-weight: bold;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed;
-  width: 100%;
-}
-
-tr,
-td,
-th {
-  vertical-align: middle;
-}
-
-th,
-td {
-  padding: 0.425rem 0;
-}
-
-th {
-  text-align: start;
-}
-
-p {
-  margin: 1rem 0;
-}
-
-ul,
-ol {
-  padding-inline-start: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-blockquote {
-  margin: 1.5rem 0;
-  padding-inline-start: 0.85rem;
-}
-
-cite {
-  display: block;
-  font-size: 0.925rem;
-}
-pre:not(.mermaid) {
-  margin: 1.5rem 0;
-  padding: 0.938rem;
-}
-
-code {
-  vertical-align: bottom;
-}
-
-small {
-  font-size: 0.925rem;
-}
-
-hr {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  margin: 1.5rem 0;
-}
-
-fieldset {
-  border: 0;
-  padding: 0.938rem;
-  margin: 0 0 1rem 0;
-}
-
-input,
-label,
-select {
-  display: block;
-}
-
-label {
-  margin-bottom: 0.425rem;
-}
-label.required:after {
-  content: '*';
-}
-label abbr {
-  display: none;
-}
-
-textarea,
-input[type='email'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='url'],
-input[type='color'],
-input[type='date'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='month'],
-input[type='time'],
-input[type='week'],
-select[multiple='multiple'] {
-  -webkit-transition: border-color;
-  -moz-transition: border-color;
-  transition: border-color;
-  border-radius: 0.1875rem;
-  margin-bottom: 0.85rem;
-  padding: 0.425rem 0.425rem;
-  width: 100%;
-}
-textarea:focus,
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='password']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='text']:focus,
-input[type='url']:focus,
-input[type='color']:focus,
-input[type='date']:focus,
-input[type='datetime']:focus,
-input[type='datetime-local']:focus,
-input[type='month']:focus,
-input[type='time']:focus,
-input[type='week']:focus,
-select[multiple='multiple']:focus {
-  outline: none;
-}
-
-textarea {
-  resize: vertical;
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  display: inline;
-  margin-inline-end: 0.425rem;
-}
-
-input[type='file'] {
-  width: 100%;
-}
-
-select {
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 1rem;
-}
-
-button,
-input[type='submit'] {
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  border: inherit;
+  --INTERNAL-BOX-YELLOW-color: var(--BOX-YELLOW-color, rgba(184, 143, 0, 1));
+  --INTERNAL-BOX-YELLOW-TEXT-color: var(--BOX-YELLOW-TEXT-color, var(--INTERNAL-BOX-TEXT-color));
+  --INTERNAL-BOX-YELLOW-CAPTION-color: var(--BOX-YELLOW-CAPTION-color, var(--INTERNAL-BOX-CAPTION-color));
+  --INTERNAL-BOX-YELLOW-BG-color: var(--BOX-YELLOW-BG-color, var(--INTERNAL-BOX-BG-color));
 }
 
 /* until browsers don't let us set length values based on dppx, we
@@ -710,10 +359,18 @@ code and images */
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   color-scheme: only var(--INTERNAL-BROWSER-theme);
+  font-size: 16px;
   height: 100%;
-  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   --VARIABLE-LINK-color: var(--INTERNAL-MAIN-LINK-color);
   --VARIABLE-LINK-HOVER-color: var(--INTERNAL-MAIN-LINK-HOVER-color);
 }
@@ -722,7 +379,6 @@ body {
   background-color: var(--INTERNAL-MAIN-BG-color);
   color: var(--INTERNAL-MAIN-TEXT-color);
   display: flex;
-  flex-direction: row;
   font-size: 1.015625rem;
   font-variation-settings: var(--INTERNAL-MAIN-font-variation-settings);
   font-weight: var(--INTERNAL-MAIN-font-weight);
@@ -730,7 +386,7 @@ body {
   height: 100%;
   letter-spacing: var(--INTERNAL-MAIN-letter-spacing);
   line-height: 1.574;
-  width: 100%;
+  margin: 0;
 }
 
 b,
@@ -739,6 +395,21 @@ label,
 th,
 blockquote cite {
   font-weight: var(--INTERNAL-MAIN-BOLD-font-weight);
+}
+
+p {
+  margin: 1rem 0;
+}
+
+ul,
+ol {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding-inline-start: 1.5rem;
+}
+:is(ul, ol) :is(ul, ol) {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 ul {
@@ -751,18 +422,83 @@ dt {
 
 dd {
   display: list-item;
-  list-style: disc;
   margin-inline-start: 1.5rem;
 }
 
 a {
   color: var(--VARIABLE-LINK-color);
+  text-decoration: none;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:is(:hover, :active, :focus) {
   color: var(--VARIABLE-LINK-HOVER-color);
+}
+
+figure {
+  margin: 1rem 2.5rem;
+}
+
+iframe {
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+small {
+  font-size: 0.925rem;
+}
+
+/* sub- and superscripts must not stretch the line they sit in */
+sub,
+sup {
+  font-size: 0.8rem;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+/* form controls take the text of the page instead of the one of the browser */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+/* the font taken from the page is never bold, but a group title should be */
+optgroup {
+  font-weight: bold;
+}
+
+button {
+  border: inherit;
+  cursor: pointer;
+  padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+button:disabled {
+  cursor: default;
+}
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 .default-animation {
@@ -795,7 +531,6 @@ a:focus {
   inset-inline-start: 0.5rem;
   padding: 0.5rem 1rem;
   position: fixed;
-  text-decoration: none;
   top: 0.5rem;
   transform: translateY(calc(-100% - 1rem));
   z-index: 5000;
@@ -814,7 +549,6 @@ a:focus {
   font-size: 0.953125rem;
   height: 100%;
   inset-inline-start: 0;
-  line-height: 1.574;
   min-height: 100%;
   /* clip instead of hidden: this must not become a scroll container itself, as
      a focused menu entry would scroll us instead of the menu */
@@ -823,10 +557,6 @@ a:focus {
   min-width: var(--INTERNAL-MENU-L-width);
   max-width: var(--INTERNAL-MENU-L-width);
   width: var(--INTERNAL-MENU-L-width);
-}
-
-#R-sidebar a {
-  text-decoration: none;
 }
 
 #R-header-wrapper > * {
@@ -881,7 +611,6 @@ a:focus {
   height: 1.5rem;
   justify-content: center;
   margin: auto 0;
-  padding: 0;
   top: 0;
   width: 1.5rem;
 }
@@ -903,7 +632,6 @@ a:focus {
 }
 
 #R-sidebar .searchbox > button {
-  color: var(--INTERNAL-MENU-SEARCH-color);
   opacity: 0.75;
 }
 
@@ -913,7 +641,6 @@ a:focus {
 }
 
 .searchbox input {
-  display: inline-block;
   width: 100%;
   height: 1.875rem;
   background: transparent;
@@ -922,12 +649,10 @@ a:focus {
   padding-inline-end: 1.6rem;
   padding-inline-start: 1.8rem;
   padding-top: 0;
-  margin: 0;
+  /* the box shows the focus instead */
+  outline: none;
 }
 
-.searchbox input::-webkit-input-placeholder {
-  color: var(--INTERNAL-MENU-SEARCH-color);
-}
 .searchbox input::placeholder {
   color: var(--INTERNAL-MENU-SEARCH-color);
   opacity: 0.45;
@@ -1122,14 +847,6 @@ a:focus {
   margin: 0;
 }
 
-#R-sidebar ul li {
-  padding: 0;
-}
-
-#R-sidebar ul li.visited + span {
-  margin-inline-end: 1rem;
-}
-
 #R-sidebar ul li .read-icon {
   display: none;
   font-size: 0.8125rem;
@@ -1309,10 +1026,6 @@ article .R-taxonomy.tags a.term-link:after {
   width: 5px;
 }
 
-article .R-taxonomy.tags a.term-link:hover:after {
-  width: 5px;
-}
-
 #R-body {
   display: flex;
   flex-basis: 100%;
@@ -1330,10 +1043,8 @@ article .R-taxonomy.tags a.term-link:hover:after {
   z-index: 70;
 }
 
-#R-body svg,
-#R-body img,
-#R-body figure > figcaption > h4,
-#R-body figure > figcaption > p {
+#R-body :is(svg, img),
+#R-body figure > figcaption > :is(h4, p) {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -1348,18 +1059,15 @@ article .R-taxonomy.tags a.term-link:hover:after {
   height: auto;
 }
 
-#R-body svg:not(.lightbox-image).left,
-#R-body img:not(.lightbox-image).left {
+#R-body :is(svg, img):not(.lightbox-image).left {
   margin-left: 0;
 }
 
-#R-body svg:not(.lightbox-image).right,
-#R-body img:not(.lightbox-image).right {
+#R-body :is(svg, img):not(.lightbox-image).right {
   margin-right: 0;
 }
 
-#R-body svg:not(.lightbox-image).border,
-#R-body img:not(.lightbox-image).border {
+#R-body :is(svg, img):not(.lightbox-image).border {
   background-clip: padding-box;
   border: 1px solid color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 10%, transparent);
   /* an image carries its own dimensions so a browser can reserve its space, and
@@ -1368,13 +1076,11 @@ article .R-taxonomy.tags a.term-link:hover:after {
   box-sizing: content-box;
 }
 
-#R-body svg:not(.lightbox-image).rounded,
-#R-body img:not(.lightbox-image).rounded {
+#R-body :is(svg, img):not(.lightbox-image).rounded {
   border-radius: var(--block-radius);
 }
 
-#R-body svg:not(.lightbox-image).shadow,
-#R-body img:not(.lightbox-image).shadow {
+#R-body :is(svg, img):not(.lightbox-image).shadow {
   /* the shadow is tinted by the background and inverts its lightness, so it is dark on a light
      background and light on a dark one; a light one has to stand up to a bright image, so the
      darker the background the denser it is; its chroma is strengthened, as a tinted dark
@@ -1382,20 +1088,13 @@ article .R-taxonomy.tags a.term-link:hover:after {
      strengthen; on a light background it takes the color of the neutral boxes instead, which
      carries the tint of the variant, but never darker than a light grey, as some variants
      darken their neutral boxes for contrast */
-  box-shadow: 0 3px 12px color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 20%, transparent);
-  box-shadow: 0 3px 12px oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) c h / calc(0.2 + 0.6 * (1 - l)));
   box-shadow: 0 3px 12px light-dark(oklch(from var(--INTERNAL-BOX-NEUTRAL-color) max(l, 0.85) c h / 0.9), oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) calc(c * 6) h / calc(0.2 + 0.6 * (1 - l))));
 }
 
-#R-body svg:not(.lightbox-image).inline,
-#R-body img:not(.lightbox-image).inline {
+#R-body :is(svg, img):not(.lightbox-image).inline {
   display: inline;
   margin: 0;
   vertical-align: bottom;
-}
-
-#R-body figure > figcaption {
-  margin: 0;
 }
 
 #R-body figure > figcaption > h4 {
@@ -1535,27 +1234,12 @@ article .R-taxonomy.tags a.term-link:hover:after {
   text-decoration: none;
 }
 
-#R-topbar a:hover:empty,
-#R-topbar a:active:empty,
-#R-topbar a:focus:empty,
-#R-topbar a:hover :not(i),
-#R-topbar a:active :not(i),
-#R-topbar a:focus :not(i),
-#R-topbar button:hover :not(i),
-#R-topbar button:active :not(i),
-#R-topbar button:focus :not(i),
-#R-topbar .title:hover,
-#R-topbar .title:active,
-#R-topbar .title:focus,
-.topbar-content a:hover,
-.topbar-content a:active,
-.topbar-content a:focus,
-article a:hover,
-article a:active,
-article a:focus,
-article a:hover .copy-to-clipboard,
-article a:active .copy-to-clipboard,
-article a:focus .copy-to-clipboard {
+#R-topbar a:is(:hover, :active, :focus):empty,
+#R-topbar :is(a, button):is(:hover, :active, :focus) :not(i),
+#R-topbar .title:is(:hover, :active, :focus),
+.topbar-content a:is(:hover, :active, :focus),
+article a:is(:hover, :active, :focus),
+article a:is(:hover, :active, :focus) .copy-to-clipboard {
   text-decoration: underline;
 }
 /* no outline for the pointer; who uses the keyboard keeps the one of the
@@ -1563,24 +1247,14 @@ article a:focus .copy-to-clipboard {
 .topbar-content a:focus:not(:focus-visible),
 article a:focus:not(:focus-visible),
 article a:focus:not(:focus-visible) .copy-to-clipboard,
-article a.lightbox-close:hover > svg:only-child:empty,
-article a.lightbox-close:active > svg:only-child:empty,
-article a.lightbox-close:focus > svg:only-child:empty,
-article a.lightbox-close:hover > img:only-child:empty,
-article a.lightbox-close:active > img:only-child:empty,
-article a.lightbox-close:focus > img:only-child:empty,
+article a.lightbox-close:is(:hover, :active, :focus) > :is(svg, img):only-child:empty,
 article .btn > button:focus:not(:focus-visible),
 /* these show the focus on what they hold or on what holds them */
 article a:focus:has(> :is(img, svg):only-child:empty),
 .card-container .card-title > :is(a, button):focus {
   outline: none;
 }
-article a:hover > svg:only-child:empty,
-article a:active > svg:only-child:empty,
-article a:focus > svg:only-child:empty,
-article a:hover > img:only-child:empty,
-article a:active > img:only-child:empty,
-article a:focus > img:only-child:empty {
+article a:is(:hover, :active, :focus) > :is(svg, img):only-child:empty {
   outline: 0.15rem solid var(--VARIABLE-LINK-HOVER-color);
 }
 
@@ -1637,10 +1311,8 @@ ins {
 /* a screen reader doesn't tell where inserted or deleted text starts and
    ends, so this is written around the text for it alone; the texts depend on
    the language and are set by the script */
-ins::before,
-ins::after,
-del::before,
-del::after {
+:is(ins, del)::before,
+:is(ins, del)::after {
   clip-path: polygon(0 0, 1px 0, 1px 1px, 0 1px);
   height: 1px;
   overflow: hidden;
@@ -1677,12 +1349,12 @@ mark {
 }
 
 kbd {
-  background-color: rgba(134, 134, 134, 0.166);
-  border-color: rgba(134, 134, 134, 0.5);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
+  border-color: oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.5);
   border-radius: 0.25rem;
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0 0.0625rem 0 0.0625rem rgba(134, 134, 134, 0.5);
+  box-shadow: 0 0.0625rem 0 0.0625rem oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.5);
   color: var(--INTERNAL-TEXT-color);
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
@@ -1711,7 +1383,7 @@ h1 {
 }
 
 #R-body-inner > .flex-block-wrapper article.narrow h1 {
-  border-bottom: 4px solid rgba(134, 134, 134, 0.125);
+  border-bottom: 4px solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 30%, transparent);
 }
 @media only screen and (min-width: 48rem) and (max-width: 59.999rem) {
   #R-body-inner > .flex-block-wrapper article h1 {
@@ -1824,12 +1496,13 @@ h6 {
    round the corners on its inner side */
 blockquote,
 figure.quote {
+  margin: 1.5rem 0;
   padding-inline-start: 1.45rem;
   position: relative;
 }
 blockquote::before,
 figure.quote::before {
-  background-color: rgba(134, 134, 134, 0.4);
+  background-color: oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.4);
   border-radius: 3px;
   bottom: 0;
   -webkit-print-color-adjust: exact;
@@ -1849,16 +1522,13 @@ blockquote p {
 
 blockquote cite {
   display: block;
+  font-size: 0.925rem;
   opacity: 0.5;
   padding-top: 0.5rem;
   text-align: end;
 }
 
 /* a quote with its attribution; the bar moves to the figure to span both */
-figure.quote {
-  margin: 1.5rem 0;
-}
-
 figure.quote > blockquote {
   margin: 0;
   padding-inline-start: 0;
@@ -1872,12 +1542,6 @@ figure.quote > blockquote::before {
   margin-top: 0.5rem;
   opacity: 0.75;
   text-align: end;
-}
-
-figure.quote > figcaption cite {
-  display: inline;
-  font-size: inherit;
-  font-style: italic;
 }
 
 figure.quote > figcaption::before {
@@ -1903,8 +1567,8 @@ figure.quote > figcaption::before {
   font-weight: 500;
   padding: 0.2rem 0.6rem;
 }
-.box > .box-label::-webkit-details-marker,
-.box > .box-label::marker {
+/* Safari draws its marker even for a summary that is no list item */
+.box > .box-label::-webkit-details-marker {
   display: none;
 }
 
@@ -1946,34 +1610,20 @@ p:empty {
 }
 
 /* in case of image render hook, Hugo may generate empty <p>s that we want to ignore as well, so a simple :first-child or :last-child is not enough */
-#R-body table th > :nth-child(1 of :not(:empty)),
-#R-body table th > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body table td > :nth-child(1 of :not(:empty)),
-#R-body table td > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body .box > .box-content > :nth-child(1 of :not(:empty)),
-#R-body .box > .box-content > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body .card-content > .card-content-text > :nth-child(1 of :not(:empty)),
-#R-body .card-content > .card-content-text > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
-#R-body .tab-content > .tab-content-text > :nth-child(1 of :not(:empty)),
-#R-body .tab-content > .tab-content-text > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)) {
+#R-body table :is(th, td) > :nth-child(1 of :not(:empty)),
+#R-body table :is(th, td) > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)),
+#R-body :is(.box > .box-content, .card-content > .card-content-text, .tab-content > .tab-content-text) > :nth-child(1 of :not(:empty)),
+#R-body :is(.box > .box-content, .card-content > .card-content-text, .tab-content > .tab-content-text) > :nth-child(1 of :not(:empty)) :nth-child(1 of :not(:empty)) {
   margin-top: 0;
 }
 
-#R-body table th > :nth-last-child(1 of :not(:empty)),
-#R-body table th > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
+#R-body table :is(th, td) > :nth-last-child(1 of :not(:empty)),
+#R-body table :is(th, td) > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
 #R-body table th > div.highlight:last-child pre:not(.mermaid),
-#R-body table td > :nth-last-child(1 of :not(:empty)),
-#R-body table td > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
 #R-body table td > div:last-child pre:not(.mermaid),
-#R-body .box > .box-content > :nth-last-child(1 of :not(:empty)),
-#R-body .box > .box-content > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body .box > .box-content > div:last-child pre:not(.mermaid),
-#R-body .card-content > .card-content-text > :nth-last-child(1 of :not(:empty)),
-#R-body .card-content > .card-content-text > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body .card-content > .card-content-text > div:last-child pre:not(.mermaid),
-#R-body .tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)),
-#R-body .tab-content > .tab-content-text > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
-#R-body .tab-content > .tab-content-text > div:last-child pre:not(.mermaid) {
+#R-body :is(.box > .box-content, .card-content > .card-content-text, .tab-content > .tab-content-text) > :nth-last-child(1 of :not(:empty)),
+#R-body :is(.box > .box-content, .card-content > .card-content-text, .tab-content > .tab-content-text) > :nth-last-child(1 of :not(:empty)) :nth-last-child(1 of :not(:empty)),
+#R-body :is(.box > .box-content, .card-content > .card-content-text, .tab-content > .tab-content-text) > div:last-child pre:not(.mermaid) {
   margin-bottom: 0;
 }
 
@@ -1984,38 +1634,18 @@ p:empty {
   text-overflow: ellipsis;
   text-wrap-mode: nowrap;
 }
-.pages-tree li > p + p,
-.pages-sections li > p + p,
-.pages-list li > p,
-.children-type-group li > p + p,
-.children-type-tree li > p + p,
-.children-type-flat li > p {
+:is(.pages-tree, .pages-sections, .children-type-group, .children-type-tree) li > p + p,
+:is(.pages-list, .children-type-flat) li > p {
   font-size: 0.859625rem;
   font-style: italic;
 }
 
-.pages-tree p,
-.pages-sections p,
-.pages-list p,
-.pages-headings p,
-.children-type-group p,
-.children-type-tree p,
-.children-type-flat p,
-.children-type-list p {
+:is(.pages-tree, .pages-sections, .pages-list, .pages-headings, .children-type-group, .children-type-tree, .children-type-flat, .children-type-list) p {
   margin-bottom: 0;
   margin-top: 0;
-  padding-bottom: 0;
-  padding-top: 0;
 }
 
-.pages-tree p + p,
-.pages-sections p + p,
-.pages-list p + p,
-.pages-headings p + p,
-.children-type-group p + p,
-.children-type-tree p + p,
-.children-type-flat p + p,
-.children-type-list p + p {
+:is(.pages-tree, .pages-sections, .pages-list, .pages-headings, .children-type-group, .children-type-tree, .children-type-flat, .children-type-list) p + p {
   margin-top: 0.125em;
 }
 
@@ -2025,13 +1655,6 @@ p:empty {
 .children-type-list {
   list-style: none;
   padding-inline-start: 0;
-}
-
-.pages-list li,
-.pages-headings li,
-.children-type-flat li,
-.children-type-list li {
-  margin-inline-start: 0;
 }
 
 .pages-headings :is(h1, h2, h3, h4, h5, h6),
@@ -2049,7 +1672,6 @@ samp {
   font-weight: var(--INTERNAL-CODE-font-weight);
   font-family: var(--INTERNAL-CODE-font);
   letter-spacing: var(--INTERNAL-CODE-letter-spacing);
-  vertical-align: baseline;
 }
 
 code {
@@ -2082,6 +1704,8 @@ pre:not(.mermaid) {
   -webkit-print-color-adjust: economy;
   color-adjust: economy;
   line-height: 1.15;
+  margin: 1.5rem 0;
+  overflow: auto;
   padding: 1rem;
   position: relative;
 }
@@ -2090,10 +1714,7 @@ pre:not(.mermaid) code {
   background-color: inherit;
   border: 0;
   color: inherit;
-  -webkit-print-color-adjust: economy;
-  color-adjust: economy;
   font-size: 0.9375rem;
-  margin: 0;
   padding: 0;
 }
 
@@ -2154,14 +1775,8 @@ div.highlight > div:not(.actionbar) table {
   display: block;
   overflow: auto;
 }
-div.highlight:not(.wrap-code) pre:not(.mermaid) {
-  overflow: auto;
-}
 div.highlight:not(.wrap-code) pre:not(.mermaid) code {
   white-space: pre;
-}
-div.highlight.wrap-code pre:not(.mermaid) code {
-  white-space: pre-wrap;
 }
 /* remove border from row cells if highlight shortcode was used in table lineno mode */
 div.highlight > div:not(.actionbar) td > pre:not(.mermaid) {
@@ -2185,7 +1800,11 @@ div.highlight > div:not(.actionbar) td:not(:first-child):last-child pre:not(.mer
 }
 
 hr {
-  border-bottom: 4px solid rgba(134, 134, 134, 0.125);
+  border-bottom: 4px solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 30%, transparent);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5rem 0;
 }
 #R-body hr {
   /* a radius too large is cut down to half the height, whatever that is, so the ends are round
@@ -2201,11 +1820,12 @@ table {
   background-color: var(--INTERNAL-MAIN-BG-color);
   /* a table of collapsed borders ignores a border radius; so its outer border is
      left out, its corners are cut off and the frame is drawn on top instead */
+  border-collapse: collapse;
   border-style: hidden;
   clip-path: inset(0 round var(--block-radius));
   margin-bottom: 1rem;
   margin-top: 1rem;
-  table-layout: auto;
+  width: 100%;
 }
 table::after {
   border: 1px solid var(--INTERNAL-BOX-NEUTRAL-color);
@@ -2216,6 +1836,10 @@ table::after {
   position: absolute;
   /* above the sticky header row */
   z-index: 111;
+}
+
+th {
+  text-align: start;
 }
 
 th,
@@ -2233,16 +1857,13 @@ td {
 }
 
 /* the alignment of a Markdown table column, which render-table.html gives as a class */
-th.align-left,
-td.align-left {
+:is(th, td).align-left {
   text-align: left;
 }
-th.align-center,
-td.align-center {
+:is(th, td).align-center {
   text-align: center;
 }
-th.align-right,
-td.align-right {
+:is(th, td).align-right {
   text-align: right;
 }
 
@@ -2353,7 +1974,7 @@ tbody > tr:nth-child(even) > td {
 
 .topbar-button > .btn > button:disabled i,
 .topbar-button > .btn > span i {
-  color: rgba(134, 134, 134, 0.333);
+  color: oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.333);
 }
 
 .topbar-sidebar-divider {
@@ -2420,7 +2041,6 @@ html[dir='rtl'] .topbar-button-next i {
 }
 
 .topbar-breadcrumbs {
-  margin: 0;
   padding: 0 calc(0.9em - 2px);
 }
 @media screen and (max-width: 47.999rem) {
@@ -2454,10 +2074,6 @@ html[dir='rtl'] .topbar-button-next i {
   display: inline;
   margin: 0;
   padding: 0;
-}
-
-.breadcrumbs meta {
-  display: none;
 }
 
 .breadcrumbs li {
@@ -2504,9 +2120,6 @@ html[dir='rtl'] .topbar-button-next i {
       all 0.35s ease,
       visibility 0s;
   }
-  .mobile-support #navshow {
-    display: inline;
-  }
   .mobile-support #R-body {
     margin-inline-start: 0;
     min-width: 100%;
@@ -2529,7 +2142,7 @@ html[dir='rtl'] .topbar-button-next i {
     overflow: hidden;
   }
   .mobile-support.sidebar-flyout #R-body-overlay {
-    background-color: rgba(134, 134, 134, 0.5);
+    background-color: oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.5);
     bottom: 0;
     cursor: pointer;
     height: 100vh;
@@ -2542,7 +2155,6 @@ html[dir='rtl'] .topbar-button-next i {
 }
 
 span.copy-to-clipboard {
-  display: inline;
   position: relative;
 }
 
@@ -2594,11 +2206,8 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
   opacity: 1;
 }
 
-.actionbar-wrapper:hover .actionbar,
-.actionbar-wrapper:focus-within .actionbar,
-.actionbar:has(:hover),
-.actionbar:has(:active),
-.actionbar:has(:focus) {
+.actionbar-wrapper:is(:hover, :focus-within) .actionbar,
+.actionbar:has(:hover, :active, :focus) {
   opacity: 1;
 }
 
@@ -2609,31 +2218,24 @@ code.copy-to-clipboard-code:has(+ .inline-copy-to-clipboard-button):after {
   }
 }
 
-.force-display {
-  display: block !important;
-}
-
 option {
   color: initial;
 }
 
 .expand {
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  outline: initial;
   position: relative;
 }
 
+/* a summary is a list item, whose marker would stand next to our own icon */
 .expand > .box-label {
   cursor: pointer;
+  display: block;
 }
 /* without its content, the label reaches the bottom of the box as well */
 .expand:not([open]) > .box-label {
   border-radius: calc(var(--block-radius) - 1px);
 }
-.expand > .box-label:hover,
-.expand > .box-label:active,
-.expand > .box-label:focus {
+.expand > .box-label:is(:hover, :active, :focus) {
   text-decoration: underline;
 }
 
@@ -2810,8 +2412,8 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
 
 .topbar-content {
   background: var(--INTERNAL-TOPBAR-OVERLAY-BG-color);
-  border: 0 solid rgba(134, 134, 134, 0.166);
-  box-shadow: 1px 2px 5px 1px rgba(134, 134, 134, 0.2);
+  border: 0 solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
+  box-shadow: 1px 2px 5px 1px oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.2);
   height: 0;
   opacity: 0;
   overflow: hidden;
@@ -2830,7 +2432,7 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
 }
 
 .topbar-content .topbar-content-wrapper {
-  background-color: rgba(134, 134, 134, 0.066);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 16%, transparent);
 }
 
 .topbar-content-wrapper {
@@ -2913,11 +2515,6 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
   }
 }
 
-.topbar-content .topbar-button {
-  border-width: 0;
-  padding: 0.5rem 0;
-}
-
 #TableOfContents,
 .TableOfContents {
   font-size: 0.8125rem;
@@ -2959,14 +2556,9 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
 
 .list-tree li {
   color: var(--INTERNAL-MAIN-TEXT-color);
-  margin-bottom: 0;
-  margin-inline-end: 0;
   margin-inline-start: 0.5rem;
-  margin-top: 0;
-  padding-bottom: 0;
   padding-inline-end: 0.75rem;
   padding-inline-start: 1rem;
-  padding-top: 0;
   position: relative;
 }
 .list-tree > ul > li {
@@ -2984,7 +2576,6 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
 
 .list-tree li::before {
   border-top: 2px solid var(--INTERNAL-MAIN-TEXT-color);
-  height: 0;
   top: 0.75rem;
   width: 0.75rem;
 }
@@ -2995,7 +2586,6 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
   border-left: 2px solid var(--INTERNAL-MAIN-TEXT-color);
   height: 100%;
   top: -0.5rem;
-  width: 0;
 }
 
 .list-tree ul:last-child li:last-child:after {
@@ -3125,9 +2715,6 @@ i.cstyle {
 .btn > :where(button) {
   -webkit-appearance: none;
   appearance: none;
-  border-width: 0;
-  margin: 0;
-  padding: 0;
 }
 
 .btn > * {
@@ -3140,8 +2727,6 @@ i.cstyle {
   padding: 0.4em 0.5em;
   text-align: center;
   touch-action: manipulation;
-  -webkit-user-select: none;
-  user-select: none;
   white-space: nowrap;
 }
 
@@ -3184,9 +2769,7 @@ i.cstyle {
   background-color: transparent;
 }
 
-.btn.interactive > *:hover,
-.btn.interactive > *:active,
-.btn.interactive > *:focus {
+.btn.interactive > :is(:hover, :active, :focus) {
   background-color: var(--VARIABLE-BOX-BG-color);
   color: var(--VARIABLE-BOX-TEXT-color);
   text-decoration: none;
@@ -3223,39 +2806,17 @@ i.cstyle {
   }
 }
 .anchor:focus-within,
-h2:hover .anchor,
-h3:hover .anchor,
-h4:hover .anchor,
-h5:hover .anchor,
-h6:hover .anchor {
+:is(h2, h3, h4, h5, h6):hover .anchor {
   opacity: 1;
 }
 
 /* Redfines headers style */
 
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  font-weight: inherit;
-}
-
-#R-body h1 + h2,
-#R-body h1 + h3,
-#R-body h1 + h4,
-#R-body h1 + h5,
-#R-body h1 + h6,
-#R-body h2 + h3,
-#R-body h2 + h4,
-#R-body h2 + h5,
-#R-body h2 + h6,
-#R-body h3 + h4,
-#R-body h3 + h5,
-#R-body h3 + h6,
-#R-body h4 + h5,
-#R-body h4 + h6,
+/* a heading right below a heading of a higher level */
+#R-body h1 + :is(h2, h3, h4, h5, h6),
+#R-body h2 + :is(h3, h4, h5, h6),
+#R-body h3 + :is(h4, h5, h6),
+#R-body h4 + :is(h5, h6),
 #R-body h5 + h6 {
   margin-top: 1rem;
 }
@@ -3276,8 +2837,6 @@ h6 a {
    through to it */
 .menu-control i,
 .menu-control span {
-  cursor: pointer;
-  display: block;
   float: left;
   pointer-events: none;
 }
@@ -3286,22 +2845,17 @@ html[dir='rtl'] .menu-control span {
   float: right;
 }
 
-.menu-control :hover,
-.menu-control i:hover,
-.menu-control span:hover {
-  cursor: pointer;
-}
-
 .menu-control select,
 .menu-control button {
   -webkit-appearance: none;
   appearance: none;
+  cursor: pointer;
+  display: block;
   height: 1.33rem;
   /* shifting the box by what it is padded with keeps the text in place; the
      list of a select opens as wide as that box, so it reaches out to both
      sides to be as far from one edge of the menu as from the other */
   margin-inline: -2em -0.5em;
-  max-width: none;
   outline: none;
   padding-inline: 2em 0.5em;
   width: calc(100% + 2.5em);
@@ -3316,7 +2870,6 @@ html[dir='rtl'] .menu-control span {
   background-color: transparent;
   background-image: none;
   border: none;
-  box-shadow: none;
 }
 
 /* the browsers disagree on the background of the opened list once the select
@@ -3326,19 +2879,22 @@ html[dir='rtl'] .menu-control span {
   background-color: Canvas;
   color: CanvasText;
   padding: 0;
-  margin: 0;
 }
 
 .menu-control button {
   background-color: transparent;
-  cursor: pointer;
-  display: block;
   overflow: hidden;
   text-align: start;
 }
 
 .clear {
   clear: both;
+}
+
+/* Chrome and Safari give a search input a look of their own unless it is a plain text field */
+input[type='search'] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
 }
 
 /* clears the 'X' from Chrome's search input */
@@ -3392,7 +2948,6 @@ span.math:has(math[display='block'], .katex-display) {
   /* prevent zooming on iOS */
   font-size: 12pt;
   inset-inline-start: -9999px;
-  margin: 0;
   padding: 0;
   position: absolute;
 }
@@ -3461,20 +3016,21 @@ span.math:has(math[display='block'], .katex-display) {
 .searchform input {
   flex: 1 0 60%;
   border-radius: 4px;
-  border: 2px solid rgba(134, 134, 134, 0.125);
-  background: rgba(134, 134, 134, 0.125);
-  display: block;
-  margin: 0;
+  border: 2px solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 30%, transparent);
+  background: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 30%, transparent);
   margin-inline-end: 0.5rem;
+  /* an input does not shrink below its natural width otherwise, so it would
+     reach out of a narrow form */
+  min-width: 0;
+  padding: 0.425rem;
 }
 
 .searchform input:focus-visible {
   outline: auto;
 }
 
-.searchform input::-webkit-input-placeholder,
 .searchform input::placeholder {
-  color: rgba(134, 134, 134, 1);
+  color: oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h);
   opacity: 0.666;
 }
 
@@ -3489,8 +3045,8 @@ span.math:has(math[display='block'], .katex-display) {
 
 #R-sidebar .autocomplete-suggestions {
   background-color: var(--INTERNAL-MAIN-BG-color);
-  border: 0 solid rgba(134, 134, 134, 0.166);
-  box-shadow: 1px 2px 5px 1px rgba(134, 134, 134, 0.333);
+  border: 0 solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
+  box-shadow: 1px 2px 5px 1px oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.333);
 }
 
 #R-sidebar .autocomplete-suggestion {
@@ -3538,19 +3094,17 @@ span.math:has(math[display='block'], .katex-display) {
 #R-html .autocomplete-suggestion.selected,
 #R-html .autocomplete-suggestion:focus {
   color: var(--VARIABLE-LINK-HOVER-color);
-  background-color: rgba(134, 134, 134, 0.133);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 32%, transparent);
 }
 #R-html .autocomplete-suggestion:hover {
   color: var(--VARIABLE-LINK-HOVER-color);
-  background-color: rgba(134, 134, 134, 0.2);
+  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 48%, transparent);
 }
 #R-html .autocomplete-suggestion .link,
 #R-html .autocomplete-suggestion .title > span {
   color: inherit;
 }
-#R-html .autocomplete-suggestion.selected .link,
-#R-html .autocomplete-suggestion:focus .link,
-#R-html .autocomplete-suggestion:hover .link {
+#R-html .autocomplete-suggestion:is(.selected, :focus, :hover) .link {
   color: inherit;
   text-decoration: underline;
 }
@@ -3613,8 +3167,7 @@ span.math:has(math[display='block'], .katex-display) {
 /* task list and its checkboxes */
 /*  move start of list to left to adjust for missing list-style */
 article :not(li) > ul > li:has(> input[type='checkbox']),
-article :not(li) > ul > li:has(> label > input[type='checkbox']),
-article :not(li) > ul > li:has(> span > input[type='checkbox']) {
+article :not(li) > ul > li:has(> :is(label, span) > input[type='checkbox']) {
   margin-inline-start: -1.5rem;
 }
 
@@ -3624,15 +3177,13 @@ article ul > li:has(> label > input[type='checkbox']) {
 }
 
 article ul > li:has(> input[type='checkbox'])::before,
-article ul > li:has(> label > input[type='checkbox'])::before,
-article ul > li:has(> span > input[type='checkbox'])::before {
+article ul > li:has(> :is(label, span) > input[type='checkbox'])::before {
   content: '\200B'; /* accessibilty for Safari https://developer.mozilla.org/en-US/docs/Web/CSS/list-style */
 }
 
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */
 article ul > li > input[type='checkbox'],
-article ul > li > label > input[type='checkbox'],
-article ul > li > span > input[type='checkbox'] {
+article ul > li > :is(label, span) > input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--INTERNAL-MAIN-BG-color); /* box background */
@@ -3643,15 +3194,13 @@ article ul > li > span > input[type='checkbox'] {
   display: inline-grid;
   font: inherit;
   height: 1.15em;
-  margin: 0;
   place-content: center;
   transform: translateY(-0.075em);
   width: 1.15em;
 }
 
 article ul > li > input[type='checkbox']::before,
-article ul > li > label > input[type='checkbox']::before,
-article ul > li > span > input[type='checkbox']::before {
+article ul > li > :is(label, span) > input[type='checkbox']::before {
   box-shadow: inset 1em 1em var(--INTERNAL-PRIMARY-color);
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   content: '';
@@ -3665,8 +3214,7 @@ article ul > li > span > input[type='checkbox']::before {
 }
 
 article ul > li > input[type='checkbox']:checked::before,
-article ul > li > label > input[type='checkbox']:checked::before,
-article ul > li > span > input[type='checkbox']:checked::before {
+article ul > li > :is(label, span) > input[type='checkbox']:checked::before {
   transform: scale(1);
 }
 
@@ -3789,13 +3337,10 @@ article ul > li > span > input[type='checkbox']:checked::before {
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  display: inline-block;
   /* nothing to see but the focus outline: a square around the chevron, in the
      middle of the height of the entry */
   height: 1rem;
   inset-inline-start: 0;
-  margin-bottom: 0;
-  margin-inline-end: 0;
   margin-inline-start: -0.075rem;
   margin-top: 0.25rem;
   position: absolute;
@@ -3815,9 +3360,7 @@ article ul > li > span > input[type='checkbox']:checked::before {
 
 #R-sidebar ul.collapsible-menu > li > label {
   cursor: pointer;
-  display: inline-block;
   inset-inline-start: 0;
-  margin-bottom: 0; /* nucleus */
   padding-inline-start: 0.125rem;
   position: absolute;
   width: 1rem;
@@ -3878,9 +3421,7 @@ article ul > li > span > input[type='checkbox']:checked::before {
   display: none;
 }
 
-#R-sidebar ul > li.parent > ul,
-#R-sidebar ul > li.active > ul,
-#R-sidebar ul > li.alwaysopen > ul {
+#R-sidebar ul > li:is(.parent, .active, .alwaysopen) > ul {
   display: block;
 }
 
@@ -4195,7 +3736,6 @@ body a#R-logo:hover *:not(svg, svg *) {
   background-color: transparent;
   border: 1px solid transparent;
   color: var(--VARIABLE-LINK-color);
-  display: block;
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.42857143;
@@ -4209,9 +3749,7 @@ body a#R-logo:hover *:not(svg, svg *) {
   color: var(--VARIABLE-BOX-TEXT-color);
   cursor: default;
 }
-#R-body .tab-nav-button:not(.active):hover,
-#R-body .tab-nav-button:not(.active):active,
-#R-body .tab-nav-button:not(.active):focus {
+#R-body .tab-nav-button:not(.active):is(:hover, :active, :focus) {
   color: var(--VARIABLE-LINK-HOVER-color);
 }
 
@@ -4230,18 +3768,9 @@ body a#R-logo:hover *:not(svg, svg *) {
   text-shadow:
     -0.08ex 0 0 currentColor,
     0.08ex 0 0 currentColor;
+  -webkit-text-stroke-width: 0.09ex;
 }
-@supports (-webkit-text-stroke-width: 0.09ex) {
-  #R-body .tab-nav-button.active > .tab-nav-text {
-    text-shadow:
-      -0.08ex 0 0 currentColor,
-      0.08ex 0 0 currentColor;
-    -webkit-text-stroke-width: 0.09ex;
-  }
-}
-#R-body .tab-nav-button:not(.active):hover > .tab-nav-text,
-#R-body .tab-nav-button:not(.active):active > .tab-nav-text,
-#R-body .tab-nav-button:not(.active):focus > .tab-nav-text {
+#R-body .tab-nav-button:not(.active):is(:hover, :active, :focus) > .tab-nav-text {
   border-bottom-color: var(--VARIABLE-LINK-HOVER-color);
 }
 
@@ -4306,9 +3835,7 @@ body a#R-logo:hover *:not(svg, svg *) {
   --VARIABLE-BOX-BG-color: transparent;
 }
 
-#R-body .tab-panel-style.cstyle.initial.tab-nav-button.active,
-#R-body .tab-panel-style.cstyle.default.tab-nav-button.active,
-#R-body .tab-panel-style.cstyle.transparent.tab-nav-button.active {
+#R-body .tab-panel-style.cstyle:is(.initial, .default, .transparent).tab-nav-button.active {
   background-color: var(--VARIABLE-BOX-BG-color);
   border-left-color: var(--VARIABLE-BOX-color);
   border-right-color: var(--VARIABLE-BOX-color);
@@ -4319,9 +3846,7 @@ body a#R-logo:hover *:not(svg, svg *) {
   --VARIABLE-BOX-color: var(--INTERNAL-BOX-NEUTRAL-color);
 }
 
-#R-body .tab-panel-style.cstyle.initial.tab-content,
-#R-body .tab-panel-style.cstyle.default.tab-content,
-#R-body .tab-panel-style.cstyle.transparent.tab-content {
+#R-body .tab-panel-style.cstyle:is(.initial, .default, .transparent).tab-content {
   background-color: var(--VARIABLE-BOX-BG-color);
 }
 
@@ -4351,7 +3876,6 @@ body a#R-logo:hover *:not(svg, svg *) {
 }
 
 #R-header-topbar {
-  background-color: transparent;
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -4408,7 +3932,6 @@ body a#R-logo:hover *:not(svg, svg *) {
   background-color: var(--INTERNAL-MENU-HEADER-BORDER-color);
   color: var(--INTERNAL-MENU-HOME-LINK-color);
   overflow: hidden;
-  padding: 0;
 }
 
 #R-sidebar #R-homelinks ul {
@@ -4500,9 +4023,7 @@ article.notfound h2 {
 }
 article.notfound #shrug svg,
 article.notfound #shrug svg * {
-  color: #000000;
   color: var(--MAIN-TEXT-color);
-  fill: #000000 !important;
   fill: var(--MAIN-TEXT-color) !important;
 }
 article.notfound #shrug svg {
@@ -4518,9 +4039,7 @@ article.notfound #shrug svg {
 .box.expand.cstyle.transparent > .box-label {
   color: var(--VARIABLE-LINK-color);
 }
-.box.expand.cstyle.transparent > .box-label:hover,
-.box.expand.cstyle.transparent > .box-label:active,
-.box.expand.cstyle.transparent > .box-label:focus {
+.box.expand.cstyle.transparent > .box-label:is(:hover, :active, :focus) {
   color: var(--VARIABLE-LINK-HOVER-color);
 }
 
@@ -4557,8 +4076,6 @@ article.notfound #shrug svg {
   border: 1px solid color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 10%, transparent);
   border-radius: 12px;
   /* the same shadow as for the `shadow` effect of an image */
-  box-shadow: 0 3px 12px color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 20%, transparent);
-  box-shadow: 0 3px 12px oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) c h / calc(0.2 + 0.6 * (1 - l)));
   box-shadow: 0 3px 12px light-dark(oklch(from var(--INTERNAL-BOX-NEUTRAL-color) max(l, 0.85) c h / 0.9), oklch(from var(--INTERNAL-MAIN-BG-color) calc((1 - l) * 1.2) calc(c * 6) h / calc(0.2 + 0.6 * (1 - l))));
   color: var(--INTERNAL-MAIN-TEXT-color);
   display: flex;
@@ -4605,7 +4122,6 @@ article.notfound #shrug svg {
 }
 
 .card-container .card-image {
-  background: transparent;
   height: 300px;
   order: -1;
   overflow: hidden;
@@ -4660,9 +4176,6 @@ article.notfound #shrug svg {
   appearance: none;
   background: none;
   border: 0;
-  cursor: pointer;
-  font: inherit;
-  padding: 0;
   text-align: inherit;
 }
 
@@ -4923,6 +4436,13 @@ article.notfound #shrug svg {
   --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-WARNING-TEXT-color);
   --VARIABLE-BOX-CAPTION-color: var(--INTERNAL-BOX-WARNING-CAPTION-color);
   --VARIABLE-BOX-BG-color: var(--INTERNAL-BOX-WARNING-BG-color);
+}
+
+.cstyle.yellow {
+  --VARIABLE-BOX-color: var(--INTERNAL-BOX-YELLOW-color);
+  --VARIABLE-BOX-TEXT-color: var(--INTERNAL-BOX-YELLOW-TEXT-color);
+  --VARIABLE-BOX-CAPTION-color: var(--INTERNAL-BOX-YELLOW-CAPTION-color);
+  --VARIABLE-BOX-BG-color: var(--INTERNAL-BOX-YELLOW-BG-color);
 }
 
 @font-face {
