@@ -1,12 +1,13 @@
-+++
-title = 'Alpha'
-tags = ['one']
-weight = 2
-date = 2023-01-01
-lastmod = 2022-01-01
-publishDate = 2019-03-01
-expiryDate = 2090-01-01
-+++
+---
+title: Alpha
+tags:
+  - one
+weight: 2
+date: 2023-01-01
+lastmod: 2022-01-01
+publishDate: 2019-03-01
+expiryDate: 2090-01-01
+---
 
 The longest body in the site, and so the last page under `sort=length`.
 

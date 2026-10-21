@@ -21,7 +21,7 @@ authoring/frontmatter/menus/index.md
 authoring/frontmatter/menus/index.print.html
 authoring/frontmatter/menus/index.source.md
 authoring/frontmatter/menus/index.xml
-authoring/frontmatter/reference/frontmatter.toml
+authoring/frontmatter/reference/frontmatter.yaml
 authoring/frontmatter/reference/index.html
 authoring/frontmatter/reference/index.md
 authoring/frontmatter/reference/index.print.html
@@ -460,8 +460,8 @@ exampleSite/pir/tags/index.html
 exampleSite/pir/tags/index.xml
 exampleSite/search/index.html
 exampleSite/search/index.print.html
-exampleSite/searchindex.en.min.f7dc94a0e4d8f45cd2da35a16ba0e1a5be059395498ec8185ea8ff933d4441ef.js
-exampleSite/searchindex.pir.min.8e4b0680cf12c50764eaa45a361a1f9a7bc11f7b712f3a8565cd683cb789c940.js
+exampleSite/searchindex.en.min.0fa453f68302f85593f94581bbb19e4291578104a1a147de833552d8d652dc98.js
+exampleSite/searchindex.pir.min.354a34d4c0be8d211dea450e2e3b34affc16c4853378f59233b74c3fb7f177da.js
 exampleSite/ship/cargo/index.html
 exampleSite/ship/cargo/index.print.html
 exampleSite/ship/cargo/index.xml
@@ -1469,7 +1469,7 @@ js/swagger-ui/swagger-ui-bundle.62df541529080464a7660adc793eab7128c6193ce3be24dd
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.f7e473c3e5d5d7ea4c1ad508c6ae60b8d3c54f1c5f68e660f71087333cc95e5a.js
 js/theme.min.8b4018397e55affad2942c1adecf57f98e047ea302d8c6e1c1bd75e6a2a843e8.js
-js/variant.min.49263b0ef2986a2b648b8a8451e6a09e53b2f9c11ec0662f0d0ed096d685c0d2.js
+js/variant.min.c265aed0c8d21d167a59fcdd3f11540cb8e0a1bf5413712731dfa5b761ecee63.js
 more/credits/index.html
 more/credits/index.md
 more/credits/index.print.html
@@ -1819,7 +1819,7 @@ pir/authoring/frontmatter/menus/index.md
 pir/authoring/frontmatter/menus/index.print.html
 pir/authoring/frontmatter/menus/index.source.md
 pir/authoring/frontmatter/menus/index.xml
-pir/authoring/frontmatter/reference/frontmatter.toml
+pir/authoring/frontmatter/reference/frontmatter.yaml
 pir/authoring/frontmatter/reference/index.html
 pir/authoring/frontmatter/reference/index.md
 pir/authoring/frontmatter/reference/index.print.html
@@ -3705,8 +3705,8 @@ pir/tags/the-hidden/index.source.md
 pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
-searchindex.en.min.7ab8d63bceef614c25dfb04c52b907737ed1f39aa32b20f0372d6c95e673f126.js
-searchindex.pir.min.8b75632e8db88e67bb1086ce317142436b0621c57069df9778c0ed7c7b726e81.js
+searchindex.en.min.34b4115aa077f06f4b80afa781b237a89f2f5405b3d91f6e0940025f72d7362c.js
+searchindex.pir.min.23a35c6205be36ccedef0dcbca1601b6909c6f50b5777c6dc871b83997c7aaa2.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

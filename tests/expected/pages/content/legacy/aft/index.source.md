@@ -1,6 +1,6 @@
-+++
-title = 'Aft'
-weight = 30
-+++
+---
+title: Aft
+weight: 30
+---
 
 First by title, last by weight.

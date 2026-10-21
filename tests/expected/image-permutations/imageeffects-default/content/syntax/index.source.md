@@ -1,7 +1,7 @@
-+++
-title = 'Syntax'
-weight = 5
-+++
+---
+title: Syntax
+weight: 5
+---
 
 Every markdown spelling that reaches the render hook, because each arrives with
 a different set of what the hook calls attributes.

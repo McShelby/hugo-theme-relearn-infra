@@ -1,7 +1,7 @@
-+++
-title = 'Terms'
-weight = 5
-+++
+---
+title: Terms
+weight: 5
+---
 
 Taxonomy and term pages, listed from here by `pageref`. The pages of the `text`
 section carry the tags `harbor`, `sea` and `drift-ice`:

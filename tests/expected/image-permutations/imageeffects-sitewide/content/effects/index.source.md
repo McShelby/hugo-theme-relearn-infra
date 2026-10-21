@@ -1,7 +1,7 @@
-+++
-title = 'Effects'
-weight = 4
-+++
+---
+title: Effects
+weight: 4
+---
 
 Everything that changes the emitted element. Sizing stays out of the way here
 except where the two are deliberately combined.

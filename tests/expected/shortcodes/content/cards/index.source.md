@@ -1,7 +1,7 @@
-+++
-title = 'Cards'
-weight = 5
-+++
+---
+title: Cards
+weight: 5
+---
 
 Where the `alt` of a card image comes from: `imagealt`, else the title of the
 page the card links to, else that link itself. A card that shows a title names

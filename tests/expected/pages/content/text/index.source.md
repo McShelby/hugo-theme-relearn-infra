@@ -1,7 +1,7 @@
-+++
-title = 'Text'
-weight = 1
-+++
+---
+title: Text
+weight: 1
+---
 
 Expressions over strings. Eight children: Anchor, Anchorage, Beacon, Compass,
 Drift (linked as Signal), Ember, Lantern (hidden) and Ösen.

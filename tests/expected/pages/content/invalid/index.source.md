@@ -1,7 +1,7 @@
-+++
-title = 'Invalid'
-weight = 7
-+++
+---
+title: Invalid
+weight: 7
+---
 
 Every expression and parameter the shortcode refuses. A refused parameter is
 reported on the console and left out, so each listing here renders as if it

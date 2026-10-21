@@ -1,7 +1,7 @@
-+++
-title = 'Dates'
-weight = 2
-+++
+---
+title: Dates
+weight: 2
+---
 
 Expressions over dates. Nine children, Alpha through India.
 

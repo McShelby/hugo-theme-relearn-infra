@@ -1,6 +1,6 @@
-+++
-title = 'URL Permutations'
-+++
+---
+title: URL Permutations
+---
 
 Links from the home page, so the snapshot captures how each mode renders them:
 

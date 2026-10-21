@@ -1,6 +1,6 @@
-+++
-title = 'Shortcodes'
-+++
+---
+title: Shortcodes
+---
 
 Each child page exercises one shortcode family.
 

@@ -1,7 +1,7 @@
-+++
-title = 'Sources'
-weight = 2
-+++
+---
+title: Sources
+weight: 2
+---
 
 Where a URL is looked up decides whether there is a resource behind it at all,
 and a resource is the only thing that can be asked its dimensions.

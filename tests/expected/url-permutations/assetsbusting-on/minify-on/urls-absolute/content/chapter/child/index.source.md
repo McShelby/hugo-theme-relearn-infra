@@ -1,7 +1,7 @@
-+++
-title = 'Child'
-weight = 1
-+++
+---
+title: Child
+weight: 1
+---
 
 The deepest page, linking back out:
 

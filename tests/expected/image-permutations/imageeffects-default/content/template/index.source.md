@@ -1,7 +1,7 @@
-+++
-title = 'Template'
-weight = 7
-+++
+---
+title: Template
+weight: 7
+---
 
 The theme documents calling its image partial from a template, passing effects
 as `attributes`. That is the highest layer of the effect stack, above the URL,

@@ -21,7 +21,7 @@ authoring/frontmatter/menus/index.md
 authoring/frontmatter/menus/index.print.html
 authoring/frontmatter/menus/index.source.md
 authoring/frontmatter/menus/index.xml
-authoring/frontmatter/reference/frontmatter.toml
+authoring/frontmatter/reference/frontmatter.yaml
 authoring/frontmatter/reference/index.html
 authoring/frontmatter/reference/index.md
 authoring/frontmatter/reference/index.print.html
@@ -1676,7 +1676,7 @@ pir/authoring/frontmatter/menus/index.md
 pir/authoring/frontmatter/menus/index.print.html
 pir/authoring/frontmatter/menus/index.source.md
 pir/authoring/frontmatter/menus/index.xml
-pir/authoring/frontmatter/reference/frontmatter.toml
+pir/authoring/frontmatter/reference/frontmatter.yaml
 pir/authoring/frontmatter/reference/index.html
 pir/authoring/frontmatter/reference/index.md
 pir/authoring/frontmatter/reference/index.print.html

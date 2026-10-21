@@ -1,7 +1,7 @@
-+++
-title = 'Layout'
-weight = 3
-+++
+---
+title: Layout
+weight: 3
+---
 
 The tree a listing is taken from, and what a display makes of it. Three
 children - One, a leaf; Two, a branch with two pages under it; and Three, a

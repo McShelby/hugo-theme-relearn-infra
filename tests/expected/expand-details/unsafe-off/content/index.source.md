@@ -1,6 +1,6 @@
-+++
-title = 'Expand and Details'
-+++
+---
+title: Expand and Details
+---
 
 Two pages, one per shortcode, built from the same sections.
 

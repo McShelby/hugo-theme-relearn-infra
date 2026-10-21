@@ -1,7 +1,7 @@
-+++
-title = 'Expand'
-weight = 1
-+++
+---
+title: Expand
+weight: 1
+---
 
 A page footnote.[^page]
 

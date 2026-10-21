@@ -1,11 +1,11 @@
-+++
-title = 'Page Bundle'
-weight = 6
+---
+title: Page Bundle
+weight: 6
 
-[imageEffects]
-  border = true
-  lazy = false
-+++
+imageEffects:
+  border: true
+  lazy: false
+---
 
 `local.png` is a resource of this page rather than of the site, which is a
 different lookup and the one a page bundle relies on.

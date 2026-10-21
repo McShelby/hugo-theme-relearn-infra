@@ -1,7 +1,7 @@
-+++
-title = 'Formats'
-weight = 3
-+++
+---
+title: Formats
+weight: 3
+---
 
 Hugo can read dimensions from some image resources and not from others. Both
 kinds are here, sized identically, so the difference is the resource and nothing

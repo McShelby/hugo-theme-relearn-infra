@@ -1,6 +1,6 @@
-+++
-title = 'Image Permutations'
-+++
+---
+title: Image Permutations
+---
 
 One page per axis of the image partial, each varying that axis and holding the
 rest still:

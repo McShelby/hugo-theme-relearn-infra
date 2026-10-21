@@ -1,13 +1,14 @@
-+++
-description = 'Starts with a two-byte character.'
-tags = ['sea']
-title = 'Ösen'
-weight = 60
+---
+description: Starts with a two-byte character.
+tags:
+  - sea
+title: Ösen
+weight: 60
 
-[params]
-  flavor = 'reference'
-  tier = 'core'
-+++
+params:
+  flavor: reference
+  tier: core
+---
 
 `Ö` is one rune and two bytes in UTF-8, so `left 1` must yield `Ö` and not half
 of it, and `right` counts from the other end in runes too. The file name stays
