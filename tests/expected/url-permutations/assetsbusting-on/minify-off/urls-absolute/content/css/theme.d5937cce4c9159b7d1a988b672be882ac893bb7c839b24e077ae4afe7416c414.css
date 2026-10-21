@@ -11,17 +11,17 @@
     --INTERNAL-TOPBAR-BG-color: var(--TOPBAR-BG-color, color-mix(in srgb, var(--INTERNAL-MAIN-BG-color), rgba(134, 134, 134, 0.133)));
     --INTERNAL-TOPBAR-TEXT-color: var(--TOPBAR-TEXT-color, var(--INTERNAL-MAIN-TEXT-color));
     --INTERNAL-TOPBAR-SEPARATOR-color: var(--TOPBAR-SEPARATOR-color, color-mix(in srgb, var(--INTERNAL-TOPBAR-BG-color), rgba(134, 134, 134, 0.666)));
-    --INTERNAL-TOPBAR-OVERLAY-BG-color: var(--TOPBAR-OVERLAY-BG-color, var(--INTERNAL-MAIN-BG-color));
+    --INTERNAL-TOPBAR-OVERLAY-BG-color: var(--TOPBAR-OVERLAY-BG-color, color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 16%, var(--INTERNAL-MAIN-BG-color)));
     --INTERNAL-TOPBAR-LINK-color: var(--TOPBAR-LINK-color, var(--INTERNAL-MAIN-LINK-color));
     --INTERNAL-TOPBAR-LINK-HOVER-color: var(--TOPBAR-LINK-HOVER-color, var(--INTERNAL-MAIN-LINK-HOVER-color));
     --INTERNAL-TOPBAR-BUTTON-color: var(--TOPBAR-BUTTON-color, var(--INTERNAL-TOPBAR-LINK-color));
     --INTERNAL-TOPBAR-BUTTON-HOVER-color: var(--TOPBAR-BUTTON-HOVER-color, var(--INTERNAL-TOPBAR-LINK-HOVER-color));
-    /* mixed from the text color like the one of the content, so the thumb reads on
-       light and dark variants alike and gains contrast on hover on either of them */
+    /* mixed from the text color like the one of the content, so the scrollbar reads
+       on light and dark variants alike and gains contrast on hover on either of them */
     --INTERNAL-TOPBAR-SCROLLBAR-THUMB-color: var(--TOPBAR-SCROLLBAR-THUMB-color, color-mix(in srgb, var(--INTERNAL-TOPBAR-TEXT-color) 45%, transparent));
     --INTERNAL-TOPBAR-SCROLLBAR-THUMB-HOVER-color: var(--TOPBAR-SCROLLBAR-THUMB-HOVER-color, color-mix(in srgb, var(--INTERNAL-TOPBAR-TEXT-color) 66%, transparent));
-    --INTERNAL-TOPBAR-SCROLLBAR-TRACK-color: var(--TOPBAR-SCROLLBAR-TRACK-color, transparent);
-    --INTERNAL-TOPBAR-SCROLLBAR-TRACK-HOVER-color: var(--TOPBAR-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 20%, transparent));
+    --INTERNAL-TOPBAR-SCROLLBAR-TRACK-color: var(--TOPBAR-SCROLLBAR-TRACK-color, color-mix(in srgb, var(--INTERNAL-TOPBAR-TEXT-color) 10%, transparent));
+    --INTERNAL-TOPBAR-SCROLLBAR-TRACK-HOVER-color: var(--TOPBAR-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-TOPBAR-TEXT-color) 15%, transparent));
     --INTERNAL-MAIN-TOPBAR-BORDER-color: var(--MAIN-TOPBAR-BORDER-color, transparent);
 
     --INTERNAL-MAIN-LINK-color: var(--MAIN-LINK-color, var(--INTERNAL-SECONDARY-color));
@@ -29,12 +29,12 @@
     --INTERNAL-MAIN-BUTTON-color: var(--MAIN-BUTTON-color, var(--INTERNAL-MAIN-LINK-color));
     --INTERNAL-MAIN-BUTTON-HOVER-color: var(--MAIN-BUTTON-HOVER-color, var(--INTERNAL-MAIN-LINK-HOVER-color));
     --INTERNAL-MAIN-BG-color: var(--MAIN-BG-color, rgba(255, 255, 255, 1));
-    /* mixed from the text color, so the thumb reads on light and dark variants
+    /* mixed from the text color, so the scrollbar reads on light and dark variants
        alike and gains contrast on hover on either of them */
     --INTERNAL-MAIN-SCROLLBAR-THUMB-color: var(--MAIN-SCROLLBAR-THUMB-color, color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 45%, transparent));
     --INTERNAL-MAIN-SCROLLBAR-THUMB-HOVER-color: var(--MAIN-SCROLLBAR-THUMB-HOVER-color, color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 66%, transparent));
-    --INTERNAL-MAIN-SCROLLBAR-TRACK-color: var(--MAIN-SCROLLBAR-TRACK-color, color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 24%, transparent));
-    --INTERNAL-MAIN-SCROLLBAR-TRACK-HOVER-color: var(--MAIN-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent));
+    --INTERNAL-MAIN-SCROLLBAR-TRACK-color: var(--MAIN-SCROLLBAR-TRACK-color, color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 10%, transparent));
+    --INTERNAL-MAIN-SCROLLBAR-TRACK-HOVER-color: var(--MAIN-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 15%, transparent));
     --INTERNAL-MAIN-BOLD-font-weight: var(--MAIN-BOLD-font-weight, 800);
 
     --INTERNAL-MAIN-TEXT-color: var(--MAIN-TEXT-color, rgba(16, 16, 16, 1));
@@ -94,6 +94,12 @@
     --INTERNAL-CODE-BLOCK-color: var(--CODE-BLOCK-color, var(--MAIN-CODE-color, rgba(39, 40, 34, 1))); /* fallback for renaming */
     --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, rgba(248, 248, 248, 1))); /* fallback for renaming */
     --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-BOX-NEUTRAL-color))); /* fallback for renaming */
+    /* mixed from the text color of the code like the ones of the content, as code
+       has colors of its own, which may be dark on a light page */
+    --INTERNAL-CODE-BLOCK-SCROLLBAR-THUMB-color: var(--CODE-BLOCK-SCROLLBAR-THUMB-color, color-mix(in srgb, var(--INTERNAL-CODE-BLOCK-color) 45%, transparent));
+    --INTERNAL-CODE-BLOCK-SCROLLBAR-THUMB-HOVER-color: var(--CODE-BLOCK-SCROLLBAR-THUMB-HOVER-color, color-mix(in srgb, var(--INTERNAL-CODE-BLOCK-color) 66%, transparent));
+    --INTERNAL-CODE-BLOCK-SCROLLBAR-TRACK-color: var(--CODE-BLOCK-SCROLLBAR-TRACK-color, color-mix(in srgb, var(--INTERNAL-CODE-BLOCK-color) 10%, transparent));
+    --INTERNAL-CODE-BLOCK-SCROLLBAR-TRACK-HOVER-color: var(--CODE-BLOCK-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-CODE-BLOCK-color) 15%, transparent));
     --INTERNAL-CODE-INLINE-color: var(--CODE-INLINE-color, rgba(94, 94, 94, 1));
     --INTERNAL-CODE-INLINE-BG-color: var(--CODE-INLINE-BG-color, rgba(255, 250, 233, 1));
     --INTERNAL-CODE-INLINE-BORDER-color: var(--CODE-INLINE-BORDER-color, rgba(251, 240, 203, 1));
@@ -135,12 +141,12 @@
     --INTERNAL-MENU-VISITED-color: var(--MENU-VISITED-color, var(--INTERNAL-SECONDARY-color));
     --INTERNAL-MENU-SECTION-SEPARATOR-color: var(--MENU-SECTION-SEPARATOR-color, var(--MENU-SECTION-HR-color, var(--INTERNAL-MENU-SECTIONS-LINK-color))); /* fallback for renaming */
     /* mixed from the link color of the menu - its text - like the ones of the
-       content and the topbar, so the thumb reads on light and dark menus alike
-       and gains contrast on hover on either of them */
+       content and the topbar, so the scrollbar reads on light and dark menus
+       alike and gains contrast on hover on either of them */
     --INTERNAL-MENU-SCROLLBAR-THUMB-color: var(--MENU-SCROLLBAR-THUMB-color, color-mix(in srgb, var(--INTERNAL-MENU-SECTIONS-LINK-color) 45%, transparent));
     --INTERNAL-MENU-SCROLLBAR-THUMB-HOVER-color: var(--MENU-SCROLLBAR-THUMB-HOVER-color, color-mix(in srgb, var(--INTERNAL-MENU-SECTIONS-LINK-color) 66%, transparent));
-    --INTERNAL-MENU-SCROLLBAR-TRACK-color: var(--MENU-SCROLLBAR-TRACK-color, transparent);
-    --INTERNAL-MENU-SCROLLBAR-TRACK-HOVER-color: var(--MENU-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent));
+    --INTERNAL-MENU-SCROLLBAR-TRACK-color: var(--MENU-SCROLLBAR-TRACK-color, color-mix(in srgb, var(--INTERNAL-MENU-SECTIONS-LINK-color) 10%, transparent));
+    --INTERNAL-MENU-SCROLLBAR-TRACK-HOVER-color: var(--MENU-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-MENU-SECTIONS-LINK-color) 15%, transparent));
 
     --INTERNAL-BOX-CAPTION-color: var(--BOX-CAPTION-color, rgba(255, 255, 255, 1));
     --INTERNAL-BOX-BG-color: var(--BOX-BG-color, rgba(255, 255, 255, .833));
@@ -259,6 +265,23 @@ need a way to calculate them ourself */
 code and images */
 :root {
   --block-radius: 6px;
+}
+/* the frame of what pops up over the page, like the overlays of the topbar */
+:root {
+  --overlay-border-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
+  --overlay-box-shadow: 1px 2px 5px 1px oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.2);
+}
+/* the shape of a tick, like the one of a checked task */
+:root {
+  --tick-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+/* the scrollbars we draw ourselves: their thickness and the inset of their thumb,
+   which is smaller once the thumb is hovered, so it grows */
+:root {
+  --scrollbar-size: 15px;
+  --scrollbar-thumb-inset: 4px;
+  --scrollbar-thumb-hover-inset: 2px;
+  --scrollbar-thumb-radius: 8px;
 }
 @media (min-resolution: 105dpi) {
   :root {
@@ -1133,91 +1156,132 @@ article .R-taxonomy.tags a.term-link:after {
   scrollbar-gutter: stable both-edges;
 }
 
-/* the browser draws the scrollbars of the content, of topbar popover areas and of
-   the search suggestions, and we take whichever styling it offers us: the standard
-   property knows two colors but no state of its own, the webkit pseudo elements
-   give us a hover of the thumb itself; they are mutually exclusive, as naming a
-   scrollbar-color makes the pseudo elements be ignored. the colors are the ones of
-   the area we are in, see the `--VARIABLE-SCROLLBAR-*` properties; the search
-   suggestions sit on the background of the content, so they keep its colors */
+/* the browser draws the scrollbars of the content, of topbar popover areas, of
+   the search suggestions, of the opened list of a select in the menu and of code
+   boxes, and we take whichever styling it offers us: the standard property knows
+   two colors but no state of its own, the webkit pseudo elements give us a hover
+   of the scrollbar itself; they are mutually exclusive, as naming a scrollbar-color
+   makes the pseudo elements be ignored. the colors are the ones of the area we
+   are in, see the `--VARIABLE-SCROLLBAR-*` properties; the search suggestions sit
+   on the background of the content, so they keep its colors */
 @supports not selector(::-webkit-scrollbar) {
-  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions) {
+  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions, .menu-control select, pre:not(.mermaid), div.highlight > div:not(.actionbar) table) {
     scrollbar-color: var(--VARIABLE-SCROLLBAR-THUMB-color) var(--VARIABLE-SCROLLBAR-TRACK-color);
     transition: scrollbar-color 0.2s linear;
-  }
 
-  @media (hover: hover) {
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions):hover {
-      /* the best we get here: the thumb reacts to us being hovered, not to itself */
-      scrollbar-color: var(--VARIABLE-SCROLLBAR-THUMB-HOVER-color) var(--VARIABLE-SCROLLBAR-TRACK-HOVER-color);
+    @media (hover: hover) {
+      &:hover {
+        /* the best we get here: the thumb reacts to us being hovered, not to itself */
+        scrollbar-color: var(--VARIABLE-SCROLLBAR-THUMB-HOVER-color) var(--VARIABLE-SCROLLBAR-TRACK-HOVER-color);
+      }
     }
   }
 }
 
+/* the list of a select we style ourselves is a part of the select, not an
+   element; a browser that draws the list on its own does not know how to name
+   it and drops every rule that does, so each rule naming it comes on its own,
+   right after the one it follows */
 @supports selector(::-webkit-scrollbar) {
-  .classic-scrollbars :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar {
-    /* the rules below stay dead until this one is here: only styling the scrollbar
-       itself makes Chrome draw its own instead of the platforms, and it then takes
-       its thickness from us; where the browser has an overlay scrollbar it keeps
-       drawing it and we let it, so this is the same width the classic one has */
-    height: 15px;
-    width: 15px;
-  }
-
-  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-button,
-  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-corner {
-    /* drawing our own scrollbar also gets us the steppers of the platform, which
-       none of the browsers overlay scrollbars has */
-    display: none;
-  }
-
-  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-track {
-    background-color: var(--VARIABLE-SCROLLBAR-TRACK-color);
-  }
-
-  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-thumb {
-    /* the thumb of a drawn scrollbar fills its full width with square corners, so
-       we have to give it a slim, rounded and inset shape ourselves, like the one
-       our menu rail gives its thumb; the transparent border does the insetting,
-       the background must not reach into it */
-    background-clip: padding-box;
-    background-color: var(--VARIABLE-SCROLLBAR-THUMB-color);
-    border: 4px solid transparent;
-    border-radius: 8px;
-  }
-
-  @media (hover: hover) {
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions):hover::-webkit-scrollbar-track {
-      background-color: var(--VARIABLE-SCROLLBAR-TRACK-HOVER-color);
+  :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions, .menu-control select, pre:not(.mermaid), div.highlight > div:not(.actionbar) table) {
+    .classic-scrollbars &::-webkit-scrollbar {
+      /* the rules below stay dead until this one is here: only styling the scrollbar
+         itself makes Chrome draw its own instead of the platforms, and it then takes
+         its thickness from us; where the browser has an overlay scrollbar it keeps
+         drawing it and we let it, so this is the same width the classic one has */
+      height: var(--scrollbar-size);
+      width: var(--scrollbar-size);
+    }
+    .classic-scrollbars &::picker(select)::-webkit-scrollbar {
+      height: var(--scrollbar-size);
+      width: var(--scrollbar-size);
     }
 
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-thumb:hover {
-      /* grows like the menu thumb does */
-      background-color: var(--VARIABLE-SCROLLBAR-THUMB-HOVER-color);
-      border-width: 2px;
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-corner {
+      /* drawing our own scrollbar also gets us the steppers of the platform, which
+         none of the browsers overlay scrollbars has */
+      display: none;
+    }
+    &::picker(select)::-webkit-scrollbar-button,
+    &::picker(select)::-webkit-scrollbar-corner {
+      display: none;
     }
 
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions):hover {
-      /* Safari does not recompute the rules above once we are hovered unless a
-         custom property makes it; its value is never read */
-      --fix: ;
+    &::-webkit-scrollbar-track {
+      background-color: var(--VARIABLE-SCROLLBAR-TRACK-color);
     }
-  }
-
-  @media (forced-colors: active) {
-    /* our translucent grays are overridden in forced colors and would leave the
-       thumb in the color of its track, so we name system colors like the menu
-       rail does; the transparent border insetting the thumb is given a color of
-       its own here, so it has to become the one of the track */
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-track,
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions):hover::-webkit-scrollbar-track {
-      background-color: Canvas;
+    &::picker(select)::-webkit-scrollbar-track {
+      background-color: var(--VARIABLE-SCROLLBAR-TRACK-color);
     }
 
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-thumb,
-    :is(#R-body-inner, .topbar-content-wrapper, #R-sidebar .autocomplete-suggestions)::-webkit-scrollbar-thumb:hover {
-      background-color: CanvasText;
-      border-color: Canvas;
+    &::-webkit-scrollbar-thumb {
+      /* the thumb of a drawn scrollbar fills its full width with square corners, so
+         we have to give it a slim, rounded and inset shape ourselves, like the one
+         our menu rail gives its thumb; the transparent border does the insetting,
+         the background must not reach into it */
+      background-clip: padding-box;
+      background-color: var(--VARIABLE-SCROLLBAR-THUMB-color);
+      border: var(--scrollbar-thumb-inset) solid transparent;
+      border-radius: var(--scrollbar-thumb-radius);
+    }
+    &::picker(select)::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      background-color: var(--VARIABLE-SCROLLBAR-THUMB-color);
+      border: var(--scrollbar-thumb-inset) solid transparent;
+      border-radius: var(--scrollbar-thumb-radius);
+    }
+
+    @media (hover: hover) {
+      &::-webkit-scrollbar-track:hover {
+        /* tints once the mouse reaches us, like the menu rail does */
+        background-color: var(--VARIABLE-SCROLLBAR-TRACK-HOVER-color);
+      }
+      &::picker(select)::-webkit-scrollbar-track:hover {
+        background-color: var(--VARIABLE-SCROLLBAR-TRACK-HOVER-color);
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        /* grows like the menu thumb does */
+        background-color: var(--VARIABLE-SCROLLBAR-THUMB-HOVER-color);
+        border-width: var(--scrollbar-thumb-hover-inset);
+      }
+      &::picker(select)::-webkit-scrollbar-thumb:hover {
+        background-color: var(--VARIABLE-SCROLLBAR-THUMB-HOVER-color);
+        border-width: var(--scrollbar-thumb-hover-inset);
+      }
+
+      &:hover {
+        /* Safari does not recompute the rules above once we are hovered unless a
+           custom property makes it; its value is never read */
+        --fix: ;
+      }
+    }
+
+    @media (forced-colors: active) {
+      /* our translucent grays are overridden in forced colors and would leave the
+         thumb in the color of its track, so we name system colors like the menu
+         rail does; the transparent border insetting the thumb is given a color of
+         its own here, so it has to become the one of the track */
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-track:hover {
+        background-color: Canvas;
+      }
+      &::picker(select)::-webkit-scrollbar-track,
+      &::picker(select)::-webkit-scrollbar-track:hover {
+        background-color: Canvas;
+      }
+
+      &::-webkit-scrollbar-thumb,
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: CanvasText;
+        border-color: Canvas;
+      }
+      &::picker(select)::-webkit-scrollbar-thumb,
+      &::picker(select)::-webkit-scrollbar-thumb:hover {
+        background-color: CanvasText;
+        border-color: Canvas;
+      }
     }
   }
 }
@@ -1784,6 +1848,13 @@ div.highlight > div:not(.actionbar) td:not(:first-child):last-child {
 div.highlight > div:not(.actionbar) table {
   display: block;
   overflow: auto;
+}
+pre:not(.mermaid),
+div.highlight > div:not(.actionbar) table {
+  --VARIABLE-SCROLLBAR-THUMB-color: var(--INTERNAL-CODE-BLOCK-SCROLLBAR-THUMB-color);
+  --VARIABLE-SCROLLBAR-THUMB-HOVER-color: var(--INTERNAL-CODE-BLOCK-SCROLLBAR-THUMB-HOVER-color);
+  --VARIABLE-SCROLLBAR-TRACK-color: var(--INTERNAL-CODE-BLOCK-SCROLLBAR-TRACK-color);
+  --VARIABLE-SCROLLBAR-TRACK-HOVER-color: var(--INTERNAL-CODE-BLOCK-SCROLLBAR-TRACK-HOVER-color);
 }
 div.highlight:not(.wrap-code) pre:not(.mermaid) code {
   white-space: pre;
@@ -2430,8 +2501,9 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
 
 .topbar-content {
   background: var(--INTERNAL-TOPBAR-OVERLAY-BG-color);
-  border: 0 solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
-  box-shadow: 1px 2px 5px 1px oklch(from var(--INTERNAL-BOX-GREY-color) calc(l * 0.94) c h / 0.2);
+  border: 0 solid var(--overlay-border-color);
+  border-radius: var(--block-radius);
+  box-shadow: var(--overlay-box-shadow);
   height: 0;
   opacity: 0;
   overflow: hidden;
@@ -2447,10 +2519,6 @@ html[dir='rtl'] .expand[open] > .box-label > i.expander-icon::before {
   opacity: 1;
   visibility: visible;
   width: auto;
-}
-
-.topbar-content .topbar-content-wrapper {
-  background-color: color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 16%, transparent);
 }
 
 .topbar-content-wrapper {
@@ -2817,18 +2885,96 @@ html[dir='rtl'] .menu-control span {
 }
 
 .menu-control select {
-  background-color: transparent;
+  /* a browser that draws the list on its own frames the entries in the
+     background of the select, and falls back to its own one if that is
+     transparent; we hand it the one of the list, but the select itself only
+     paints it underneath its text, where the text covers it */
+  background-clip: text;
+  background-color: var(--INTERNAL-TOPBAR-OVERLAY-BG-color);
   background-image: none;
   border: none;
+  /* a select whose list we style ourselves lays out its content in a way of
+     its own; these are the values of the one the browser draws, so both look
+     the same */
+  min-block-size: 0;
+  overflow: clip;
+  padding-block: 0;
+  white-space: pre;
+  /* the opened list pops up over the page like the overlays of the topbar do,
+     so it takes their colors */
+  --VARIABLE-SCROLLBAR-THUMB-color: var(--INTERNAL-TOPBAR-SCROLLBAR-THUMB-color);
+  --VARIABLE-SCROLLBAR-THUMB-HOVER-color: var(--INTERNAL-TOPBAR-SCROLLBAR-THUMB-HOVER-color);
+  --VARIABLE-SCROLLBAR-TRACK-color: var(--INTERNAL-TOPBAR-SCROLLBAR-TRACK-color);
+  --VARIABLE-SCROLLBAR-TRACK-HOVER-color: var(--INTERNAL-TOPBAR-SCROLLBAR-TRACK-HOVER-color);
 }
 
-/* the browsers disagree on the background of the opened list once the select
-   itself is transparent, so each entry brings its own pair of colors */
+/* where the browser lets us, we style the opened list ourselves; it is then
+   part of the page and takes all of our scrollbar styling. a browser that
+   draws the list on its own does not know how to name it and drops every rule
+   naming it, so it keeps showing its own list */
+.menu-control select,
+.menu-control select::picker(select) {
+  appearance: base-select;
+}
+
+.menu-control select::picker-icon {
+  /* the select the browser draws has no arrow either */
+  display: none;
+}
+
+.menu-control select::picker(select) {
+  background-color: var(--INTERNAL-TOPBAR-OVERLAY-BG-color);
+  border: 1px solid var(--overlay-border-color);
+  border-radius: var(--block-radius);
+  box-shadow: var(--overlay-box-shadow);
+  color: var(--INTERNAL-TOPBAR-TEXT-color);
+  padding: 0.25rem 0.5rem;
+  /* the menu names colors for its own scrollbar, which we inherit and which
+     would make the pseudo elements of ours be ignored */
+  scrollbar-color: auto;
+}
+
+/* the browsers disagree on the background of the opened list, so each entry
+   brings its own */
 .menu-control optgroup,
 .menu-control option {
-  background-color: Canvas;
-  color: CanvasText;
+  background-color: var(--INTERNAL-TOPBAR-OVERLAY-BG-color);
   padding: 0;
+}
+
+.menu-control optgroup {
+  color: var(--INTERNAL-TOPBAR-TEXT-color);
+}
+
+/* the entries are the links of the list, like the ones in the overlays of the
+   topbar; the chosen one is where we already are, so it is no link */
+.menu-control option {
+  color: var(--INTERNAL-TOPBAR-LINK-color);
+  /* the browser sets the entries of a group back to its own normal weight
+     instead of ours */
+  font-weight: var(--INTERNAL-MAIN-font-weight);
+}
+
+.menu-control option:hover {
+  color: var(--INTERNAL-TOPBAR-LINK-HOVER-color);
+  text-decoration: underline;
+}
+
+.menu-control option:checked {
+  color: var(--INTERNAL-TOPBAR-TEXT-color);
+  font-weight: var(--INTERNAL-MAIN-BOLD-font-weight);
+  text-decoration: none;
+}
+
+.menu-control option::checkmark {
+  /* the tick of a task list, without its box */
+  box-shadow: inset 1em 1em var(--INTERNAL-TOPBAR-TEXT-color);
+  clip-path: var(--tick-clip-path);
+  content: '';
+  height: 0.65em;
+  width: 0.65em;
+  /* Windows High Contrast Mode fallback must be last */
+  background-color: CanvasText;
 }
 
 .menu-control button {
@@ -3158,7 +3304,7 @@ article ul > li > :is(label, span) > input[type='checkbox'] {
 article ul > li > input[type='checkbox']::before,
 article ul > li > :is(label, span) > input[type='checkbox']::before {
   box-shadow: inset 1em 1em var(--INTERNAL-PRIMARY-color);
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  clip-path: var(--tick-clip-path);
   content: '';
   height: 0.65em;
   transform: scale(0);
