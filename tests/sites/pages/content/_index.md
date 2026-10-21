@@ -1,6 +1,6 @@
-+++
-title = 'Pages'
-+++
+---
+title: Pages
+---
 
 One section per kind of question a listing has to answer.
 

@@ -1,6 +1,6 @@
-+++
-title = 'Inner'
-weight = 10
-+++
+---
+title: Inner
+weight: 10
+---
 
 The only page below Bow.

@@ -1,17 +1,19 @@
-+++
-title = 'Front Matter'
-weight = 4
+---
+title: Front Matter
+weight: 4
 
-[params.pages]
-  display = 'list'
-  groupby = 'params.shape'
-  headinglevel = 4
-  orderby = 'weight desc'
+params:
+  pages:
+    display: list
+    groupby: params.shape
+    headinglevel: 4
+    orderby: weight desc
 
-[[cascade]]
-  [cascade.params.pages]
-    columns = 2
-+++
+cascade:
+  - params:
+      pages:
+        columns: 2
+---
 
 Parameters set in front matter rather than on the call. Three children - Round,
 Square and Nested, a branch with two pages - each carrying a `shape`.

@@ -1,7 +1,7 @@
-+++
-title = 'Details and Tabs'
-weight = 3
-+++
+---
+title: Details and Tabs
+weight: 3
+---
 
 ## Details
 

@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync, spawn } from 'child_process';
-import * as TOML from 'js-toml';
+import { findConfigFile, loadConfigFile } from '../../runner/configfile.js';
 
 // npm runs a script from the package root; work in the directory it was called from
 if (process.env.INIT_CWD) {
@@ -38,20 +38,19 @@ function findThemeDir() {
 
 const themeDir = findThemeDir();
 
-// If hvmVersion is "min", extract from hugo.toml
+// If hvmVersion is "min", extract from the theme's root configuration
 if (hvmVersion === 'min') {
-  const hugoTomlPath = path.join(themeDir, 'hugo.toml');
-  if (fs.existsSync(hugoTomlPath)) {
-    const hugoTomlContent = fs.readFileSync(hugoTomlPath, 'utf8');
-    const parsed = TOML.load(hugoTomlContent);
+  const hugoConfigPath = findConfigFile(themeDir, 'hugo');
+  if (hugoConfigPath) {
+    const parsed = loadConfigFile(hugoConfigPath);
     if (parsed.module?.hugoVersion?.min) {
       hvmVersion = parsed.module.hugoVersion.min;
     } else {
-      console.error('Could not find module.hugoVersion.min in hugo.toml');
+      console.error(`Could not find module.hugoVersion.min in ${path.basename(hugoConfigPath)}`);
       process.exit(1);
     }
   } else {
-    console.error('hugo.toml not found in theme directory');
+    console.error('No hugo configuration file found in theme directory');
     process.exit(1);
   }
 }
@@ -62,11 +61,11 @@ function findConfigDir() {
     return null;
   }
 
-  const possibleConfigs = [path.join(themeDir, 'docs', 'config', hugoEnvironment, 'hugo.toml'), path.join(themeDir, 'exampleSite', 'config', hugoEnvironment, 'hugo.toml')];
+  const possibleConfigs = [path.join(themeDir, 'docs', 'config', hugoEnvironment), path.join(themeDir, 'exampleSite', 'config', hugoEnvironment)];
 
   for (const configPath of possibleConfigs) {
-    if (fs.existsSync(configPath)) {
-      return path.dirname(configPath);
+    if (findConfigFile(configPath, 'hugo')) {
+      return configPath;
     }
   }
 
@@ -83,14 +82,13 @@ function buildConfigParam() {
   }
 
   const cwd = process.cwd();
+  const siteConfig = findConfigFile(cwd, 'config') || findConfigFile(cwd, 'hugo');
 
   if (fs.existsSync(path.join(cwd, 'config', hugoEnvironment))) {
     // In theme docs, no need to copy
     return `--environment ${hugoEnvironment}`;
-  } else if (fs.existsSync(path.join(cwd, 'config.toml'))) {
-    return `--config config.toml,${path.join(configDir, 'hugo.toml')}`;
-  } else if (fs.existsSync(path.join(cwd, 'hugo.toml'))) {
-    return `--config hugo.toml,${path.join(configDir, 'hugo.toml')}`;
+  } else if (siteConfig) {
+    return `--config ${path.basename(siteConfig)},${findConfigFile(configDir, 'hugo')}`;
   } else if (fs.existsSync(path.join(cwd, 'config'))) {
     // Copy config directory
     const targetDir = path.join(cwd, 'config', hugoEnvironment);

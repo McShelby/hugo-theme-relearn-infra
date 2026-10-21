@@ -2,11 +2,11 @@
 //
 // A case is a sequence of builds. Almost every case is a sequence of one and is
 // written flat; a case whose builds only mean something together spells the
-// sequence out with `[[builds]]` and shares one output tree between them.
+// sequence out with `builds` and shares one output tree between them.
 
 import fs from 'fs';
 import path from 'path';
-import * as TOML from 'js-toml';
+import { findConfigFile, loadConfigFile } from './configfile.js';
 import { infraRoot } from './paths.js';
 
 export const LAYERS = ['build', 'files', 'content'];
@@ -75,7 +75,7 @@ function axisValues(axis, raw, where) {
 }
 
 /**
- * Expand `[axes]` into combinations.
+ * Expand `axes` into combinations.
  *
  * Every axis is merged in; only multi-valued axes branch the tree, and they
  * nest alphabetically by axis name. That is deliberately not the order the case
@@ -160,15 +160,18 @@ function sequenceBuild(entry, themeDir, index, where, axesDir) {
 }
 
 /**
- * Read one `case.toml` and expand it into the results it produces.
+ * Read one case file and expand it into the results it produces.
  *
  * `casesDir` is a parameter so the checks can point at synthetic cases without
  * writing them into the real ones.
  */
 export function loadCase(name, themeDir, { casesDir = CASES_DIR, axesDir = AXES_DIR } = {}) {
-  const file = path.join(casesDir, name, 'case.toml');
+  const file = findConfigFile(path.join(casesDir, name), 'case');
+  if (!file) {
+    fail(path.relative(infraRoot, path.join(casesDir, name)).replace(/\\/g, '/'), 'holds no case file.');
+  }
   const where = path.relative(infraRoot, file).replace(/\\/g, '/');
-  const doc = TOML.load(fs.readFileSync(file, 'utf8')) || {};
+  const doc = loadConfigFile(file);
 
   checkKeys(doc, CASE_KEYS, where);
   const layer = layerOf(doc.layer, where);
@@ -176,11 +179,11 @@ export function loadCase(name, themeDir, { casesDir = CASES_DIR, axesDir = AXES_
   if (doc.builds !== undefined) {
     for (const key of ['site', 'environment', 'axes']) {
       if (doc[key] !== undefined) {
-        fail(where, `a case with [[builds]] cannot also declare \`${key}\` at the top level.`);
+        fail(where, `a case with \`builds\` cannot also declare \`${key}\` at the top level.`);
       }
     }
     if (!Array.isArray(doc.builds) || !doc.builds.length) {
-      fail(where, '[[builds]] must hold at least one build.');
+      fail(where, 'uilds must hold at least one build.');
     }
     return {
       name,

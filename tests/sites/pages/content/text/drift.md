@@ -1,14 +1,15 @@
-+++
-description = 'Titled D, linked as S.'
-linkTitle = 'Signal'
-tags = ['drift-ice']
-title = 'Drift'
-weight = 20
+---
+description: Titled D, linked as S.
+linkTitle: Signal
+tags:
+  - drift-ice
+title: Drift
+weight: 20
 
-[params]
-  flavor = 'tutorial'
-  tier = 'Core'
-+++
+params:
+  flavor: tutorial
+  tier: Core
+---
 
 The only page whose `linkTitle` differs from its `title`, and it differs in the
 first letter. The `title` and `linktitle` fields are documented as two different

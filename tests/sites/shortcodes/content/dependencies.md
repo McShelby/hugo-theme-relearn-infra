@@ -1,7 +1,7 @@
-+++
-title = 'Dependencies'
-weight = 4
-+++
+---
+title: Dependencies
+weight: 4
+---
 
 This page exercises the on-demand dependency loader: math and mermaid should
 each pull their assets in only because they are used here.

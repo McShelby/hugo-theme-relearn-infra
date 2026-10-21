@@ -1,14 +1,15 @@
-+++
-description = 'Hidden from the menu unless hidden says otherwise.'
-tags = ['harbor']
-title = 'Lantern'
-weight = 15
+---
+description: Hidden from the menu unless hidden says otherwise.
+tags:
+  - harbor
+title: Lantern
+weight: 15
 
-[params]
-  flavor = 'guide'
-  hidden = true
-  tier = 'Basic'
-+++
+params:
+  flavor: guide
+  hidden: true
+  tier: Basic
+---
 
 Hiding is orthogonal to grouping, so this page appears in a listing only when
 `hidden=true` is set - and when it does, it has to land in the `guide` group

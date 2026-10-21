@@ -1,0 +1,48 @@
+# One page per shortcode family.
+#
+# Kept small on purpose: a diff here should be readable, so a change to the
+# badge markup shows up as a handful of lines in badge.html rather than being
+# buried in a 2000-file docs rebuild.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL: /
+relativeURLs: true
+
+title: Shortcodes
+
+# The theme's `source` output format: a page rendered as the file it came from,
+# front matter and all - here, the shortcode calls rather than their output.
+outputs:
+  home:
+    - html
+    - rss
+    - source
+  section:
+    - html
+    - rss
+    - source
+  page:
+    - html
+    - source
+
+markup:
+  goldmark:
+    # the `pages` shortcode marks its Markdown listing with a block attribute;
+    # without this the `{class=...}` arrives in the page as literal text
+    parser:
+      attribute:
+        block: true
+    renderer:
+      unsafe: true
+    # the theme finds math formulae by these delimiters
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          inline:
+            - ['\(', '\)']
+            - ['$', '$']
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']

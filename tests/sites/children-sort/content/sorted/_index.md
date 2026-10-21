@@ -1,8 +1,8 @@
-+++
-title = 'Sorted'
-lastmod = 2024-01-01
-weight = 1
-+++
+---
+title: Sorted
+lastmod: 2024-01-01
+weight: 1
+---
 
 One listing per documented `sort` value, over the same four pages. Each block
 carries the criterion in its class, so the order below a class either matches

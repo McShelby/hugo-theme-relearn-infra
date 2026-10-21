@@ -12,7 +12,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import * as TOML from 'js-toml';
+import { CONFIG_EXTENSIONS, loadConfigFile } from './configfile.js';
 import { infraRoot } from './paths.js';
 
 /** Filenames Hugo merges at the root instead of under a key of their own. */
@@ -82,14 +82,14 @@ export function flattenDir(dir) {
     const ext = path.extname(name);
     const base = path.basename(name, ext);
 
-    if (ext.toLowerCase() !== '.toml') {
-      throw new Error(`${where}: flattening reads TOML only; ${ext || 'no extension'} is not mapped.`);
+    if (!CONFIG_EXTENSIONS.includes(ext.toLowerCase())) {
+      throw new Error(`${where}: flattening reads configuration files only; ${ext || 'no extension'} is not mapped.`);
     }
     if (base.includes('.')) {
       throw new Error(`${where}: language-suffixed config names are not mapped.`);
     }
 
-    const doc = lower(TOML.load(fs.readFileSync(where, 'utf8')) || {});
+    const doc = lower(loadConfigFile(where));
     const key = base.toLowerCase();
 
     if (ROOT_NAMES.has(key)) {

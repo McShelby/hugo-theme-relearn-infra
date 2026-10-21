@@ -1,7 +1,7 @@
-+++
-title = 'Callout'
-weight = 1
-+++
+---
+title: Callout
+weight: 1
+---
 
 {{< callout style="note" >}}
 A note without an explicit title.

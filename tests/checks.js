@@ -78,7 +78,7 @@ for (const [axis, values] of Object.entries({ urls: ['relative', 'ugly'], baseur
 
 function loadSynthetic(name, body) {
   fs.mkdirSync(path.join(casesDir, name), { recursive: true });
-  fs.writeFileSync(path.join(casesDir, name, 'case.toml'), body, 'utf8');
+  fs.writeFileSync(path.join(casesDir, name, 'case.yaml'), body, 'utf8');
   return loadCase(name, themeDir, { casesDir, axesDir });
 }
 
@@ -139,9 +139,18 @@ check('keys are lowercased, as Hugo lowercases them', () => {
   assert.deepStrictEqual(flattenDir(d), { relativeurls: true });
 });
 
-check('a non-TOML config file aborts rather than being skipped', () => {
-  const d = dir('flat-yaml', { 'hugo.yaml': 'title: x\n' });
-  throws(() => flattenDir(d), 'TOML only');
+check('YAML and JSON files are read like TOML', () => {
+  const d = dir('flat-formats', {
+    'hugo.yaml': 'title: x\n',
+    'markup.json': '{ "goldmark": { "renderer": { "unsafe": true } } }\n',
+    'params.yml': 'params:\n  a: 1\n',
+  });
+  assert.deepStrictEqual(flattenDir(d), { title: 'x', markup: { goldmark: { renderer: { unsafe: true } } }, params: { a: 1 } });
+});
+
+check('a file that is no config format aborts rather than being skipped', () => {
+  const d = dir('flat-other', { 'hugo.ini': 'title = x\n' });
+  throws(() => flattenDir(d), 'configuration files only');
 });
 
 check('a language-suffixed name aborts rather than being half-mapped', () => {
@@ -171,7 +180,7 @@ check('production is exempt from having to resolve', () => {
 // ------------------------------------------------------------ case loading
 
 check('a single-value axis does not branch the tree', () => {
-  const c = loadSynthetic('one-value', 'site = "url-permutations"\n[axes]\n  urls = "relative"\n');
+  const c = loadSynthetic('one-value', 'site: url-permutations\naxes:\n  urls: relative\n');
   assert.deepStrictEqual(
     c.results.map((r) => r.name),
     ['one-value']
@@ -180,7 +189,7 @@ check('a single-value axis does not branch the tree', () => {
 });
 
 check('a multi-value axis branches, and a scalar axis still layers', () => {
-  const c = loadSynthetic('branching', 'site = "url-permutations"\n[axes]\n  urls = ["relative", "ugly"]\n');
+  const c = loadSynthetic('branching', 'site: url-permutations\naxes:\n  urls:\n    - relative\n    - ugly\n');
   assert.deepStrictEqual(
     c.results.map((r) => r.name),
     ['branching/urls-relative', 'branching/urls-ugly']
@@ -188,7 +197,7 @@ check('a multi-value axis branches, and a scalar axis still layers', () => {
 });
 
 check('nesting is alphabetical by axis name, not case-file order', () => {
-  const c = loadSynthetic('nesting', 'site = "url-permutations"\n[axes]\n  urls = ["relative", "ugly"]\n  baseurl = ["root", "subdir"]\n');
+  const c = loadSynthetic('nesting', 'site: url-permutations\naxes:\n  urls:\n    - relative\n    - ugly\n  baseurl:\n    - root\n    - subdir\n');
   assert.ok(
     c.results.every((r) => /^nesting\/baseurl-[a-z]+\/urls-[a-z]+$/.test(r.name)),
     `unexpected result names: ${c.results.map((r) => r.name).join(', ')}`
@@ -196,74 +205,74 @@ check('nesting is alphabetical by axis name, not case-file order', () => {
 });
 
 check('config order follows the case file, not the nesting', () => {
-  const c = loadSynthetic('order', 'site = "url-permutations"\n[axes]\n  urls = "relative"\n  baseurl = "root"\n');
+  const c = loadSynthetic('order', 'site: url-permutations\naxes:\n  urls: relative\n  baseurl: root\n');
   const [urls, baseurl] = c.results[0].builds[0].layers;
   assert.ok(urls.endsWith(path.join('urls', 'relative')), `first layer was ${urls}`);
   assert.ok(baseurl.endsWith(path.join('baseurl', 'root')), `second layer was ${baseurl}`);
 });
 
 check('the layer defaults to content and opts down', () => {
-  assert.strictEqual(loadSynthetic('layer-default', 'site = "minimal"\n').layer, 'content');
-  assert.strictEqual(loadSynthetic('layer-files', 'layer = "files"\nsite = "minimal"\n').layer, 'files');
+  assert.strictEqual(loadSynthetic('layer-default', 'site: minimal\n').layer, 'content');
+  assert.strictEqual(loadSynthetic('layer-files', 'layer: files\nsite: minimal\n').layer, 'files');
 });
 
 check('an unknown key in a case file aborts', () => {
-  throws(() => loadSynthetic('typo', 'site = "minimal"\nenviroment = "testing"\n'), 'unknown key', 'enviroment');
+  throws(() => loadSynthetic('typo', 'site: minimal\nenviroment: testing\n'), 'unknown key', 'enviroment');
 });
 
 check('an environment given a list aborts', () => {
-  throws(() => loadSynthetic('env-list', 'site = "minimal"\nenvironment = ["a", "b"]\n'), 'one name');
+  throws(() => loadSynthetic('env-list', 'site: minimal\nenvironment:\n  - a\n  - b\n'), 'one name');
 });
 
 check('naming _default as an environment aborts', () => {
-  throws(() => loadSynthetic('env-default', 'site = "minimal"\nenvironment = "_default"\n'), 'not selectable');
+  throws(() => loadSynthetic('env-default', 'site: minimal\nenvironment: _default\n'), 'not selectable');
 });
 
 check('an invalid layer aborts', () => {
-  throws(() => loadSynthetic('layer-bad', 'layer = "contents"\nsite = "minimal"\n'), 'layer', 'contents');
+  throws(() => loadSynthetic('layer-bad', 'layer: contents\nsite: minimal\n'), 'layer', 'contents');
 });
 
 check('an unknown site aborts', () => {
-  throws(() => loadSynthetic('site-bad', 'site = "nosuchfixture"\n'), 'does not exist');
+  throws(() => loadSynthetic('site-bad', 'site: nosuchfixture\n'), 'does not exist');
 });
 
 check('an axis value with no directory aborts', () => {
-  throws(() => loadSynthetic('axis-bad', 'site = "minimal"\n[axes]\n  urls = "sideways"\n'), 'no value');
+  throws(() => loadSynthetic('axis-bad', 'site: minimal\naxes:\n  urls: sideways\n'), 'no value');
 });
 
 check('a sequence build carrying two axis values aborts', () => {
-  throws(() => loadSynthetic('seq-multi', '[[builds]]\n  site = "url-permutations"\n  [builds.axes]\n    urls = ["relative", "ugly"]\n'), 'more than one value');
+  throws(() => loadSynthetic('seq-multi', 'builds:\n  - site: url-permutations\n    axes:\n      urls:\n        - relative\n        - ugly\n'), 'more than one value');
 });
 
 check('a one-element array is accepted where one value is required', () => {
-  const c = loadSynthetic('seq-array', '[[builds]]\n  site = "url-permutations"\n  [builds.axes]\n    urls = ["relative"]\n');
+  const c = loadSynthetic('seq-array', 'builds:\n  - site: url-permutations\n    axes:\n      urls:\n        - relative\n');
   assert.strictEqual(c.results[0].builds[0].layers.length, 1);
 });
 
-check('a case mixing [[builds]] with a top-level site aborts', () => {
-  throws(() => loadSynthetic('seq-mixed', 'site = "minimal"\n[[builds]]\n  site = "minimal"\n'), 'cannot also declare');
+check('a case mixing `builds` with a top-level site aborts', () => {
+  throws(() => loadSynthetic('seq-mixed', 'site: minimal\nbuilds:\n  - site: minimal\n'), 'cannot also declare');
 });
 
 check('a dest leaving the result root aborts', () => {
-  throws(() => loadSynthetic('seq-escape', '[[builds]]\n  site = "minimal"\n  dest = "../outside"\n'), 'leaves the result root');
+  throws(() => loadSynthetic('seq-escape', "builds:\n  - site: minimal\n    dest: '../outside'\n"), 'leaves the result root');
 });
 
 check('a sequence is one result however many builds it has', () => {
-  const c = loadSynthetic('seq-one-result', '[[builds]]\n  site = "minimal"\n[[builds]]\n  site = "shortcodes"\n  dest = "beneath"\n');
+  const c = loadSynthetic('seq-one-result', 'builds:\n  - site: minimal\n  - site: shortcodes\n    dest: beneath\n');
   assert.strictEqual(c.results.length, 1);
   assert.strictEqual(c.results[0].builds.length, 2);
   assert.strictEqual(c.results[0].builds[1].dest, 'beneath');
 });
 
 check('a theme site resolves against the checkout and supplies its own theme', () => {
-  const c = loadSynthetic('at-theme', 'site = "docs@theme"\nenvironment = "testing"\n');
+  const c = loadSynthetic('at-theme', 'site: docs@theme\nenvironment: testing\n');
   const b = c.results[0].builds[0];
   assert.strictEqual(b.injectTheme, false);
   assert.strictEqual(b.dir, path.join(themeDir, 'docs'));
 });
 
 check('a fixture is given the theme by the runner', () => {
-  const b = loadSynthetic('fixture-theme', 'site = "minimal"\n').results[0].builds[0];
+  const b = loadSynthetic('fixture-theme', 'site: minimal\n').results[0].builds[0];
   assert.strictEqual(b.injectTheme, true);
 });
 

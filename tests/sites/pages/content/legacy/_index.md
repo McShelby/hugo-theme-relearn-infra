@@ -1,8 +1,8 @@
-+++
-ordersectionsby = 'name'
-title = 'Legacy'
-weight = 6
-+++
+---
+ordersectionsby: name
+title: Legacy
+weight: 6
+---
 
 The deprecated `children` shortcode, now a translation into `pages`. Three
 children - Aft, Bow, a branch with one page, and Keel, hidden - weighted in the

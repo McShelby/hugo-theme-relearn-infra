@@ -1,7 +1,7 @@
-+++
-title = 'Details'
-weight = 2
-+++
+---
+title: Details
+weight: 2
+---
 
 A page footnote.[^page]
 

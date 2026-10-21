@@ -8,7 +8,7 @@ import os from 'os';
 import path from 'path';
 import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import * as TOML from 'js-toml';
+import { findConfigFile, loadConfigFile } from './configfile.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -42,12 +42,15 @@ export function resolveThemeDir() {
   throw new Error(`Relearn theme not found. Looked in:\n  ${candidates.join('\n  ')}\n` + 'Set RELEARN_THEME_DIR to your theme checkout.');
 }
 
-/** The theme's declared minimum Hugo version, from its hugo.toml. */
+/** The theme's declared minimum Hugo version, from its root configuration. */
 export function minHugoVersion(themeDir) {
-  const parsed = TOML.load(fs.readFileSync(path.join(themeDir, 'hugo.toml'), 'utf8'));
-  const min = parsed.module?.hugoVersion?.min;
+  const where = findConfigFile(themeDir, 'hugo');
+  if (!where) {
+    throw new Error(`no hugo configuration file in the theme at ${themeDir}`);
+  }
+  const min = loadConfigFile(where).module?.hugoVersion?.min;
   if (!min) {
-    throw new Error('module.hugoVersion.min is not set in the theme hugo.toml');
+    throw new Error(`module.hugoVersion.min is not set in ${where}`);
   }
   return min.startsWith('v') ? min : `v${min}`;
 }

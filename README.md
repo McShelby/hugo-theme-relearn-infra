@@ -116,22 +116,25 @@ Version selection asks [hvm](https://github.com/jmooring/hvm) for the executable
 
 A **case** says what to build and how deeply to check it. A **site** is content plus the configuration it needs to be itself. An **axis** is a dimension of configuration whose values are config directories. Most cases are one site in one configuration; some vary an axis and produce a result per combination; some spell out several builds that share one output tree.
 
-```toml
-# tests/cases/url-permutations/case.toml
-site        = "url-permutations"
-environment = "testing"
+```yaml
+# tests/cases/url-permutations/case.yaml
+site: url-permutations
+environment: testing
 
-[axes]
-  urls = ["relative", "absolute", "ugly"]
+axes:
+  urls:
+    - relative
+    - absolute
+    - ugly
 ```
 
 One content set, one result per mode. `urls` is a directory per value under `tests/axes/`, and adding another mode is a directory and a name:
 
 | Value | Settings | A link renders as |
 |---|---|---|
-| `relative` | `relativeURLs = true` | `./first-page/index.html` |
-| `absolute` | `relativeURLs = false`, subdirectory `baseURL` | `/subdir/first-page/index.html` |
-| `ugly` | `uglyURLs = true` | `/first-page.html` |
+| `relative` | `relativeURLs` set to `true` | `./first-page/index.html` |
+| `absolute` | `relativeURLs` set to `false`, subdirectory `baseURL` | `/subdir/first-page/index.html` |
+| `ugly` | `uglyURLs` set to `true` | `/first-page.html` |
 
 A site name ending in `@theme` resolves against the theme checkout rather than `tests/sites/`, so `docs@theme` is the theme's own documentation, built in place and always matching the code under test. It also settles who supplies the theme: a site inside the theme resolves it itself, a fixture is handed it by the runner.
 
@@ -151,18 +154,17 @@ A result is stored under `tests/expected/<case>/`, named after the layer that pu
 
 Some results are not one Hugo build. `github` is the docs with the exampleSite beneath them, which is what GitHub Pages actually serves. Built separately, nothing checks the links running between them.
 
-```toml
-# tests/cases/github/case.toml
-layer = "files"
+```yaml
+# tests/cases/github/case.yaml
+layer: files
 
-[[builds]]
-  site        = "docs@theme"
-  environment = "github"
+builds:
+  - site: docs@theme
+    environment: github
 
-[[builds]]
-  site        = "exampleSite@theme"
-  environment = "github"
-  dest        = "exampleSite"
+  - site: exampleSite@theme
+    environment: github
+    dest: exampleSite
 ```
 
 `dest` says where in the shared tree a build writes. The builds run in the order written, and the result is compared once, as a whole.
@@ -171,7 +173,7 @@ layer = "files"
 
 Hugo reads one config directory, and only `_default/` and `<env>/` beneath it, so a site's own configuration cannot be layered onto from outside. The runner assembles a directory instead: the site's `_default` copied verbatim, and the environment and the build's axes merged into a single `<env>/hugo.json`.
 
-Copying `_default` rather than parsing it is deliberate — that is where the filename convention gets awkward, with language-suffixed names and `module.toml`, and copying leaves all of it with Hugo.
+Copying `_default` rather than parsing it is deliberate — that is where the filename convention gets awkward, with language-suffixed names and `module.yaml`, and copying leaves all of it with Hugo.
 
 An environment resolves in the site's own `config/` or in `tests/environments/`. A site answers for itself where it can; this repository answers for sites that have none. `testing` is held in both places — the theme keeps a copy per site so `hugo -e testing` works by hand — and the runner aborts if the copies ever stop agreeing.
 
@@ -217,15 +219,15 @@ These files are a record of known outstanding work, **not a place to silence noi
 
 ```bash
 mkdir -p tests/sites/yoursite/config/_default tests/sites/yoursite/content
-# write config/_default/hugo.toml — about the site, not about determinism
+# write config/_default/hugo.yaml — about the site, not about determinism
 mkdir -p tests/cases/yoursite
-# write case.toml: site = "yoursite", environment = "testing"
+# write case.yaml: site: yoursite, environment: testing
 node tests/golden.js --build=yoursite --update
 ```
 
 Review the generated `tests/expected/yoursite/` and commit site, case and output together. If a site needs hundreds of pages, it is testing the wrong thing.
 
-A site is served from a webserver **and** from the file system, which is `baseURL = '/'` and `relativeURLs = true` in its `config/_default/hugo.toml`. That is the portable mode — no host baked into a page, every link resolved against the page carrying it — so a baseline records what the theme generated rather than where a fixture pretended to live. Only a case that is *about* URL generation departs from it, and says so in its own configuration: `url-permutations` varies exactly this on the `urls` axis.
+A site is served from a webserver **and** from the file system, which is `baseURL` set to `/` and `relativeURLs` set to `true` in its `config/_default/hugo.yaml`. That is the portable mode — no host baked into a page, every link resolved against the page carrying it — so a baseline records what the theme generated rather than where a fixture pretended to live. Only a case that is *about* URL generation departs from it, and says so in its own configuration: `url-permutations` varies exactly this on the `urls` axis.
 
 `--build` matches a path prefix, so a case name runs everything in it and a combination runs the one. Asking for something that does not exist prints what does, which is the quickest way to check:
 

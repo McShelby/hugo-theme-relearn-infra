@@ -1,12 +1,13 @@
-+++
-title = 'Charlie'
-tags = ['two']
-weight = 4
-date = 2021-01-01
-lastmod = 2020-01-01
-publishDate = 2019-04-01
-expiryDate = 2091-01-01
-+++
+---
+title: Charlie
+tags:
+  - two
+weight: 4
+date: 2021-01-01
+lastmod: 2020-01-01
+publishDate: 2019-04-01
+expiryDate: 2091-01-01
+---
 
 The third shortest body in the site, which is to say the second longest.
 

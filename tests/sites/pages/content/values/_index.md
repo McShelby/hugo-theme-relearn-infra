@@ -1,7 +1,7 @@
-+++
-title = 'Values'
-weight = 8
-+++
+---
+title: Values
+weight: 8
+---
 
 What an expression makes of a value that is not plain text: a missing weight,
 zero, padding, a list, a map, and one key holding numbers and text alike. Five

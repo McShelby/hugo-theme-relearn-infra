@@ -1,7 +1,7 @@
-+++
-title = 'Badge and Button'
-weight = 2
-+++
+---
+title: Badge and Button
+weight: 2
+---
 
 ## Badge
 

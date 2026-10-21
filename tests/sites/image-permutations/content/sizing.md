@@ -1,7 +1,7 @@
-+++
-title = 'Sizing'
-weight = 1
-+++
+---
+title: Sizing
+weight: 1
+---
 
 `width` and `height` are CSS lengths - `20vw` and `50%` are as valid as `50px` -
 so they are style, not pixel counts. The intrinsic dimensions of the resource
