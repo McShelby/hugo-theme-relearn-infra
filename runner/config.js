@@ -7,8 +7,8 @@
 // build's axes merged together.
 //
 // `_default` is copied rather than parsed on purpose. It is where the filename
-// convention gets awkward - language-suffixed names, `module.toml`,
-// `languages.toml` - and copying it leaves all of that with Hugo.
+// convention gets awkward - language-suffixed names, `module.yaml`,
+// `languages.yaml` - and copying it leaves all of that with Hugo.
 
 import fs from 'fs';
 import path from 'path';
@@ -57,7 +57,7 @@ export function merge(target, source) {
  * Read a config directory into a single document.
  *
  * A file named `hugo` or `config` merges at the root. Any other name wraps the
- * file under its own basename - `params.toml` holding `a = 1` becomes
+ * file under its own basename - `params.yaml` holding `a: 1` becomes
  * `params.a` - unless the file's sole top-level key already equals that
  * basename, in which case it is taken as it stands. A file holding both a
  * matching key and something else unwraps neither, which is surprising but is
@@ -147,7 +147,7 @@ export function resolveEnvironmentDir(siteDir, name) {
  *
  * `layers` are directories merged in config order - the environment first,
  * then this build's axis values - into a single `<env>/hugo.json`. JSON
- * because Hugo takes it exactly as it takes TOML, and because writing it needs
+ * because Hugo takes it exactly as it takes YAML, and because writing it needs
  * no serialiser we do not already have.
  */
 export function assemble({ outDir, siteDir, environment, layers = [] }) {
@@ -159,7 +159,7 @@ export function assemble({ outDir, siteDir, environment, layers = [] }) {
   } else {
     // Hugo reads only `_default/` and `<env>/` beneath a config directory, and
     // ignores a directory that has neither without a word. The level always
-    // exists, even when the site keeps its configuration in a root hugo.toml.
+    // exists, even when the site keeps its configuration in a root hugo.yaml.
     fs.mkdirSync(path.join(outDir, '_default'), { recursive: true });
   }
 
