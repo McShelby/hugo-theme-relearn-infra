@@ -530,6 +530,10 @@ frontmatter/sidebarmenus/index.html
 frontmatter/sidebarmenus/index.md
 frontmatter/sidebarmenus/index.print.html
 frontmatter/sidebarmenus/index.xml
+frontmatter/table.sortable/index.html
+frontmatter/table.sortable/index.md
+frontmatter/table.sortable/index.print.html
+frontmatter/table.sortable/index.xml
 frontmatter/topbarend/index.html
 frontmatter/topbarend/index.md
 frontmatter/topbarend/index.print.html
@@ -1286,6 +1290,10 @@ introduction/releasenotes/9/3/index.html
 introduction/releasenotes/9/3/index.md
 introduction/releasenotes/9/3/index.print.html
 introduction/releasenotes/9/3/index.source.md
+introduction/releasenotes/9/4/index.html
+introduction/releasenotes/9/4/index.md
+introduction/releasenotes/9/4/index.print.html
+introduction/releasenotes/9/4/index.source.md
 introduction/releasenotes/9/index.html
 introduction/releasenotes/9/index.md
 introduction/releasenotes/9/index.print.html
@@ -1613,6 +1621,10 @@ options/sidebarmenus/index.html
 options/sidebarmenus/index.md
 options/sidebarmenus/index.print.html
 options/sidebarmenus/index.xml
+options/table.sortable/index.html
+options/table.sortable/index.md
+options/table.sortable/index.print.html
+options/table.sortable/index.xml
 options/themevariant/index.html
 options/themevariant/index.md
 options/themevariant/index.print.html
@@ -2160,6 +2172,10 @@ pir/frontmatter/sidebarmenus/index.html
 pir/frontmatter/sidebarmenus/index.md
 pir/frontmatter/sidebarmenus/index.print.html
 pir/frontmatter/sidebarmenus/index.xml
+pir/frontmatter/table.sortable/index.html
+pir/frontmatter/table.sortable/index.md
+pir/frontmatter/table.sortable/index.print.html
+pir/frontmatter/table.sortable/index.xml
 pir/frontmatter/topbarend/index.html
 pir/frontmatter/topbarend/index.md
 pir/frontmatter/topbarend/index.print.html
@@ -2910,6 +2926,10 @@ pir/introduction/releasenotes/9/3/index.html
 pir/introduction/releasenotes/9/3/index.md
 pir/introduction/releasenotes/9/3/index.print.html
 pir/introduction/releasenotes/9/3/index.source.md
+pir/introduction/releasenotes/9/4/index.html
+pir/introduction/releasenotes/9/4/index.md
+pir/introduction/releasenotes/9/4/index.print.html
+pir/introduction/releasenotes/9/4/index.source.md
 pir/introduction/releasenotes/9/index.html
 pir/introduction/releasenotes/9/index.md
 pir/introduction/releasenotes/9/index.print.html
@@ -3211,6 +3231,10 @@ pir/options/sidebarmenus/index.html
 pir/options/sidebarmenus/index.md
 pir/options/sidebarmenus/index.print.html
 pir/options/sidebarmenus/index.xml
+pir/options/table.sortable/index.html
+pir/options/table.sortable/index.md
+pir/options/table.sortable/index.print.html
+pir/options/table.sortable/index.xml
 pir/options/themevariant/index.html
 pir/options/themevariant/index.md
 pir/options/themevariant/index.print.html

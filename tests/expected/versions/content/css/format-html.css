@@ -160,7 +160,7 @@
   --BOX-BG-color: rgba( 20, 20, 20, 1 ); /* background color of colored boxes */
   --BOX-TEXT-color: rgba( 224, 224, 224, 1 ); /* text color of colored box content */
   --BOX-NEUTRAL-color: rgba( 72, 72, 72, 1 ); /* background color of neutral boxes */
-  --BOX-YELLOW-color: rgba( 167, 132, 0, 1 ); /* background color of yellow boxes */
+  --BOX-YELLOW-color: rgba( 171, 134, 0, 1 ); /* background color of yellow boxes */
 }
 
 /* Generated using: hugo gen chromastyles --style monokai --highlightStyle bg:#404042 */
@@ -449,9 +449,9 @@
   --BOX-GREEN-color: rgba( 42, 178, 24, 1 ); /* background color of green boxes */
   --BOX-GREY-color: rgba( 160, 160, 160, 1 ); /* background color of grey boxes */
   --BOX-MAGENTA-color: rgba( 229, 50, 210, 1 ); /* background color of magenta boxes */
-  --BOX-ORANGE-color: rgba( 220, 103, 0, 1 ); /* background color of orange boxes */
+  --BOX-ORANGE-color: rgba( 207, 110, 0, 1 ); /* background color of orange boxes */
   --BOX-RED-color: rgba( 224, 62, 62, 1 ); /* background color of red boxes */
-  --BOX-YELLOW-color: rgba( 184, 143, 0, 1 ); /* background color of yellow boxes */
+  --BOX-YELLOW-color: rgba( 185, 143, 0, 1 ); /* background color of yellow boxes */
   --BOX-NEUTRAL-color: rgba( 208, 208, 208, 1 ); /* background color of neutral boxes */
   --BOX-CODE-color: var( --BOX-NEUTRAL-color ); /* background color of code boxes */
 }
