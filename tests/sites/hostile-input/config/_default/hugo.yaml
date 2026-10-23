@@ -11,7 +11,7 @@ relativeURLs: true
 title: Hostile Input
 
 # Whether raw HTML is let through is the `unsafe` axis of the case, as it
-# decides whether script URLs are refused.
+# decides whether markup spelled by a value survives.
 markup:
   goldmark:
     # block attributes are how Markdown hands a value to a code block, a table

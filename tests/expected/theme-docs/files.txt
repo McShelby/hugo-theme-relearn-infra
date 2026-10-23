@@ -1589,6 +1589,10 @@ options/search.index.disable/index.html
 options/search.index.disable/index.md
 options/search.index.disable/index.print.html
 options/search.index.disable/index.xml
+options/search.index.json/index.html
+options/search.index.json/index.md
+options/search.index.json/index.print.html
+options/search.index.json/index.xml
 options/search.index.url/index.html
 options/search.index.url/index.md
 options/search.index.url/index.print.html
@@ -3587,7 +3591,9 @@ pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
 searchindex.en.js
+searchindex.en.json
 searchindex.pir.js
+searchindex.pir.json
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf

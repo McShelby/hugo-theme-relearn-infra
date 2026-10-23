@@ -1,11 +1,11 @@
-# The `unsafe` axis provokes these on purpose.
+# The hostile values provoke these on purpose.
 #
-# Here the warnings are the assertion, not an accepted defect: with raw HTML
-# refused, Goldmark drops the markup some hostile values spell, and the theme
-# replaces every script URL and says so, once per value and page. What was
+# Here the warnings are the assertion, not an accepted defect: the theme
+# replaces every script URL and says so, once per value and page, and with raw
+# HTML refused, Goldmark drops the markup some hostile values spell. What was
 # replaced is in the stored output; this only lets the build through to be
 # compared. The file path the messages start or go on with is left out, as it
 # depends on where the site was built.
 
 Raw HTML omitted while rendering
-is a script URL and was replaced, as 'markup.goldmark.renderer.unsafe' lets no raw HTML through
+is a script URL and was replaced; to run code use a button or card with this URL as 'href'
