@@ -372,7 +372,7 @@ exampleSite/fonts/robotoflex/RobotoFlex.greek.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.latin-ext.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.latin.woff2
 exampleSite/fonts/robotoflex/RobotoFlex.vietnamese.woff2
-exampleSite/images/logo.a1257280007038bb76b966111d77da02ed8a5079169c0f9374f728c0c54c441c.svg
+exampleSite/images/logo.b8739f63b5e4cec3cdb9869d0ac3614f2c2593603cf890a1efa21127a4857946.svg
 exampleSite/images/logo.svg
 exampleSite/index.html
 exampleSite/index.print.html
@@ -702,7 +702,7 @@ frontmatter/urlignorecheck/index.print.html
 frontmatter/urlignorecheck/index.xml
 google8f3828b298875b45.html
 images/hero.png
-images/logo.d30ab0425821f45713322a73c1eeb192e311689b03371519abbe061a24d1201e.svg
+images/logo.d2952b3b403590be64a7c6c1d73fd7d15a09e0fad6b532e5a2f23d990c5503df.svg
 images/logo.svg
 images/magic.gif
 images/screenshot.png
@@ -3734,9 +3734,9 @@ pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
 searchindex.en.json
-searchindex.en.min.e79914f7331edfd984abc604818280835781ae6c48af31858e49cd3640067e80.js
+searchindex.en.min.8cb3586d593d28e7786e73c0da384b95eb8494d8ba486a57e9ca0507a9de6571.js
 searchindex.pir.json
-searchindex.pir.min.e719a720b56c0fb16ab52a62ef48b168c648c7c9f486dd764ac767dee6a3b15f.js
+searchindex.pir.min.24e9c2e65935f741f18d927571ee8f10f1c270f467be93ef493a1c83787a013f.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
