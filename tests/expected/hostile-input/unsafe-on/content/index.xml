@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hostile Input</title>
+    <link>/index.html</link>
+    <description>Every place an author can hand the theme a value that ends up in an attribute, filled with values made to break out of it:&#xA;Boxes - button, callout, badge and icon Figure - Hugo’s figure shortcode, drawn by the theme Images and Links - the partials behind the image and link render hooks Markdown - the render hooks, reached through Markdown alone Front Matter - a title and terms, which reach menu, breadcrumbs and lists Resources - a file name the theme turns into a link Cards - URLs a card runs or links Menu URL and Menu Page Ref - where a page’s menu entry leads instead, next to a menu from the configuration</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boxes</title>
+      <link>/boxes/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/boxes/index.html</guid>
+      <description>Button Hint Hint Hint Hint Hint Hint Hint Hint Hint Hint Link Link Link Link Link Link Link Link Link A button given a type runs code; a destination that is no script URL it has no use for.</description>
+    </item>
+    <item>
+      <title>Figure</title>
+      <link>/figure/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/figure/index.html</guid>
+      <description>The caption and the attribution are Markdown and may hold HTML, so they are left out; the alt text a caption falls back to is not.&#xA;Text &#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt; &#39; onfocus=alert(2) autofocus x=&#39; `&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt; &amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt; &amp;quot; onmouseover=&amp;quot;alert(5) C:\path\&#34;;alert(6);// $1 ${1} $$ %s %d %n {0} --&gt;&lt;/style&gt;&lt;/script&gt;&lt;!-- line one line two&#x9;tab “smart” ‘quotes’ ＜full＞ ‮reversed Alt Text From the Caption It’s a caption with &lt;escaped&gt; markup &amp; an ampersand</description>
+    </item>
+    <item>
+      <title>Images and Links</title>
+      <link>/images-links/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/images-links/index.html</guid>
+      <description>The partials behind the image and link render hooks, called as a template calls them.&#xA;Image Link Title Title Title Title Title Title Title Title Title Title Target Target Target Target Target Target Target Target Target Target URL URL URL URL URL URL URL URL URL Blockquote Quoted&#xA;Author</description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>/markdown/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/markdown/index.html</guid>
+      <description>The render hooks, reached through Markdown alone. The values are those of data/hostile.yaml, spelled the way Markdown needs them.&#xA;Image Alt Text</description>
+    </item>
+    <item>
+      <title>&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt; Front Matter</title>
+      <link>/front-matter/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/front-matter/index.html</guid>
+      <description>A title and terms, which the theme writes into the menu, the breadcrumbs, the document title, the neighbouring pages’ navigation and the term lists.</description>
+    </item>
+    <item>
+      <title>Resources</title>
+      <link>/resources/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/index.html</guid>
+      <description>A file name the theme turns into a link: its spaces must not end the link, a colon must not make it a scheme and an entity must not be decoded. A % or # is left out, as Hugo itself can not give such a resource a URL. A file name can not hold a colon everywhere, so those names are given in front matter.&#xA;Attachments a file &amp; more.txt (28 B) c:notes.txt (27 B) javascript:alert(1).txt (32 B) x&amp;lt;y.txt (29 B)</description>
+    </item>
+    <item>
+      <title>Cards</title>
+      <link>/cards/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/cards/index.html</guid>
+      <description>A card runs the code of a script URL however it is spelled, and links any other URL like the link shortcode does.&#xA;Script Runs code Mixed case Runs code No code Runs nothing, still no link Phone Keeps its scheme Entities Keeps its query Blank Links nowhere An image as data URL</description>
+    </item>
+    <item>
+      <title>Menu URL</title>
+      <link>/menu-url/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/menu-url/index.html</guid>
+      <description>Its menu entry leads to a script URL given in front matter.</description>
+    </item>
+    <item>
+      <title>Menu Page Ref</title>
+      <link>/menu-pageref/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/menu-pageref/index.html</guid>
+      <description>Its menu entry leads to another page given in front matter.</description>
+    </item>
+  </channel>
+</rss>

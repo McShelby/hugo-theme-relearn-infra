@@ -1,0 +1,16 @@
+# Hostile values in every place an author can put a value into an attribute,
+# taken from established collections of such input. Each must come out as the
+# text it is - never ending its attribute, never decoded into markup.
+#
+# The `unsafe` axis decides about script URLs. Like Goldmark, the theme only
+# refuses them where the site lets no raw HTML through, as an author could
+# write a script link as HTML otherwise; built both ways, the same link shows
+# up once replaced and once as written.
+
+site: hostile-input
+environment: testing
+
+axes:
+  unsafe:
+    - 'off'
+    - 'on'

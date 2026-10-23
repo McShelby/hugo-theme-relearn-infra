@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags :: Hostile Input</title>
+    <link>/tags/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tag :: &#39;&gt;&lt;Img Src=x Onerror=alert(3)&gt;</title>
+      <link>/tags/img-srcx-onerroralert3/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/img-srcx-onerroralert3/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: &lt;B&gt;bold</title>
+      <link>/tags/bbold/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/bbold/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: 100% $1 ${1} &amp; More</title>
+      <link>/tags/100-1-1--more/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/100-1-1--more/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: C#</title>
+      <link>/tags/c%23/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/c%23/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag :: Why?</title>
+      <link>/tags/why/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/why/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

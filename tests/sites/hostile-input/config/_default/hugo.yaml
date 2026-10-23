@@ -1,0 +1,42 @@
+# Hostile values in every place an author can put a value into an attribute.
+#
+# The values themselves live in `data/hostile.yaml`; the pages put them into
+# shortcodes, render hooks and front matter.
+
+# Served from a webserver and from the file system alike: no host to bake into
+# a page, and site-relative URLs rewritten relative to the page carrying them.
+baseURL: /
+relativeURLs: true
+
+title: Hostile Input
+
+# Whether raw HTML is let through is the `unsafe` axis of the case, as it
+# decides whether script URLs are refused.
+markup:
+  goldmark:
+    # block attributes are how Markdown hands a value to a code block, a table
+    # or a blockquote; without them those positions can not be reached
+    parser:
+      attribute:
+        block: true
+
+# A menu from the configuration, whose entries are resolved once for every page
+# showing them: a page, a script URL and a scheme a browser uses on its own.
+menus:
+  shortcuts:
+    - name: Page Ref
+      pageRef: /boxes
+      weight: 1
+    - name: Script URL
+      url: 'javascript:alert(43)'
+      weight: 2
+    - name: Phone
+      url: 'tel:+123'
+      weight: 3
+
+params:
+  sidebarmenus:
+    - type: page
+      identifier: home
+    - type: menu
+      identifier: shortcuts

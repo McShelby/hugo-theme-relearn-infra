@@ -1,0 +1,101 @@
+# Values an author may hand the theme, each chosen to break out of the place it
+# is written to. They come from established collections of hostile input:
+#
+# - BLNS: the Big List of Naughty Strings, sections "Script Injection",
+#   "Quotation Marks" and "Unwanted Interpolation"
+#   https://github.com/minimaxir/big-list-of-naughty-strings
+# - OWASP: the XSS Filter Evasion Cheat Sheet
+#   https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+# - PortSwigger: cross-site scripting contexts
+#   https://portswigger.net/web-security/cross-site-scripting/contexts
+#
+# Every value must arrive as the text it is, in every position: never ending the
+# attribute or element it sits in, never decoded into markup, never mangled.
+
+# for attributes holding text: titles, hints, alt texts, classes
+text:
+  # BLNS: ends a double-quoted attribute and the element
+  - name: double-quote
+    value: '"><script>alert(1)</script>'
+  # BLNS: ends a single-quoted attribute and adds an event handler
+  - name: single-quote
+    value: "' onfocus=alert(2) autofocus x='"
+  # BLNS: all three quote characters, for whichever delimits the attribute
+  - name: all-quotes
+    value: '`"''><img src=x onerror=alert(3)>'
+  # BLNS: already encoded markup; decoding it once too often makes it live
+  - name: encoded-markup
+    value: '&lt;script&gt;alert(&#39;4&#39;)&lt;/script&gt;'
+  # PortSwigger: a quote as entity, which a browser decodes inside an attribute
+  - name: encoded-quote
+    value: '&quot; onmouseover=&quot;alert(5)'
+  # BLNS: a backslash, which Go's %q doubles and an escaped quote follows
+  - name: backslash
+    value: 'C:\path\";alert(6);//'
+  # BLNS: group references of a regular expression and format verbs of printf
+  - name: interpolation
+    value: '$1 ${1} $$ %s %d %n {0}'
+  # comment and raw text closers, for a value that lands in such a context
+  - name: closers
+    value: '--></style></script><!--'
+  # control characters inside a value
+  - name: whitespace
+    value: "line one\nline two\ttab"
+  # BLNS: typographic and full width quotes and a right-to-left override
+  - name: unicode
+    value: "\u201csmart\u201d \u2018quotes\u2019 \uff1cfull\uff1e \u202ereversed"
+
+# for attributes holding a URL: href, src, cite
+url:
+  # BLNS: a script URL
+  - name: javascript
+    value: 'javascript:alert(11)'
+  # BLNS: the scheme in mixed case
+  - name: mixed-case
+    value: 'JaVaSCript:alert(12)'
+  # a script URL running no code, still no destination to link to
+  - name: no-code
+    value: 'javascript:'
+  # OWASP: the scheme broken up by an encoded tab, which a browser drops
+  - name: encoded-tab
+    value: 'jav&#x09;ascript:alert(13)'
+  # OWASP: the scheme spelled as decimal character references
+  - name: encoded-scheme
+    value: '&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;alert(14)'
+  # OWASP: a document in a data URL
+  - name: data
+    value: 'data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4='
+  # a quote ending the attribute from inside a URL
+  - name: breakout
+    value: 'https://example.com/"onmouseover="alert(16)'
+  # query parameters named like entities a browser decodes without semicolon
+  - name: legacy-entities
+    value: 'https://example.com/?a=1&copy=2&lt=3&not=4&amp;b=5'
+  # BLNS: group references inside a URL; format verbs like %s are left out, as
+  # a `%` starting no escape makes no valid URL and ends the build by design
+  - name: interpolation
+    value: 'https://example.com/$1/?q=${1}'
+
+# for attributes holding CSS: colors
+css:
+  # color syntaxes old and new, which must all arrive unchanged; none is
+  # special to the theme, so a later one passes just the same
+  - name: function
+    value: 'rgba(255, 0, 0, 0.5)'
+  - name: space-separated
+    value: 'rgb(0 0 0 / 50%)'
+  - name: oklch
+    value: 'oklch(70% 0.1 200)'
+  - name: color-mix
+    value: 'color-mix(in srgb, red 30%, blue)'
+  - name: variable
+    value: 'var(--PRIMARY-color)'
+  # ends the declaration and pulls in a script URL
+  - name: declaration
+    value: 'red;background:url(javascript:alert(21))'
+  # ends the attribute from inside the style
+  - name: breakout
+    value: 'red" onclick="alert(22)'
+  # OWASP: an old Internet Explorer expression
+  - name: expression
+    value: 'expression(alert(23))'

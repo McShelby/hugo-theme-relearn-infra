@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html id="R-html" lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="The partials behind the image and link render hooks, called as a template calls them.
+Image Link Title Title Title Title Title Title Title Title Title Title Target Target Target Target Target Target Target Target Target Target URL URL URL URL URL URL URL URL URL Blockquote Quoted
+Author">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Images and Links :: Hostile Input">
+    <meta name="twitter:description" content="The partials behind the image and link render hooks, called as a template calls them.
+Image Link Title Title Title Title Title Title Title Title Title Title Target Target Target Target Target Target Target Target Target Target URL URL URL URL URL URL URL URL URL Blockquote Quoted
+Author">
+    <meta property="og:url" content="/images-links/index.html">
+    <meta property="og:site_name" content="Hostile Input">
+    <meta property="og:title" content="Images and Links :: Hostile Input">
+    <meta property="og:description" content="The partials behind the image and link render hooks, called as a template calls them.
+Image Link Title Title Title Title Title Title Title Title Title Title Target Target Target Target Target Target Target Target Target Target URL URL URL URL URL URL URL URL URL Blockquote Quoted
+Author">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Hostile Input">
+    <meta itemprop="name" content="Images and Links :: Hostile Input">
+    <meta itemprop="description" content="The partials behind the image and link render hooks, called as a template calls them.
+Image Link Title Title Title Title Title Title Title Title Title Title Target Target Target Target Target Target Target Target Target Target URL URL URL URL URL URL URL URL URL Blockquote Quoted
+Author">
+    <meta itemprop="wordCount" content="65">
+    <title>Images and Links :: Hostile Input</title>
+    <link href="../images/favicon.svg" rel="icon" type="image/svg&#43;xml">
+    <link href="../images/favicon-dark.svg" rel="icon" type="image/svg&#43;xml" media="(prefers-color-scheme: dark)">
+    <link href="../css/auto-complete/auto-complete.css" rel="stylesheet">
+    <script src="../js/auto-complete/auto-complete.js" defer></script>
+    <script src="../js/search-lunr.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <script type="application/json" id="R-search-config">{
+      "indexFile": "searchindex.en.js"
+    }</script>
+    <script src="../js/lunr/lunr.min.js" defer></script>
+    <script src="../js/lunr/lunr.stemmer.support.min.js" defer></script>
+    <script src="../js/lunr/lunr.multi.min.js" defer></script>
+    <script src="../js/lunr/lunr.en.min.js" defer></script>
+    <script type="application/json" id="R-search-lunr-config">{
+      "contentLangs": [
+        "en"
+      ]
+    }</script>
+    <link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet" media="print" class="R-async-style"><noscript><link href="../fonts/fontawesome/css/all.min.css" rel="stylesheet"></noscript>
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/format-html.css" rel="stylesheet" id="R-format-style">
+    <script type="application/json" id="R-theme-config">{
+      "disableInlineCopyToClipboard": false,
+      "enableBlockCodeWrap": true,
+      "path": "/images-links/index.html",
+      "relBasePath": "..",
+      "relBaseUri": "..",
+      "themevariants": [
+        "auto"
+      ],
+      "translations": {
+        "Browser_unsupported_feature": "This browser doesn't support this feature",
+        "Change_sorting": "Change sorting",
+        "Close_graph": "Close enlarged graph",
+        "Copied_to_clipboard": "Text copied to clipboard!",
+        "Copy_to_clipboard": "Copy text to clipboard",
+        "Deleted_text_end": "End of deleted text",
+        "Deleted_text_start": "Start of deleted text",
+        "Enlarge_graph": "Enlarge graph",
+        "History_cleared": "History cleared",
+        "Inserted_text_end": "End of inserted text",
+        "Inserted_text_start": "Start of inserted text",
+        "Link_copied_to_clipboard": "Link copied to clipboard!",
+        "N_matches_on_page": "{1} matches for \"{0}\" on this page",
+        "N_results_found": "{1} results found for \"{0}\"",
+        "No_results_found": "No results found for \"{0}\"",
+        "Reset_sorting": "Reset sorting",
+        "Reset_view": "Reset view",
+        "Sort_key_ascending": "sorted at position {0}, ascending",
+        "Sort_key_descending": "sorted at position {0}, descending",
+        "Sortable_columns": "Column headers with buttons are sortable.",
+        "Sorted_by_ascending": "Sorted by \"{0}\", ascending",
+        "Sorted_by_descending": "Sorted by \"{0}\", descending",
+        "Sorting_reset": "Sorting reset!",
+        "Unsorted_by": "No longer sorted by \"{0}\"",
+        "View_reset": "View reset!"
+      }
+    }</script>
+    <script src="../js/theme-head.js"></script>
+  </head>
+  <body class="mobile-support html" data-origin="/images-links/index.html">
+    <a id="R-skip-link" href="#R-body-inner">Skip to main content</a>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <a id="R-logo" class="R-default layout-sidebar-row" href="../index.html">
+          <span class="logo-title default-animation">Hostile Input</span>
+        </a>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Open search page" aria-label="Open search page"><i class="fas fa-fw fa-search" aria-hidden="true"></i></button>
+            <input data-search-input name="search-by" class="search-by" type="search" aria-label="Search" placeholder="Search..." title="Search (CTRL+ALT+f)">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search" aria-label="Clear search"><i class="fas fa-fw fa-times" aria-hidden="true" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks default-animation">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home" aria-hidden="true"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+      </div>
+      <nav id="R-content-wrapper" class="highlightable" aria-label="Menu" tabindex="-1">
+        <div id="R-scrollbar" aria-hidden="true"><div id="R-scrollbar-thumb"></div></div>
+        <div class="R-sidebarmenu R-shortcutmenu-home default-animation">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/boxes/index.html"><a class="padding" href="../boxes/index.html">Boxes</a></li>
+            <li class="" data-nav-id="/figure/index.html"><a class="padding" href="../figure/index.html">Figure</a></li>
+            <li class="active " data-nav-id="/images-links/index.html"><a class="padding" href="../images-links/index.html" aria-current="page">Images and Links</a></li>
+            <li class="" data-nav-id="/markdown/index.html"><a class="padding" href="../markdown/index.html">Markdown</a></li>
+            <li class="" data-nav-id="/front-matter/index.html"><a class="padding" href="../front-matter/index.html">&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt; Front Matter</a></li>
+            <li class="" data-nav-id="/resources/index.html"><a class="padding" href="../resources/index.html">Resources</a></li>
+            <li class="" data-nav-id="/cards/index.html"><a class="padding" href="../cards/index.html">Cards</a></li>
+            <li class="crosslink " data-nav-id="javascript:alert(44)"><a class="padding" href="javascript:alert(44)" rel="external">Menu URL</a></li>
+            <li class="crosslink " data-nav-id="/figure/index.html"><a class="padding" href="../figure/index.html">Menu Page Ref</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts default-animation">
+          <div class="nav-title padding">More</div>
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/boxes/index.html"><a class="padding" href="../boxes/index.html">Page Ref</a></li>
+            <li class="" data-nav-id="javascript:alert(43)"><a class="padding" href="javascript:alert(43)" rel="external">Script URL</a></li>
+            <li class="" data-nav-id="tel:&#43;123"><a class="padding" href="tel:&#43;123" rel="external">Phone</a></li>
+          </ul>
+        </div>
+        <div id="R-footer-margin" class="default-animation"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding default-animation">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols default-animation">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer" class="default-animation"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart" aria-hidden="true"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </nav>
+    </aside>
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <header id="R-topbar" class="default-animation">
+        <div class="topbar-wrapper default-animation">
+          <div class="topbar-sidebar-divider default-animation"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)" aria-label="Menu (CTRL&#43;ALT&#43;n)" aria-expanded="false"><i class="fa-fw fas fa-bars" aria-hidden="true"></i></button></span>
+            </div>
+            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)" aria-label="Table of Contents (CTRL&#43;ALT&#43;t)" aria-expanded="false"><i class="fa-fw fas fa-table-list" aria-hidden="true"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+<nav class="TableOfContents" aria-label="Table of Contents">
+  <ul>
+    <li><a href="#image">Image</a></li>
+    <li><a href="#link">Link</a></li>
+    <li><a href="#blockquote">Blockquote</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="topbar-area topbar-area-middle" data-area="middle">
+            <nav class="topbar-breadcrumbs breadcrumbs highlightable" aria-label="Breadcrumbs" data-overflow-title="Hostile Input &gt; Images and Links">
+              <ol itemscope itemtype="http://schema.org/BreadcrumbList"><li class="topbar-breadcrumbs-divider" aria-hidden="true">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">Hostile Input</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class="" aria-current="page"><span itemprop="name">Images and Links</span><meta itemprop="position" content="2"></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit default-animation" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a aria-label="Edit (CTRL&#43;ALT&#43;w)" href="https://github.com/McShelby/hugo-theme-relearn/edit/main/docs/content/images-links.md" rel="external" title="Edit (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-prev default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a aria-label="Figure (🡐)" href="../figure/index.html" title="Figure (🡐)"><i class="fa-fw fas fa-chevron-left" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-next default-animation" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><a aria-label="Markdown (🡒)" href="../markdown/index.html" title="Markdown (🡒)"><i class="fa-fw fas fa-chevron-right" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="topbar-button topbar-button-more default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show">
+<span class="btn cstyle button link noborder notitle interactive"><button data-button-action="toggle-flyout" type="button" title="More" aria-label="More" aria-expanded="false"><i class="fa-fw fas fa-ellipsis-v" aria-hidden="true"></i></button></span>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper" tabindex="-1">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="images-and-links">Images and Links</h1>
+
+<p>The partials behind the image and link render hooks, called as a template
+calls them.</p>
+<h2 id="image">Image<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard" aria-label="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg" aria-hidden="true"></i></button></span></h2>
+
+<div class="hostile" data-value="double-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="single-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="&#39; onfocus=alert(2) autofocus x=&#39;" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="&#39; onfocus=alert(2) autofocus x=&#39;" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="&#39; onfocus=alert(2) autofocus x=&#39;" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="all-quotes">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="encoded-markup">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="encoded-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="&amp;quot; onmouseover=&amp;quot;alert(5)" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="&amp;quot; onmouseover=&amp;quot;alert(5)" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="&amp;quot; onmouseover=&amp;quot;alert(5)" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="backslash">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="C:\path\&#34;;alert(6);//" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="C:\path\&#34;;alert(6);//" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="C:\path\&#34;;alert(6);//" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="$1 ${1} $$ %s %d %n {0}" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="$1 ${1} $$ %s %d %n {0}" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="$1 ${1} $$ %s %d %n {0}" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="closers">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="whitespace">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="line one
+line two	tab" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="line one
+line two	tab" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="line one
+line two	tab" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+<div class="hostile" data-value="unicode">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="“smart” ‘quotes’ ＜full＞ ‮reversed" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" aria-label="“smart” ‘quotes’ ＜full＞ ‮reversed" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="“smart” ‘quotes’ ＜full＞ ‮reversed" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png"></a></span>
+</div>
+
+
+<div class="hostile" data-value="double-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;"></a></span>
+</div>
+<div class="hostile" data-value="single-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="&#39; onfocus=alert(2) autofocus x=&#39;"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="&#39; onfocus=alert(2) autofocus x=&#39;"></a></span>
+</div>
+<div class="hostile" data-value="all-quotes">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;"></a></span>
+</div>
+<div class="hostile" data-value="encoded-markup">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;"></a></span>
+</div>
+<div class="hostile" data-value="encoded-quote">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="&amp;quot; onmouseover=&amp;quot;alert(5)"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="&amp;quot; onmouseover=&amp;quot;alert(5)"></a></span>
+</div>
+<div class="hostile" data-value="backslash">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="C:\path\&#34;;alert(6);//"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="C:\path\&#34;;alert(6);//"></a></span>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="$1 ${1} $$ %s %d %n {0}"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="$1 ${1} $$ %s %d %n {0}"></a></span>
+</div>
+<div class="hostile" data-value="closers">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--"></a></span>
+</div>
+<div class="hostile" data-value="whitespace">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="line one
+line two	tab"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="line one
+line two	tab"></a></span>
+</div>
+<div class="hostile" data-value="unicode">
+<a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5" class="lightbox-link" id="R-image-f681d22137a1b84544615fa2ec6d1ac5-link"><img alt="" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/a.png" title="“smart” ‘quotes’ ＜full＞ ‮reversed"></a>
+<span class="lightbox-back" id="R-image-f681d22137a1b84544615fa2ec6d1ac5" role="dialog" aria-modal="true" tabindex="-1"><a href="#R-image-f681d22137a1b84544615fa2ec6d1ac5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/a.png" title="“smart” ‘quotes’ ＜full＞ ‮reversed"></a></span>
+</div>
+
+
+<div class="hostile" data-value="javascript">
+<a href="#R-image-8b012ae0aad16db5401e02142a0e9a25" class="lightbox-link" id="R-image-8b012ae0aad16db5401e02142a0e9a25-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="javascript:alert(11)"></a>
+<span class="lightbox-back" id="R-image-8b012ae0aad16db5401e02142a0e9a25" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-8b012ae0aad16db5401e02142a0e9a25-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="javascript:alert(11)"></a></span>
+</div>
+<div class="hostile" data-value="mixed-case">
+<a href="#R-image-6c12bc0f71e8c309d986de9c7553a4d5" class="lightbox-link" id="R-image-6c12bc0f71e8c309d986de9c7553a4d5-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="javascript:alert(12)"></a>
+<span class="lightbox-back" id="R-image-6c12bc0f71e8c309d986de9c7553a4d5" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-6c12bc0f71e8c309d986de9c7553a4d5-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="javascript:alert(12)"></a></span>
+</div>
+<div class="hostile" data-value="no-code">
+<a href="#R-image-282d418f65e46eea43bb5c0862da126d" class="lightbox-link" id="R-image-282d418f65e46eea43bb5c0862da126d-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="javascript:"></a>
+<span class="lightbox-back" id="R-image-282d418f65e46eea43bb5c0862da126d" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-282d418f65e46eea43bb5c0862da126d-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="javascript:"></a></span>
+</div>
+<div class="hostile" data-value="encoded-tab">
+<a href="#R-image-c29250b6b26ae8fdb4c3b509565b8879" class="lightbox-link" id="R-image-c29250b6b26ae8fdb4c3b509565b8879-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="jav&amp;#x09;ascript:alert(13)"></a>
+<span class="lightbox-back" id="R-image-c29250b6b26ae8fdb4c3b509565b8879" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-c29250b6b26ae8fdb4c3b509565b8879-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="jav&amp;#x09;ascript:alert(13)"></a></span>
+</div>
+<div class="hostile" data-value="encoded-scheme">
+<a href="#R-image-b7b663cc9c18e63cd51ddb23fcb97e43" class="lightbox-link" id="R-image-b7b663cc9c18e63cd51ddb23fcb97e43-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="&amp;#106;&amp;%2397;&amp;%23118;&amp;%2397;&amp;%23115;&amp;%2399;&amp;%23114;&amp;%23105;&amp;%23112;&amp;%23116;&amp;%2358;alert(14)"></a>
+<span class="lightbox-back" id="R-image-b7b663cc9c18e63cd51ddb23fcb97e43" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-b7b663cc9c18e63cd51ddb23fcb97e43-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="&amp;#106;&amp;%2397;&amp;%23118;&amp;%2397;&amp;%23115;&amp;%2399;&amp;%23114;&amp;%23105;&amp;%23112;&amp;%23116;&amp;%2358;alert(14)"></a></span>
+</div>
+<div class="hostile" data-value="data">
+<a href="#R-image-6a8889e109fe9100102b9fae96bfa3fb" class="lightbox-link" id="R-image-6a8889e109fe9100102b9fae96bfa3fb-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4="></a>
+<span class="lightbox-back" id="R-image-6a8889e109fe9100102b9fae96bfa3fb" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-6a8889e109fe9100102b9fae96bfa3fb-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4="></a></span>
+</div>
+<div class="hostile" data-value="breakout">
+<a href="#R-image-fd40cbb1a101244372d0397e39006543" class="lightbox-link" id="R-image-fd40cbb1a101244372d0397e39006543-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/%22onmouseover=%22alert%2816%29"></a>
+<span class="lightbox-back" id="R-image-fd40cbb1a101244372d0397e39006543" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-fd40cbb1a101244372d0397e39006543-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/%22onmouseover=%22alert%2816%29"></a></span>
+</div>
+<div class="hostile" data-value="legacy-entities">
+<a href="#R-image-cbd2b74e4bf94013dc6827add514b585" class="lightbox-link" id="R-image-cbd2b74e4bf94013dc6827add514b585-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/?a=1&amp;copy=2&amp;lt=3&amp;not=4&amp;amp;b=5"></a>
+<span class="lightbox-back" id="R-image-cbd2b74e4bf94013dc6827add514b585" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-cbd2b74e4bf94013dc6827add514b585-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/?a=1&amp;copy=2&amp;lt=3&amp;not=4&amp;amp;b=5"></a></span>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="#R-image-eb8915329a43245da9388d59a560bea3" class="lightbox-link" id="R-image-eb8915329a43245da9388d59a560bea3-link"><img alt="Image" class="lazy lightbox rounded figure-image" loading="lazy" src="https://example.com/$1/?q=${1}"></a>
+<span class="lightbox-back" id="R-image-eb8915329a43245da9388d59a560bea3" role="dialog" aria-modal="true" aria-label="Image" tabindex="-1"><a href="#R-image-eb8915329a43245da9388d59a560bea3-link" class="lightbox-close" aria-label="Close enlarged image"><img alt="Image" class="lazy lightbox rounded lightbox-image" loading="lazy" src="https://example.com/$1/?q=${1}"></a></span>
+</div>
+
+<h2 id="link">Link<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard" aria-label="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg" aria-hidden="true"></i></button></span></h2>
+
+<div class="hostile" data-value="double-quote">
+<a href="https://example.com" rel="external" title="&#34;&gt;&lt;script&gt;alert(1)&lt;/script&gt;">Title</a>
+</div>
+<div class="hostile" data-value="single-quote">
+<a href="https://example.com" rel="external" title="&#39; onfocus=alert(2) autofocus x=&#39;">Title</a>
+</div>
+<div class="hostile" data-value="all-quotes">
+<a href="https://example.com" rel="external" title="`&#34;&#39;&gt;&lt;img src=x onerror=alert(3)&gt;">Title</a>
+</div>
+<div class="hostile" data-value="encoded-markup">
+<a href="https://example.com" rel="external" title="&amp;lt;script&amp;gt;alert(&amp;#39;4&amp;#39;)&amp;lt;/script&amp;gt;">Title</a>
+</div>
+<div class="hostile" data-value="encoded-quote">
+<a href="https://example.com" rel="external" title="&amp;quot; onmouseover=&amp;quot;alert(5)">Title</a>
+</div>
+<div class="hostile" data-value="backslash">
+<a href="https://example.com" rel="external" title="C:\path\&#34;;alert(6);//">Title</a>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="https://example.com" rel="external" title="$1 ${1} $$ %s %d %n {0}">Title</a>
+</div>
+<div class="hostile" data-value="closers">
+<a href="https://example.com" rel="external" title="--&gt;&lt;/style&gt;&lt;/script&gt;&lt;!--">Title</a>
+</div>
+<div class="hostile" data-value="whitespace">
+<a href="https://example.com" rel="external" title="line one
+line two	tab">Title</a>
+</div>
+<div class="hostile" data-value="unicode">
+<a href="https://example.com" rel="external" title="“smart” ‘quotes’ ＜full＞ ‮reversed">Title</a>
+</div>
+
+
+<div class="hostile" data-value="double-quote">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="single-quote">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="all-quotes">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="encoded-markup">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="encoded-quote">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="backslash">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="closers">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="whitespace">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+<div class="hostile" data-value="unicode">
+<a href="https://example.com" rel="external">Target</a>
+</div>
+
+
+<div class="hostile" data-value="javascript">
+<a href="javascript:alert(11)" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="mixed-case">
+<a href="javascript:alert(12)" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="no-code">
+<a href="javascript:" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="encoded-tab">
+<a href="jav&amp;#x09;ascript:alert(13)">URL</a>
+</div>
+<div class="hostile" data-value="encoded-scheme">
+<a href="&amp;#106;&amp;%2397;&amp;%23118;&amp;%2397;&amp;%23115;&amp;%2399;&amp;%23114;&amp;%23105;&amp;%23112;&amp;%23116;&amp;%2358;alert(14)">URL</a>
+</div>
+<div class="hostile" data-value="data">
+<a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4=" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="breakout">
+<a href="https://example.com/%22onmouseover=%22alert%2816%29" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="legacy-entities">
+<a href="https://example.com/?a=1&amp;copy=2&amp;lt=3&amp;not=4&amp;amp;b=5" rel="external">URL</a>
+</div>
+<div class="hostile" data-value="interpolation">
+<a href="https://example.com/$1/?q=${1}" rel="external">URL</a>
+</div>
+
+<h2 id="blockquote">Blockquote<span class="btn cstyle anchor copyanchor scrollanchor link noborder notitle interactive"><button type="button" title="Copy link to clipboard" aria-label="Copy link to clipboard"><i class="fa-fw fas fa-link fa-lg" aria-hidden="true"></i></button></span></h2>
+
+<div class="hostile" data-value="javascript">
+<figure class="quote">
+  <blockquote cite="javascript:alert%2811%29">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="javascript:alert(11)" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="mixed-case">
+<figure class="quote">
+  <blockquote cite="javascript:alert%2812%29">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="javascript:alert(12)" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="no-code">
+<figure class="quote">
+  <blockquote cite="javascript:">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="javascript:" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="encoded-tab">
+<figure class="quote">
+  <blockquote cite="jav&amp;#x09;ascript:alert%2813%29">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="jav&amp;#x09;ascript:alert(13)">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="encoded-scheme">
+<figure class="quote">
+  <blockquote cite="&amp;#106;&amp;%2397;&amp;%23118;&amp;%2397;&amp;%23115;&amp;%2399;&amp;%23114;&amp;%23105;&amp;%23112;&amp;%23116;&amp;%2358;alert%2814%29">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="&amp;#106;&amp;%2397;&amp;%23118;&amp;%2397;&amp;%23115;&amp;%2399;&amp;%23114;&amp;%23105;&amp;%23112;&amp;%23116;&amp;%2358;alert(14)">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="data">
+<figure class="quote">
+  <blockquote cite="data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4=">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxNSk8L3NjcmlwdD4=" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="breakout">
+<figure class="quote">
+  <blockquote cite="https://example.com/%22onmouseover=%22alert%2816%29">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="https://example.com/%22onmouseover=%22alert%2816%29" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="legacy-entities">
+<figure class="quote">
+  <blockquote cite="https://example.com/?a=1&amp;copy=2&amp;lt=3&amp;not=4&amp;amp;b=5">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="https://example.com/?a=1&amp;copy=2&amp;lt=3&amp;not=4&amp;amp;b=5" rel="external">Author</a></figcaption>
+</figure>
+</div>
+<div class="hostile" data-value="interpolation">
+<figure class="quote">
+  <blockquote cite="https://example.com/$1/?q=$%7b1%7d">
+<p>Quoted</p></blockquote>
+  <figcaption><a href="https://example.com/$1/?q=${1}" rel="external">Author</a></figcaption>
+</figure>
+</div>
+
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <script src="../js/theme.js" defer></script>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{{- /*
+  Calls one of the theme's shortcode partials once for every value of a set in
+  `data/hostile.yaml`, the way a template does: `param` is set to the value and
+  every other parameter of this shortcode is passed on unchanged.
+
+  Fixture-local on purpose: it lets every hostile value meet every position
+  without writing each call out, and keeps the pages short enough to read.
+*/ -}}
+{{- $partial := .Get "partial" }}
+{{- $param := .Get "param" }}
+{{- $set := .Get "set" }}
+{{- $base := dict "page" .Page }}
+{{- range $k, $v := .Params }}
+  {{- if not (in (slice "partial" "param" "set") $k) }}
+    {{- $base = merge $base (dict $k $v) }}
+  {{- end }}
+{{- end }}
+{{- range index hugo.Data.hostile $set }}
+<div class="hostile" data-value="{{ .name }}">
+{{ partial (printf "shortcodes/%s.html" $partial) (merge $base (dict $param .value)) }}
+</div>
+{{- end }}
