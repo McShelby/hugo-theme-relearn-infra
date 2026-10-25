@@ -76,6 +76,7 @@ RELEARN_THEME_DIR=/path/to/theme npm test
 | `tools/screenshots/` | regenerates the docs' `featured.png` images |
 | `tools/sbom/` | renders the theme's `sbom.cdx.json` from its dependency declaration |
 | `tools/fontversion/` | reads the version a vendored font declares about itself |
+| `tools/fontweight/` | shifts the weight axis of the vendored Roboto Flex |
 | `tools/test-hugo/` | builds any site with the theme in the `testing` environment and records template metrics |
 | `.github/actions/run-test/` | the test procedure, called by the theme's `test-execution` workflow — the only action here |
 
@@ -307,6 +308,29 @@ Output is grouped by directory, because that is the unit a component declares �
 Both fields are reported and neither is presented as the answer, because neither reliably is. `head.fontRevision` is a fixed-point number a foundry may use however it likes: Roboto Flex agrees with itself, while Font Awesome's reads 899.012 and only its name string mentions the 7.3.1 the declaration carries. Choosing between them stays a person's job.
 
 No font library is involved, and none is installed. A WOFF2 keeps its tables as one Brotli stream, which Node decompresses on its own, and the two tables this reads are never among the transformed ones.
+
+---
+
+## Font weights
+
+The theme asks for the weights most fonts carry — 400 for body text, 500 for medium text, 700 for bold, 300 for large titles — so a site that swaps the font gets what it expects. Roboto Flex is meant to look lighter than that, so the vendored files are told to answer each request with a lighter design:
+
+| requested | 100 | 300 | 400 | 500 | 700 | 1000 |
+| --------- | --- | --- | --- | --- | --- | ---- |
+| drawn     | 100 | 200 | 300 | 400 | 700 | 1000 |
+
+Run it after every update of the font, before vendoring the files:
+
+```bash
+npm run fontweight                  # every file under the theme's assets/fonts/robotoflex
+npm run fontweight -- a.woff2       # named files instead
+```
+
+Only `fvar`, `avar` and `STAT` change; outlines and advances stay as they were. A file already shifted is left alone, and one whose weight axis looks like neither the original nor the shifted one is refused and the run exits non-zero.
+
+The shift lives in the font rather than in a `"wght"` in `font-variation-settings`, because that is inherited and beats `font-weight` on every element below it, so styles that only set a weight would stop working.
+
+No font library either. The three tables touched are never transformed, so they are rewritten inside the decompressed stream and the file is compressed again around them.
 
 ---
 

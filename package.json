@@ -18,6 +18,7 @@
     "golden:update": "node tests/golden.js --update",
     "screenshots": "node tools/screenshots/index.js",
     "fontversion": "node tools/fontversion/index.js",
+    "fontweight": "node tools/fontweight/index.js",
     "test-hugo": "node tools/test-hugo/index.js"
   },
   "engines": {
