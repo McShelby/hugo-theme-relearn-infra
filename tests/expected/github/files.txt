@@ -3734,9 +3734,9 @@ pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
 searchindex.en.json
-searchindex.en.min.8cb3586d593d28e7786e73c0da384b95eb8494d8ba486a57e9ca0507a9de6571.js
+searchindex.en.min.3e8206e42b90d901398012430e240a3a82f255b202afcb0b9b0d90bac80628a1.js
 searchindex.pir.json
-searchindex.pir.min.24e9c2e65935f741f18d927571ee8f10f1c270f467be93ef493a1c83787a013f.js
+searchindex.pir.min.ee9158a313c526518387f26dcacd9e34e55467eb4ea36ab66a05ffda9f24f756.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
