@@ -12,7 +12,7 @@ css/custom.min.2a8a38b28c2daec08ae2b1936064a5a5697c814ba4cab9dfce12aa566f092104.
 css/format-html.min.45603af119bddab3358a06ef1386ce3e795d81a0fc175b60153e5c4bed50346f.css
 css/format-print.min.a11c61044a98b21dd8b4b8cfe1bda5f9b4157536cf5bff42875c32838d04dd54.css
 css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-css/theme.min.fc0abef8e5165774173927306de79640da34dd9eb6f89a7e68ce339e924b138d.css
+css/theme.min.05ba99a9270eee767cde69681a5db4ec5972549d1aeb92072d32a99a51a1f286.css
 first-page.html
 first-page/index.source.md
 fonts/fontawesome/css/all.min.css

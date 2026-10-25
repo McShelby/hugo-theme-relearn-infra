@@ -311,11 +311,11 @@ configuration/sitemanagement/versioning/index.print.html
 configuration/sitemanagement/versioning/index.source.md
 configuration/sitemanagement/versioning/index.xml
 css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841484fe34c489058b2991edc027cdd47fc.css
-css/format-html.min.e58da1e96c06c8dec4f7b4d1ed444f832ad2b39e54153f9b55090016c1af6afe.css
-css/format-print.min.de5a5cb7b90cfd265670dd31bbf1964c9c5ec9ad782270fba9143c89aca38e84.css
+css/format-html.min.098d26bcd5c4388c2fcad7ab4334c3b5346bc88800c0ad07d5f9db521e317323.css
+css/format-print.min.54e295afb02765776f6e05d3a5b2076ff2f00800531d1db8f139fa068608a60a.css
 css/swagger-ui/swagger-ui.95d092a354630bcb5b18391877f9d2767c548c236d8b1b6033c87639f3dc20d5.css
 css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-css/theme.min.03317e2bea7b06a56b950a200038205d0e8f2632465d1d14bc71c66bf6d209d8.css
+css/theme.min.906b0d5c879ed0d1ec3746c8cf45a0392681573f07515b02367f6bb16f17625c.css
 development/contributing/index.html
 development/contributing/index.md
 development/contributing/index.print.html
@@ -357,7 +357,7 @@ exampleSite/css/auto-complete/auto-complete.min.78b49c23f59ffb08554285843ed4c841
 exampleSite/css/format-html.min.2bfe8cf6609f9ec14eac5963dda93fcfd7b11a37cd8f55e471ccd7033dc46ab5.css
 exampleSite/css/format-print.min.5c4645af3777eec6187a9dd1dbd66d62b27d3ee967eb9aa5c3939c9585dd034b.css
 exampleSite/css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-exampleSite/css/theme.min.fc0abef8e5165774173927306de79640da34dd9eb6f89a7e68ce339e924b138d.css
+exampleSite/css/theme.min.05ba99a9270eee767cde69681a5db4ec5972549d1aeb92072d32a99a51a1f286.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
@@ -3734,9 +3734,9 @@ pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
 searchindex.en.json
-searchindex.en.min.3e8206e42b90d901398012430e240a3a82f255b202afcb0b9b0d90bac80628a1.js
+searchindex.en.min.9917858a5c07f3e8f8262338b10c413497580bbe07f928888a89816e4ff53eda.js
 searchindex.pir.json
-searchindex.pir.min.ee9158a313c526518387f26dcacd9e34e55467eb4ea36ab66a05ffda9f24f756.js
+searchindex.pir.min.6f98bc9ae9da6077e458309a2612b6b6fabf5e684f8cd0329d4dc107696a3480.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
