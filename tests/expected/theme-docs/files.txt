@@ -1299,6 +1299,10 @@ introduction/releasenotes/9/4/index.html
 introduction/releasenotes/9/4/index.md
 introduction/releasenotes/9/4/index.print.html
 introduction/releasenotes/9/4/index.source.md
+introduction/releasenotes/9/5/index.html
+introduction/releasenotes/9/5/index.md
+introduction/releasenotes/9/5/index.print.html
+introduction/releasenotes/9/5/index.source.md
 introduction/releasenotes/9/index.html
 introduction/releasenotes/9/index.md
 introduction/releasenotes/9/index.print.html
@@ -2944,6 +2948,10 @@ pir/introduction/releasenotes/9/4/index.html
 pir/introduction/releasenotes/9/4/index.md
 pir/introduction/releasenotes/9/4/index.print.html
 pir/introduction/releasenotes/9/4/index.source.md
+pir/introduction/releasenotes/9/5/index.html
+pir/introduction/releasenotes/9/5/index.md
+pir/introduction/releasenotes/9/5/index.print.html
+pir/introduction/releasenotes/9/5/index.source.md
 pir/introduction/releasenotes/9/index.html
 pir/introduction/releasenotes/9/index.md
 pir/introduction/releasenotes/9/index.print.html
