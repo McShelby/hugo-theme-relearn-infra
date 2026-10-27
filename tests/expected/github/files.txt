@@ -3754,7 +3754,7 @@ search/index.print.html
 searchindex.en.json
 searchindex.en.min.79ada9da9fb066c2baa09066cebb1f29fbb84f19d82395f5c5c1f9b72de99591.js
 searchindex.pir.json
-searchindex.pir.min.77b344472087cc8bf63a812fc171d4a21a9b265b957cbdf947012976b964917f.js
+searchindex.pir.min.3746fa305a937a68997348605776c9461fb0b591d835de9dbe40407faac58577.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
