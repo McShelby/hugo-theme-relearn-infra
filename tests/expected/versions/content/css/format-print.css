@@ -302,6 +302,12 @@
 /* GenericStrong */ .chroma .gs { font-weight:bold }
 
 }
+:root[data-r-theme-variant='auto'],
+:root[data-r-theme-variant^='my-custom-'] {
+  --INTERNAL-PRINT-VARIANT-MERMAID-theme: default;
+  --INTERNAL-PRINT-VARIANT-OPENAPI-theme: light;
+  --INTERNAL-PRINT-VARIANT-OPENAPI-CODE-theme: idea;
+}
 #R-skip-link,
 #R-sidebar {
   display: none;
