@@ -395,7 +395,7 @@ exampleSite/js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04
 exampleSite/js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
 exampleSite/js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
 exampleSite/js/search-lunr.min.9897ffe790e716e8b90e4a9e200dce63c2603e69a9eec9bbdce6a483811ea180.js
-exampleSite/js/search.min.4bcf60afa00d9f5c3adf08ff55811ce4cc679bd6d4b5747d674667994ee1debb.js
+exampleSite/js/search.min.16df8a62de98ec971a89bf9800aba511c304c52d2f44cc46a14563d9987bd1ff.js
 exampleSite/js/theme-head.min.297e164d1356ea6a8496ff47882ce6a24e781180d66683222d3e523246cd4b38.js
 exampleSite/js/theme.min.5125107af551ad312e11d0282ac03875ebe009b3e2f8bed8487721c0e60c0503.js
 exampleSite/log/first-day/index.html
@@ -1481,7 +1481,7 @@ js/lunr/lunr.multi.min.ffaee7f1e07179595fe8a4b7c469761f90999470e1f04dcb0a94dc2c1
 js/lunr/lunr.stemmer.support.min.5ff7b6bd53462911fc1311c09f654085b748338aced249e719c0b16fda0b90fb.js
 js/mermaid/mermaid.min.581ed7d74bd9048d0e3a91363927d72ef22942d7722546b27f7cc29e35390eb8.js
 js/search-lunr.min.9897ffe790e716e8b90e4a9e200dce63c2603e69a9eec9bbdce6a483811ea180.js
-js/search.min.4bcf60afa00d9f5c3adf08ff55811ce4cc679bd6d4b5747d674667994ee1debb.js
+js/search.min.16df8a62de98ec971a89bf9800aba511c304c52d2f44cc46a14563d9987bd1ff.js
 js/swagger-ui/swagger-ui-bundle.3f6abf70480db7e07914df4c98a77385f22ea585eaf457a3e6415ba0eae2d167.js
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.297e164d1356ea6a8496ff47882ce6a24e781180d66683222d3e523246cd4b38.js
@@ -3752,9 +3752,9 @@ pir/tags/the-hidden/index.xml
 search/index.html
 search/index.print.html
 searchindex.en.json
-searchindex.en.min.b68533b72322440de9aca6bf226ca5d6f4ed5eae04a8644fe67f3c2fec81a9be.js
+searchindex.en.min.15a21976447b674cd6e721d3dae2b9826e55d5054550d0edb7b1eecd02671806.js
 searchindex.pir.json
-searchindex.pir.min.92fc18cdb0df50aee4a18d0bf0c717b1e1118b78865b4c1d8356ae28e578fa81.js
+searchindex.pir.min.3292bfc7fb902e6136f24a201638cc5cd94988740cfb8540327a2c3fb530b61a.js
 shortcodes/attachments/featured.png
 shortcodes/attachments/index.en.files/BachGavotteShort.mp3
 shortcodes/attachments/index.en.files/Carroll_AliceAuPaysDesMerveilles.pdf
