@@ -311,11 +311,11 @@ configuration/sitemanagement/versioning/index.print.html
 configuration/sitemanagement/versioning/index.source.md
 configuration/sitemanagement/versioning/index.xml
 css/auto-complete/auto-complete.min.19b8eb7faa53e727a407aa2d781e21185a35cfc9330628acc11df190f919f003.css
-css/format-html.min.468e7990fd6bbf7ed03b804e5e127d3ab99c0d4707672dbecf3e13b4d638fffa.css
+css/format-html.min.f173222c8a54c69355928daafc20a3eea3cfc3d8d5b8da70d35836e16a2d47f3.css
 css/format-print.min.e09634bd5bd92e47c874763bedf00a2c0dc5a11d5e5b818e2c01d474dc402872.css
 css/swagger-ui/swagger-ui.9a20f1e75adc5fa40c93a7555787f9a1833c9a20b7f3ed83ac36777667aad11b.css
 css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-css/theme.min.ce762e5e1600f050487b8d36bf30144f70ee3dd53a519c7743bb98c448de4de5.css
+css/theme.min.f15749154112ba11b8fc43de97d3332bc89bc0b94c99c96a09e8119fc3dfbe09.css
 development/contributing/index.html
 development/contributing/index.md
 development/contributing/index.print.html
@@ -354,10 +354,10 @@ exampleSite/about/index.print.html
 exampleSite/categories/index.html
 exampleSite/categories/index.xml
 exampleSite/css/auto-complete/auto-complete.min.19b8eb7faa53e727a407aa2d781e21185a35cfc9330628acc11df190f919f003.css
-exampleSite/css/format-html.min.f01e2f4b577bdfa3533fddc4718615cc0db4901053e36df178ba52bc7cb76953.css
+exampleSite/css/format-html.min.b3aac9c524e4844b00338a6e538a8cce99914d17babffd0a3000e55b674847bd.css
 exampleSite/css/format-print.min.d4169f85fb66f13f46597100714bcad340a5bcb71d240dd7af78122e910695b7.css
 exampleSite/css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-exampleSite/css/theme.min.018f3bf441e1327e541dd6eaa6c834eb5abe79df884836577b51ec754a057cbc.css
+exampleSite/css/theme.min.c47a9eda46d00397e186577155110edc91ae6ad7a798dfc0682a3cb27863a6b4.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
