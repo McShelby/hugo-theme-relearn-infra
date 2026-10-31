@@ -315,7 +315,7 @@ css/format-html.min.f173222c8a54c69355928daafc20a3eea3cfc3d8d5b8da70d35836e16a2d
 css/format-print.min.e09634bd5bd92e47c874763bedf00a2c0dc5a11d5e5b818e2c01d474dc402872.css
 css/swagger-ui/swagger-ui.9a20f1e75adc5fa40c93a7555787f9a1833c9a20b7f3ed83ac36777667aad11b.css
 css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-css/theme.min.f15749154112ba11b8fc43de97d3332bc89bc0b94c99c96a09e8119fc3dfbe09.css
+css/theme.min.879bb77cb4a59c81179fe5f22f2ea3c751f08e1fe85b7d964235bb43984ead00.css
 development/contributing/index.html
 development/contributing/index.md
 development/contributing/index.print.html
@@ -357,7 +357,7 @@ exampleSite/css/auto-complete/auto-complete.min.19b8eb7faa53e727a407aa2d781e2118
 exampleSite/css/format-html.min.b3aac9c524e4844b00338a6e538a8cce99914d17babffd0a3000e55b674847bd.css
 exampleSite/css/format-print.min.d4169f85fb66f13f46597100714bcad340a5bcb71d240dd7af78122e910695b7.css
 exampleSite/css/swagger.min.d436cd0d9f887456ebf53d826539327ce256e4216b8413c3867d884c09993eba.css
-exampleSite/css/theme.min.c47a9eda46d00397e186577155110edc91ae6ad7a798dfc0682a3cb27863a6b4.css
+exampleSite/css/theme.min.82dc01e84543bbde9e5e4ef020440305d9d0e4ce9a7ceff2b029bc7021fa418e.css
 exampleSite/en/index.html
 exampleSite/en/sitemap.xml
 exampleSite/fonts/fontawesome/css/all.min.css
