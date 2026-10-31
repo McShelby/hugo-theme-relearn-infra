@@ -308,7 +308,7 @@
   --INTERNAL-PRINT-VARIANT-OPENAPI-theme: light;
   --INTERNAL-PRINT-VARIANT-OPENAPI-CODE-theme: idea;
 }
-#R-skip-link,
+#R-skiplink,
 #R-sidebar {
   display: none;
 }
