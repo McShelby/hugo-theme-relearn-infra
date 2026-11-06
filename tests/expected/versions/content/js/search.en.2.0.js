@@ -21,11 +21,6 @@
             - insert the list into the closest ancestor of the input matching selectorToInsert
         McShelby/hugo-theme-relearn#1355
             - limit the height of the list to the visible part of the window below it
-        McShelby/hugo-theme-relearn#490
-            - keep the suggestions under the term they were asked for, and show them only while it is still in the box
-            - ask for a term even if one of its beginnings had no suggestions
-            - keep the suggestions of a term named like a member of an object, like "constructor"
-            - ask for suggestions on input as well, for text coming without a key let go of
 
     Copyright (c) 2014 Simon Steinberger / Pixabay
     GitHub: https://github.com/Pixabay/JavaScript-autoComplete
@@ -86,8 +81,7 @@ var autoComplete = (function(){
 
             that.autocompleteAttr = that.getAttribute('autocomplete');
             that.setAttribute('autocomplete', 'off');
-            // without a prototype, as a term may be named like one of its members
-            that.cache = Object.create(null);
+            that.cache = {};
             that.last_val = '';
 
             // the input and its suggestions are a combobox and its list
@@ -201,11 +195,9 @@ var autoComplete = (function(){
             };
             addEvent(that, 'blur', that.blurHandler);
 
-            var suggest = function(data, val){
-                // an answer belongs to the term it was asked for, which may no longer be in the box
-                if (val === undefined) val = that.value;
+            var suggest = function(data){
+                var val = that.value;
                 that.cache[val] = data;
-                if (val != that.value) return;
                 if (data.length && val.length >= o.minChars) {
                     var s = '';
                     for (var i=0;i<data.length;i++) s += o.renderItem(data[i], val);
@@ -284,9 +276,15 @@ var autoComplete = (function(){
                         if (val != that.last_val) {
                             that.last_val = val;
                             clearTimeout(that.timer);
-                            // a longer term may find what one of its beginnings didn't, by a similar spelling
-                            if (o.cache && val in that.cache) { suggest(that.cache[val]); return; }
-                            that.timer = setTimeout(function(){ o.source(val, function(data){ suggest(data, val); }) }, o.delay);
+                            if (o.cache) {
+                                if (val in that.cache) { suggest(that.cache[val]); return; }
+                                // no requests if previous suggestions were empty
+                                for (var i=1; i<val.length-o.minChars; i++) {
+                                    var part = val.slice(0, val.length-i);
+                                    if (part in that.cache && !that.cache[part].length) { suggest([]); return; }
+                                }
+                            }
+                            that.timer = setTimeout(function(){ o.source(val, suggest) }, o.delay);
                         }
                     } else {
                         that.last_val = val;
@@ -295,10 +293,6 @@ var autoComplete = (function(){
                 }
             };
             addEvent(that, 'keyup', that.keyupHandler);
-            // text can come without a key let go of: committed by an input method, pasted by mouse or dictated;
-            // only what the reader does, not a value a script sets, like the term of the last search on page load
-            that.inputHandler = function(e){ if (e.isTrusted) that.keyupHandler(e); };
-            addEvent(that, 'input', that.inputHandler);
 
             that.focusHandler = function(e){
                 that.last_val = '\n';
@@ -318,7 +312,6 @@ var autoComplete = (function(){
                 removeEvent(that, 'focus', that.focusHandler);
                 removeEvent(that, 'keydown', that.keydownHandler);
                 removeEvent(that, 'keyup', that.keyupHandler);
-                removeEvent(that, 'input', that.inputHandler);
                 if (that.autocompleteAttr)
                     that.setAttribute('autocomplete', that.autocompleteAttr);
                 else
@@ -348,7 +341,7 @@ var autoComplete = (function(){
 ;
 window.relearn = window.relearn || {};
 window.relearn.search = window.relearn.search || {};
-window.relearn.search.config = {"builtins":["stopwords","language","accentFold","stemmer"],"contentLangs":["en"],"home":"/2.0/","pipeline":["stopwords","language","stemmer"]};
+window.relearn.search.config = {"contentLangs":["en"]};
 
 ;
 /*
@@ -396,10 +389,7 @@ Each array item needs the following layout:
 ````
 {
     index: string, // optional, id of the page in the search index
-    score: number, // optional, how well the page matches; higher is better, and only comparable between results of the same search
     matches: string[], // optional, array of found terms; will be used to show an excerpt of the content positioned at the term
-    marks: string[], // optional, the words found in the page's title and content, as they are written there; used to mark the words on the pages, and for the excerpt where the term itself isn't found as a word
-    corrected: string, // optional, the term as it was searched for, if some of its words were found nowhere and replaced by the words they were most likely meant as
     page: {
         breadcrumb: string,
         title: string,
@@ -412,348 +402,10 @@ Each array item needs the following layout:
 */
 
 (function () {
-  // searchSetup holds what a search term runs through: the tokenizer of the
-  // index, all steps of the search, and those for a wildcard term
-  let lunrIndex, pagesIndex, searchSetup;
-
-  // Lunr warns about every function added to a pipeline it doesn't know by a
-  // label, and not every language file registers all of its own
-  function register(fn, label) {
-    if (!fn.label) {
-      lunr.Pipeline.registerFunction(fn, label);
-    }
-    return fn;
-  }
-
-  // what the file of a language sets up: its letters, its tokenizer and its
-  // steps; lunr.multiLanguage of lunr-languages would only take trimmer,
-  // stopword filter and stemmer by name and drop everything else, so we read
-  // them from the language's own setup and combine the languages ourselves
-  function languageSteps(lang) {
-    var steps = { stopwords: { index: [], search: [] }, language: { index: [], search: [] }, accentFold: { index: [], search: [] }, stemmer: { index: [], search: [] } };
-    if (lang == 'en') {
-      // English is built into Lunr and has no file of its own
-      steps.letters = '\\w';
-      steps.stopwords.index.push(lunr.stopWordFilter);
-      steps.stemmer.index.push(lunr.stemmer);
-      return steps;
-    }
-    var plugin = lunr[lang];
-    steps.letters = plugin.wordCharacters;
-    // languages without spaces between their words, like Japanese
-    steps.tokenizer = typeof plugin.tokenizer == 'function' ? plugin.tokenizer : null;
-    // the plugin sets up a stand-in that only collects what it adds, as a
-    // pipeline of Lunr warns about every function the language file didn't
-    // register, and has no accessor for its functions
-    var collector = function () {
-      var fns = [];
-      return {
-        fns: fns,
-        reset: function () {
-          fns.length = 0;
-        },
-        add: function () {
-          fns.push.apply(fns, arguments);
-        },
-      };
-    };
-    var setup = { pipeline: collector(), searchPipeline: collector() };
-    plugin.call(setup);
-    ['index', 'search'].forEach(function (kind) {
-      var fns = kind == 'index' ? setup.pipeline.fns : setup.searchPipeline.fns;
-      fns.forEach(function (fn, i) {
-        // before it is added to a pipeline, which would warn
-        register(fn, 'relearn-' + lang + '-' + kind + '-' + i);
-        if (fn === plugin.trimmer) {
-          // replaced by the trimmer shared by all content languages
-        } else if (fn === plugin.stopWordFilter) {
-          // filtering what is searched for finds nothing more
-          kind == 'index' && steps.stopwords.index.push(fn);
-        } else if (fn === plugin.stemmer) {
-          // the search takes the stemmers of the index, as a stem the index
-          // holds can only be found by a stemmed term
-          kind == 'index' && steps.stemmer.index.push(fn);
-        } else {
-          steps.language[kind].push(fn);
-        }
-      });
-    });
-    // a folding the language file offers but doesn't use itself, like the
-    // opt-in one of Spanish; it goes into both pipelines, as lunr-languages
-    // documents it
-    var fold = plugin.accentFold;
-    if (typeof fold == 'function' && setup.pipeline.fns.indexOf(fold) < 0 && setup.searchPipeline.fns.indexOf(fold) < 0) {
-      register(fold, 'relearn-' + lang + '-accentFold');
-      steps.accentFold.index.push(fold);
-      steps.accentFold.search.push(fold);
-    }
-    return steps;
-  }
-
-  // lunr-languages expects every language in Unicode NFC; per word, after the
-  // tokenizer recorded where the word is, so positions keep pointing into the
-  // text as written
-  // Hugo writes an apostrophe as typed into the text as a typographic one,
-  // like in the French "l’élève"; readers type the one of their keyboard
-  var apostrophe = new RegExp(String.fromCharCode(0x2019), 'g');
-  function nfc(token) {
-    return token.update(function (s) {
-      return s.normalize('NFC').replace(apostrophe, "'");
-    });
-  }
-
-  // Lunr lowercases the Turkish "İ" into an "i" with a dot above, which no
-  // one types and which takes a character more, shifting the positions of all
-  // words after it; in Turkish its lowercase is a plain "i", which is what an
-  // "I" lowercases into
-  function plainI(obj) {
-    if (obj == null) {
-      return obj;
-    }
-    if (Array.isArray(obj)) {
-      return obj.map(plainI);
-    }
-    return obj.toString().replace(/İ/g, 'I');
-  }
-
-  function chain(fns, token, i, tokens) {
-    return fns.reduce(function (t, fn) {
-      return t && fn(t, i, tokens);
-    }, token);
-  }
-
-  // the index holds every word as written and as its stem, so a term typed so
-  // far still finds the word, as Lunr doesn't stem wildcard terms
-  function wordAndStem(stemmers, label) {
-    return register(function (token, i, tokens) {
-      var stem = chain(stemmers, token.clone(), i, tokens);
-      return !stem || stem.toString() == token.toString() ? token : [token, stem];
-    }, label);
-  }
-
-  // all stemmers of a search in one function, so a wildcard term can skip the
-  // stemming by leaving out just that one
-  function stemOnly(stemmers, label) {
-    return register(function (token, i, tokens) {
-      return chain(stemmers, token, i, tokens);
-    }, label);
-  }
-
-  // the words of a page's path within the site, without the base path of the
-  // site, the folder of its language or version, and the "index.html" of a
-  // page bundle
-  function pathOf(page) {
-    var uri = page.uri || '';
-    var home = window.relearn.search.config.home || '/';
-    if (uri.indexOf(home) == 0) {
-      uri = uri.slice(home.length);
-    }
-    return uri.replace(/(^|\/)index\.html$|\.html$/, '').replace(/[/._-]+/g, ' ');
-  }
-
-  // the parts of a name written as one word, like "editURL", "Table.sortable"
-  // or "search.adapter.params", each at its position, so a search for its
-  // parts finds it
-  var compound = /[._:/]\p{L}|\p{Ll}\p{Lu}|\p{Lu}\p{Lu}\p{Ll}/u;
-  var part = /\p{Lu}+(?=\p{Lu}[\p{Ll}\p{M}])|\p{Lu}?[\p{Ll}\p{M}]+|\p{Lu}+|\p{N}+/gu;
-  function subwords(obj, tokens) {
-    if (obj == null || Array.isArray(obj)) {
-      return [];
-    }
-    var text = obj.toString();
-    var parts = [];
-    tokens.forEach(function (t) {
-      var p = t.metadata && t.metadata.position;
-      if (!p) {
-        return;
-      }
-      var word = text.slice(p[0], p[0] + p[1]);
-      if (!compound.test(word)) {
-        return;
-      }
-      var found = [];
-      for (var m = part.exec(word); m; m = part.exec(word)) {
-        found.push(m);
-      }
-      part.lastIndex = 0;
-      if (found.length < 2) {
-        return;
-      }
-      found.forEach(function (m) {
-        var metadata = Object.assign({}, t.metadata, { position: [p[0] + m.index, m[0].length] });
-        parts.push(new lunr.Token(m[0].toLowerCase(), metadata));
-      });
-    });
-    return parts;
-  }
-
-  // the default tokenizer, plus the words the tokenizers of languages without
-  // spaces between their words find; the same as lunr-languages merges them in
-  // lunr.multi.js; some of these tokenizers, like Hindi's, return plain strings,
-  // which the steps can't change, so they become tokens
-  function mergedTokenizer(tokenizers) {
-    return function (obj, metadata) {
-      obj = plainI(obj);
-      var tokens = lunr.tokenizer(obj, metadata);
-      tokens = tokens.concat(subwords(obj, tokens));
-      if (!tokenizers.length) {
-        return tokens;
-      }
-      var runs = tokens.slice();
-      var seen = Object.create(null);
-      tokens.forEach(function (t) {
-        seen[t.toString()] = true;
-      });
-      // the tokenizers of Japanese and Chinese count positions in the text
-      // without its leading whitespace, like an ideographic space indenting a
-      // paragraph; the default tokenizer and the marks count in the whole text
-      var lead = Array.isArray(obj) || obj == null ? 0 : obj.toString().match(/^\s*/)[0].length;
-      // where the words of the languages are, in the order they start
-      var located = [];
-      tokenizers.forEach(function (tokenizer) {
-        tokenizer(obj, metadata).forEach(function (t) {
-          t = typeof t == 'string' ? new lunr.Token(t, Object.assign({}, metadata)) : t;
-          var p = t.metadata && t.metadata.position;
-          if (p) {
-            if (lead) {
-              p = t.metadata.position = [p[0] + lead, p[1]];
-            }
-            located.push([p[0], p[0] + p[1]]);
-          }
-          if (!seen[t.toString()]) {
-            seen[t.toString()] = true;
-            tokens.push(t);
-          }
-        });
-      });
-      // the default tokenizer takes all text between two spaces as one word,
-      // for Japanese a whole paragraph; where a language's tokenizer finds
-      // other words in it, it stays in the index, but without its position it
-      // gives no mark, which would cover the whole paragraph; a run the
-      // language finds as one word keeps it, as that word was merged into it
-      if (located.length) {
-        located.sort(function (a, b) {
-          return a[0] - b[0];
-        });
-        var next = 0;
-        runs.forEach(function (t) {
-          var p = t.metadata && t.metadata.position;
-          if (!p) {
-            return;
-          }
-          var start = p[0];
-          var end = p[0] + p[1];
-          while (next < located.length && located[next][0] < start) {
-            next++;
-          }
-          var inside = false;
-          for (var i = next; i < located.length && located[i][0] < end; i++) {
-            if (located[i][0] == start && located[i][1] == end) {
-              return;
-            }
-            inside = inside || located[i][1] <= end;
-          }
-          if (inside) {
-            delete t.metadata.position;
-          }
-        });
-      }
-      return tokens;
-    };
-  }
-
-  function setupPipelines(builder, contentLangs, steps, names, builtins) {
-    var langs = contentLangs.join('-');
-    // one trimmer for all content languages, as the trimmer of one language
-    // would cut off the letters of another
-    var trimmer = register(
-      lunr.trimmerSupport.generateTrimmer(
-        steps
-          .map(function (s) {
-            return s.letters;
-          })
-          .join('')
-      ),
-      'relearn-trimmer-' + langs
-    );
-    // NFC first, so the trimmer already sees the letters it knows
-    var normalize = register(nfc, 'relearn-nfc');
-    var index = [normalize, trimmer];
-    var all = [normalize, trimmer];
-    var stem = null;
-    var stopwords = [];
-    var add = function (pipeline, fns) {
-      fns.forEach(function (fn) {
-        if (pipeline.indexOf(fn) < 0) {
-          pipeline.push(fn);
-        }
-      });
-    };
-    names.forEach(function (name) {
-      var fns = { index: [], search: [] };
-      // a built-in step takes what the languages have under its name
-      if (builtins.indexOf(name) >= 0) {
-        steps.forEach(function (s) {
-          add(fns.index, s[name].index);
-          add(fns.search, s[name].search);
-        });
-        if (name == 'stopwords') {
-          stopwords = fns.index.slice();
-        }
-        if (name == 'stemmer') {
-          stem = fns.index.length ? stemOnly(fns.index, 'relearn-stemmer-search-' + langs) : null;
-          fns.index = stem ? [wordAndStem(fns.index, 'relearn-stemmer-index-' + langs)] : [];
-          fns.search = stem ? [stem] : [];
-        }
-      } else {
-        // a filter file; the build reports a missing one, this one a file
-        // that doesn't define the filter by its name
-        var filter = (window.relearn.lunrFilter ?? {})[name];
-        if (!filter || typeof filter.filter != 'function') {
-          console.warn('Search step "' + name + '" not found in assets/js/lunr-filter/' + name + '.js, it is left out');
-          return;
-        }
-        var fn = register(filter.filter, 'relearn-filter-' + name);
-        fns.index = filter.pipeline != 'search' ? [fn] : [];
-        fns.search = filter.pipeline != 'index' ? [fn] : [];
-      }
-      add(index, fns.index);
-      add(all, fns.search);
-    });
-    builder.pipeline.reset();
-    builder.pipeline.add.apply(builder.pipeline, index);
-    builder.searchPipeline.reset();
-    builder.searchPipeline.add.apply(builder.searchPipeline, all);
-    // the index keeps every word as written, which only misses the stemming;
-    // so does a wildcard term, as it is a word as typed so far
-    var wildcard = new lunr.Pipeline();
-    wildcard.add.apply(
-      wildcard,
-      all.filter(function (fn) {
-        return fn !== stem;
-      })
-    );
-    // the same for the index and what is searched for, so both split words alike
-    builder.tokenizer = mergedTokenizer(
-      steps
-        .map(function (s) {
-          return s.tokenizer;
-        })
-        .filter(Boolean)
-    );
-    searchSetup = {
-      tokenizer: builder.tokenizer,
-      all: builder.searchPipeline,
-      wildcard: wildcard,
-      // the words the index leaves out, if it does
-      stopwords: stopwords,
-    };
-  }
+  let lunrIndex, pagesIndex;
 
   function init() {
     var contentLangs = window.relearn.search.config.contentLangs;
-    var pipeline = window.relearn.search.config.pipeline;
-    var builtins = window.relearn.search.config.builtins;
 
     function initIndex(index) {
       if (!window.lunr) {
@@ -762,11 +414,8 @@ Each array item needs the following layout:
       pagesIndex = index;
       // Set up Lunr by declaring the fields we use
       // Also provide their boost level for the ranking
-      var steps = contentLangs.map(languageSteps);
       lunrIndex = lunr(function () {
-        setupPipelines(this, contentLangs, steps, pipeline, builtins);
-        // where each word is, so a result tells the words as they are written
-        this.metadataWhitelist = ['position'];
+        this.use(lunr.multiLanguage.apply(null, contentLangs));
         this.ref('index');
         this.field('title', {
           boost: 15,
@@ -777,21 +426,9 @@ Each array item needs the following layout:
         this.field('content', {
           boost: 5,
         });
-        this.field('description', {
-          boost: 5,
-        });
-        // the sections a page is in, by the titles of its breadcrumb and by the
-        // words of its path within the site, like "releasenotes"; a search
-        // naming one of them asks for the pages in them
-        this.field('breadcrumb', {
-          boost: 10,
-        });
-        this.field('address', {
-          boost: 10,
-          extractor: function (page) {
-            return pathOf(page);
-          },
-        });
+
+        this.pipeline.remove(lunr.stemmer);
+        this.searchPipeline.remove(lunr.stemmer);
 
         // Feed Lunr with each file and let index them
         pagesIndex.forEach(function (page, idx) {
@@ -821,326 +458,53 @@ Each array item needs the following layout:
     }
   }
 
-  // the words a step leaves of a token; a step may change it, add further ones
-  // or drop it
-  function words(pipeline, token) {
-    return pipeline.run([token.clone()]).filter(function (t) {
-      return t && t.toString();
-    });
-  }
-
-  // the words of a page the index terms of a result were found at, as they are
-  // written there; the steps may have changed a term into one the page doesn't
-  // hold, like a stem or a word without its accents; tags are indexed as a list,
-  // which Lunr records no positions for; only the index terms related to what
-  // was searched for give marks, all if not told which
-  function marks(page, metadata, related) {
-    // without a prototype, as a word may be named like one of its members
-    var found = Object.create(null);
-    Object.keys(metadata).forEach(function (term) {
-      if (related && !related(term)) {
-        return;
-      }
-      ['title', 'content'].forEach(function (field) {
-        var text = page[field] || '';
-        ((metadata[term][field] || {}).position || []).forEach(function (p) {
-          // a word added by a language's tokenizer may have no position
-          if (!p) {
-            return;
-          }
-          // a position covers everything between two separators, punctuation
-          // around the word included
-          var word = text.slice(p[0], p[0] + p[1]).replace(/^[^\p{L}\p{M}\p{N}]+|[^\p{L}\p{M}\p{N}]+$/gu, '');
-          if (word) {
-            found[word] = true;
-          }
-        });
-      });
-    });
-    return Object.keys(found);
-  }
-
-  function query(clauses) {
-    return lunrIndex.query(function (q) {
-      clauses.forEach(function (c) {
-        q.term(c.term, Object.assign({ usePipeline: false }, c.options));
-      });
-    });
-  }
-
-  // how far apart two words are: letters inserted, deleted or replaced, and
-  // two neighbours swapped, the most common typo, counting as one
-  function distance(a, b) {
-    var d = [];
-    for (var i = 0; i <= a.length; i++) {
-      d[i] = [i];
-    }
-    for (var j = 0; j <= b.length; j++) {
-      d[0][j] = j;
-    }
-    for (i = 1; i <= a.length; i++) {
-      for (j = 1; j <= b.length; j++) {
-        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] == b[j - 1] ? 0 : 1));
-        if (i > 1 && j > 1 && a[i - 1] == b[j - 2] && a[i - 2] == b[j - 1]) {
-          d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
-        }
-      }
-    }
-    return d[a.length][b.length];
-  }
-
-  // a letter without its accents, so a word typed without them, like the
-  // Turkish "sehir", still starts with the letter of "şehir"
-  function base(letter) {
-    return (letter || '').normalize('NFD').replace(/\p{M}/gu, '');
-  }
-
-  // on how many pages a word of the index is
-  function pagesWith(term) {
-    var fields = lunrIndex.invertedIndex[term] || {};
-    var refs = Object.create(null);
-    Object.keys(fields).forEach(function (field) {
-      if (field != '_index') {
-        Object.keys(fields[field]).forEach(function (ref) {
-          refs[ref] = true;
-        });
-      }
-    });
-    return Object.keys(refs).length;
-  }
-
-  // the word of the index a word found nowhere was most likely meant as: one
-  // typo for a word of four letters, two from eight on; starting with the same
-  // letter, as a typo there is rare and more likely another word; the fewest
-  // typos, and of those the word on the most pages; one word only, as the
-  // reader meant one, and all words close to it bury the pages holding it
-  function correction(word) {
-    var allowed = word.length >= 8 ? 2 : word.length >= 4 ? 1 : 0;
-    if (!allowed) {
-      return null;
-    }
-    var candidates = lunrIndex.tokenSet.intersect(lunr.TokenSet.fromFuzzyString(word, allowed)).toArray();
-    // two neighbours swapped are one typo, which Lunr counts as two
-    for (var i = 0; i + 1 < word.length; i++) {
-      var swapped = word.slice(0, i) + word[i + 1] + word[i] + word.slice(i + 2);
-      if (lunrIndex.invertedIndex[swapped]) {
-        candidates.push(swapped);
-      }
-    }
-    var best = null;
-    candidates.forEach(function (c) {
-      if (c == word || Math.abs(c.length - word.length) > allowed) {
-        return;
-      }
-      var d = distance(word, c);
-      var swappedFirst = d == 1 && c[0] == word[1] && c[1] == word[0];
-      if (d > allowed || (base(c[0]) != base(word[0]) && !swappedFirst)) {
-        return;
-      }
-      var n = pagesWith(c);
-      if (!best || d < best.d || (d == best.d && (n > best.n || (n == best.n && c < best.c)))) {
-        best = { c: c, d: d, n: n };
-      }
-    });
-    return best && best.c;
-  }
-
   function search(term) {
+    function searchPatterns(word) {
+      // for short words high amounts of typos doesn't make sense
+      // for long words we allow less typos because this largely increases search time
+      var typos = [
+        { len: -1, typos: 1 },
+        { len: 60, typos: 2 },
+        { len: 40, typos: 3 },
+        { len: 20, typos: 4 },
+        { len: 16, typos: 3 },
+        { len: 12, typos: 2 },
+        { len: 8, typos: 1 },
+        { len: 4, typos: 0 },
+      ];
+      var patterns = [word + '^100', word + '*^10', '*' + word + '^10'];
+      // typos are only of interest for a word that isn't found as written;
+      // otherwise similar words bury the hits that were asked for
+      if (!lunrIndex.search(patterns.join(' ')).length) {
+        patterns.push(
+          word +
+            '~' +
+            typos.reduce(function (a, c, i) {
+              return word.length < c.len ? c : a;
+            }).typos +
+            '^1'
+        );
+      }
+      return patterns;
+    }
+
+    // Find the item in our index corresponding to the Lunr one to have more info
+    // Remove Lunr special search characters: https://lunrjs.com/guides/searching.html
     if (!window.lunr || !lunrIndex) {
       return [];
     }
-    // the query is built term by term, so Lunr's query syntax has no meaning,
-    // except for a hyphen that separates words
-    var typed = term;
     term = term.replace(/[*:^~+-]/g, ' ');
-    // Lunr skips the search pipeline for wildcard terms, so we run the steps
-    // ourselves: the word as written gets all of them but the stemming, its
-    // stem all of them
-    var clausesOf = function (token) {
-      var written = words(searchSetup.wildcard, token);
-      var texts = written.map(String);
-      var stems = words(searchSetup.all, token).filter(function (stem) {
-        return texts.indexOf(stem.toString()) < 0;
-      });
-      // the word as written first, then other forms of it, then words
-      // starting with it
-      var found = written
-        .map(function (word) {
-          return { term: word, options: { boost: 100 } };
-        })
-        .concat(
-          stems.map(function (stem) {
-            return { term: stem, options: { boost: 50 } };
-          }),
-          written.map(function (word) {
-            return { term: word, options: { boost: 10, wildcard: lunr.Query.wildcard.TRAILING } };
-          })
-        );
-      // words ending with it, the costliest to look up, don't decide whether
-      // the word is found at all
-      var known = found.length && query(found).length;
-      return {
-        written: texts,
-        // the word as written and its stems, without the words starting with it
-        exact: found
-          .filter(function (c) {
-            return !c.options.wildcard;
-          })
-          .map(function (c) {
-            return c.term.toString();
-          }),
-        known: known,
-        clauses: found.concat(
-          written.map(function (word) {
-            return { term: word, options: { boost: 10, wildcard: lunr.Query.wildcard.LEADING } };
-          })
-        ),
-      };
-    };
-    // a word found nowhere is searched for as the word it was most likely
-    // meant as, and the reader is told so
-    var corrected = false;
-    var asSearched = [];
-    // the words the index leaves out, like "the" or "how"; searched for, as a
-    // word typed so far may start another one, but neither corrected nor
-    // counted below
-    var isStopword = function (written) {
-      return !!searchSetup.stopwords.length && !chain(searchSetup.stopwords, new lunr.Token(written, {}), 0, []);
-    };
-    // a word of a language without spaces between its words, like Japanese,
-    // is the whole run, found by its parts, not by itself
-    var spaceless = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Thai}]/u;
-    var groups = searchSetup.tokenizer(term).map(function (token) {
-      var word = clausesOf(token);
-      var stop = !!word.written.length && isStopword(word.written[0]);
-      var meant = !word.known && !stop && word.written.length && !spaceless.test(word.written[0]) && correction(word.written[0]);
-      if (meant) {
-        corrected = true;
-        var fixed = clausesOf(new lunr.Token(meant, {}));
-        asSearched.push({ text: token.toString(), typed: word.written[0], meant: meant });
-        return { clauses: fixed.clauses, exact: fixed.exact, stop: false };
-      }
-      return { clauses: word.clauses, exact: word.exact, stop: stop };
-    });
-    var clauses = groups.reduce(function (a, g) {
-      return a.concat(g.clauses);
-    }, []);
-    if (!clauses.length) {
-      return [];
-    }
-    // a search for several words lists every page holding any of them, so the
-    // pages holding more of them rank higher; the share of the words a page
-    // holds weighs in squared, so a page lacking some drops below the
-    // threshold, unless it matches well otherwise, like by another form of a
-    // word the stemmer doesn't take for the same; words found nowhere don't
-    // count
-    var held = Object.create(null);
-    var counted = 0;
-    // the forms of the words counted, which name a section of a page only as
-    // they are, not as the start of another word, like "in" of "introduction"
-    var named = Object.create(null);
-    groups.forEach(function (g) {
-      if (g.stop) {
-        return;
-      }
-      g.exact.forEach(function (form) {
-        named[form] = true;
-      });
-      var found = query(g.clauses);
-      if (!found.length) {
-        return;
-      }
-      counted++;
-      found.forEach(function (r) {
-        held[r.ref] = (held[r.ref] || 0) + 1;
-      });
-    });
-    // a page's relevance from its front matter weighs in as a factor, the same
-    // with every search adapter; a search naming a section the page is in, by
-    // a title of its breadcrumb or a word of its path, asks for it, so a page
-    // ranked lower counts in full, like "changelog" for the changelog
-    var results = query(clauses)
-      .map(function (result) {
-        // a page found only by the words starting with a stopword holds none
-        // of the words counted
-        var share = counted ? (held[result.ref] || 0) / counted : 1;
-        var metadata = result.matchData.metadata;
-        var asked = Object.keys(metadata).some(function (term) {
-          return (metadata[term].breadcrumb || metadata[term].address) && named[term];
+    var searchTerm = lunr
+      .tokenizer(term)
+      .reduce(function (a, token) {
+        return a.concat(searchPatterns(token.str));
+      }, [])
+      .join(' ');
+    return !searchTerm || !lunrIndex
+      ? []
+      : lunrIndex.search(searchTerm).map(function (result) {
+          return { index: result.ref, matches: [term, ...Object.keys(result.matchData.metadata)], page: pagesIndex[result.ref] };
         });
-        var relevance = pagesIndex[result.ref].relevance ?? 1;
-        if (asked) {
-          relevance = Math.max(relevance, 1);
-        }
-        return Object.assign({}, result, { score: result.score * share * share * relevance, share: share });
-      })
-      .sort(function (a, b) {
-        return b.score - a.score;
-      });
-    // pages matching hardly at all compared to the best one only bury it in a
-    // long list; a short one stays as it is, as the page describing a thing in
-    // detail may name it only once in a long text, like a variant in the list
-    // of all variants, and rank behind the short release notes naming it; but
-    // only pages holding every word fill it up, not those holding some, like
-    // every page of the changelog for "tome changelog"
-    var least = results.length ? results[0].score * 0.2 : 0;
-    results = results.filter(function (result, i) {
-      return (i < 10 && result.share == 1) || result.score >= least;
-    });
-    // the forms searched for
-    var forms = clauses.map(function (c) {
-      return c.term.toString();
-    });
-    var related = function (term) {
-      return forms.some(function (form) {
-        return term.indexOf(form) >= 0;
-      });
-    };
-    // a correction is a word of the index, which may be a stem, like the French
-    // "elev"; the reader is told the word as a found page writes it, of those
-    // the closest to what was typed
-    var fold = function (s) {
-      return s.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
-    };
-    var writtenAs = function (part) {
-      var closest = null;
-      for (var i = 0; i < results.length; i++) {
-        var found = marks(pagesIndex[results[i].ref], results[i].matchData.metadata, function (t) {
-          return t.indexOf(part.meant) >= 0;
-        });
-        // the correction itself, if a page writes it so
-        if (found.indexOf(part.meant) >= 0) {
-          return part.meant;
-        }
-        closest =
-          closest ||
-          (found.length &&
-            found.reduce(function (a, w) {
-              return distance(fold(part.typed), fold(w)) < distance(fold(part.typed), fold(a)) ? w : a;
-            }));
-      }
-      return closest || part.meant;
-    };
-    // the term as typed, with the corrected words in place; not built from all
-    // tokens, which also hold the parts of names and of runs without spaces
-    var meant = corrected
-      ? asSearched.reduce(function (s, part) {
-          var at = s.toLowerCase().indexOf(part.text);
-          return at < 0 ? s : s.slice(0, at) + writtenAs(part) + s.slice(at + part.text.length);
-        }, typed)
-      : undefined;
-    return results.map(function (result) {
-      var page = pagesIndex[result.ref];
-      var metadata = result.matchData.metadata;
-      return {
-        index: result.ref,
-        score: result.score,
-        matches: [meant || term, ...Object.keys(metadata)],
-        marks: marks(page, metadata, related),
-        corrected: meant,
-        page: page,
-      };
-    });
   }
 
   window.relearn = window.relearn ?? {};
@@ -1158,6 +522,8 @@ Each array item needs the following layout:
 
 ;
 !function(r,i){"function"==typeof define&&define.amd?define(i):"object"==typeof exports?module.exports=i():i()(r.lunr)}(this,function(){return function(r){r.stemmerSupport={Among:function(r,i,t,e){if(this.toCharArray=function(r){for(var i=r.length,t=new Array(i),e=0;e<i;e++)t[e]=r.charCodeAt(e);return t},!r&&""!=r||!i&&0!=i||!t)throw"Bad Among initialisation: s:"+r+", substring_i: "+i+", result: "+t;this.s_size=r.length,this.s=this.toCharArray(r),this.substring_i=i,this.result=t,this.method=e},SnowballProgram:function(){var r;return{bra:0,ket:0,limit:0,cursor:0,limit_backward:0,setCurrent:function(i){r=i,this.cursor=0,this.limit=i.length,this.limit_backward=0,this.bra=this.cursor,this.ket=this.limit},getCurrent:function(){var i=r;return r=null,i},in_grouping:function(i,t,e){if(this.cursor<this.limit){var s=r.charCodeAt(this.cursor);if(s<=e&&s>=t&&(s-=t,i[s>>3]&1<<(7&s)))return this.cursor++,!0}return!1},in_grouping_b:function(i,t,e){if(this.cursor>this.limit_backward){var s=r.charCodeAt(this.cursor-1);if(s<=e&&s>=t&&(s-=t,i[s>>3]&1<<(7&s)))return this.cursor--,!0}return!1},out_grouping:function(i,t,e){if(this.cursor<this.limit){var s=r.charCodeAt(this.cursor);if(s>e||s<t)return this.cursor++,!0;if(s-=t,!(i[s>>3]&1<<(7&s)))return this.cursor++,!0}return!1},out_grouping_b:function(i,t,e){if(this.cursor>this.limit_backward){var s=r.charCodeAt(this.cursor-1);if(s>e||s<t)return this.cursor--,!0;if(s-=t,!(i[s>>3]&1<<(7&s)))return this.cursor--,!0}return!1},eq_s:function(i,t){if(this.limit-this.cursor<i)return!1;for(var e=0;e<i;e++)if(r.charCodeAt(this.cursor+e)!=t.charCodeAt(e))return!1;return this.cursor+=i,!0},eq_s_b:function(i,t){if(this.cursor-this.limit_backward<i)return!1;for(var e=0;e<i;e++)if(r.charCodeAt(this.cursor-i+e)!=t.charCodeAt(e))return!1;return this.cursor-=i,!0},find_among:function(i,t){for(var e=0,s=t,n=this.cursor,u=this.limit,o=0,a=0,c=!1;;){for(var h=e+(s-e>>1),l=0,f=o<a?o:a,d=i[h],p=f;p<d.s_size;p++){if(n+f==u){l=-1;break}if(l=r.charCodeAt(n+f)-d.s[p])break;f++}if(l<0?(s=h,a=f):(e=h,o=f),s-e<=1){if(e>0||s==e||c)break;c=!0}}for(;;){var d=i[e];if(o>=d.s_size){if(this.cursor=n+d.s_size,!d.method)return d.result;var m=d.method();if(this.cursor=n+d.s_size,m)return d.result}if((e=d.substring_i)<0)return 0}},find_among_b:function(i,t){for(var e=0,s=t,n=this.cursor,u=this.limit_backward,o=0,a=0,c=!1;;){for(var h=e+(s-e>>1),l=0,f=o<a?o:a,d=i[h],p=d.s_size-1-f;p>=0;p--){if(n-f==u){l=-1;break}if(l=r.charCodeAt(n-1-f)-d.s[p])break;f++}if(l<0?(s=h,a=f):(e=h,o=f),s-e<=1){if(e>0||s==e||c)break;c=!0}}for(;;){var d=i[e];if(o>=d.s_size){if(this.cursor=n-d.s_size,!d.method)return d.result;var m=d.method();if(this.cursor=n-d.s_size,m)return d.result}if((e=d.substring_i)<0)return 0}},replace_s:function(i,t,e){var s=e.length-(t-i),n=r.substring(0,i),u=r.substring(t);return r=n+e+u,this.limit+=s,this.cursor>=t?this.cursor+=s:this.cursor>i&&(this.cursor=i),s},slice_check:function(){if(this.bra<0||this.bra>this.ket||this.ket>this.limit||this.limit>r.length)throw"faulty slice operation"},slice_from:function(r){this.slice_check(),this.replace_s(this.bra,this.ket,r)},slice_del:function(){this.slice_from("")},insert:function(r,i,t){var e=this.replace_s(r,i,t);r<=this.bra&&(this.bra+=e),r<=this.ket&&(this.ket+=e)},slice_to:function(){return this.slice_check(),r.substring(this.bra,this.ket)},eq_v_b:function(r){return this.eq_s_b(r.length,r)}}},addQueryParserWildcardNormalizer:function(r,i){if(r.Index&&r.Index.prototype&&r.Index.prototype.query&&r.QueryParser&&r.QueryParser.parseTerm&&r.QueryLexer){this.queryParserWildcardNormalizers||(this.queryParserWildcardNormalizers=[]);for(var t=0;t<this.queryParserWildcardNormalizers.length;t++)if(this.queryParserWildcardNormalizers[t].label===i.label)return;if(this.queryParserWildcardNormalizers.push(i),!this.queryParserWildcardNormalizerApplied){var e=this,s=r.Index.prototype.query,n=r.QueryParser.parseTerm;r.Index.prototype.query=function(r){var i=this;return s.call(this,function(t){return t._lunrLanguagesSearchPipeline=i.pipeline,r.call(this,t)})},r.QueryParser.parseTerm=function(i){var t=i.consumeLexeme;i.consumeLexeme=function(){var s=t.call(i);return s&&s.type===r.QueryLexer.TERM&&-1!==s.str.indexOf("*")?{type:s.type,str:e.applyQueryParserWildcardNormalizers(s.str,i.query),start:s.start,end:s.end}:s};try{return n(i)}finally{i.consumeLexeme=t}},this.queryParserWildcardNormalizerApplied=!0}}},applyQueryParserWildcardNormalizers:function(r,i){for(var t=this.queryParserWildcardNormalizers||[],e=i&&i._lunrLanguagesSearchPipeline,s=0;s<t.length;s++)e&&!this.pipelineContainsFunction(e,t[s].pipelineFunctionLabel)||(r=t[s](r));return r},pipelineContainsFunction:function(r,i){if(!i)return!0;if(!r._stack)return!1;for(var t=0;t<r._stack.length;t++)if(r._stack[t].label===i)return!0;return!1}},r.trimmerSupport={generateTrimmer:function(r){var i=r+"0-9",t=new RegExp("^[^"+i+"]+"),e=new RegExp("[^"+i+"]+$");return function(r){return"function"==typeof r.update?r.update(function(r){return r.replace(t,"").replace(e,"")}):r.replace(t,"").replace(e,"")}}}}});
+;
+!function(e,t){"function"==typeof define&&define.amd?define(t):"object"==typeof exports?module.exports=t():t()(e.lunr)}(this,function(){return function(e){e.multiLanguage=function(){for(var t=Array.prototype.slice.call(arguments),r=t.join("-"),i="",n=[],o=[],s=[],p="2"==e.version[0],u=e.tokenizer,h=0;h<t.length;++h)"en"==t[h]?(i+="\\w",n.unshift(e.stopWordFilter),n.push(e.stemmer),o.push(e.stemmer)):(i+=e[t[h]].wordCharacters,e[t[h]].stopWordFilter&&n.unshift(e[t[h]].stopWordFilter),e[t[h]].stemmer&&(n.push(e[t[h]].stemmer),o.push(e[t[h]].stemmer)),e[t[h]].tokenizer&&s.push(e[t[h]].tokenizer));var l=e.trimmerSupport.generateTrimmer(i);if(e.Pipeline.registerFunction(l,"lunr-multi-trimmer-"+r),n.unshift(l),s.length>0){var a=function(e,t){for(var r=u(e,t),i={},n=0;n<r.length;n++)i[r[n].toString()]=!0;for(var n=0;n<s.length;n++)for(var o=s[n](e,t),p=0;p<o.length;p++){var h=o[p],l=h.toString();i[l]||(i[l]=!0,r.push(h))}return r};e.tokenizer.registerFunction&&e.tokenizer.registerFunction(a,"lunr-multi-tokenizer-"+r)}return function(){this.pipeline.reset(),this.pipeline.add.apply(this.pipeline,n),a&&(p?this.tokenizer=a:(e.tokenizer&&(e.tokenizer=a),this.tokenizerFn&&(this.tokenizerFn=a))),this.searchPipeline&&(this.searchPipeline.reset(),this.searchPipeline.add.apply(this.searchPipeline,o))}}}});
 ;
 /*!
  * Lunr languages, `English` language
@@ -1179,47 +545,6 @@ Each array item needs the following layout:
 
   function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
-  // of two words starting alike, a regex takes the one it is given first
-  function longestFirst(words) {
-    return words.slice().sort(function (a, b) {
-      return b.length - a.length;
-    });
-  }
-
-  // the words all results were found at, for marking them on the pages; the
-  // engine may have found a word by another form than the one typed; a word
-  // holding one of the words typed is marked by that already
-  function rememberMarks(value, results) {
-    if (!window.relearn.setSearchMarks) {
-      return false;
-    }
-    // split like the page splits them for marking
-    var typed = value
-      .toLowerCase()
-      .split(' ')
-      .filter(function (word) {
-        return word.trim() != '';
-      });
-    // once each, but as written, as lowercasing may change a letter into ones
-    // a match ignoring case doesn't take for it, like the Turkish "İ"
-    // without a prototype, as a word may be named like one of its members
-    var marks = Object.create(null);
-    results.forEach(function (item) {
-      (item.marks || []).forEach(function (mark) {
-        var key = mark.toLowerCase();
-        if (
-          !(key in marks) &&
-          !typed.some(function (word) {
-            return key.indexOf(word) >= 0;
-          })
-        ) {
-          marks[key] = mark;
-        }
-      });
-    });
-    return window.relearn.setSearchMarks(value, Object.values(marks));
   }
 
   // the searchinput of the dedicated search page; its form may be copied into
@@ -1324,39 +649,15 @@ Each array item needs the following layout:
   function renderItem(item) {
     var page = item.page;
     var context = [];
-    var numContextWords = 2;
-    // the content around one of the words, each as a word of its own; \b only
-    // knows the letters of English, so the letters of all scripts are looked
-    // at instead
-    var around = function (words, bordered) {
-      var pattern = longestFirst(words).map(escapeRegex).join('|');
-      if (bordered) {
-        pattern = '(?<![\\p{L}\\p{M}\\p{N}])(?:' + pattern + ')(?![\\p{L}\\p{M}\\p{N}])';
-      }
-      // without a border, the text around is a run without spaces, so only a
-      // part of it
-      var run = bordered ? '\\S*' : '\\S{0,20}';
-      return page.content.match(new RegExp('(?:\\S+ +){0,' + numContextWords + '}' + run + '(?:' + pattern + ')' + run + '(?: +\\S+){0,' + numContextWords + '}', 'iu'));
-    };
-    var marks = item.marks && item.marks.length ? item.marks : null;
-    if (marks) {
-      // the term as typed first, so a term of several words is shown where
-      // they stand together, then the words as they are written in the content
-      context = (item.matches && item.matches.length && around(item.matches.slice(0, 1), true)) || around(marks, true);
-    }
-    // marks found only in the title leave the content to the terms
-    if (!(context && context.length) && item.matches && item.matches.length) {
+    if (item.matches && item.matches.length) {
+      var numContextWords = 2;
       var contextPattern = '(?:\\S+ +){0,' + numContextWords + '}\\S*\\b(?:' + escapeRegex(item.matches[0]) + ')\\b\\S*(?: +\\S+){0,' + numContextWords + '}';
       context = page.content.match(new RegExp(contextPattern, 'i'));
-      if (!context && item.matches.length > 1) {
-        // the suggestions render a result they kept once more, so it stays as it is
-        var contextPattern = '(?:\\S+ +){0,' + numContextWords + '}\\S*\\b(?:' + item.matches.slice(1).map(escapeRegex).join('|') + ')\\b\\S*(?: +\\S+){0,' + numContextWords + '}';
+      if (!context) {
+        item.matches.shift();
+        var contextPattern = '(?:\\S+ +){0,' + numContextWords + '}\\S*\\b(?:' + item.matches.map(escapeRegex).join('|') + ')\\b\\S*(?: +\\S+){0,' + numContextWords + '}';
         context = page.content.match(new RegExp(contextPattern, 'i'));
       }
-    }
-    // languages without spaces between their words have no border to a word
-    if (!(context && context.length) && marks) {
-      context = around(marks, false);
     }
     var divsuggestion = document.createElement('a');
     divsuggestion.className = 'autocomplete-suggestion';
@@ -1397,34 +698,6 @@ Each array item needs the following layout:
     });
   }
 
-  // what a search found; a term searched for as corrected is told as such
-  function resultHint(value, results) {
-    if (!results.length) {
-      return resolvePlaceholders(window.T_No_results_found, [value]);
-    }
-    var corrected = results[0].corrected;
-    return resolvePlaceholders(corrected && window.T_Corrected_results_found ? window.T_Corrected_results_found : window.T_N_results_found, [value, results.length, corrected]);
-  }
-
-  // a search box suggests the best pages only, and leads to the search page
-  // for all of them
-  var maxSuggestions = 10;
-
-  // Chinese, Japanese and Korean write many words with two characters, other
-  // scripts need a third letter before suggestions make sense
-  var shortWords = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u;
-  function tooShort(term) {
-    return term.trim().length < (shortWords.test(term) ? 2 : 3);
-  }
-
-  function renderMore(item) {
-    var more = document.createElement('a');
-    more.className = 'autocomplete-suggestion autocomplete-more';
-    more.setAttribute('href', item.href);
-    more.innerText = item.text;
-    return more;
-  }
-
   // how many suggestions there are is told without having to look at them
   function initStatus(list) {
     var status = document.createElement('div');
@@ -1456,14 +729,11 @@ Each array item needs the following layout:
       await searchEngineReady;
       var a = await window.relearn.search.adapter.search(value);
       if (a.length) {
-        hint.innerText = resultHint(value, a);
+        hint.innerText = resolvePlaceholders(window.T_N_results_found, [value, a.length]);
         a.forEach(function (item) {
           results.appendChild(renderItem(item));
         });
-        // new marks mark the page again, the results included
-        if (!rememberMarks(value, a)) {
-          window.relearn.markSearch();
-        }
+        window.relearn.markSearch();
       } else if (value.length) {
         hint.innerText = resolvePlaceholders(window.T_No_results_found, [value]);
       }
@@ -1505,38 +775,23 @@ Each array item needs the following layout:
       // has its head start while the term is still typed
       box.addEventListener('focus', requestSearchEngine, { once: true });
       var status = null;
-      // the search page the box leads to, if there is one
-      var page = box.form && box.form.getAttribute('action') ? box.form.action : null;
       new autoComplete({
         /* selector for the search box element */
         selectorToInsert: 'search:has(.searchbox)',
         selector: box,
-        minChars: 2,
         /* source is the callback to perform the search */
         source: async function (term, response) {
-          if (tooShort(term)) {
-            response([]);
-            return;
-          }
           requestSearchEngine();
           await searchEngineReady;
           let a = await window.relearn.search.adapter.search(term);
-          var shown = a;
-          if (page && a.length > maxSuggestions) {
-            var url = new URL(page);
-            url.searchParams.set('search-by', term);
-            shown = a.slice(0, maxSuggestions).concat({ more: true, href: url.toString(), text: resultHint(term, a) });
-          }
-          response(shown);
-          rememberMarks(term, a);
-          // the answer to an earlier term, coming in late, isn't told
-          if (status && box.value == term) {
-            status.innerText = resultHint(term, a);
+          response(a);
+          if (status) {
+            status.innerText = resolvePlaceholders(a.length ? window.T_N_results_found : window.T_No_results_found, [term, a.length]);
           }
         },
         /* renderItem displays individual search results */
         renderItem: function (item, _term) {
-          return (item.more ? renderMore(item) : renderItem(item)).outerHTML;
+          return renderItem(item).outerHTML;
         },
         /* onSelect callback fires when a search suggestion is chosen */
         onSelect: function (e, term, item) {

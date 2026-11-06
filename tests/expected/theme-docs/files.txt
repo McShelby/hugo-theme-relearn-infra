@@ -347,9 +347,6 @@ frontmatter/ordersectionsby/index.xml
 frontmatter/pages/index.html
 frontmatter/pages/index.print.html
 frontmatter/pages/index.xml
-frontmatter/search.relevance/index.html
-frontmatter/search.relevance/index.print.html
-frontmatter/search.relevance/index.xml
 frontmatter/sidebarfootermenus/index.html
 frontmatter/sidebarfootermenus/index.print.html
 frontmatter/sidebarfootermenus/index.xml
@@ -1013,9 +1010,6 @@ options/relearn.dependencies/index.xml
 options/search.adapter.params.additionalcontentlanguage/index.html
 options/search.adapter.params.additionalcontentlanguage/index.print.html
 options/search.adapter.params.additionalcontentlanguage/index.xml
-options/search.adapter.params.pipeline/index.html
-options/search.adapter.params.pipeline/index.print.html
-options/search.adapter.params.pipeline/index.xml
 options/search.disable/index.html
 options/search.disable/index.print.html
 options/search.disable/index.xml
@@ -1406,9 +1400,6 @@ pir/frontmatter/ordersectionsby/index.xml
 pir/frontmatter/pages/index.html
 pir/frontmatter/pages/index.print.html
 pir/frontmatter/pages/index.xml
-pir/frontmatter/search.relevance/index.html
-pir/frontmatter/search.relevance/index.print.html
-pir/frontmatter/search.relevance/index.xml
 pir/frontmatter/sidebarfootermenus/index.html
 pir/frontmatter/sidebarfootermenus/index.print.html
 pir/frontmatter/sidebarfootermenus/index.xml
@@ -2046,9 +2037,6 @@ pir/options/relearn.dependencies/index.xml
 pir/options/search.adapter.params.additionalcontentlanguage/index.html
 pir/options/search.adapter.params.additionalcontentlanguage/index.print.html
 pir/options/search.adapter.params.additionalcontentlanguage/index.xml
-pir/options/search.adapter.params.pipeline/index.html
-pir/options/search.adapter.params.pipeline/index.print.html
-pir/options/search.adapter.params.pipeline/index.xml
 pir/options/search.disable/index.html
 pir/options/search.disable/index.print.html
 pir/options/search.disable/index.xml
