@@ -7,9 +7,9 @@ cards/index.html
 cards/index.source.md
 categories/index.html
 categories/index.xml
-css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
+css/search.css
 css/swagger.css
 css/theme.css
 dependencies/index.html
@@ -31,7 +31,6 @@ images/square.gif
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.js
 js/d3/d3-color.min.js
 js/d3/d3-dispatch.min.js
 js/d3/d3-drag.min.js
@@ -42,13 +41,8 @@ js/d3/d3-timer.min.js
 js/d3/d3-transition.min.js
 js/d3/d3-zoom.min.js
 js/js-yaml/js-yaml.min.js
-js/lunr/lunr.en.min.js
-js/lunr/lunr.min.js
-js/lunr/lunr.multi.min.js
-js/lunr/lunr.stemmer.support.min.js
 js/mermaid/mermaid.min.js
-js/search-lunr.js
-js/search.js
+js/search.en.js
 js/theme-head.js
 js/theme.js
 search/index.html

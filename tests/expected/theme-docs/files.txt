@@ -190,9 +190,9 @@ configuration/sitemanagement/structure/index.xml
 configuration/sitemanagement/versioning/index.html
 configuration/sitemanagement/versioning/index.print.html
 configuration/sitemanagement/versioning/index.xml
-css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
+css/search.css
 css/swagger-ui/swagger-ui.css
 css/swagger.css
 css/theme.css
@@ -347,6 +347,9 @@ frontmatter/ordersectionsby/index.xml
 frontmatter/pages/index.html
 frontmatter/pages/index.print.html
 frontmatter/pages/index.xml
+frontmatter/search.relevance/index.html
+frontmatter/search.relevance/index.print.html
+frontmatter/search.relevance/index.xml
 frontmatter/sidebarfootermenus/index.html
 frontmatter/sidebarfootermenus/index.print.html
 frontmatter/sidebarfootermenus/index.xml
@@ -807,7 +810,6 @@ introduction/releasenotes/index.xml
 introduction/upgrade/index.html
 introduction/upgrade/index.print.html
 introduction/upgrade/index.xml
-js/auto-complete/auto-complete.js
 js/d3/d3-color.min.js
 js/d3/d3-dispatch.min.js
 js/d3/d3-drag.min.js
@@ -820,14 +822,9 @@ js/d3/d3-zoom.min.js
 js/github-buttons-init.js
 js/github-buttons/github-buttons.js
 js/js-yaml/js-yaml.min.js
-js/lunr/lunr.art.min.js
-js/lunr/lunr.en.min.js
-js/lunr/lunr.min.js
-js/lunr/lunr.multi.min.js
-js/lunr/lunr.stemmer.support.min.js
 js/mermaid/mermaid.min.js
-js/search-lunr.js
-js/search.js
+js/search.en.js
+js/search.pir.js
 js/swagger-ui/swagger-ui-bundle.js
 js/swagger-ui/swagger-ui-standalone-preset.js
 js/theme-head.js
@@ -1016,6 +1013,9 @@ options/relearn.dependencies/index.xml
 options/search.adapter.params.additionalcontentlanguage/index.html
 options/search.adapter.params.additionalcontentlanguage/index.print.html
 options/search.adapter.params.additionalcontentlanguage/index.xml
+options/search.adapter.params.pipeline/index.html
+options/search.adapter.params.pipeline/index.print.html
+options/search.adapter.params.pipeline/index.xml
 options/search.disable/index.html
 options/search.disable/index.print.html
 options/search.disable/index.xml
@@ -1406,6 +1406,9 @@ pir/frontmatter/ordersectionsby/index.xml
 pir/frontmatter/pages/index.html
 pir/frontmatter/pages/index.print.html
 pir/frontmatter/pages/index.xml
+pir/frontmatter/search.relevance/index.html
+pir/frontmatter/search.relevance/index.print.html
+pir/frontmatter/search.relevance/index.xml
 pir/frontmatter/sidebarfootermenus/index.html
 pir/frontmatter/sidebarfootermenus/index.print.html
 pir/frontmatter/sidebarfootermenus/index.xml
@@ -2043,6 +2046,9 @@ pir/options/relearn.dependencies/index.xml
 pir/options/search.adapter.params.additionalcontentlanguage/index.html
 pir/options/search.adapter.params.additionalcontentlanguage/index.print.html
 pir/options/search.adapter.params.additionalcontentlanguage/index.xml
+pir/options/search.adapter.params.pipeline/index.html
+pir/options/search.adapter.params.pipeline/index.print.html
+pir/options/search.adapter.params.pipeline/index.xml
 pir/options/search.disable/index.html
 pir/options/search.disable/index.print.html
 pir/options/search.disable/index.xml

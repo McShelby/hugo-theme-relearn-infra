@@ -3429,6 +3429,12 @@ span.math:has(math[display='block'], .katex-display) {
   display: none;
 }
 
+.autocomplete-suggestion.autocomplete-more {
+  /* the way to all results is no result of its own */
+  border-top: 1px solid color-mix(in srgb, var(--INTERNAL-BOX-NEUTRAL-color) 40%, transparent);
+  font-style: italic;
+}
+
 #R-searchresults .autocomplete-suggestion {
   /* a result stands in the content like a box, so its highlight takes the
      corners of one; the suggestions of the search box fill their overlay

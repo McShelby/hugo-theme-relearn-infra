@@ -1,9 +1,9 @@
 404.html
 categories/index.html
 categories/index.xml
-css/auto-complete/auto-complete.css
 css/format-html.css
 css/format-print.css
+css/search.css
 css/swagger.css
 css/theme.css
 details/index.html
@@ -24,13 +24,7 @@ fonts/robotoflex/RobotoFlex.vietnamese.woff2
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.js
-js/lunr/lunr.en.min.js
-js/lunr/lunr.min.js
-js/lunr/lunr.multi.min.js
-js/lunr/lunr.stemmer.support.min.js
-js/search-lunr.js
-js/search.js
+js/search.en.js
 js/theme-head.js
 js/theme.js
 search/index.html

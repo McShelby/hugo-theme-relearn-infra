@@ -28,10 +28,6 @@ var SCROLL_KEYS = [' ', 'PageUp', 'PageDown', 'End', 'Home', 'ArrowLeft', 'Arrow
 
 var elc = document.querySelector('#R-main');
 
-function regexEscape(s) {
-  return s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-}
-
 let debounceTimeout;
 function debounce(func, delay) {
   return function (...args) {
@@ -2301,10 +2297,9 @@ function scrollToPositions() {
     return;
   }
 
-  var search = window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-value');
-  var words = (search ?? '').split(' ').filter((word) => word.trim() != '');
-  if (words && words.length) {
-    var found = elementContains(words, elc);
+  var re = searchRegex();
+  if (re) {
+    var found = elementContains(re, elc);
     var searchedElem = found.length && found[0];
     if (searchedElem) {
       searchedElem.scrollIntoView();
@@ -2414,11 +2409,9 @@ function markOpenapi() {
   if (!window.Highlight || !CSS.highlights) {
     return;
   }
-  var search = window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-value');
-  var words = (search ?? '').split(' ').filter((word) => word.trim() != '');
+  var re = searchRegex('g');
   var ranges = [];
-  if (words.length) {
-    var re = new RegExp(words.map((word) => regexEscape(word)).join('|'), 'gi');
+  if (re) {
     document.querySelectorAll('.sc-openapi-container').forEach(function (oc) {
       if (!oc.shadowRoot) {
         return;
@@ -2458,11 +2451,97 @@ function scheduleMarkOpenapi() {
   });
 }
 
+function searchValue() {
+  return (window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-value') ?? '').trim();
+}
+
+// the words the search found on the pages, for each of the terms searched for
+// last; the suggestions answer a term typed again from what they kept, without
+// a new search, so its words have to be kept as well
+function searchMarks() {
+  try {
+    var terms = JSON.parse(window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-marks'));
+    return Array.isArray(terms) ? terms.filter((term) => Array.isArray(term) && typeof term[0] == 'string' && Array.isArray(term[1]) && term[1].every((mark) => typeof mark == 'string')) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// what to mark: the words of the term typed, wherever they are, and the words
+// the search found for it, as the search engine may find a word by another
+// form than the one typed; null if nothing is searched for
+function searchRegex(flags) {
+  var search = searchValue();
+  var typed = search.split(' ').filter((word) => word.trim() != '');
+  if (!typed.length) {
+    return null;
+  }
+  var marks = (searchMarks().find((term) => term[0] == search) ?? [])[1] ?? [];
+  // the escapes a regex with the u flag accepts
+  var escape = (word) => word.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+  // of two words starting alike, a regex takes the one it is given first
+  var longestFirst = (a, b) => b.length - a.length;
+  var pattern = typed.sort(longestFirst).map(escape).join('|');
+  if (marks.length) {
+    // a word the search found is marked as a word of its own, as a short one
+    // would be found inside of many others; \b only knows the letters of
+    // English, so the letters of all scripts are looked at instead
+    pattern = '(?<![\\p{L}\\p{M}\\p{N}])(?:' + marks.slice().sort(longestFirst).map(escape).join('|') + ')(?![\\p{L}\\p{M}\\p{N}])|' + pattern;
+  }
+  return new RegExp(pattern, 'iu' + (flags ?? ''));
+}
+
+// the search tells the words it found; it answers after the page was marked
+// with the term typed, so new words mark it again; returns if it did
+window.relearn.setSearchMarks = function (value, marks) {
+  value = value.trim();
+  // the same words in another order are no change
+  marks = marks.slice().sort();
+  var terms = searchMarks();
+  var known = (terms.find((term) => term[0] == value) ?? [])[1] ?? [];
+  if (JSON.stringify(known) == JSON.stringify(marks)) {
+    return false;
+  }
+  var others = terms.filter((term) => term[0] != value);
+  terms = others.concat(marks.length ? [[value, marks]] : []);
+  var key = window.relearn.absBaseUri + '/search-marks';
+  // with a full storage, the words of the oldest terms make room
+  terms = terms.slice(-100);
+  for (;;) {
+    try {
+      window.sessionStorage.setItem(key, JSON.stringify(terms));
+      break;
+    } catch (e) {
+      if (terms.length <= 1) {
+        // too many words for the storage even alone; the term typed is marked
+        // by itself, without the words it had before
+        try {
+          window.sessionStorage.setItem(key, JSON.stringify(others));
+        } catch (e) {
+          try {
+            window.sessionStorage.removeItem(key);
+          } catch (e) {}
+        }
+        break;
+      }
+      terms = terms.slice(1);
+    }
+  }
+  // the answer to an earlier term may come in late
+  if (searchValue() != value) {
+    return false;
+  }
+  unmark();
+  mark();
+  scrollMarkedIntoView();
+  announceMarked(value);
+  return true;
+};
+
 function mark() {
   markOpenapi();
-  var search = window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-value');
-  var words = (search ?? '').split(' ').filter((word) => word.trim() != '');
-  if (!words || !words.length) {
+  var re = searchRegex();
+  if (!re) {
     return;
   }
 
@@ -2473,7 +2552,7 @@ function mark() {
   }
 
   var highlightableElements = document.querySelectorAll('.highlightable');
-  highlight(highlightableElements, words, { element: 'mark', className: 'search' });
+  highlight(highlightableElements, re, { element: 'mark', className: 'search' });
 
   var markedElements = document.querySelectorAll('mark.search');
   for (var i = 0; i < markedElements.length; i++) {
@@ -2500,28 +2579,12 @@ function mark() {
 }
 window.relearn.markSearch = mark;
 
-function highlight(es, words, options) {
+function highlight(es, re, options) {
   var settings = {
     className: 'highlight',
     element: 'span',
-    caseSensitive: false,
-    wordsOnly: false,
   };
   Object.assign(settings, options);
-
-  if (!words.length) {
-    return;
-  }
-  words = words.map(function (word, i) {
-    return regexEscape(word);
-  });
-
-  var flag = settings.caseSensitive ? '' : 'i';
-  var pattern = '(' + words.join('|') + ')';
-  if (settings.wordsOnly) {
-    pattern = '\\b' + pattern + '\\b';
-  }
-  var re = new RegExp(pattern, flag);
 
   for (var i = 0; i < es.length; i++) {
     highlightNode(es[i], re, settings.element, settings.className);
@@ -2603,29 +2666,11 @@ function unhighlight(es, options) {
 }
 
 // replace jQuery.createPseudo with https://stackoverflow.com/a/66318392
-function elementContains(words, e) {
-  var settings = {
-    caseSensitive: false,
-    wordsOnly: false,
-  };
-
-  if (!words.length) {
-    return [];
-  }
+function elementContains(regex, e) {
   if (!e) {
     return [];
   }
-  words = words.map(function (word, i) {
-    return regexEscape(word);
-  });
-  var flag = settings.caseSensitive ? '' : 'i';
   var nodes = [];
-
-  var pattern = '(' + words.join('|') + ')';
-  if (settings.wordsOnly) {
-    pattern = '\\b' + pattern + '\\b';
-  }
-  var regex = new RegExp(pattern, flag);
 
   var tree = document.createTreeWalker(
     e,
@@ -2703,9 +2748,7 @@ function initSearch() {
     e.addEventListener('keydown', function (event) {
       if (event.key == 'Escape') {
         var input = event.target;
-        var search = window.sessionStorage.getItem(window.relearn.absBaseUri + '/search-value');
-        var words = (search ?? '').split(' ').filter((word) => word.trim() != '');
-        if (!words || !words.length) {
+        if (!searchValue()) {
           input.blur();
         }
         searchInputHandler('');

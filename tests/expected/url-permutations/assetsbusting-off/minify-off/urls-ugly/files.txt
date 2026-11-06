@@ -6,10 +6,10 @@ chapter/child/index.source.md
 chapter/index.html
 chapter/index.source.md
 chapter/index.xml
-css/auto-complete/auto-complete.css
 css/custom.css
 css/format-html.css
 css/format-print.css
+css/search.css
 css/swagger.css
 css/theme.css
 first-page.html
@@ -30,14 +30,8 @@ images/pixel.png
 index.html
 index.source.md
 index.xml
-js/auto-complete/auto-complete.js
 js/custom.js
-js/lunr/lunr.en.min.js
-js/lunr/lunr.min.js
-js/lunr/lunr.multi.min.js
-js/lunr/lunr.stemmer.support.min.js
-js/search-lunr.js
-js/search.js
+js/search.en.js
 js/theme-head.js
 js/theme.js
 search/index.html
