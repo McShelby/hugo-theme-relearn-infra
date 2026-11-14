@@ -32,14 +32,6 @@ function regexEscape(s) {
   return s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-let debounceTimeout;
-function debounce(func, delay) {
-  return function (...args) {
-    clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
 // Toast notification system
 function showToast(message) {
   if (!message) return;
@@ -49,8 +41,6 @@ function showToast(message) {
 
   var toast = document.createElement('div');
   toast.className = 'toast';
-  toast.setAttribute('role', 'status');
-  toast.setAttribute('aria-atomic', 'true');
   toast.textContent = message;
 
   container.appendChild(toast);
@@ -66,6 +56,14 @@ function showToast(message) {
 }
 
 window.relearn.showToast = showToast;
+
+function initToast() {
+  // in the top layer the toasts show above an enlarged graph or image too; the
+  // container is shown for good, as a live region only tells of what changes
+  // once it is in the page
+  var container = document.querySelector('#toast-container');
+  container && container.showPopover();
+}
 
 // the latest hold is the one that keeps its element in place
 var holds = 0;
@@ -140,6 +138,10 @@ function switchTab(tabGroup, tabId, button) {
   // the areas above the button move it with every step they take
   holdButton();
 
+  storeTabSelection(tabGroup, tabId);
+}
+
+function storeTabSelection(tabGroup, tabId) {
   // Store the selection to make it persistent
   if (window.localStorage) {
     var selectionsJSON = window.localStorage.getItem(window.relearn.absBaseUri + '/tab-selections');
@@ -163,6 +165,20 @@ function handleTabs() {
     }
     var tabPanel = button.closest('.tab-panel[data-tab-group]');
     tabPanel && switchTab(tabPanel.dataset.tabGroup, button.dataset.tabItem, button);
+  });
+
+  // the search of the browser found something in the hidden content of a tab, so
+  // the tab is selected; without growing into place, as the browser scrolls to
+  // the finding right away
+  document.addEventListener('beforematch', function (event) {
+    var content = event.target.closest('.tab-content[data-tab-item]');
+    var tabPanel = content && content.closest('.tab-panel[data-tab-group]');
+    if (!tabPanel || content != event.target) {
+      return;
+    }
+    window.relearn.selectTab(tabPanel.dataset.tabGroup, content.dataset.tabItem);
+    initMermaid(true);
+    storeTabSelection(tabPanel.dataset.tabGroup, content.dataset.tabItem);
   });
 
   // inside of a list of tabs the arrow keys move on to the neighbouring tab,
@@ -233,6 +249,7 @@ function mermaidLightbox(box, show) {
     box.removeAttribute('role');
     box.removeAttribute('aria-modal');
   }
+  setLightboxInert('graph', show ? box : null);
   var button = box.querySelector('.svg-lightbox-button button');
   if (button) {
     var label = show ? window.T_Close_graph : window.T_Enlarge_graph;
@@ -959,7 +976,7 @@ function initOpenapi(update, attrs) {
       .catch(function (error) {
         const ed = document.createElement('div');
         ed.classList.add('sc-alert', 'sc-alert-error', openapiErrorClass);
-        ed.innerHTML = error;
+        ed.textContent = error;
         root.replaceChildren();
         oc.insertAdjacentElement('beforebegin', ed);
       });
@@ -1011,7 +1028,7 @@ function writeTextToClipboardFallback(text) {
   fake.className = 'copy-to-clipboard-fake';
   // keep the element in the current viewport vertically, so focussing it
   // doesn't scroll the page
-  fake.style.top = (window.scrollY || document.documentElement.scrollTop) + 'px';
+  fake.style.top = window.scrollY + 'px';
   fake.setAttribute('readonly', '');
   fake.value = text;
   document.body.appendChild(fake);
@@ -1703,8 +1720,38 @@ function adjustNavInert() {
   var b = document.querySelector('body');
   var covered = b.classList.contains('menu-s-width') && b.classList.contains('sidebar-flyout');
   document.querySelectorAll('#R-body > :not(#R-body-overlay)').forEach(function (e) {
-    e.inert = covered;
+    e.inert = covered || lightboxInerted.includes(e);
   });
+}
+
+// an enlarged graph or image tells assistive technology that it is modal, so
+// what lies beside it is out of reach for the keyboard and screen readers, same
+// as it is for the mouse below its backdrop; the toasts stay, as they tell of
+// what is done inside. what someone else made inert is left alone
+var lightboxes = {};
+var lightboxInerted = [];
+function setLightboxInert(kind, box) {
+  lightboxes[kind] = box;
+  var inert = [];
+  Object.values(lightboxes).forEach(function (box) {
+    for (var e = box; e && e != document.body; e = e.parentElement) {
+      Array.from(e.parentElement.children).forEach(function (sibling) {
+        if (sibling != e && sibling.id != 'toast-container' && (!sibling.inert || lightboxInerted.includes(sibling))) {
+          inert.push(sibling);
+        }
+      });
+    }
+  });
+  lightboxInerted.forEach(function (e) {
+    if (!inert.includes(e)) {
+      e.inert = false;
+    }
+  });
+  inert.forEach(function (e) {
+    e.inert = true;
+  });
+  lightboxInerted = inert;
+  adjustNavInert();
 }
 
 function openNav() {
@@ -1973,26 +2020,29 @@ function initImage() {
         window.location.replace(close.getAttribute('href'));
         window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
       }
-      // return to the image it was opened from
+      // return to the image it was opened from, which is out of reach until the
+      // browser tells of the changed URL
+      setLightboxInert('image', null);
       opener && opener.focus();
     });
   });
 
   // the browser hands the focus to an enlarged image it navigates to, but not
   // to one it returns to through its history or still shows after a reload
-  var focusShown = function () {
+  var syncShown = function () {
     var shown = document.querySelector('.lightbox-back:target');
+    setLightboxInert('image', shown);
     shown && !shown.contains(document.activeElement) && shown.focus();
   };
   window.addEventListener('hashchange', function () {
     openedHere = !!document.querySelector('.lightbox-back:target');
-    focusShown();
+    syncShown();
   });
   // on a reload it only knows the target of the URL once the page is loaded
   if (document.readyState == 'complete') {
-    focusShown();
+    syncShown();
   } else {
-    window.addEventListener('load', focusShown);
+    window.addEventListener('load', syncShown);
   }
 
   // paper has no lightbox to open, so a printout must not carry a link to it
@@ -2236,21 +2286,12 @@ function initScrollPositionSaver() {
     window.sessionStorage.setItem(scrollPositionKey, +elc.scrollTop);
   }
 
-  var ticking = false;
-  elc.addEventListener('scroll', function (event) {
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        // #996 GC is so damn slow that we need further throttling
-        debounce(savePosition, 200)();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
+  // #996 only where the scrolling has come to rest, as saving on every step is
+  // too slow for GC
+  elc.addEventListener('scrollend', savePosition);
 
   document.addEventListener('click', transferScrollToHistory);
   window.addEventListener('pagehide', transferScrollToHistory);
-  window.addEventListener('beforeunload', transferScrollToHistory);
 }
 
 function transferScrollToHistory(event) {
@@ -2271,18 +2312,7 @@ function transferScrollToHistory(event) {
 }
 
 function scrollToPositions() {
-  // show active menu entry
-  window.setTimeout(function () {
-    // we move the menu ourselves: `scrollIntoView` also makes the entry the
-    // point the tab key starts from, which would lead past the skip link
-    var e = document.querySelector('#R-content-wrapper li.active a');
-    if (e) {
-      var wrapper = document.querySelector('#R-content-wrapper');
-      var port = wrapper.getBoundingClientRect();
-      var box = e.getBoundingClientRect();
-      wrapper.scrollTop += box.top - port.top - (port.height - box.height) / 2;
-    }
-  }, 10);
+  window.relearn.centerActiveMenuEntry();
 
   // scroll the content to point of interest;
   // if we have a scroll position saved, the user was here
@@ -2910,6 +2940,7 @@ ready(function () {
   initScrollPositionSaver();
   initEdits();
   initPrintLogo();
+  initToast();
 });
 
 (function () {

@@ -37,7 +37,7 @@
     --INTERNAL-MAIN-SCROLLBAR-TRACK-HOVER-color: var(--MAIN-SCROLLBAR-TRACK-HOVER-color, color-mix(in srgb, var(--INTERNAL-MAIN-TEXT-color) 15%, transparent));
 
     --INTERNAL-MAIN-TEXT-color: var(--MAIN-TEXT-color, rgba(16, 16, 16, 1));
-    --INTERNAL-MAIN-font: var(--MAIN-font, "Roboto Flex", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif);
+    --INTERNAL-MAIN-font: var(--MAIN-font, "Roboto Flex", "Roboto Flex Fallback", "Roboto Flex Fallback Roboto", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif);
     --INTERNAL-MAIN-font-variation-settings: var(--MAIN-font-variation-settings, "wdth" 118, "GRAD" 0, "YTFI" 710);
     --INTERNAL-MAIN-font-weight: var(--MAIN-font-weight, 400);
     --INTERNAL-MAIN-letter-spacing: var(--MAIN-letter-spacing, .014em);
@@ -552,6 +552,20 @@ button::-moz-focus-inner {
   transition: all 0.35s ease;
 }
 
+/* while their font is on its way after the first paint, the icons wait out of
+   sight, so they can fade in once it is there */
+:root[data-r-icons='loading'] [class*='fa-'] {
+  opacity: 0;
+}
+:root[data-r-icons='fading'] [class*='fa-'] {
+  animation: R-icons-fade-in 0.3s ease-out;
+}
+@keyframes R-icons-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* readers asking for less motion get none: what changes, changes at once */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -647,7 +661,6 @@ button::-moz-focus-inner {
 }
 
 .searchbox > button {
-  -webkit-appearance: none;
   appearance: none;
   align-items: center;
   background-color: transparent;
@@ -1472,9 +1485,13 @@ h1 {
   hyphens: auto;
   letter-spacing: var(--INTERNAL-MAIN-TITLES-H1-letter-spacing);
   margin: 0.85rem 0 1rem 0;
+  overflow: clip;
+  /* what a font draws beyond its box, like a swash, a slanted letter or a
+     glow, would be cut off; it may paint into the room around it, which leaves
+     the box as it is for what a site draws on it */
+  overflow-clip-margin: 0.5em;
   /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
   overflow-wrap: break-word;
-  overflow-x: hidden;
   text-align: center;
   text-rendering: optimizeLegibility;
 }
@@ -1570,9 +1587,13 @@ h5,
 h6 {
   hyphens: auto;
   margin: 1.5rem 0 1rem 0;
+  overflow: clip;
+  /* what a font draws beyond its box, like a swash, a slanted letter or a
+     glow, would be cut off; it may paint into the room around it, which leaves
+     the box as it is for what a site draws on it */
+  overflow-clip-margin: 0.5em;
   /* big titles cause a horizontal scrollbar - fixing this by wrapping text */
   overflow-wrap: break-word;
-  overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }
 
@@ -2129,15 +2150,21 @@ tbody > tr:nth-child(even) > td {
 /* Toast Notification System */
 #toast-container {
   align-items: center;
+  background: none;
+  border: 0;
   bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   left: 50%;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
   pointer-events: none;
   position: fixed;
+  right: auto;
+  top: auto;
   transform: translateX(-50%);
-  z-index: 200;
 }
 
 .toast {
@@ -2208,7 +2235,16 @@ tbody > tr:nth-child(even) > td {
   padding-right: 0.5rem;
   position: relative;
 }
-.topbar-button:not([data-origin]) {
+/* until theme.js has set up the topbar, a button waits out of sight only if the
+   script has something to decide about it: whether it moves at the current
+   width, or whether its area, holding no button that stays at this width, is
+   left empty */
+:where(.menu-s-width) .topbar-button:not([data-origin], [data-width-s='show']),
+:where(.menu-m-width) .topbar-button:not([data-origin], [data-width-m='show']),
+:where(.menu-l-width) .topbar-button:not([data-origin], [data-width-l='show']),
+:where(.menu-s-width) .topbar-button:not([data-origin])[data-content-empty='hide']:has(> .topbar-content > .topbar-content-wrapper > .topbar-area):not(:has(> .topbar-content > .topbar-content-wrapper > .topbar-area > .topbar-button[data-width-s='show'])),
+:where(.menu-m-width) .topbar-button:not([data-origin])[data-content-empty='hide']:has(> .topbar-content > .topbar-content-wrapper > .topbar-area):not(:has(> .topbar-content > .topbar-content-wrapper > .topbar-area > .topbar-button[data-width-m='show'])),
+:where(.menu-l-width) .topbar-button:not([data-origin])[data-content-empty='hide']:has(> .topbar-content > .topbar-content-wrapper > .topbar-area):not(:has(> .topbar-content > .topbar-content-wrapper > .topbar-area > .topbar-button[data-width-l='show'])) {
   display: none;
 }
 
@@ -2395,11 +2431,6 @@ html[dir='rtl'] .topbar-button-next i {
 
 .breadcrumbs li {
   display: inline-block;
-}
-.breadcrumbs li.topbar-breadcrumbs-divider {
-  /* only shown where the logo leads the topbar, on paper and in the print
-     version */
-  display: none;
 }
 
 #R-body a[aria-disabled='true'] {
@@ -2966,7 +2997,6 @@ i.cstyle {
 }
 
 .btn > :where(button) {
-  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -3109,7 +3139,6 @@ html[dir='rtl'] .menu-control span {
 
 .menu-control select,
 .menu-control button {
-  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
   display: block;
@@ -3261,7 +3290,6 @@ html[dir='rtl'] .menu-control span {
 
 /* Chrome and Safari give a search input a look of their own unless it is a plain text field */
 input[type='search'] {
-  -webkit-appearance: textfield;
   appearance: textfield;
 }
 
@@ -3568,7 +3596,6 @@ article ul > li:has(> :is(label, span) > input[type='checkbox'])::before {
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */
 article ul > li > input[type='checkbox'],
 article ul > li > :is(label, span) > input[type='checkbox'] {
-  -webkit-appearance: none;
   appearance: none;
   background-color: var(--INTERNAL-MAIN-BG-color); /* box background */
   /* For iOS < 15 */
@@ -3718,7 +3745,6 @@ article ul > li > :is(label, span) > input[type='checkbox']:checked::before {
 }
 
 #R-sidebar ul.collapsible-menu > li > label > input {
-  -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
   /* nothing to see but the focus outline: a square around the chevron, in the
@@ -4104,7 +4130,6 @@ body a#R-logo:hover *:not(svg, svg *) {
 }
 
 #R-body .tab-nav-button {
-  -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
   border: 1px solid transparent;
@@ -4152,13 +4177,9 @@ body a#R-logo:hover *:not(svg, svg *) {
   border-bottom-color: var(--VARIABLE-LINK-HOVER-color);
 }
 
+/* a hidden content is only emptied, so its frame is drawn by its text, which
+  goes along with it */
 #R-body .tab-content {
-  background-color: var(--VARIABLE-BOX-color);
-  border-color: var(--VARIABLE-BOX-color);
-  border-radius: var(--block-radius);
-  border-style: solid;
-  border-width: 1px;
-  display: none;
   z-index: 10;
 }
 
@@ -4170,13 +4191,12 @@ body a#R-logo:hover *:not(svg, svg *) {
   margin-top: calc(var(--bpx1) * -1px);
 }
 
-#R-body .tab-content.active {
-  display: block;
-}
-
 #R-body .tab-content-text {
   background-color: var(--VARIABLE-BOX-BG-color);
-  border-radius: calc(var(--block-radius) - 1px);
+  border-color: var(--VARIABLE-BOX-color);
+  border-radius: var(--block-radius);
+  border-style: solid;
+  border-width: 1px;
   color: var(--VARIABLE-BOX-TEXT-color);
   padding: 1rem;
 }
@@ -4195,12 +4215,12 @@ body a#R-logo:hover *:not(svg, svg *) {
 #R-body .tab-content-text > pre:not(.mermaid).pre-code:only-child {
   border-width: 0;
 }
-/* such a code block fills the tab, so it takes over its corners */
+/* such a code block fills the tab, so it takes over the inner corners of its frame */
 #R-body .tab-content-text > div.highlight:only-child,
 #R-body .tab-content-text > div.highlight:only-child > div:not(.actionbar),
 #R-body .tab-content-text > div.highlight:only-child > pre:not(.mermaid),
 #R-body .tab-content-text > pre:not(.mermaid).pre-code:only-child {
-  border-radius: inherit;
+  border-radius: calc(var(--block-radius) - 1px);
 }
 
 .tab-panel-style.cstyle.initial,
@@ -4222,10 +4242,6 @@ body a#R-logo:hover *:not(svg, svg *) {
 
 #R-body .tab-panel-style.cstyle.code.tab-nav-button:not(.active) {
   --VARIABLE-BOX-color: var(--INTERNAL-BOX-NEUTRAL-color);
-}
-
-#R-body .tab-panel-style.cstyle:is(.initial, .default, .transparent).tab-content {
-  background-color: var(--VARIABLE-BOX-BG-color);
 }
 
 /* bordering the menu and topbar */
@@ -4548,7 +4564,6 @@ article.notfound #shrug svg {
 /* a card running code is a button, which is dressed like the link of any other card */
 .card-container .card-title button,
 .card-container .card-image button {
-  -webkit-appearance: none;
   appearance: none;
   background: none;
   border: 0;
@@ -4870,4 +4885,28 @@ div.highlight .btn.cstyle.action {
   font-display: swap;
   src: url('../fonts/robotoflex/RobotoFlex.latin.woff2') format('woff2-variations');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Roboto Flex Fallback';
+  font-weight: 400;
+  src: local('Helvetica'), local('Arial'), local('Nimbus Sans'), local('Liberation Sans'), local('Tahoma'), local('Geneva');
+  size-adjust: 102.9%;
+}
+@font-face {
+  font-family: 'Roboto Flex Fallback';
+  font-weight: 700;
+  src: local('Helvetica Bold'), local('Arial Bold'), local('Nimbus Sans Bold'), local('Liberation Sans Bold'), local('Tahoma Bold');
+  size-adjust: 104.8%;
+}
+@font-face {
+  font-family: 'Roboto Flex Fallback Roboto';
+  font-weight: 400;
+  src: local('Roboto');
+  size-adjust: 103%;
+}
+@font-face {
+  font-family: 'Roboto Flex Fallback Roboto';
+  font-weight: 700;
+  src: local('Roboto Bold');
+  size-adjust: 110.8%;
 }

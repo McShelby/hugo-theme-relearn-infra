@@ -67,21 +67,11 @@
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <header id="R-topbar" class="default-animation">
-        <a id="R-logo" class="R-default layout-sidebar-row" href="../index.html">
-          <span class="logo-title default-animation">Pages</span>
-        </a>
         <div class="topbar-wrapper default-animation">
           <div class="topbar-sidebar-divider default-animation"></div>
           <div class="topbar-area topbar-area-start" data-area="start">
             <div class="topbar-button topbar-button-sidebar default-animation" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide" data-title-width-s="hide" data-title-width-m="hide" data-title-width-l="hide">
 <span class="btn cstyle button link noborder interactive"><button data-button-action="toggle-nav" type="button" title="Menu (CTRL&#43;ALT&#43;n)" aria-expanded="false"><i class="fa-fw fas fa-bars" aria-hidden="true"></i> <span class="title">Menu</span></button></span>
-            </div>
-            <div class="topbar-button topbar-button-toc default-animation" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show" data-title-width-s="hide" data-title-width-m="hide" data-title-width-l="hide">
-<span class="btn cstyle button link noborder interactive"><button data-button-action="toggle-flyout" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)" aria-expanded="false"><i class="fa-fw fas fa-table-list" aria-hidden="true"></i> <span class="title">Table of Contents</span></button></span>
-              <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
-                </div>
-              </div>
             </div>
           </div>
           <div class="topbar-area topbar-area-middle" data-area="middle">
@@ -108,11 +98,15 @@
             </div>
           </div>
         </div>
+        <a id="R-logo" class="R-default layout-sidebar-row" href="../index.html">
+          <span class="logo-title default-animation">Pages</span>
+        </a>
       </header>
       <div id="R-main-overlay"></div>
       <main id="R-main" class="highlightable _relearn_searchpage">
         <div class="flex-block-wrapper">
 <article class="default">
+  <div class="article-breadcrumbs"></div>
   <header class="headline">
   </header>
 
@@ -136,6 +130,6 @@
       </main>
     </div>
     <script src="../js/theme.js" defer></script>
-    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+    <div id="toast-container" role="status" aria-live="polite" aria-atomic="false" aria-label="Notifications" popover="manual"></div>
   </body>
 </html>
