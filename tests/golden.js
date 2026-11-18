@@ -183,20 +183,19 @@ for (const result of targets) {
     const hugoFile = path.join(resultDir, 'hugo.txt');
     const contentDir = path.join(resultDir, 'content');
 
-    // A baseline is only an assertion about the Hugo that produced it. Saying
-    // so turns "40 files differ" into "Hugo changed", which is the difference
-    // between a regression and a release.
-    if (!updating && fs.existsSync(hugoFile)) {
-      const baseline = fs.readFileSync(hugoFile, 'utf8').trim();
-      if (baseline !== built_with) {
-        notes.push(`built with ${built_with}, baseline recorded ${baseline}`);
-      }
-    }
+    // `hugo.txt` names the Hugo that last changed this baseline, not the last
+    // one to run over it. Rewriting it on every update would turn each Hugo
+    // release that emits the same bytes into a commit touching every result
+    // while asserting nothing new, so an unchanged result keeps its version.
+    const baseline = fs.existsSync(hugoFile) ? fs.readFileSync(hugoFile, 'utf8').trim() : null;
 
     if (updating) {
+      const keepVersion = baseline !== null && unchangedBaseline(resultDir, destDir, layer);
       fs.mkdirSync(resultDir, { recursive: true });
       fs.writeFileSync(filesFile, listing(destDir), 'utf8');
-      fs.writeFileSync(hugoFile, `${built_with}\n`, 'utf8');
+      if (!keepVersion) {
+        fs.writeFileSync(hugoFile, `${built_with}\n`, 'utf8');
+      }
       if (layer === 'content') {
         update(contentDir, destDir);
       } else {
@@ -233,6 +232,13 @@ for (const result of targets) {
         }
       }
     }
+
+    // On a failure, a version mismatch turns "40 files differ" into "Hugo
+    // changed", which is the difference between a regression and a release.
+    // On a pass it says nothing: the newer Hugo emits the same bytes.
+    if (!updating && failures.length && baseline !== null && baseline !== built_with) {
+      notes.push(`built with ${built_with}, baseline recorded ${baseline}`);
+    }
   }
 
   // A failure is far easier to read as a diff than as a list of paths, and in
@@ -253,6 +259,25 @@ for (const result of targets) {
   for (const f of failures) {
     console.log(`         ${f}`);
   }
+}
+
+/**
+ * Whether a fresh build matches the stored result exactly, at the given layer.
+ *
+ * A files-layer result must also have no stored content left over, since an
+ * update removes it - a case moving down a layer is a change too.
+ */
+function unchangedBaseline(resultDir, destDir, layer) {
+  const filesFile = path.join(resultDir, 'files.txt');
+  const contentDir = path.join(resultDir, 'content');
+  if (!fs.existsSync(filesFile) || fs.readFileSync(filesFile, 'utf8').replace(/\r\n/g, '\n') !== listing(destDir)) {
+    return false;
+  }
+  if (layer !== 'content') {
+    return !fs.existsSync(contentDir);
+  }
+  const diff = compare(contentDir, destDir);
+  return !diff.noBaseline && ![diff.missing, diff.unexpected, diff.changed, diff.lineEndings].some((l) => l.length);
 }
 
 function report(failures, label, list) {
