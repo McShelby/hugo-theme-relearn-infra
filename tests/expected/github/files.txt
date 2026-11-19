@@ -391,7 +391,7 @@ exampleSite/js/mermaid/mermaid.min.a8a6a6f805b074a8261a2825c86f99c8054acb3b35f50
 exampleSite/js/search.en.59a00d815c4b8482b720f386df03f0f3f848e06c31b89d0f8ca2adecdd176b80.js
 exampleSite/js/search.pir.e9d7da1aa40712fd92f37a26debd0b0d4ba709adee6fcf8e6c049705e8f0e233.js
 exampleSite/js/theme-head.min.3d5e855473ebe261a3d36bcf4b28cc534a5118418b9af3fa701c68e623d21a06.js
-exampleSite/js/theme.min.5a920fa05aa9f8c01f48a220181456215837cab4848afd4b89241d1f9da5efe2.js
+exampleSite/js/theme.min.951407b6a894ce253c8973d583913e317cd49422cc532994c40d4ce3872f6440.js
 exampleSite/log/first-day/index.html
 exampleSite/log/first-day/index.print.html
 exampleSite/log/first-day/index.xml
@@ -1478,7 +1478,7 @@ js/search.pir.510fdc7652ce2740728c9337cb531495d59c0a061cc5734f2b6e4b765c8f3b75.j
 js/swagger-ui/swagger-ui-bundle.e6a898692f2d768e807c3ba4626068a69a2c5dd960dd6c76f3e4d3a3de180af2.js
 js/swagger-ui/swagger-ui-standalone-preset.5243d492e14505e0cab87ac8b0195d0e615943e651743b2b698450a46eb470be.js
 js/theme-head.min.3d5e855473ebe261a3d36bcf4b28cc534a5118418b9af3fa701c68e623d21a06.js
-js/theme.min.5a920fa05aa9f8c01f48a220181456215837cab4848afd4b89241d1f9da5efe2.js
+js/theme.min.951407b6a894ce253c8973d583913e317cd49422cc532994c40d4ce3872f6440.js
 js/variant.min.08d21a069c25301768237055b14a75e2cfe6101b4481a70bb292b090cadc7469.js
 more/credits/index.html
 more/credits/index.md
